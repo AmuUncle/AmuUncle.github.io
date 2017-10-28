@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="MFC," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Windows编程基础–第9节 MFC对话框控件访问的七种方法（下）上节学习了MFC访问控件的三种方法，这节我们来学习剩下的四种方法，四种方法分别如下：  第四种把控件和整型变量相关联 第五种把控件和控件变量相关联 第六种 SendMessage方法 第七种SendDlgItemMessage方法 方法四 把控件和整型变量相关联1. 创建项目打开上节用到的day08项目，切换到资源视图，添加一个按">
+<meta name="keywords" content="MFC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第9节 MFC对话框控件访问的七种方法（下）">
+<meta property="og:url" content="http://yoursite.com/2017/10/28/第9节-MFC对话框控件访问的七种方法（下）/index.html">
+<meta property="og:site_name" content="AmuUncle">
+<meta property="og:description" content="Windows编程基础–第9节 MFC对话框控件访问的七种方法（下）上节学习了MFC访问控件的三种方法，这节我们来学习剩下的四种方法，四种方法分别如下：  第四种把控件和整型变量相关联 第五种把控件和控件变量相关联 第六种 SendMessage方法 第七种SendDlgItemMessage方法 方法四 把控件和整型变量相关联1. 创建项目打开上节用到的day08项目，切换到资源视图，添加一个按">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20171025194222125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171025194458916?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171025195031283?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171025195934143?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171025201108120?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171025201519201?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171025201559731?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171025211636783?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-10-28T15:37:27.774Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第9节 MFC对话框控件访问的七种方法（下）">
+<meta name="twitter:description" content="Windows编程基础–第9节 MFC对话框控件访问的七种方法（下）上节学习了MFC访问控件的三种方法，这节我们来学习剩下的四种方法，四种方法分别如下：  第四种把控件和整型变量相关联 第五种把控件和控件变量相关联 第六种 SendMessage方法 第七种SendDlgItemMessage方法 方法四 把控件和整型变量相关联1. 创建项目打开上节用到的day08项目，切换到资源视图，添加一个按">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171025194222125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/28/第9节-MFC对话框控件访问的七种方法（下）/"/>
+
+
+
+
+
+  <title>第9节 MFC对话框控件访问的七种方法（下） | AmuUncle</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8f32f215d9497a6235932a68154fff59";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AmuUncle</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-schedule">
+          <a href="/schedule/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-calendar"></i> <br />
+            
+            日程表
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/第9节-MFC对话框控件访问的七种方法（下）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">第9节 MFC对话框控件访问的七种方法（下）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:33:13+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
+                    <span itemprop="name">MFC从入门到放弃</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Windows编程基础–第9节-MFC对话框控件访问的七种方法（下）"><a href="#Windows编程基础–第9节-MFC对话框控件访问的七种方法（下）" class="headerlink" title="Windows编程基础–第9节 MFC对话框控件访问的七种方法（下）"></a>Windows编程基础–第9节 MFC对话框控件访问的七种方法（下）</h1><p>上节学习了MFC访问控件的三种方法，这节我们来学习剩下的四种方法，四种方法分别如下：</p>
+<blockquote>
+<p>第四种<br>把控件和整型变量相关联</p>
+<p>第五种<br>把控件和控件变量相关联</p>
+<p>第六种<br> SendMessage方法</p>
+<p>第七种<br>SendDlgItemMessage方法</p>
+<h1 id="方法四-把控件和整型变量相关联"><a href="#方法四-把控件和整型变量相关联" class="headerlink" title="方法四 把控件和整型变量相关联"></a>方法四 把控件和整型变量相关联</h1><h2 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1. 创建项目"></a>1. 创建项目</h2><p>打开上节用到的day08项目，切换到资源视图，添加一个按钮“方法4”，我们在此按钮上实现方法四，如图所示：<br><img src="http://img.blog.csdn.net/20171025194222125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+</blockquote>
+<h2 id="2-关联整型变量"><a href="#2-关联整型变量" class="headerlink" title="2. 关联整型变量"></a>2. 关联整型变量</h2><p>单击选择身高的输入框（IDC_EDIT_SG）,右击选择“添加变量”，打开如下界面：<br><img src="http://img.blog.csdn.net/20171025194458916?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>现在我们先选择类别为“value”，然后选择变量类型选择“int”，变量名“m_Height”，其余的默认就好，不过你也可以尝试修改一下最大值，最小值等。如图所示：<br><img src="http://img.blog.csdn.net/20171025195031283?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>现在我们切换到解决方案视图，可以看见，<strong>day08Dlg.h</strong>中已经增加了一个类变量，m_Height，<strong>day08Dlg.cpp</strong>中DoDataExchange也增加该变量的关联方法，将变量 m_Height和IDC_EDIT_SG的输入框关联起来，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::DoDataExchange(CDataExchange* pDX)</div><div class="line">&#123;</div><div class="line">	CDialogEx::DoDataExchange(pDX);</div><div class="line">	DDX_Text(pDX, IDC_EDIT_SG, m_Height);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有day08Dlg的构造函数中也对m_Height进行了初始化，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Cday08Dlg::Cday08Dlg(CWnd* pParent /*=NULL*/)</div><div class="line">	: CDialogEx(Cday08Dlg::IDD, pParent)</div><div class="line">	, m_Height(0)</div><div class="line">&#123;</div><div class="line">	m_hIcon = AfxGetApp()-&gt;LoadIcon(IDR_MAINFRAME);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以看到m_Height的初始化值为0，现在我们编译运行程序，可以看到身高输入框中的值就为0，如图：<br><img src="http://img.blog.csdn.net/20171025195934143?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来我们分别关联IDC_EDIT_TZ和IDC_EDIT_BMI为变量int m_Weight,double m_BMI;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int m_Height;</div><div class="line">int m_Weight;</div><div class="line">double m_BMI;</div></pre></td></tr></table></figure>
+<h2 id="3-实现按钮事件"><a href="#3-实现按钮事件" class="headerlink" title="3.实现按钮事件"></a>3.实现按钮事件</h2><p>现在m_Height ，m_Weight ，m_BMI 分别和界面上的三个输入框相关联，所以我们可以直接取它们的值就可以，也可以直接进行赋值，但这是会用下面这个方法:</p>
+<blockquote>
+<p>UpdateData(TRUE);   //把控件的值关联到变量<br>UpdateData(FALSE);  //把变量的值关联到控件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::OnBnClickedButtonFunc4()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	UpdateData(TRUE);   //把控件的值关联到变量</div><div class="line">	double dHeight = m_Height / 100.00;</div><div class="line">	m_BMI = m_Weight / (dHeight * dHeight );</div><div class="line">	UpdateData(FALSE);  //把变量的值关联到控件</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>编译运行，这时就可以看到点击方法4之后，BMI值就计算出来了，如图：<br><img src="http://img.blog.csdn.net/20171025201108120?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h1 id="方法五-把控件和控件变量相关联"><a href="#方法五-把控件和控件变量相关联" class="headerlink" title="方法五 把控件和控件变量相关联"></a>方法五 把控件和控件变量相关联</h1><h2 id="1-添加“方法5”按钮"><a href="#1-添加“方法5”按钮" class="headerlink" title="1. 添加“方法5”按钮"></a>1. 添加“方法5”按钮</h2><p>如图：<br><img src="http://img.blog.csdn.net/20171025201519201?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="1-关联控件变量"><a href="#1-关联控件变量" class="headerlink" title="1. 关联控件变量"></a>1. 关联控件变量</h2><p>单击选择身高的输入框（IDC_EDIT_SG）,右击选择“添加变量”，打开如下界面：<br><img src="http://img.blog.csdn.net/20171025201559731?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>现在我们先选择类别为“control”，变量名“m_edit_Height”，其余的默认就好，不过你也可以尝试修改一下最大值，最小值等。如图所示：<br><img src="http://img.blog.csdn.net/20171025211636783?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来我们分别关联IDC_EDIT_TZ和IDC_EDIT_BMI为变量    CEdit m_edit_tz, CEdit m_edit_bmi;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CEdit m_edit_sg;</div><div class="line">CEdit m_edit_tz;</div><div class="line">CEdit m_edit_bmi;</div></pre></td></tr></table></figure></p>
+<h2 id="3-实现按钮事件-1"><a href="#3-实现按钮事件-1" class="headerlink" title="3.实现按钮事件"></a>3.实现按钮事件</h2><p>现在m_edit_sg，m_edit_tz，m_edit_bmi分别和界面上的三个输入框相关联，所以我们可以直接取它们的值就可以，也可以直接进行赋值，但这是会用下面这个方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::OnBnClickedButtonFunc5()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	TCHAR tcHeight[10], tcWeight[10] , tcBMI[10];</div><div class="line">	m_edit_sg.GetWindowText(tcHeight,10);</div><div class="line">	m_edit_tz.GetWindowText(tcWeight,10);</div><div class="line"></div><div class="line">	int nHeight = _ttoi(tcHeight);</div><div class="line">	double dHeight = nHeight / 100.00;</div><div class="line">	int nWeight = _ttoi(tcWeight);</div><div class="line"></div><div class="line">	double bmi = nWeight/(dHeight * dHeight);</div><div class="line">	char buf[28];</div><div class="line">	sprintf(buf, &quot;%.3f&quot;, bmi);</div><div class="line">	m_edit_bmi.SetWindowText(buf);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="方法六-SendMessage方法"><a href="#方法六-SendMessage方法" class="headerlink" title="方法六 SendMessage方法"></a>方法六 SendMessage方法</h1><p>通过SendMessage方法发送WM_GETTEXT消息到控件所在窗口来获取控件文本值，同样发送WM_SETTEXT消息到控件所在窗口来设置控件文本值；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::OnBnClickedButtonFunc6()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	TCHAR tcHeight[10], tcWeight[10] , tcBMI[10];</div><div class="line">	::SendMessage(GetDlgItem(IDC_EDIT_SG)-&gt;m_hWnd,WM_GETTEXT,10,(LPARAM)tcHeight);</div><div class="line">	::SendMessage(GetDlgItem(IDC_EDIT_TZ)-&gt;m_hWnd,WM_GETTEXT,10,(LPARAM)tcWeight);</div><div class="line"></div><div class="line">	int nHeight = _ttoi(tcHeight);</div><div class="line">	double dHeight = nHeight / 100.00;</div><div class="line">	int nWeight = _ttoi(tcWeight);</div><div class="line"></div><div class="line">	double bmi = nWeight/(dHeight * dHeight);</div><div class="line">	char buf[28];</div><div class="line">	sprintf(buf, &quot;%.3f&quot;, bmi);</div><div class="line">	::SendMessage(GetDlgItem(IDC_EDIT_BMI)-&gt;m_hWnd,WM_SETTEXT,10,(LPARAM)buf);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="方法七-SendDlgItemMessage方法"><a href="#方法七-SendDlgItemMessage方法" class="headerlink" title="方法七 SendDlgItemMessage方法"></a>方法七 SendDlgItemMessage方法</h1><p>通过SendDlgItemMessage方法发送WM_GETTEXT消息到控件所在窗口来获取控件文本值，同样发送WM_SETTEXT消息到控件所在窗口来设置控件文本值；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::OnBnClickedButtonFunc7()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	TCHAR tcHeight[10], tcWeight[10] , tcBMI[10];</div><div class="line">	SendDlgItemMessage(IDC_EDIT_SG,WM_GETTEXT,10,(LPARAM)tcHeight);</div><div class="line">	SendDlgItemMessage(IDC_EDIT_TZ,WM_GETTEXT,10,(LPARAM)tcWeight);</div><div class="line"></div><div class="line">	int nHeight = _ttoi(tcHeight);</div><div class="line">	double dHeight = nHeight / 100.00;</div><div class="line">	int nWeight = _ttoi(tcWeight);</div><div class="line"></div><div class="line">	double bmi = nWeight/(dHeight * dHeight);</div><div class="line">	char buf[28];</div><div class="line">	sprintf(buf, &quot;%.3f&quot;, bmi);</div><div class="line"></div><div class="line">	SendDlgItemMessage(IDC_EDIT_BMI,WM_SETTEXT,10,(LPARAM)buf);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>总结，以上七种方法虽然结果相同，但是其内部机制是有所区别的，在我们将来的编程中要根据实际情况来选择合适的方法，最后，我们列举一下这七种方法：<br>| 方法名        | 简介   |<br>| ——–   | —–:  |<br>| GetDlgItem()     | 获取控件对象 |<br>| GetDlgItemText()        |   获取对象文本   |<br>| GetDlgItemInt()         |    获取对象整型值   |<br>| DDX_Text(pDX,IDC_EDIT_SG, m_Height);        |    把控件和整型变量相关联   |<br>| DDX_Control(pDX,IDC_EDIT_BMI,m_edit_bmi);  |    把控件和控件变量相关联    |<br>| SendMessage       |    发送WM_GETTEXT消息到控件所在窗口来获取控件文本值   |<br>| SendDlgItemMessage         |   发送WM_GETTEXT消息来获取控件文本值    | </p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MFC/" rel="tag"># MFC</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/28/第8节-MFC对话框控件访问的七种方法（上）/" rel="next" title="第8节 MFC对话框控件访问的七种方法（上）">
+                <i class="fa fa-chevron-left"></i> 第8节 MFC对话框控件访问的七种方法（上）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/28/第10节-MFC菜单/" rel="prev" title="第10节 MFC菜单">
+                第10节 MFC菜单 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://ip.freep.cn/593194/touxiang.jpg"
+                alt="阿木大叔" />
+            
+              <p class="site-author-name" itemprop="name">阿木大叔</p>
+              <p class="site-description motion-element" itemprop="description">我的梦想就是努力实现小时候吹过的牛！</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://gitee.com/AmuUncle" target="_blank" title="码云">
+                    
+                      <i class="fa fa-fw fa-github"></i>码云</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:AmuUncle@163.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.csdn.net/qq_25549309" title="CSDN" target="_blank">CSDN</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows编程基础–第9节-MFC对话框控件访问的七种方法（下）"><span class="nav-number">1.</span> <span class="nav-text">Windows编程基础–第9节 MFC对话框控件访问的七种方法（下）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法四-把控件和整型变量相关联"><span class="nav-number">2.</span> <span class="nav-text">方法四 把控件和整型变量相关联</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-创建项目"><span class="nav-number">2.1.</span> <span class="nav-text">1. 创建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-关联整型变量"><span class="nav-number">2.2.</span> <span class="nav-text">2. 关联整型变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实现按钮事件"><span class="nav-number">2.3.</span> <span class="nav-text">3.实现按钮事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法五-把控件和控件变量相关联"><span class="nav-number">3.</span> <span class="nav-text">方法五 把控件和控件变量相关联</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-添加“方法5”按钮"><span class="nav-number">3.1.</span> <span class="nav-text">1. 添加“方法5”按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-关联控件变量"><span class="nav-number">3.2.</span> <span class="nav-text">1. 关联控件变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实现按钮事件-1"><span class="nav-number">3.3.</span> <span class="nav-text">3.实现按钮事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法六-SendMessage方法"><span class="nav-number">4.</span> <span class="nav-text">方法六 SendMessage方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法七-SendDlgItemMessage方法"><span class="nav-number">5.</span> <span class="nav-text">方法七 SendDlgItemMessage方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目源码可以访问我的码云"><span class="nav-number">5.0.1.</span> <span class="nav-text">项目源码可以访问我的码云</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">阿木大叔</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

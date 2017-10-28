@@ -292,6 +292,1500 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/工具使用-第1节-git使用简记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/28/工具使用-第1节-git使用简记/" itemprop="url">工具使用--第1节 git使用简记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:38:48+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git教程/" itemprop="url" rel="index">
+                    <span itemprop="name">git教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="工具使用–第1节-git使用简记"><a href="#工具使用–第1节-git使用简记" class="headerlink" title="工具使用–第1节 git使用简记"></a>工具使用–第1节 git使用简记</h1><h2 id="GIT-（分布式版本控制系统）"><a href="#GIT-（分布式版本控制系统）" class="headerlink" title="GIT （分布式版本控制系统）"></a>GIT （分布式版本控制系统）</h2><blockquote>
+<p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。  Git的读音为/gɪt/。 Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。 Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。 Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如 很多 Freedesktop 的项目迁移到了Git 上。    — <strong>百度百科</strong></p>
+</blockquote>
+<h2 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h2><p>这里只说windows版本安装使用，Linux版本等以后再研究；</p>
+<h3 id="1-1-下载msysgit"><a href="#1-1-下载msysgit" class="headerlink" title="1.1  下载msysgit"></a>1.1  下载msysgit</h3><p><strong>msysgit</strong>是Windows版的Git，从<a href="https://git-for-windows.github.io下载（百度一下也有很多下载链接），然后按默认选项安装即可。**msysgit**的操作命令和Linux基本一致，很多命令是通用的，例如ls，mv，rm等；" target="_blank" rel="external">https://git-for-windows.github.io下载（百度一下也有很多下载链接），然后按默认选项安装即可。**msysgit**的操作命令和Linux基本一致，很多命令是通用的，例如ls，mv，rm等；</a><br>mygit安装完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！</p>
+<h2 id="2-配置msysgit"><a href="#2-配置msysgit" class="headerlink" title="2. 配置msysgit"></a>2. 配置msysgit</h2><p>在桌面空白处右击，选择“Git Bash here”进入msysgit的控制台，输入一下两条命令，配置全局的用户名和邮箱：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;你的用户名&quot;</div><div class="line">$ git config --global user.email &quot;邮箱地址&quot;</div></pre></td></tr></table></figure></p>
+<p>你的用户名：可以随意设置，但要记住用户名<br>邮箱地址：你的邮箱地址</p>
+<h2 id="3-创建代码仓"><a href="#3-创建代码仓" class="headerlink" title="3.创建代码仓"></a>3.创建代码仓</h2><h3 id="3-1-进入你想建仓的目录"><a href="#3-1-进入你想建仓的目录" class="headerlink" title="3.1 进入你想建仓的目录"></a>3.1 进入你想建仓的目录</h3><p>在目录空白处右击选择“Git Bash here”进入msysgit的控制台，输入git init命令把这个目录变成Git可以管理的仓库：</p>
+<blockquote>
+<p>$ git init<br> Initialized empty Git repository in C:/Users/Administrator/Desktop/usb_encryption_5.4.0/git_demo/.git/</p>
+</blockquote>
+<p>git会在此目录创建.git目录，这是Git来跟踪管理版本库的，无需我们来改动，</p>
+<h2 id="4-版本控制"><a href="#4-版本控制" class="headerlink" title="4.版本控制"></a>4.版本控制</h2><p>我们现在在此目录下来创建一个readme.md文件，随意填写些内容，如下<br><img src="http://img.blog.csdn.net/20171024232855549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="4-1-查看版本状态"><a href="#4-1-查看版本状态" class="headerlink" title="4.1 查看版本状态"></a>4.1 查看版本状态</h3><blockquote>
+<p>git status<br><img src="http://img.blog.csdn.net/20171024233234409?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+</blockquote>
+<h3 id="4-2-添加到缓存区"><a href="#4-2-添加到缓存区" class="headerlink" title="4.2 添加到缓存区"></a>4.2 添加到缓存区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add readme.md</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20171024233414198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="4-3-提交代码到版本仓"><a href="#4-3-提交代码到版本仓" class="headerlink" title="4.3 提交代码到版本仓"></a>4.3 提交代码到版本仓</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;Add readme&quot;</div></pre></td></tr></table></figure>
+<p><img src="http://img.blog.csdn.net/20171024233600207?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>-m 后面跟得是你提交的代码的描述，建议所有提交都应该添加描述。</p>
+<p><em>暂时先记录这么多，下次再补充完整</em></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/第10节-MFC菜单/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/28/第10节-MFC菜单/" itemprop="url">第10节 MFC菜单</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:33:24+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
+                    <span itemprop="name">MFC从入门到放弃</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Windows编程基础–第10节-MFC菜单"><a href="#Windows编程基础–第10节-MFC菜单" class="headerlink" title="Windows编程基础–第10节 MFC菜单"></a>Windows编程基础–第10节 MFC菜单</h1><h1 id="MFC菜单（CMenu）"><a href="#MFC菜单（CMenu）" class="headerlink" title="MFC菜单（CMenu）"></a>MFC菜单（CMenu）</h1><p>MFC菜单分为两类：</p>
+<blockquote>
+<p>窗体菜单<br>快捷菜单:又叫弹出菜单，或者上下文菜单</p>
+</blockquote>
+<h3 id="1、创建项目"><a href="#1、创建项目" class="headerlink" title="1、创建项目"></a>1、创建项目</h3><p>打开vs2010，创建一个基于对话框的项目，项目名“day10”,注意这次主框架中就不要勾选“系统菜单”和“关于框”了，如图：<br><img src="http://img.blog.csdn.net/20171026223157074?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>创建好后，删除自动生成的文本控件，如图：<br><img src="http://img.blog.csdn.net/20171026223358413?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="2、创建系统菜单"><a href="#2、创建系统菜单" class="headerlink" title="2、创建系统菜单"></a>2、创建系统菜单</h3><p>切换到资源视图，右击我们的项目“day10”，选择添加资源，出现如下界面：<br><img src="http://img.blog.csdn.net/20171026223840662?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><img src="http://img.blog.csdn.net/20171026223849482?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择“Menu”点击新建,然后就可以看到我们的项目中Menu目录，这里就存放菜单资源，展开后就可以看到，我们刚添加的菜单ID，双击打开；<br>我们可以直接输入想要添加的菜单选项，如图：<br><img src="http://img.blog.csdn.net/20171026225016056?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>我们可以在资源视图右击菜单ID，然后选择属性，修改ID为IDR_MENU_SYSTEM;</p>
+<h3 id="3、显示系统菜单"><a href="#3、显示系统菜单" class="headerlink" title="3、显示系统菜单"></a>3、显示系统菜单</h3><p>我们打开刚才创建的主窗口，右击打开属性，在属性列表找到MENU属性，下拉框选择刚才创建的IDR_MENU_SYSTEM菜单，如图所示：<br><img src="http://img.blog.csdn.net/20171026225352426?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这时主窗口就和IDR_MENU_SYSTEM菜单关联起来了，运行看看效果：<br><img src="http://img.blog.csdn.net/20171026225644814?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="4、创建菜单消息事件"><a href="#4、创建菜单消息事件" class="headerlink" title="4、创建菜单消息事件"></a>4、创建菜单消息事件</h3><p>我们切换到我们创建的菜单界面，来实现菜单中保存选项的处理事件，在“保存”选项上右击，选择“添加事件处理函数”，如下：<br><img src="http://img.blog.csdn.net/20171026225912317?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>，出现如下添加事件界面：<br><img src="http://img.blog.csdn.net/20171026230051574?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这里我们类列表中选择Cday10Dlg中创建操作函数，函数名修改为OnMenuSaveClick，点击“添加编辑”，添加处理函数；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">void Cday10Dlg::OnMenuSaveClick()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加命令处理程序代码</div><div class="line">	AfxMessageBox(_T(&quot;文件已保存！&quot;));  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行效果，点击“文件”-&gt;“保存”,此时就会弹窗提示“””文件已保存！”，如图所示：<br><img src="http://img.blog.csdn.net/20171026230628546?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="5、创建快捷菜单"><a href="#5、创建快捷菜单" class="headerlink" title="5、创建快捷菜单"></a>5、创建快捷菜单</h3><p>切换资源视图，<br>选择“Menu”点击“插入MENU”,自动打开；我们可以直接输入想要添加的菜单选项，如图：<br><img src="http://img.blog.csdn.net/20171026231003422?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>注意：快捷菜单中最上面的“快捷菜单”不会显示，名字可以随意。<br>修改次menu的ID为IDR_MENU_QUICK；</p>
+<h3 id="6、显示快捷菜单"><a href="#6、显示快捷菜单" class="headerlink" title="6、显示快捷菜单"></a>6、显示快捷菜单</h3><p>我们打开刚才创建的主窗口，右击打开属性，在属性列表上方选择“消息”<img src="http://img.blog.csdn.net/20171026234537989?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述">按钮，找到“WM_OnContextMenu”,选择add OnContextMenu方法，如图所示：<br><img src="http://img.blog.csdn.net/20171026231615024?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">void Cday10Dlg::OnContextMenu(CWnd* pWnd, CPoint point)</div><div class="line">&#123;</div><div class="line">	// TODO: 在此处添加消息处理程序代码</div><div class="line">	CMenu menu;</div><div class="line">	if(!menu.LoadMenu(IDR_MENU_QUICK))</div><div class="line">	&#123;</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	CMenu* pMenu = menu.GetSubMenu(0);</div><div class="line">	pMenu-&gt;TrackPopupMenu(TPM_LEFTALIGN|TPM_RIGHTBUTTON,point.x,point.y,pWnd);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这段代码的意思就是：先试图加载IDR_MENU_QUICK菜单，加载成功之后，将菜单显示在鼠标右击（TPM_RIGHTBUTTON），靠左方（TPM_LEFTALIGN）的位置；<br>运行效果：<br><img src="http://img.blog.csdn.net/20171026232302952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>可以看见，菜单已经显示出来；</p>
+<h3 id="7、创建菜单消息事件"><a href="#7、创建菜单消息事件" class="headerlink" title="7、创建菜单消息事件"></a>7、创建菜单消息事件</h3><p>同步骤4，如图：<br><img src="http://img.blog.csdn.net/20171026232540747?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>编辑OnCopy函数，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">void Cday10Dlg::OnCopy()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加命令处理程序代码</div><div class="line">		AfxMessageBox(_T(&quot;文件已复制！&quot;));  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果图：<br><img src="http://img.blog.csdn.net/20171026232658919?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/第9节-MFC对话框控件访问的七种方法（下）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/28/第9节-MFC对话框控件访问的七种方法（下）/" itemprop="url">第9节 MFC对话框控件访问的七种方法（下）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:33:13+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
+                    <span itemprop="name">MFC从入门到放弃</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Windows编程基础–第9节-MFC对话框控件访问的七种方法（下）"><a href="#Windows编程基础–第9节-MFC对话框控件访问的七种方法（下）" class="headerlink" title="Windows编程基础–第9节 MFC对话框控件访问的七种方法（下）"></a>Windows编程基础–第9节 MFC对话框控件访问的七种方法（下）</h1><p>上节学习了MFC访问控件的三种方法，这节我们来学习剩下的四种方法，四种方法分别如下：</p>
+<blockquote>
+<p>第四种<br>把控件和整型变量相关联</p>
+<p>第五种<br>把控件和控件变量相关联</p>
+<p>第六种<br> SendMessage方法</p>
+<p>第七种<br>SendDlgItemMessage方法</p>
+<h1 id="方法四-把控件和整型变量相关联"><a href="#方法四-把控件和整型变量相关联" class="headerlink" title="方法四 把控件和整型变量相关联"></a>方法四 把控件和整型变量相关联</h1><h2 id="1-创建项目"><a href="#1-创建项目" class="headerlink" title="1. 创建项目"></a>1. 创建项目</h2><p>打开上节用到的day08项目，切换到资源视图，添加一个按钮“方法4”，我们在此按钮上实现方法四，如图所示：<br><img src="http://img.blog.csdn.net/20171025194222125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+</blockquote>
+<h2 id="2-关联整型变量"><a href="#2-关联整型变量" class="headerlink" title="2. 关联整型变量"></a>2. 关联整型变量</h2><p>单击选择身高的输入框（IDC_EDIT_SG）,右击选择“添加变量”，打开如下界面：<br><img src="http://img.blog.csdn.net/20171025194458916?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>现在我们先选择类别为“value”，然后选择变量类型选择“int”，变量名“m_Height”，其余的默认就好，不过你也可以尝试修改一下最大值，最小值等。如图所示：<br><img src="http://img.blog.csdn.net/20171025195031283?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>现在我们切换到解决方案视图，可以看见，<strong>day08Dlg.h</strong>中已经增加了一个类变量，m_Height，<strong>day08Dlg.cpp</strong>中DoDataExchange也增加该变量的关联方法，将变量 m_Height和IDC_EDIT_SG的输入框关联起来，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::DoDataExchange(CDataExchange* pDX)</div><div class="line">&#123;</div><div class="line">	CDialogEx::DoDataExchange(pDX);</div><div class="line">	DDX_Text(pDX, IDC_EDIT_SG, m_Height);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有day08Dlg的构造函数中也对m_Height进行了初始化，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Cday08Dlg::Cday08Dlg(CWnd* pParent /*=NULL*/)</div><div class="line">	: CDialogEx(Cday08Dlg::IDD, pParent)</div><div class="line">	, m_Height(0)</div><div class="line">&#123;</div><div class="line">	m_hIcon = AfxGetApp()-&gt;LoadIcon(IDR_MAINFRAME);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们可以看到m_Height的初始化值为0，现在我们编译运行程序，可以看到身高输入框中的值就为0，如图：<br><img src="http://img.blog.csdn.net/20171025195934143?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来我们分别关联IDC_EDIT_TZ和IDC_EDIT_BMI为变量int m_Weight,double m_BMI;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int m_Height;</div><div class="line">int m_Weight;</div><div class="line">double m_BMI;</div></pre></td></tr></table></figure>
+<h2 id="3-实现按钮事件"><a href="#3-实现按钮事件" class="headerlink" title="3.实现按钮事件"></a>3.实现按钮事件</h2><p>现在m_Height ，m_Weight ，m_BMI 分别和界面上的三个输入框相关联，所以我们可以直接取它们的值就可以，也可以直接进行赋值，但这是会用下面这个方法:</p>
+<blockquote>
+<p>UpdateData(TRUE);   //把控件的值关联到变量<br>UpdateData(FALSE);  //把变量的值关联到控件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::OnBnClickedButtonFunc4()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	UpdateData(TRUE);   //把控件的值关联到变量</div><div class="line">	double dHeight = m_Height / 100.00;</div><div class="line">	m_BMI = m_Weight / (dHeight * dHeight );</div><div class="line">	UpdateData(FALSE);  //把变量的值关联到控件</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>编译运行，这时就可以看到点击方法4之后，BMI值就计算出来了，如图：<br><img src="http://img.blog.csdn.net/20171025201108120?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h1 id="方法五-把控件和控件变量相关联"><a href="#方法五-把控件和控件变量相关联" class="headerlink" title="方法五 把控件和控件变量相关联"></a>方法五 把控件和控件变量相关联</h1><h2 id="1-添加“方法5”按钮"><a href="#1-添加“方法5”按钮" class="headerlink" title="1. 添加“方法5”按钮"></a>1. 添加“方法5”按钮</h2><p>如图：<br><img src="http://img.blog.csdn.net/20171025201519201?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="1-关联控件变量"><a href="#1-关联控件变量" class="headerlink" title="1. 关联控件变量"></a>1. 关联控件变量</h2><p>单击选择身高的输入框（IDC_EDIT_SG）,右击选择“添加变量”，打开如下界面：<br><img src="http://img.blog.csdn.net/20171025201559731?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>现在我们先选择类别为“control”，变量名“m_edit_Height”，其余的默认就好，不过你也可以尝试修改一下最大值，最小值等。如图所示：<br><img src="http://img.blog.csdn.net/20171025211636783?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来我们分别关联IDC_EDIT_TZ和IDC_EDIT_BMI为变量    CEdit m_edit_tz, CEdit m_edit_bmi;<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CEdit m_edit_sg;</div><div class="line">CEdit m_edit_tz;</div><div class="line">CEdit m_edit_bmi;</div></pre></td></tr></table></figure></p>
+<h2 id="3-实现按钮事件-1"><a href="#3-实现按钮事件-1" class="headerlink" title="3.实现按钮事件"></a>3.实现按钮事件</h2><p>现在m_edit_sg，m_edit_tz，m_edit_bmi分别和界面上的三个输入框相关联，所以我们可以直接取它们的值就可以，也可以直接进行赋值，但这是会用下面这个方法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::OnBnClickedButtonFunc5()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	TCHAR tcHeight[10], tcWeight[10] , tcBMI[10];</div><div class="line">	m_edit_sg.GetWindowText(tcHeight,10);</div><div class="line">	m_edit_tz.GetWindowText(tcWeight,10);</div><div class="line"></div><div class="line">	int nHeight = _ttoi(tcHeight);</div><div class="line">	double dHeight = nHeight / 100.00;</div><div class="line">	int nWeight = _ttoi(tcWeight);</div><div class="line"></div><div class="line">	double bmi = nWeight/(dHeight * dHeight);</div><div class="line">	char buf[28];</div><div class="line">	sprintf(buf, &quot;%.3f&quot;, bmi);</div><div class="line">	m_edit_bmi.SetWindowText(buf);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="方法六-SendMessage方法"><a href="#方法六-SendMessage方法" class="headerlink" title="方法六 SendMessage方法"></a>方法六 SendMessage方法</h1><p>通过SendMessage方法发送WM_GETTEXT消息到控件所在窗口来获取控件文本值，同样发送WM_SETTEXT消息到控件所在窗口来设置控件文本值；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::OnBnClickedButtonFunc6()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	TCHAR tcHeight[10], tcWeight[10] , tcBMI[10];</div><div class="line">	::SendMessage(GetDlgItem(IDC_EDIT_SG)-&gt;m_hWnd,WM_GETTEXT,10,(LPARAM)tcHeight);</div><div class="line">	::SendMessage(GetDlgItem(IDC_EDIT_TZ)-&gt;m_hWnd,WM_GETTEXT,10,(LPARAM)tcWeight);</div><div class="line"></div><div class="line">	int nHeight = _ttoi(tcHeight);</div><div class="line">	double dHeight = nHeight / 100.00;</div><div class="line">	int nWeight = _ttoi(tcWeight);</div><div class="line"></div><div class="line">	double bmi = nWeight/(dHeight * dHeight);</div><div class="line">	char buf[28];</div><div class="line">	sprintf(buf, &quot;%.3f&quot;, bmi);</div><div class="line">	::SendMessage(GetDlgItem(IDC_EDIT_BMI)-&gt;m_hWnd,WM_SETTEXT,10,(LPARAM)buf);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="方法七-SendDlgItemMessage方法"><a href="#方法七-SendDlgItemMessage方法" class="headerlink" title="方法七 SendDlgItemMessage方法"></a>方法七 SendDlgItemMessage方法</h1><p>通过SendDlgItemMessage方法发送WM_GETTEXT消息到控件所在窗口来获取控件文本值，同样发送WM_SETTEXT消息到控件所在窗口来设置控件文本值；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::OnBnClickedButtonFunc7()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	TCHAR tcHeight[10], tcWeight[10] , tcBMI[10];</div><div class="line">	SendDlgItemMessage(IDC_EDIT_SG,WM_GETTEXT,10,(LPARAM)tcHeight);</div><div class="line">	SendDlgItemMessage(IDC_EDIT_TZ,WM_GETTEXT,10,(LPARAM)tcWeight);</div><div class="line"></div><div class="line">	int nHeight = _ttoi(tcHeight);</div><div class="line">	double dHeight = nHeight / 100.00;</div><div class="line">	int nWeight = _ttoi(tcWeight);</div><div class="line"></div><div class="line">	double bmi = nWeight/(dHeight * dHeight);</div><div class="line">	char buf[28];</div><div class="line">	sprintf(buf, &quot;%.3f&quot;, bmi);</div><div class="line"></div><div class="line">	SendDlgItemMessage(IDC_EDIT_BMI,WM_SETTEXT,10,(LPARAM)buf);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>总结，以上七种方法虽然结果相同，但是其内部机制是有所区别的，在我们将来的编程中要根据实际情况来选择合适的方法，最后，我们列举一下这七种方法：<br>| 方法名        | 简介   |<br>| ——–   | —–:  |<br>| GetDlgItem()     | 获取控件对象 |<br>| GetDlgItemText()        |   获取对象文本   |<br>| GetDlgItemInt()         |    获取对象整型值   |<br>| DDX_Text(pDX,IDC_EDIT_SG, m_Height);        |    把控件和整型变量相关联   |<br>| DDX_Control(pDX,IDC_EDIT_BMI,m_edit_bmi);  |    把控件和控件变量相关联    |<br>| SendMessage       |    发送WM_GETTEXT消息到控件所在窗口来获取控件文本值   |<br>| SendDlgItemMessage         |   发送WM_GETTEXT消息来获取控件文本值    | </p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/第8节-MFC对话框控件访问的七种方法（上）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/28/第8节-MFC对话框控件访问的七种方法（上）/" itemprop="url">第8节 MFC对话框控件访问的七种方法（上）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:32:43+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
+                    <span itemprop="name">MFC从入门到放弃</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Windows编程基础–第8节-MFC对话框控件访问的七种方法（上）"><a href="#Windows编程基础–第8节-MFC对话框控件访问的七种方法（上）" class="headerlink" title="Windows编程基础–第8节 MFC对话框控件访问的七种方法（上）"></a>Windows编程基础–第8节 MFC对话框控件访问的七种方法（上）</h1><p>MFC对话框控件具有以下三种访问方式(当然还有很多别的访问方式，今天时间紧急，先学这三种)，分别是：</p>
+<blockquote>
+<p>第一种<br>GetDlgItem()-&gt;GetWindowText()<br>GetDlgItem()-&gt;SetWindowText()</p>
+<p>第二种<br>GetDlgItemText()</p>
+<p>第三种<br>GetDlgItemInt()<br>SetDlgItemInt()</p>
+</blockquote>
+<h3 id="1-新建一个对话框项目"><a href="#1-新建一个对话框项目" class="headerlink" title="1.新建一个对话框项目"></a>1.新建一个对话框项目</h3><p>参见上节，我们这节采用VS2010编写一个身高体重计算器（BMI），参见 <a href="http://blog.csdn.net/qq_25549309/article/details/78277801" target="_blank" rel="external">第二节</a>；</p>
+<h3 id="2-布局"><a href="#2-布局" class="headerlink" title="2.布局"></a>2.布局</h3><p>编辑布局如下：<br><img src="http://img.blog.csdn.net/20171024220008701?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<table>
+<thead>
+<tr>
+<th>EDIT名称</th>
+<th style="text-align:right">ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>身高</td>
+<td style="text-align:right">IDC_EDIT_SG</td>
+</tr>
+<tr>
+<td>体重</td>
+<td style="text-align:right">IDC_EDIT_TZ</td>
+</tr>
+<tr>
+<td>BMI</td>
+<td style="text-align:right">IDC_EDIT_BMI</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-实现方法"><a href="#3-实现方法" class="headerlink" title="3.实现方法"></a>3.实现方法</h3><p>双击确认按钮，编辑其点击消息处理函数；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::OnBnClickedOk()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	int nHeight= GetDlgItemInt(IDC_EDIT_SG,NULL,TRUE);</div><div class="line">	double dHeight = nHeight / 100.00;</div><div class="line">	int nWeight = GetDlgItemInt(IDC_EDIT_TZ,NULL,TRUE);</div><div class="line">	double bmi = nWeight/(dHeight*dHeight);</div><div class="line">	char buf[28];</div><div class="line">	sprintf(buf, &quot;%.3f&quot;, bmi);</div><div class="line">	SetDlgItemText(IDC_EDIT_BMI,buf);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里可以看见使用到了GetDlgItemInt，这就是直接获取文本框的值，并返回为整形，然后用sprintf(buf, “%.3f”, bmi);将double类型值转换成字符串，并通过SetDlgItemText将字符串的值设置到ID为IDC_EDIT_BMI的文本框上；</p>
+<h3 id="4-编译运行"><a href="#4-编译运行" class="headerlink" title="4.编译运行"></a>4.编译运行</h3><p>估计很多人会像我一样，VS2010会报这样的错误：<br><img src="http://img.blog.csdn.net/20171024221112999?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这是因为我们创建的项目的字符集为Unicode，不允许这样转换，这时我们只要将解决方案中右击项目名“day09”-&gt;“属性”-&gt;“配置属性”-&gt;”常规”-&gt;”字符集”-&gt;选择“使用多字节字符集”就好了，如下:<br><img src="http://img.blog.csdn.net/20171024221553536?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171024221603771?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这时就可以通过编译，运行结果如下：<br><img src="http://img.blog.csdn.net/20171024221658382?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="5-其他方法"><a href="#5-其他方法" class="headerlink" title="5.其他方法"></a>5.其他方法</h3><p>再次编辑“确认”按钮的点击消息处理函数；<br><strong>第二种</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::OnBnClickedOk()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	TCHAR tcHeight[10], tcWeight[10];</div><div class="line">	GetDlgItem(IDC_EDIT_SG)-&gt;GetWindowText(tcHeight,10);</div><div class="line">	GetDlgItem(IDC_EDIT_TZ)-&gt;GetWindowText(tcWeight,10);</div><div class="line"></div><div class="line">	int nHeight = _ttoi(tcHeight);</div><div class="line">	double dHeight = nHeight / 100.00;</div><div class="line">	int nWeight = _ttoi(tcWeight);</div><div class="line">	</div><div class="line">	double bmi = nWeight/(dHeight * dHeight);</div><div class="line">	char buf[28];</div><div class="line">	sprintf(buf, &quot;%.3f&quot;, bmi);</div><div class="line">	GetDlgItem(IDC_EDIT_BMI)-&gt;SetWindowText(buf);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可以看见，这里用到了GetDlgItem(IDC_EDIT_SG)-&gt;GetWindowText(tcHeight,10)方法，这个方法的过程就是先通过GetDlgItem(IDC_EDIT_SG)获取到控件对象，然后调用控件的GetWindowText(tcHeight,10)方法来获取控件的显示文本；</p>
+<p><strong>第三种</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">void Cday08Dlg::OnBnClickedOk()</div><div class="line">&#123;</div><div class="line">	TCHAR tcHeight[10], tcWeight[10] , tcBMI[10];</div><div class="line">	GetDlgItemText(IDC_EDIT_SG,tcHeight,10);</div><div class="line">	GetDlgItemText(IDC_EDIT_TZ,tcWeight,10);</div><div class="line"></div><div class="line">	int nHeight = _ttoi(tcHeight);</div><div class="line">	double dHeight = nHeight / 100.00;</div><div class="line">	int nWeight = _ttoi(tcWeight);</div><div class="line">	</div><div class="line">	double bmi = nWeight/(dHeight * dHeight);</div><div class="line">	char buf[28];</div><div class="line">	sprintf(buf, &quot;%.3f&quot;, bmi);</div><div class="line">	SetDlgItemText(IDC_EDIT_BMI,buf);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可以看见，这里直接用到了GetDlgItemText(IDC_EDIT_SG,tcHeight,10)方法，这个方法的过程就是先通过GetDlgItem(IDC_EDIT_SG)获取到控件对象，然后调用控件的GetWindowText(tcHeight,10)方法来设置控件的显示文本；</p>
+<p><em>虽然上面三种方法最终结果是一样的，但是其本质还是有所区别的</em></p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/第7节-来吧，VS-2010/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/28/第7节-来吧，VS-2010/" itemprop="url">第7节 来吧，VS 2010</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:32:25+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
+                    <span itemprop="name">MFC从入门到放弃</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Windows编程基础–第7节-来吧，VS-2010"><a href="#Windows编程基础–第7节-来吧，VS-2010" class="headerlink" title="Windows编程基础–第7节 来吧，VS 2010"></a>Windows编程基础–第7节 来吧，VS 2010</h1><h1 id="VS-2010开发第一步"><a href="#VS-2010开发第一步" class="headerlink" title="VS 2010开发第一步"></a>VS 2010开发第一步</h1><hr>
+<p>前面几节我们都是采用<strong>VC++ 6.0 作为IDE（集成开发环境）</strong>，但是由于<strong>VC++ 6.0 </strong>已经过于老旧，目前大多数企业和个人都已经不再使用，而采用vs2005， vs2008， vs2010，vs2015作为MFC程序的开发环境，vs相对vc++6.0具有更友好的界面，及更强大的功能，采用vs开发MFC应用程序更加得心应手。</p>
+<h2 id="1、开始使用VS-2010"><a href="#1、开始使用VS-2010" class="headerlink" title="1、开始使用VS 2010"></a>1、开始使用VS 2010</h2><h3 id="1-1-安装VS-2010"><a href="#1-1-安装VS-2010" class="headerlink" title="1.1 安装VS 2010"></a>1.1 安装VS 2010</h3><p><a href="https://jingyan.baidu.com/article/4e5b3e195b838991901e24e5.html" target="_blank" rel="external">参见百度百科</a></p>
+<h3 id="1-2-创建一个基于对话框项目"><a href="#1-2-创建一个基于对话框项目" class="headerlink" title="1.2 创建一个基于对话框项目"></a>1.2 创建一个基于对话框项目</h3><p>执行“文件”-&gt;“新建”-&gt;“项目”，选择基于对话框的MFC程序，其他默认就好，基本上和<strong>VC++ 6.0 </strong>创建项目一模一样，如图所示：<br><img src="http://img.blog.csdn.net/20171023201320375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171023201410030?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171023201434296?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="1-3-创建一个字符统计窗口"><a href="#1-3-创建一个字符统计窗口" class="headerlink" title="1.3 创建一个字符统计窗口"></a>1.3 创建一个字符统计窗口</h3><p>现在我们通过一个小例子来看看VS2010创建MFC程序有什么不同，我们来创建一个字符统计窗口，输入各种字符，最后统计出所有字符个数；<br>设计界面如下，<br><img src="http://img.blog.csdn.net/20171023202332101?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>一个文本输入框，一个“统计”按钮，一个文本显示“字符个数”，直接在工具箱中拖动进来就OK，然后拖动大小适中就好，方法同<strong>VC++ 6.0 </strong>没有区别，可以参考上几节内容。<br><strong>注意:</strong> 若是右边没有工具箱选项卡，可以通过“视图”-&gt;“工具箱”打开。<br>编译运行，效果图：<br><img src="http://img.blog.csdn.net/20171023203106380?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="1-3-创建一个字符统计窗口-1"><a href="#1-3-创建一个字符统计窗口-1" class="headerlink" title="1.3 创建一个字符统计窗口"></a>1.3 创建一个字符统计窗口</h3><p>双击“统计”按钮，编辑按钮的点击处理函数，<br>我们来分析一下：</p>
+<blockquote>
+<ul>
+<li>获取输入框中文本</li>
+<li>获取输入框中文本的字符个数</li>
+<li>将字符个数显示到静态文本上<br>所以处理函数如下：</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">void Cday07Dlg::OnBnClickedButtonCount()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	CString strInput,strOutput;</div><div class="line">	GetDlgItemText(IDC_EDIT_TEXT,strInput);</div><div class="line"></div><div class="line">	int nCount = strInput.GetLength();</div><div class="line">	strOutput.Format(_T(&quot;字符个数：%d &quot;),nCount);</div><div class="line">	SetDlgItemText(IDC_STATIC_COUNT,strOutput);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="1-4-编译运行"><a href="#1-4-编译运行" class="headerlink" title="1.4 编译运行"></a>1.4 编译运行</h3><p>运行结果图：<br><img src="http://img.blog.csdn.net/20171023204200061?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这是我们发现当我们输入完成是，输入“回车”时，程序就会直接结束，那么我们修改输入框的属性值“Want Return”来允许输入框来接收回车，如图<br><img src="http://img.blog.csdn.net/20171023204439088?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>其实这是我们可以发现现在文本框是只能输入一行，显然不够美观，那么我们再修改一下输入框属性：<br><img src="http://img.blog.csdn.net/20171023205039008?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<blockquote>
+<ol>
+<li>Multiline：允许多行 </li>
+<li>Horizontal Scroll：水平滚动条 </li>
+<li>Vertical Scroll:垂直滚动条</li>
+</ol>
+</blockquote>
+<p>再次编译运行：<br><img src="http://img.blog.csdn.net/20171023205614359?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>现在文本框现在可以输入多行，并且可以任意回车了。<br>有人可能和我一样，发现程序没有关闭按钮，那是因为我在创建的时候取消了系统菜单，我们可以选定对话框主界面，选择属性-&gt;system menu-&gt;TRUE:<br><img src="http://img.blog.csdn.net/20171023205947196?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这是关闭按钮就出现了，可以正常关闭了。</p>
+<h2 id="2、初探VS中消息映射机制"><a href="#2、初探VS中消息映射机制" class="headerlink" title="2、初探VS中消息映射机制"></a>2、初探VS中消息映射机制</h2><h3 id="2-1-创建EDIT的消息处理函数"><a href="#2-1-创建EDIT的消息处理函数" class="headerlink" title="2.1 创建EDIT的消息处理函数"></a>2.1 创建EDIT的消息处理函数</h3><p>单击选定输入框，右击选择“添加事件处理程序”，这是可以很直观的看见EDIT的消息列表和要添加到的类，以及添加的处理函数名，现在我们来添加一个EN_CHANGE的消息处理函数，如图所示：<br><img src="http://img.blog.csdn.net/20171023212741178?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>单击“添加编辑”来编辑消息处理函数，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">void Cday07Dlg::OnEnChangeEditText()</div><div class="line">&#123;</div><div class="line">	// TODO:  如果该控件是 RICHEDIT 控件，它将不</div><div class="line">	// 发送此通知，除非重写 CDialogEx::OnInitDialog()</div><div class="line">	// 函数并调用 CRichEditCtrl().SetEventMask()，</div><div class="line">	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。</div><div class="line"></div><div class="line">	// TODO:  在此添加控件通知处理程序代码</div><div class="line">	CString strInput,strOutput;</div><div class="line">	GetDlgItemText(IDC_EDIT_TEXT,strInput);</div><div class="line"></div><div class="line">	int nCount = strInput.GetLength();</div><div class="line">	strOutput.Format(_T(&quot;字符个数：%d &quot;),nCount);</div><div class="line">	SetDlgItemText(IDC_STATIC_COUNT,strOutput);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-2-编译运行"><a href="#2-2-编译运行" class="headerlink" title="2.2 编译运行"></a>2.2 编译运行</h3><p>这是我们可以发现我们在输入框中输入字符时，下方的字符统计数会实时显示，这就是输入文本时，EDIT的EN_CHANGE消息被触发，从而触发其消息处理函数OnEnChangeEditText，导致字符统计数实时更新，效果图如下：<br><img src="http://img.blog.csdn.net/20171023213131534?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="2-3-MFC消息映射机制流程"><a href="#2-3-MFC消息映射机制流程" class="headerlink" title="2.3 MFC消息映射机制流程"></a>2.3 MFC消息映射机制流程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: Start</div><div class="line">op=&gt;operation: 输入框文本变化</div><div class="line">op2=&gt;operation: 触发EN_CHANGE消息</div><div class="line">op3=&gt;operation: 调用EN_CHANGE的处理函数OnEnChangeEditText</div><div class="line">op4=&gt;operation: 将输入框字符数返回到界面</div><div class="line">e=&gt;end</div><div class="line"></div><div class="line">st-&gt;op-&gt;op2-&gt;op3-&gt;op4-&gt;e</div></pre></td></tr></table></figure>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/第6节-VC-6-0控件说明/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/28/第6节-VC-6-0控件说明/" itemprop="url">第6节 VC++6.0控件说明</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:32:11+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
+                    <span itemprop="name">MFC从入门到放弃</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Windows编程基础–第6节-VC-6-0控件说明"><a href="#Windows编程基础–第6节-VC-6-0控件说明" class="headerlink" title="Windows编程基础–第6节 VC++6.0控件说明"></a>Windows编程基础–第6节 VC++6.0控件说明</h1><h2 id="VC-6-0控件工具箱"><a href="#VC-6-0控件工具箱" class="headerlink" title="VC++6.0控件工具箱"></a>VC++6.0控件工具箱</h2><p><img src="http://img.blog.csdn.net/20171022151958465?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<hr>
+<h2 id="控件说明"><a href="#控件说明" class="headerlink" title="控件说明"></a>控件说明</h2><blockquote>
+<ul>
+<li>2 图形控件（picture）：常用于显示位图（Bitmap）和图标（Icon）  </li>
+<li>3 静态文本（Static Text）：用来在指定的位置显示特定的字符串，一般用来标识附近另一个控件的内容。显示在静态文本控件中的字符串一般不再改变，但是在需要的时候，也可以通过调用相应的函数来进行设置。MFC提供了CStatic类支持静态控件。  </li>
+<li>4 编辑框（Edit Box）：用来接收用户输入的字符串。通过选择编辑框的选项，编辑框可以接收字符串、数字、密码等；编辑框还可以设置成接收多行字符串的模式；可以自动进行大小写转换。编辑框可能向其父窗口发送多种控件通知，如果用户需要，可以对这些控件通知进行处理。MFC提供了CEdit类支持编辑框控件。  </li>
+<li>5 组成框（Group Box）：用来包围具有逻辑关系的一组控件，在这些控件的周围加上边界和标题。需注意的是，组成框仅仅是在视觉效果上对控件进行“成组”，真正的“成组”工作还需要另外一些工作。 </li>
+<li>6 按钮（Button）：用来接收用户的命令，应用程序在接收到用户命令后，通常需要进行一些后台工作。按钮可以响应单击或双击动作，在按钮接收到鼠标动作后，向其父窗口发送相应的控件通知，用户可以对这些控件通知进行消息映射，从而进行相应的处理。在一个对话框中，可以定义一个默认按钮，这只要选中按钮属性中的“Default”选项。如果在对话框活动的时候按下了Enter键，则等同于单击了默认按钮。MFC提供了CButton类支持按钮控件。</li>
+<li>7 复选框（Check Box）：用来显示某种可能的选择，该项选择是独立的，用户可以选中或取消该选项。在选项被选中的时候核选标记出现，选项被取消时核选标记消失。MFC中由CButton类对核选框进行支持，用户可以通过SetCheck()函数和GetCheck()函数设置或获取核选框当前的状态。 </li>
+<li>8 单选按钮（Radio Button）：用来选择某种可能的选择，与核选框不同，该选项不是独立的。一般是几个单选按钮组成一组，同组中的单选按钮可以有也只能有一个按钮被选中。MFC同样使用CButton类对单选按钮控件进行支持，SetCheck()函数和GetCheck()函数对单选按钮也是适用的。 </li>
+<li>9 组合框（Combo Box）：列表框和编辑框的组合，用户除了可以在列表中对已经存在的选项进行选择外，还可以输入新的选择。MFC提供了CComboBox类对组合框控件进行支持。 </li>
+<li>10 列表框（List Box）：用来选择一系列的可能选择，用户通过滚动条可以在这些选择中浏览。在列表框中，可以进行单项选择，也可以进行多项选择，这取决于用户在控件属性对话框中的设置。MFC提供了CListBox类对列表框控件进行支持。 </li>
+<li>11、12 滚动条（Scroll Bar）：这包括水平滚动条和垂直滚动条，除了在视觉效果上的方向不同外，水平滚动条在被滚动时发生WM_HSCROLL消息，而垂直滚动条在被滚动时发送WM_VSCROLL消息。MFC提供了CScrollBar进行支持。 </li>
+<li>13 微调按钮（Spin Button）：包括一对紧靠在一起的上下箭头，使用微调按钮可以增大或者缩小某个特定的数值。微调按钮往往都需要一个“伙伴”控件，这通常都是一个编辑框。当微调按钮的向上箭头被单击时，编辑框中的数字就增大；反之则减小。MFC提供了CPinButtonCtrl类进行支持。</li>
+<li>14 进度条（Progress）：在进行一项需要占有较长时间的操作时来反应当前的进度。当操作的进度不断前进时，进度条就用特色颜色填充进度条框。用户可以设定进度条的范围和当前位置。MFC提供了CProgressCtrl类进行支持。 </li>
+<li>15 滑块控件（Slider）：通常用来在程序中接受一系列离散的数值。用户可以设置滑块控件的取值范围，并可以为控件加上刻度标记以显示特定位置的含义。MFC提供了CSliderCtrl类进行支持。</li>
+<li>16 热键控制（Hot Key）：热键控件看起来就像一个编辑框，但是在热键控件中能够立刻反应用户刚刚按下的键组合，这在设置程序的热键时特别有用。热键控件只是在“视觉”上显示了按键组合，设置热键的工作还需要用户添加代码完成。MFC提供了CHotKey类进行支持。 </li>
+<li>17 列表控制（List Control）：按一定的排列顺序显示一系列带图标的字符串，列表控件提供了四种显示模式：大图标、小图标、列表和详细信息。用户可以向列表控件中添加新的项，也可以控制列表控件的显示模式。MFC提供了CListCtrl类进行支持。 </li>
+<li>18 树形控件（Tree Control）：用来显示一系列项目的层次关系，最典型的例子是显示磁盘上的文件与文件夹。如果有子项目的话，单击树形控件中的项目可以展开或者收缩其子项目。MFC提供了CTreeCtrl类进行支持。 </li>
+<li>19 属性表控件（Tab Control）：用来包含大量的控件，可以满足用户显示或者获取大量数据的要求。每个属性表又分为好几个属性页，这些属性页由各自的标签进行区分，这些属性页中都可以包容其他控件。在显示属性表的时候，一次只能够显示一个属性页的全部内容，同时显示其他属性页的标签，用户通过单击标签打开相应的属性页。MFC提供了CTabCtrl类进行支持。</li>
+<li>20 动画控件（Animation）：用来播放一段AVI格式的视频剪辑。用户可以控制视频剪辑的播放、停止和定位，但也仅限于这些功能。动画控件设置不能播放音频剪辑，如果用户需要更高层次的视频或者音频的支持，请选用MCIWnd控件。MFC提供了CAnimateCtrl类对动画控件进行支持。</li>
+<li>21 高级编辑框（Rich Edit）：编辑控件功能的扩展。在高级编辑框中，除了简单的输入和编辑字符串外，用户还可以为字符或段落指定特定的格式，用户甚至还可以向高级编辑框中插入OLE项。高级编辑框基本上实现了一个带格式的文本编辑器功能，而只需要用户添加少量的接口。MFC提供了CRichEditCtrl类进行支持。 </li>
+<li>22 日历控件（Month Calender）：看似与真正的日历类似，操作也类似，直观的为用户提供了观察和显示当前日期的途径。MFC提供了CMonthCalCtrl类进行支持。</li>
+<li>23 日期/时间选择器（Date Time Picker）：向用户提供了一种直观的选择日期和时间的方法、日期/时间选择器在外观上类似于一个组合框，但是当用户单击下拉箭头时就会展开一个日历控件供用户选择，而一旦用户做出了选择，日期/时间选择器会自动显示新的日期/时间。MFC提供了CDateTimeCtrl类进行支持。</li>
+<li>24 IP地址控件（IP Adress）:IP地址控件用来输入和编辑IP地址。该控件外观类似于一个编辑框，但是可以自动对输入的字符按3个一组进行区分和加间隔圆点。IP地址控件为开发支持Internet技术的程序提供了方便。MFC提供了CIPAddressCtrl类进行支持。</li>
+<li>26 扩展组合框（Extended Combo Box）：在普通组合框的基础上还支持图像列表。即，可以在组合框中显示特定的图标表示相应的选择，而不仅仅是显示文本。MFC提供了CComboBoxEx类进行支持。 </li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="所有控件的公共属性"><a href="#所有控件的公共属性" class="headerlink" title="所有控件的公共属性"></a>所有控件的公共属性</h2><blockquote>
+<p>ID：控件的资源标识。<br>Visiable：控件是否可见。<br>Disabled：控件是否被禁止、被禁止的控件无法接受键盘和鼠标输入。<br>Group：是否从这个空间开始一个新组。<br>Tab stop：在程序中是否可以用【Tab】键切换到这个控件。<br>Help ID：是否给控件分配一个帮助标识，帮助标识基于控件本身的资源标识。<br>Client edge：给控件增加一个凹陷的边界，使整个控件看起来像是凹下去的一样。<br>Static edge：给控件增加一个边界。<br>Modal frame：给控件增加一个3维的框架，与Client edge相反，它是凸出来的。<br>Transparent：拥有此属性的窗口是透明的，它下面的窗口不会被它遮掩住。<br>Accept files：拥有此属性的窗口可以接收拖放文件，如果一个文件被拖动到这个控件上面，控件会收到WM_DROPFILES消息。<br>No parent notify：表示控件不向其父窗口发送WM_PARENTNOTIFY消息。<br>Right aligned text：表示文本右对齐。</p>
+<pre><code>以上属性可通过控件的属性对话框进行设置，在属性对话框中按【F1】键可以查看属性的帮助信息。每一种控件都由一个MFC控件类来管理，当通过资源编辑器在对话框上添加一个控件时
+</code></pre><p>，visualC++会自动为控件类生成一个实例，即对象，并调用构造函数，当对话框关闭时，其各个子控件对象被自动销毁。也可以不使用资源编辑器，自己在程序中写代码创建、显示控件并设置控件的属性。所有的控件类都继承自CWnd，控件的某些操作和属性设置需要用到CWnd本身的成员函数，CWnd某些函数经常用来操纵控件和设置控件属性。</p>
+<p>SetWindowText：设置控件上要显示的标题文本，即用来设置控件的caption属性<br>GetWindowText：得到控件的标题文本<br>EnableWindow：设置控件的Disabled属性，即社会自控件是否可以接收键盘和鼠标的输入<br>SetWindowPos：改变窗口的大小、位置和Z轴次序。 MoveWindow：改变窗口的大小和位置<br>GetWindowRec：得到窗口的大小、位置（信息存放在一个矩形结构中）。<br>GetClientRect：得到窗口客户区的大小（信息存放在一个矩形结构中 ） ShowWindow：设置窗口的可见性（即窗口是否可见）<br>SetWindowText/GetWindowText还可以用来设置/得到对话框的标题文本。</p>
+</blockquote>
+<hr>
+<h2 id="转载"><a href="#转载" class="headerlink" title="转载"></a>转载</h2><h4 id="Button"><a href="#Button" class="headerlink" title="Button"></a>Button</h4><blockquote>
+<p>按钮窗口（控件）在MFC中使用CButton表示，CButton包含了三种样式的按钮，Push Button，Check Box，Radio Box。所以在利用CButton对象生成按钮窗口时需要指明按钮的风格。</p>
+<p>创建按钮：BOOL CButton::Create( LPCTSTR lpszCaption, DWORD dwStyle, const RECT&amp; rect, CWnd* pParentWnd, UINT nID );其中lpszCaption是按钮上显示的文字，dwStyle为按钮风格，除了Windows风格可以使用外（如 WS_CHILD|WS_VISUBLE|WS_BORDER）还有按钮专用的一些风格。</p>
+<p>· BS_AUTOCHECKBOX 检查框，按钮的状态会自动改变   Same as a check box, except that a check mark appears in the check box when the user selects the box; the check mark disappears the next time the user selects the box.</p>
+<p>· BS_AUTORADIOBUTTON 圆形选择按钮，按钮的状态会自动改变   Same as a radio button, except that when the user selects it, the button automatically highlights itself and removes the selection from any other radio buttons with the same style in the same group.</p>
+<p>· BS_AUTO3STATE 允许按钮有三种状态即：选中，未选中，未定   Same as a three-state check box, except that the box changes its state when the user selects it.</p>
+<p>· BS_CHECKBOX 检查框   Creates a small square that has text displayed to its right (unless this style is combined with the BS_LEFTTEXT style).</p>
+<p>· BS_DEFPUSHBUTTON 默认普通按钮   Creates a button that has a heavy black border. The user can select this button by pressing the ENTER key. This style enables the user to quickly select the most likely option (the default option).</p>
+<p>· BS_LEFTTEXT 左对齐文字   When combined with a radio-button or check-box style, the text appears on the left side of the radio button or check box.</p>
+<p>· BS_OWNERDRAW 自绘按钮   Creates an owner-drawn button. The framework calls the DrawItem member function when a visual aspect of the button has changed. This style must be set when using the CBitmapButton class.</p>
+<p>· BS_PUSHBUTTON 普通按钮   Creates a pushbutton that posts a WM_COMMAND message to the owner window when the user selects the button.</p>
+<p>· BS_RADIOBUTTON 圆形选择按钮   Creates a small circle that has text displayed to its right (unless this style is combined with the BS_LEFTTEXT style). Radio buttons are usually used in groups of related but mutually exclusive choices.</p>
+<p>· BS_3STATE 允许按钮有三种状态即：选中，未选中，未定   Same as a check box, except that the box can be dimmed as well as checked. The dimmed state typically is used to show that a check box has been disabled.</p>
+<p>rect为窗口所占据的矩形区域，pParentWnd为父窗口指针，nID为该窗口的ID值。</p>
+<p>获取/改变按钮状态：对于检查按钮和圆形按钮可能有两种状态，选中和未选中，如果设置了BS_3STATE或BS_AUTO3STATE风格就可能出现第三种状态：未定，这时按钮显示灰色。通过调用int CButton::GetCheck( ) 得到当前是否被选中，返回0：未选中，1：选中，2：未定。调用void CButton::SetCheck( int nCheck );设置当前选中状态。</p>
+<p>处理按钮消息：要处理按钮消息需要在父窗口中进行消息映射，映射宏为ON_BN_CLICKED( id, memberFxn )id为按钮的ID值，就是创建时指定的nID值。处理函数原型为afx_msg void memberFxn( );</p>
+</blockquote>
+<h4 id="Static-Box"><a href="#Static-Box" class="headerlink" title="Static Box"></a>Static Box</h4><blockquote>
+<p>静态文本控件的功能比较简单，可作为显示字符串，图标，位图用。创建一个窗口可以使用成员函数： BOOL CStatic::Create( LPCTSTR lpszText, DWORD dwStyle, const RECT&amp; rect, CWnd* pParentWnd, UINT nID = 0xffff );<br>其中dwStyle将指明该窗口的风格，除了子窗口常用的风格WS_CHILD,WS_VISIBLE外，你可以针对静态控件指明专门的风格。</p>
+<p>· SS_CENTER,SS_LEFT,SS_RIGHT 指明字符显示的对齐方式。</p>
+<p>· SS_GRAYRECT 显示一个灰色的矩形</p>
+<p>· SS_NOPREFIX 如果指明该风格，对于字符&amp;将直接显示，否则&amp;将作为转义符，&amp;将不显示而在其后的字符将有下划线，如果需要直接显示&amp;必须使用&amp;&amp;表示。</p>
+<p>· SS_BITMAP 显示位图</p>
+<p>· SS_ICON 显示图标</p>
+<p>· SS_CENTERIMAGE 图象居中显示</p>
+<p>控制显示的文本利用成员函数SetWindowText/GetWindowText用于设置/得到当前显示的文本。</p>
+<p>控制显示的图标利用成员函数SetIcon/GetIcon用于设置/得到当前显示的图标。</p>
+<p>控制显示的位图利用成员函数SetBitmap/GetBitmap用于设置/得到当前显示的位图。下面一段代码演示如何创建一个显示位图的静态窗口并设置位图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">CStatic* pstaDis=new CStatic; pstaDis-&gt;Create(&quot;&quot;,WS_CHILD|WS_VISIBLE|SS_BITMAP|SSCENTERIMAGE, CRect(0,0,40,40),pWnd,1); CBitmap bmpLoad; bmpLoad.LoadBitmap(IDB_TEST); pstaDis-&gt;SetBitmap(bmpLoad.Detach());</div></pre></td></tr></table></figure>
+</blockquote>
+<h4 id="Edit-Box"><a href="#Edit-Box" class="headerlink" title="Edit Box"></a>Edit Box</h4><blockquote>
+<p>Edit窗口是用来接收用户输入最常用的一个控件。创建一个输入窗口可以使用成员函数：<br>BOOL CEdit::Create( LPCTSTR lpszText, DWORD dwStyle, const RECT&amp; rect, CWnd* pParentWnd, UINT nID = 0xffff );<br>其中dwStyle将指明该窗口的风格，除了子窗口常用的风格WS_CHILD,WS_VISIBLE外，你可以针对输入控件指明专门的风格。</p>
+<p>· ES_AUTOHSCROLL,ES_AUTOVSCROLL 指明输入文字超出显示范围时自动滚动。</p>
+<p>· ES_CENTER,ES_LEFT,ES_RIGHT 指定对齐方式</p>
+<p>· ES_MULTILINE 是否允许多行输入</p>
+<p>· ES_PASSWORD 是否为密码输入框，如果指明该风格则输入的文字显示为*</p>
+<p>· ES_READONLY 是否为只读</p>
+<p>· ES_UPPERCASE,ES_LOWERCASE 显示大写/小写字符</p>
+<p>控制显示的文本利用成员函数SetWindowText/GetWindowText用于设置/得到当前显示的文本。</p>
+<p>通过GetLimitText/SetLimitText可以得到/设置在输入框中输入的字符数量。</p>
+<p>由于在输入时用户可能选择某一段文本，所以通过void CEdit::GetSel( int&amp; nStartChar, int&amp; nEndChar )得到用户选择的字符范围，通过调用void CEdit::SetSel( int nStartChar, int nEndChar, BOOL bNoScroll = FALSE )可以设置当前选择的文本范围，如果指定nStartChar=0 nEndChar=-1则表示选中所有的文本。void ReplaceSel( LPCTSTR lpszNewText, BOOL bCanUndo = FALSE )可以将选中的文本替换为指定的文字。</p>
+<p>此外输入框还有一些和剪贴板有关的功能，void Clear( );删除选中的文本，void Copy( );可将选中的文本送入剪贴板，void Paste( );将剪贴板中内容插入到当前输入框中光标位置，void Cut( );相当于Copy和Clear结合使用。</p>
+<p>最后介绍一下输入框几种常用的消息映射宏：</p>
+<p>· ON_EN_CHANGE 输入框中文字更新后产生</p>
+<p>· ON_EN_ERRSPACE 输入框无法分配内存时产生</p>
+<p>· ON_EN_KILLFOCUS / ON_EN_SETFOCUS 在输入框失去/得到输入焦点时产生</p>
+<p>使用以上几种消息映射的方法为定义原型如：afx_msg void memberFxn( );的函数，并且定义形式如ON_Notification( id, memberFxn )的消息映射。如果在对话框中使用输入框，Class Wizard会自动列出相关的消息，并能自动产生消息映射代码。</p>
+</blockquote>
+<h4 id="Scroll-Bar"><a href="#Scroll-Bar" class="headerlink" title="Scroll Bar"></a>Scroll Bar</h4><blockquote>
+<p>Scroll Bar一般不会单独使用，因为SpinCtrl可以取代滚动条的一部分作用，但是如果你需要自己生成派生窗口，滚动条还是会派上一些用场。创建一个滚动条可以使用成员函数： ：<br>BOOL CEdit::Create( LPCTSTR lpszText, DWORD dwStyle, const RECT&amp; rect, CWnd* pParentWnd, UINT nID = 0xffff );<br>其中dwStyle将指明该窗口的风格，除了子窗口常用的风格WS_CHILD,WS_VISIBLE外，你可以针对滚动条指明专门的风格。</p>
+<p>· SBS_VERT 风格将创建一个垂直的滚动条。</p>
+<p>· SBS_HORZ 风格将创建一个水平的滚动条。</p>
+<p>在创建滚动条后需要调用void SetScrollRange( int nMinPos, int nMaxPos, BOOL bRedraw = TRUE )设置滚动范围，<br>int GetScrollPos( )/int SetScrollPos( )用来得到和设置当前滚动条的位置。</p>
+<p>void ShowScrollBar( BOOL bShow = TRUE );用来显示/隐藏滚动条。</p>
+<p>BOOL EnableScrollBar( UINT nArrowFlags = ESB_ENABLE_BOTH )用来设置滚动条上箭头是否为允许状态。nArrowFlags可取以下值：</p>
+<p>· ESB_ENABLE_BOTH 两个箭头都为允许状态</p>
+<p>· ESB_DISABLE_LTUP 上/左箭头为禁止状态</p>
+<p>· ESB_DISABLE_RTDN 下/右箭头为禁止状态</p>
+<p>· ESB_DISABLE_BOTH 两个箭头都为禁止状态</p>
+<p>如果需要在滚动条位置被改变时得到通知，需要在父窗口中定义对消息WM_VSCROLL/WM_HSCROLL的映射。方法为在父窗口类中重载<br>afx_msg void OnVScroll( UINT nSBCode, UINT nPos, CScrollBar<em> pScrollBar )/afx_msg void OnHScroll( UINT nSBCode, UINT nPos, CScrollBar</em> pScrollBar )<br>所使用的消息映射宏为：ON_WM_VSCROLL( ),ON_WM_HSCROLL( )，在映射宏中不需要指明滚动条的ID，因为所有滚动条的滚动消息都由同样的函数处理。在OnHScroll/OnVScroll的第三个参数会指明当前滚动条的指针。第一个参数表示滚动条上发生的动作，可取以下值：</p>
+<p>· SB_TOP/SB_BOTTOM 已滚动到顶/底部</p>
+<p>· SB_LINEUP/SB_LINEDOWN 向上/下滚动一行</p>
+<p>· SB_PAGEDOWN/SB_PAGEUP 向上/下滚动一页</p>
+<p>· SB_THUMBPOSITION/SB_THUMBTRACK 滚动条拖动到某一位置，参数nPos指明当前位置（参数&gt;nPos在其它的情况下是无效的）</p>
+<p>· SB_ENDSCROLL 滚动条拖动完成（用户松开鼠标）</p>
+</blockquote>
+<h4 id="List-Box-Check-List-Box"><a href="#List-Box-Check-List-Box" class="headerlink" title="List Box/Check List Box"></a>List Box/Check List Box</h4><blockquote>
+<p>ListBox窗口用来列出一系列的文本，每条文本占一行。创建一个列表窗口可以使用成员函数：<br>BOOL CListBox::Create( LPCTSTR lpszText, DWORD dwStyle, const RECT&amp; rect, CWnd* pParentWnd, UINT nID = 0xffff );<br>其中dwStyle将指明该窗口的风格，除了子窗口常用的风格WS_CHILD,WS_VISIBLE外，你可以针对列表控件指明专门的风格。</p>
+<p>· LBS_MULTIPLESEL 指明列表框可以同时选择多行</p>
+<p>· LBS_EXTENDEDSEL 可以通过按下Shift/Ctrl键选择多行</p>
+<p>· LBS_SORT 所有的行按照字母顺序进行排序</p>
+<p>在列表框生成后需要向其中加入或是删除行，可以利用：  int AddString( LPCTSTR lpszItem )添加行，  int<br>DeleteString( UINT nIndex )删除指定行，  int InsertString( int nIndex,<br>LPCTSTR lpszItem )将行插入到指定位置。  void ResetContent( )可以删除列表框中所有行。<br>通过调用int GetCount( )得到当前列表框中行的数量。</p>
+<p>如果需要得到/设置当前被选中的行，可以调用int GetCurSel( )/int SetCurSel(int<br>iIndex)。如果你指明了选择多行的风格，你就需要先调用int GetSelCount( )得到被选中的行的数量，然后int<br>GetSelItems( int nMaxItems, LPINT rgIndex<br>)得到所有选中的行，参数rgIndex为存放被选中行的数组。通过调用int GetLBText( int nIndex, LPTSTR<br>lpszText )得到列表框内指定行的字符串。</p>
+<p>此外通过调用int FindString( int nStartAfter, LPCTSTR lpszItem<br>)可以在当前所有行中查找指定的字符传的位置，nStartAfter指明从那一行开始进行查找。  int SelectString( int<br>nStartAfter, LPCTSTR lpszItem )可以选中包含指定字符串的行。</p>
+<p>在MFC<br>4.2版本中添加了CCheckListBox类，该类是由CListBox派生并拥有CListBox的所有功能，不同的是可以在每行前加上一个检查框。必须注意的是在创建时必须指明LBS_OWNERDRAWFIXED或LBS_OWNERDRAWVARIABLE风格。</p>
+<p>通过void SetCheckStyle( UINT nStyle )/UINT GetCheckStyle(<br>)可以设置/得到检查框的风格，关于检查框风格可以参考4.1 Button中介绍。通过void SetCheck( int nIndex,<br>int nCheck )/int GetCheck( int nIndex )可以设置和得到某行的检查状态，关于检查框状态可以参考4.1<br>Button中介绍。</p>
+<p>最后介绍一下列表框几种常用的消息映射宏：</p>
+<p>· ON_LBN_DBLCLK 鼠标双击</p>
+<p>· ON_EN_ERRSPACE 输入框无法分配内存时产生</p>
+<p>· ON_EN_KILLFOCUS / ON_EN_SETFOCUS 在输入框失去/得到输入焦点时产生</p>
+<p>· ON_LBN_SELCHANGE 选择的行发生改变</p>
+<p>使用以上几种消息映射的方法为定义原型如：afx_msg void memberFxn(<br>);的函数，并且定义形式如ON_Notification( id, memberFxn )的消息映射。如果在对话框中使用列表框，Class<br>Wizard会自动列出相关的消息，并能自动产生消息映射代码。</p>
+</blockquote>
+<h4 id="Combo-Box-Combo-Box-Ex"><a href="#Combo-Box-Combo-Box-Ex" class="headerlink" title="Combo Box/Combo Box Ex"></a>Combo Box/Combo Box Ex</h4><blockquote>
+<p>组合窗口是由一个输入框和一个列表框组成。创建一个组合窗口可以使用成员函数：  BOOL CListBox::Create( LPCTSTR<br>lpszText, DWORD dwStyle, const RECT&amp; rect, CWnd* pParentWnd, UINT nID<br>= 0xffff );  其中dwStyle将指明该窗口的风格，除了子窗口常用的风格WS_CHILD,WS_VISIBLE外，你可以针对列表控件指明专门的风格。</p>
+<p>· CBS_DROPDOWN 下拉式组合框</p>
+<p>· CBS_DROPDOWNLIST 下拉式组合框，但是输入框内不能进行输入</p>
+<p>· CBS_SIMPLE 输入框和列表框同时被显示</p>
+<p>· LBS_SORT 所有的行按照字母顺序进行排序</p>
+<p>由于组合框内包含了列表框，所以列表框的功能都能够使用，如可以利用：  int AddString( LPCTSTR lpszItem<br>)添加行，  int DeleteString( UINT nIndex )删除指定行，  int InsertString( int<br>nIndex, LPCTSTR lpszItem )将行插入到指定位置。  void ResetContent( )可以删除列表框中所有行。<br>通过调用int GetCount( )得到当前列表框中行的数量。</p>
+<p>如果需要得到/设置当前被选中的行的位置，可以调用int GetCurSel( )/int SetCurSel(int<br>iIndex)。通过调用int GetLBText( int nIndex, LPTSTR lpszText )得到列表框内指定行的字符串。</p>
+<p>此外通过调用int FindString( int nStartAfter, LPCTSTR lpszItem<br>)可以在当前所有行中查找指定的字符传的位置，nStartAfter指明从那一行开始进行查找。  int SelectString( int<br>nStartAfter, LPCTSTR lpszItem )可以选中包含指定字符串的行。</p>
+<p>此外输入框的功能都能够使用，如可以利用：  DWORD GetEditSel( ) /BOOL SetEditSel( int<br>nStartChar, int nEndChar )得到或设置输入框中被选中的字符位置。  BOOL LimitText( int<br>nMaxChars )设置输入框中可输入的最大字符数。  输入框的剪贴板功能Copy,Clear,Cut,Paste动可以使用。</p>
+<p>最后介绍一下列表框几种常用的消息映射宏：</p>
+<p>· ON_CBN_DBLCLK 鼠标双击</p>
+<p>· ON_CBN_DROPDOWN 列表框被弹出</p>
+<p>· ON_CBN_KILLFOCUS / ON_CBN_SETFOCUS 在输入框失去/得到输入焦点时产生</p>
+<p>· ON_CBN_SELCHANGE 列表框中选择的行发生改变</p>
+<p>· ON_CBN_EDITUPDATE 输入框中内容被更新</p>
+<p>使用以上几种消息映射的方法为定义原型如：afx_msg void memberFxn(<br>);的函数，并且定义形式如ON_Notification( id, memberFxn )的消息映射。如果在对话框中使用组合框，Class<br>Wizard会自动列出相关的消息，并能自动产生消息映射代码。</p>
+</blockquote>
+<h4 id="Tree-Ctrl"><a href="#Tree-Ctrl" class="headerlink" title="Tree Ctrl"></a>Tree Ctrl</h4><blockquote>
+<p>树形控件TreeCtrl和下节要讲的列表控件 ListCtrl在系统中大量被使用，例如Windows资源管理器就是一个典型的例子。</p>
+<p>树形控件可以用于树形的结构，其中有一个根接点(Root)然后下面有许多子结点，而每个子结点上有允许有一个或多个或没有子结点。MFC中使用CTreeCtrl类来封装树形控件的各种操作。通过调用<br>BOOL Create( DWORD dwStyle, const RECT&amp; rect, CWnd* pParentWnd, UINT<br>nID );创建一个窗口，dwStyle中可以使用以下一些树形控件的专用风格：</p>
+<p>· TVS_HASLINES 在父/子结点之间绘制连线</p>
+<p>· TVS_LINESATROOT 在根/子结点之间绘制连线</p>
+<p>· TVS_HASBUTTONS 在每一个结点前添加一个按钮，用于表示当前结点是否已被展开</p>
+<p>· TVS_EDITLABELS 结点的显示字符可以被编辑</p>
+<p>· TVS_SHOWSELALWAYS 在失去焦点时也显示当前选中的结点</p>
+<p>· TVS_DISABLEDRAGDROP 不允许Drag/Drop</p>
+<p>· TVS_NOTOOLTIPS 不使用ToolTip显示结点的显示字符</p>
+<p>在树形控件中每一个结点都有一个句柄（HTREEITEM），同时添加结点时必须提供的参数是该结点的父结点句柄，（其中根Root结点只有一个，既不可以添加也不可以删除）利用<br>HTREEITEM InsertItem( LPCTSTR lpszItem, HTREEITEM hParent = TVI_ROOT,<br>HTREEITEM hInsertAfter = TVI_LAST<br>);可以添加一个结点，pszItem为显示的字符，hParent代表父结点的句柄，当前添加的结点会排在hInsertAfter表示的结点的后面，返回值为当前创建的结点的句柄。下面的代码会建立一个如下形式的树形结构：</p>
+<p>+— Parent1 +— Child1_1 +— Child1_2 +— Child1_3 +— Parent2 +— Parent3 /<em>假设m_tree为一个CTreeCtrl对象，而且该窗口已经创建</em>/ HTREEITEM hItem,hSubItem; hItem = m_tree.InsertItem(“Parent1”,TVI_ROOT);<br>在根结点上添加Parent1 hSubItem = m_tree.InsertItem(“Child1_1”,hItem);<br>//在Parent1上添加一个子结点 hSubItem =<br>m_tree.InsertItem(“Child1_2”,hItem,hSubItem);<br>//在Parent1上添加一个子结点，排在Child1_1后面 hSubItem =<br>m_tree.InsertItem(“Child1_3”,hItem,hSubItem); hItem =<br>m_tree.InsertItem(“Parent2”,TVI_ROOT,hItem); hItem =<br>m_tree.InsertItem(“Parent3”,TVI_ROOT,hItem);</p>
+<p>如果你希望在每个结点前添加一个小图标，就必需先调用CImageList<em> SetImageList( CImageList </em><br>pImageList, int nImageListType<br>);指明当前所使用的ImageList，nImageListType为TVSIL_NORMAL。在调用完成后控件中使用图片以设置的<br>ImageList中图片为准。然后调用  HTREEITEM InsertItem( LPCTSTR lpszItem, int<br>nImage, int nSelectedImage, HTREEITEM hParent = TVI_ROOT, HTREEITEM<br>hInsertAfter =<br>TVI_LAST);添加结点，nImage为结点没被选中时所使用图片序号，nSelectedImage为结点被选中时所使用图片序号。下面的代码演示了ImageList的设置。</p>
+<p>/<em>m_list 为CImageList对象 IDB_TREE 为16</em>(16<em>4)的位图，每个图片为16</em>16共4个图标*/<br>m_list.Create(IDB_TREE,16,4,RGB(0,0,0));<br>m_tree.SetImageList(&amp;m_list,TVSIL_NORMAL);<br>m_tree.InsertItem(“Parent1”,0,1); //添加，选中时显示图标1，未选中时显示图标0</p>
+<p>此外CTreeCtrl还提供了一些函数用于得到/修改控件的状态。  HTREEITEM GetSelectedItem(<br>);将返回当前选中的结点的句柄。BOOL SelectItem( HTREEITEM hItem );将选中指明结点。  BOOL<br>GetItemImage( HTREEITEM hItem, int&amp; nImage, int&amp; nSelectedImage ) /<br>BOOL SetItemImage( HTREEITEM hItem, int nImage, int nSelectedImage<br>)用于得到/修改某结点所使用图标索引。  CString GetItemText( HTREEITEM hItem ) /BOOL<br>SetItemText( HTREEITEM hItem, LPCTSTR lpszItem );用于得到/修改某一结点的显示字符。<br>BOOL DeleteItem( HTREEITEM hItem );用于删除某一结点，BOOL DeleteAllItems(<br>);将删除所有结点。</p>
+<p>此外如果想遍历树可以使用下面的函数：  HTREEITEM GetRootItem( );得到根结点。  HTREEITEM<br>GetChildItem( HTREEITEM hItem );得到子结点。  HTREEITEM<br>GetPrevSiblingItem/GetNextSiblingItem( HTREEITEM hItem<br>);得到指明结点的上/下一个兄弟结点。  HTREEITEM GetParentItem( HTREEITEM hItem );得到父结点。</p>
+<p>树形控件的消息映射使用ON_NOTIFY宏，形式如同：ON_NOTIFY( wNotifyCode, id, memberFxn<br>)，wNotifyCode为通知代码，id为产生该消息的窗口ID，memberFxn为处理函数，函数的原型如同void<br>OnXXXTree(NMHDR<em> pNMHDR, LRESULT</em><br>pResult)，其中pNMHDR为一数据结构，在具体使用时需要转换成其他类型的结构。对于树形控件可能取值和对应的数据结构为：</p>
+<p>· TVN_SELCHANGED 在所选中的结点发生改变后发送，所用结构：NMTREEVIEW</p>
+<p>· TVN_ITEMEXPANDED 在某结点被展开后发送，所用结构：NMTREEVIEW</p>
+<p>· TVN_BEGINLABELEDIT 在开始编辑结点字符时发送，所用结构：NMTVDISPINFO</p>
+<p>· TVN_ENDLABELEDIT 在结束编辑结点字符时发送，所用结构：NMTVDISPINFO</p>
+<p>· TVN_GETDISPINFO 在需要得到某结点信息时发送，（如得到结点的显示字符）所用结构：NMTVDISPINFO</p>
+<p>关于ON_NOTIFY有很多内容，将在以后的内容中进行详细讲解。</p>
+<p>关于动态提供结点所显示的字符：首先你在添加结点时需要指明lpszItem参数为：LPSTR_TEXTCALLBACK。在控件显示该结点时会通过发送<br>TVN_GETDISPINFO来取得所需要的字符，在处理该消息时先将参数pNMHDR转换为LPNMTVDISPINFO，然后填充其中<br>item.pszText。但是我们通过什么来知道该结点所对应的信息呢，我的做法是在添加结点后设置其lParam参数，然后在提供信息时利用该参数来查找所对应的信息。下面的代码说明了这种方法：</p>
+<p>char szOut[8][3]={“No.1”,”No.2”,”No.3”}; //添加结点 HTREEITEM hItem =<br>m_tree.InsertItem(LPSTR_TEXTCALLBACK,…) m_tree.SetItemData(hItem, 0<br>); hItem = m_tree.InsertItem(LPSTR_TEXTCALLBACK,…)<br>m_tree.SetItemData(hItem, 1 ); //处理消息 void<br>CParentWnd::OnGetDispInfoTree(NMHDR<em> pNMHDR, LRESULT</em> pResult) {<br>TV_DISPINFO<em> pTVDI = (TV_DISPINFO</em>)pNMHDR;<br>pTVDI-&gt;item.pszText=szOut[pTVDI-&gt;item.lParam];<br>//通过lParam得到需要显示的字符在数组中的位置 *pResult = 0; }</p>
+<p>关于编辑结点的显示字符：首先需要设置树形控件的TVS_EDITLABELS风格，在开始编辑时该控件将会发送TVN_BEGINLABELEDIT，你可以通过在处理函数中返回TRUE来取消接下来的编辑，在编辑完成后会发送TVN_ENDLABELEDIT，在处理该消息时需要将参数pNMHDR转换为<br>LPNMTVDISPINFO，然后通过其中的item.pszText得到编辑后的字符，并重置显示字符。如果编辑在中途中取消该变量为NULL。下面的代码说明如何处理这些消息：</p>
+<p>//处理消息 TVN_BEGINLABELEDIT void CParentWnd::OnBeginEditTree(NMHDR<em><br>pNMHDR, LRESULT</em> pResult) { TV_DISPINFO<em> pTVDI = (TV_DISPINFO</em>)pNMHDR;<br>if(pTVDI-&gt;item.lParam==0);//判断是否取消该操作 <em>pResult = 1; else </em>pResult = 0;<br>} //处理消息 TVN_BEGINLABELEDIT void CParentWnd::OnBeginEditTree(NMHDR<em><br>pNMHDR, LRESULT</em> pResult) { TV_DISPINFO<em> pTVDI = (TV_DISPINFO</em>)pNMHDR;<br>if(pTVDI-&gt;item.pszText==NULL);//判断是否已经取消取消编辑<br>m_tree.SetItemText(pTVDI-&gt;item.hItem,pTVDI-&gt;pszText); //重置显示字符<br>*pResult = 0; }</p>
+<p>上面讲述的方法所进行的消息映射必须在父窗口中进行（同样WM_NOTIFY的所有消息都需要在父窗口中处理）。</p>
+</blockquote>
+<h4 id="List-Ctrl"><a href="#List-Ctrl" class="headerlink" title="List Ctrl"></a>List Ctrl</h4><blockquote>
+<p>列表控件可以看作是功能增强的ListBox，它提供了四种风格，而且可以同时显示一列的多中属性值。MFC中使用CListCtrl类来封装列表控件的各种操作。通过调用<br>BOOL Create( DWORD dwStyle, const RECT&amp; rect, CWnd* pParentWnd, UINT<br>nID );创建一个窗口，dwStyle中可以使用以下一些列表控件的专用风格：</p>
+<p>· LVS_ICON LVS_SMALLICON LVS_LIST LVS_REPORT<br>这四种风格决定控件的外观，同时只可以选择其中一种，分别对应：大图标显示，小图标显示，列表显示，详细报表显示</p>
+<p>· LVS_EDITLABELS 结点的显示字符可以被编辑，对于报表风格来讲可编辑的只为第一列。</p>
+<p>· LVS_SHOWSELALWAYS 在失去焦点时也显示当前选中的结点</p>
+<p>· LVS_SINGLESEL 同时只能选中列表中一项</p>
+<p>首先你需要设置列表控件所使用的ImageList，如果你使用大图标显示风格，你就需要以如下形式调用：  CImageList<em><br>SetImageList( CImageList</em> pImageList, LVSIL_NORMAL);<br>如果使用其它三种风格显示而不想显示图标你可以不进行任何设置，否则需要以如下形式调用：  CImageList<em> SetImageList(<br>CImageList</em> pImageList, LVSIL_SMALL);</p>
+<p>通过调用 int InsertItem( int nItem, LPCTSTR lpszItem<br>);可以在列表控件中nItem指明位置插入一项，lpszItem为显示字符。除LVS_REPORT风格外其他三种风格都只需要直接调用<br>InsertItem就可以了，但如果使用报表风格就必须先设置列表控件中的列信息。</p>
+<p>通过调用 int InsertColumn( int nCol, LPCTSTR lpszColumnHeading, int<br>nFormat , int nWidth, int<br>nSubItem);可以插入列。iCol为列的位置，从零开始，lpszColumnHeading为显示的列名，nFormat为显示对齐方式，<br>nWidth为显示宽度，nSubItem为分配给该列的列索引。</p>
+<p>在有多列的列表控件中就需要为每一项指明其在每一列中的显示字符，通过调用  BOOL SetItemText( int nItem, int<br>nSubItem, LPTSTR lpszText<br>);可以设置每列的显示字符。nItem为设置的项的位置，nSubItem为列位置，lpszText为显示字符。下面的代码演示了如何设置多列并插入数据：</p>
+<p>m_list.SetImageList(&amp;m_listSmall,LVSIL_SMALL);//设置ImageList<br>m_list.InsertColumn(0,”Col 1”,LVCFMT_LEFT,300,0);//设置列<br>m_list.InsertColumn(1,”Col 2”,LVCFMT_LEFT,300,1);<br>m_list.InsertColumn(2,”Col 3”,LVCFMT_LEFT,300,2);<br>m_list.InsertItem(0,”Item 1_1”);//插入行 m_list.SetItemText(0,1,”Item<br>1_2”);//设置该行的不同列的显示字符 m_list.SetItemText(0,2,”Item 1_3”);</p>
+<p>此外CListCtrl还提供了一些函数用于得到/修改控件的状态。  COLORREF GetTextColor( )/BOOL<br>SetTextColor( COLORREF cr );用于得到/设置显示的字符颜色。  COLORREF GetTextBkColor(<br>)/BOOL SetTextBkColor( COLORREF cr );用于得到/设置显示的背景颜色。  void<br>SetItemCount( int iCount );用于得到添加进列表中项的数量。  BOOL DeleteItem(int<br>nItem);用于删除某一项，BOOL DeleteAllItems( );将删除所有项。  BOOL SetBkImage(HBITMAP<br>hbm, BOOL fTile , int xOffsetPercent, int yOffsetPercent);用于设置背景位图。<br>CString GetItemText( int nItem, int nSubItem );用于得到某项的显示字符。</p>
+<p>列表控件的消息映射同样使用ON_NOTIFY宏，形式如同：ON_NOTIFY( wNotifyCode, id, memberFxn<br>)，wNotifyCode为通知代码，id为产生该消息的窗口ID，memberFxn为处理函数，函数的原型如同void<br>OnXXXList(NMHDR<em> pNMHDR, LRESULT</em><br>pResult)，其中pNMHDR为一数据结构，在具体使用时需要转换成其他类型的结构。对于列表控件可能取值和对应的数据结构为：</p>
+<p>· LVN_BEGINLABELEDIT 在开始某项编辑字符时发送，所用结构：NMLVDISPINFO</p>
+<p>· LVN_ENDLABELEDIT 在结束某项编辑字符时发送，所用结构：NMLVDISPINFO</p>
+<p>· LVN_GETDISPINFO 在需要得到某项信息时发送，（如得到某项的显示字符）所用结构：NMLVDISPINFO</p>
+<p>关于ON_NOTIFY有很多内容，将在以后的内容中进行详细讲解。</p>
+<p>关于动态提供结点所显示的字符：首先你在项时需要指明lpszItem参数为：LPSTR_TEXTCALLBACK。在控件显示该结点时会通过发送<br>TVN_GETDISPINFO来取得所需要的字符，在处理该消息时先将参数pNMHDR转换为LPNMLVDISPINFO，然后填充其中<br>item.pszText。通过item中的iItem,iSubItem可以知道当前显示的为那一项。下面的代码演示了这种方法：</p>
+<p>char szOut[8][3]={“No.1”,”No.2”,”No.3”}; //添加结点<br>m_list.InsertItem(LPSTR_TEXTCALLBACK,…)<br>m_list.InsertItem(LPSTR_TEXTCALLBACK,…) //处理消息 void<br>CParentWnd::OnGetDispInfoList(NMHDR<em> pNMHDR, LRESULT</em> pResult) {<br>LV_DISPINFO<em> pLVDI = (LV_DISPINFO</em>)pNMHDR;<br>pLVDI-&gt;item.pszText=szOut[pTVDI-&gt;item.iItem];<br>//通过iItem得到需要显示的字符在数组中的位置 *pResult = 0; }</p>
+<p>关于编辑某项的显示字符：（在报表风格中只对第一列有效）首先需要设置列表控件的LVS_EDITLABELS风格，在开始编辑时该控件将会发送<br>LVN_BEGINLABELEDIT，你可以通过在处理函数中返回TRUE来取消接下来的编辑，在编辑完成后会发送LVN_ENDLABELEDIT，在处理该消息时需要将参数pNMHDR转换为LPNMLVDISPINFO，然后通过其中的item.pszText得到编辑后的字符，并重置显示字符。如果编辑在中途中取消该变量为NULL。下面的代码说明如何处理这些消息：</p>
+<p>//处理消息 LVN_BEGINLABELEDIT void CParentWnd::OnBeginEditList(NMHDR<em><br>pNMHDR, LRESULT</em> pResult) { LV_DISPINFO<em> pLVDI = (LV_DISPINFO</em>)pNMHDR;<br>if(pLVDI-&gt;item.iItem==0);//判断是否取消该操作 <em>pResult = 1; else </em>pResult = 0;<br>} //处理消息 LVN_BEGINLABELEDIT void CParentWnd::OnBeginEditList(NMHDR<em><br>pNMHDR, LRESULT</em> pResult) { LV_DISPINFO<em> pLVDI = (LV_DISPINFO</em>)pNMHDR;<br>if(pLVDI-&gt;item.pszText==NULL);//判断是否已经取消取消编辑<br>m_list.SetItemText(pLVDI-&gt;item.iItem,0,pLVDI-&gt;pszText); //重置显示字符<br>*pResult = 0; }</p>
+<p>上面讲述的方法所进行的消息映射必须在父窗口中进行（同样WM_NOTIFY的所有消息都需要在父窗口中处理）。</p>
+<p>如何得到当前选中项位置：在列表控件中没有一个类似于ListBox中GetCurSel()的函数，但是可以通过调用GetNextItem(<br>-1, LVNI_ALL | LVNI_SELECTED);得到选中项位置。</p>
+</blockquote>
+<h4 id="Tab-Ctrl"><a href="#Tab-Ctrl" class="headerlink" title="Tab Ctrl"></a>Tab Ctrl</h4><blockquote>
+<p>Tab属性页控件可以在一个窗口中添加不同的页面，然后在页选择发生改变时得到通知。MFC中使用CTabCtrl类来封装属性页控件的各种操作。通过调用<br>BOOL Create( DWORD dwStyle, const RECT&amp; rect, CWnd* pParentWnd, UINT<br>nID );创建一个窗口，dwStyle中可以使用以下一些属性页控件的专用风格：</p>
+<p>TCS_BUTTONS 使用按钮来表示页选择位置  TCS_MULTILINE 分行显示页选择位置  TCS_SINGLELINE<br>只使用一行显示页选择位置  在控件创建后必需向其中添加页面才可以使用，添加页面的函数为：  BOOL InsertItem( int<br>nItem, LPCTSTR lpszItem<br>);nItem为位置，从零开始，lpszItem为页选择位置上显示的文字。如果你希望在页选择位置处显示一个图标，你可以调用  BOOL<br>InsertItem( int nItem, LPCTSTR lpszItem, int nImage<br>);nImage指明所使用的图片位置。（在此之前必须调用CImageList <em> SetImageList( CImageList </em><br>pImageList );设置正确的ImageList）</p>
+<p>此外CTabCtrl还提供了一些函数用于得到/修改控件的状态。  int GetCurSel( )/int SetCurSel( int<br>nItem );用于得到/设置当前被选中的页位置。  BOOL DeleteItem( int nItem )/BOOL<br>DeleteAllItems( );用于删除指定/所有页面。  void RemoveImage( int nImage<br>);用于删除某页选择位置上的图标。</p>
+<p>属性页控件的消息映射同样使用ON_NOTIFY宏，形式如同：ON_NOTIFY( wNotifyCode, id, memberFxn<br>)，wNotifyCode为通知代码，id为产生该消息的窗口ID，memberFxn为处理函数，函数的原型如同void<br>OnXXXTab(NMHDR<em> pNMHDR, LRESULT</em><br>pResult)，其中pNMHDR为一数据结构，在具体使用时需要转换成其他类型的结构。对于列表控件可能取值和对应的数据结构为：</p>
+<p>TCN_SELCHANGE 在当前页改变后发送，所用结构：NMHDR  TCN_SELCHANGING<br>在当前页改变时发送可以通过返回TRUE来禁止页面的改变，所用结构：NMHDR</p>
+<p>一般来讲在当前页发生改变时需要隐藏当前的一些子窗口，并显示其它的子窗口。下面的伪代码演示了如何使用属性页控件：<br>CParentWnd::OnCreate(…)<br>{<br>m_tab.Create(…);<br>m_tab.InsertItem(0,”Option 1”);<br>m_tab.InsertItem(1,”Option 2”);<br>Create a edit box as the m_tab’s Child<br>Create a static box as the m_tab’s Child<br>edit_box.ShowWindow(SW_SHOW); // edit box在属性页的第一页<br>static_box.ShowWindow(SW_HIDE); // static box在属性页的第二页<br>}<br>void CParentWnd::OnSelectChangeTab(NMHDR<em> pNMHDR, LRESULT</em> pResult)<br>{//处理页选择改变后的消息<br>if(m_tab.GetCurSel()==0)<br>{//根据当前页显示/隐藏不同的子窗口<br>edit_box.ShowWindow(SW_SHOW);<br>static_box.ShowWindow(SW_HIDE);<br>}<br>else<br>{//<br>edit_box.ShowWindow(SW_HIDE);<br>static_box.ShowWindow(SW_SHOW);<br>}<br>}</p>
+</blockquote>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/第5节-MFC对话框程序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/28/第5节-MFC对话框程序/" itemprop="url">第5节 MFC对话框程序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:31:35+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
+                    <span itemprop="name">MFC从入门到放弃</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Windows编程基础–第5节-MFC对话框程序"><a href="#Windows编程基础–第5节-MFC对话框程序" class="headerlink" title="Windows编程基础–第5节 MFC对话框程序"></a>Windows编程基础–第5节 MFC对话框程序</h1><h2 id="模式对话框"><a href="#模式对话框" class="headerlink" title="模式对话框"></a>模式对话框</h2><hr>
+<p>对话框程序是MFC最重要的组成部分，也是Visual C++中唯一可以可视化设计的窗口程序，对话框主要有两类：</p>
+<blockquote>
+<ul>
+<li>模式对话框：必须关闭这个对话框才能继续操作父窗口或者上一级窗口</li>
+<li>非模式对话框:不影响父窗口或者上一级窗口，可继续操作父窗口或者上一级窗口，对话框程序也可以一直保留，无需关闭才能执行下一步；</li>
+</ul>
+</blockquote>
+<p>接来下我们先一起学习模式对话框；</p>
+<h3 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h3><p>建立一个MFC的主对话框项目day04，参见上节，添加两个按钮，分别为“关于”，“聊天”，如图所示：<br><img src="http://img.blog.csdn.net/20171021224403317?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="2-添加关于对话框"><a href="#2-添加关于对话框" class="headerlink" title="2. 添加关于对话框"></a>2. 添加关于对话框</h3><p>在资源视图（ResourceView）中Dialog上右击-&gt;Insert Diallog，插入对话框，如图所示：<br><img src="http://img.blog.csdn.net/20171021225345643?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171021225356308?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="3-添加关于对话框类"><a href="#3-添加关于对话框类" class="headerlink" title="3. 添加关于对话框类"></a>3. 添加关于对话框类</h3><p>单击添加的关于对话框，执行View-&gt;Class Wizard，或者使用快捷键Ctrl + W打开类向导；<br>由于新的对话框不存在关联类，此时会提示创建一个与它相关联的类，选择Create a new class,单击OK创建关联类，如下图所示：<br><img src="http://img.blog.csdn.net/20171021225816356?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171021225906889?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>单击OK完成创建关联类；<br><img src="http://img.blog.csdn.net/20171021230017929?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="3-添加关于按钮消息事件"><a href="#3-添加关于按钮消息事件" class="headerlink" title="3. 添加关于按钮消息事件"></a>3. 添加关于按钮消息事件</h3><p>切换回主对话框，单击主对话框，执行View-&gt;Class Wizard，或者使用快捷键Ctrl + W打开类向导；选择关于按钮，增加clicked方法，然后Edit Code编辑关于按钮的响应方法，或者可以直接双击“关于”按钮就可以直接进入按钮点击方法，在day04Dlg.h中添加“#include AboutDlg.h”来引入对话框类，然后我们来编辑关于按键方法，创建一个模式对话框；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">void CDay04Dlg::OnButtonAbout() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	CAboutDlg dlg;</div><div class="line">	dlg.DoModal();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果图：<br><img src="http://img.blog.csdn.net/20171021231034007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>至此，一个模式对话框就创建成功了，我们可以看到，我们必须关闭关于对话框，才能单击主对话框。</p>
+<h2 id="非模式对话框"><a href="#非模式对话框" class="headerlink" title="非模式对话框"></a>非模式对话框</h2><p>现在我们来创建一个非模式对话框；</p>
+<h3 id="1-添加聊天对话框"><a href="#1-添加聊天对话框" class="headerlink" title="1. 添加聊天对话框"></a>1. 添加聊天对话框</h3><p>在资源视图（ResourceView）中Dialog上右击-&gt;Insert Diallog，插入对话框，如图所示：<br><img src="http://img.blog.csdn.net/20171021231642278?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="2-添加聊天对话框类"><a href="#2-添加聊天对话框类" class="headerlink" title="2. 添加聊天对话框类"></a>2. 添加聊天对话框类</h3><p>单击添加的关于对话框，执行View-&gt;Class Wizard，或者使用快捷键Ctrl + W打开类向导；<br>由于新的对话框不存在关联类，此时会提示创建一个与它相关联的类，选择Create a new class,单击OK创建关联类，如上面步骤3</p>
+<h3 id="3-添加聊天按钮消息事件"><a href="#3-添加聊天按钮消息事件" class="headerlink" title="3. 添加聊天按钮消息事件"></a>3. 添加聊天按钮消息事件</h3><p>切换回主对话框，单击主对话框，执行View-&gt;Class Wizard，或者使用快捷键Ctrl + W打开类向导；选择聊天按钮，增加clicked方法，然后Edit Code编辑关于按钮的响应方法，或者可以直接双击“聊天”按钮就可以直接进入按钮点击方法，在day04Dlg.h中添加“#include “Chat.h””来引入对话框类，然后我们来编辑聊天按键方法，创建一个非模式对话框；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">void CDay04Dlg::OnButtonChat() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	CChat * pDlg = new CChat;</div><div class="line">	pDlg-&gt;Create(IDD_DIALOG_CHAT);</div><div class="line">	pDlg-&gt;ShowWindow(SW_SHOW);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果图：<br><img src="http://img.blog.csdn.net/20171021232153087?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171021232202529?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>至此，一个非模式对话框就创建成功了，我们可以看到，我们打开聊天界面后还可以继续操作父窗口中的关于对话框，甚至还可以单击聊天对话框创建多个聊天界面；<br><img src="http://img.blog.csdn.net/20171021232914420?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/第4节-MFC消息映射机制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/28/第4节-MFC消息映射机制/" itemprop="url">第4节 MFC消息映射机制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:30:28+08:00">
+                2017-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
+                    <span itemprop="name">MFC从入门到放弃</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Windows编程基础–第4节-MFC消息映射机制"><a href="#Windows编程基础–第4节-MFC消息映射机制" class="headerlink" title="Windows编程基础–第4节 MFC消息映射机制"></a>Windows编程基础–第4节 MFC消息映射机制</h1><p>对于MFC程序最重要的响应机制就是消息映射机制，这节我们就来一起尝试一下MFC的消息映射机制。<br>（操作系统：win10 64位 IDE：vc++ 6.0）<br>1、新建一个MFC对话框项目，参见上节，<br>2、编译代码运行，效果图如下：<br><img src="http://img.blog.csdn.net/20171020220853804?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3、现在我们删除对话框上的《确定》和《取消》按钮，如图：<br><img src="http://img.blog.csdn.net/20171020221041426?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>4、现在我们添加自己的“OK”和“CANCEL”按钮，接下来我们就来看看“OK”按钮的按下消息是怎么进行处理的？<br><img src="http://img.blog.csdn.net/20171020221432827?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>4、执行View-&gt;Class Wizard,打开类向导；（或者直接用ctrl + W）</p>
+<p>此时就能看到我们创建的对话框，OK按钮，CANCEL按钮对象，点击它们可以看见它们分别的拥有的消息，如图：</p>
+<p><img src="http://img.blog.csdn.net/20171020222144280?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>5、我们选择Cday03Dlg，MESSAGES选择WM_MOUSEMOVE消息，点击Add Function，下部Member function就会出现与WM_MOUSEMOVE对应的OnMouseMove函数，接下来点击Edit Code，编辑OnMouseMove函数的内容：<br><img src="http://img.blog.csdn.net/20171020223001512?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171020223015497?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>6、我们来修改OnMouseMove(UINT nFlags, CPoint point) 函数，参数中point为鼠标的坐标位置，我们可以通过point.x, point.y来获取鼠标的位置，nFlags主要是标志一些控制键是否按下，然后MK_LBUTTON、MK_RBUTTON、MK_CONTROL、MK_SHIFT、MK_MBUTTON 分别对应鼠标左键，右键，CTRL ，SHIFT ，鼠标中间（转轮）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">void CDay03Dlg::OnMouseMove(UINT nFlags, CPoint point) </div><div class="line">&#123;</div><div class="line">	// TODO: Add your message handler code here and/or call default</div><div class="line">	CString strText;</div><div class="line">	strText.Format(&quot;坐标 x = %d ,y = %d &quot;,point.x, point.y);</div><div class="line"></div><div class="line">	if (nFlags &amp; MK_LBUTTON)</div><div class="line">	&#123;</div><div class="line">		strText += &quot; 鼠标左键DOWN&quot;;</div><div class="line">	&#125;</div><div class="line">	if (nFlags &amp; MK_RBUTTON)</div><div class="line">	&#123;</div><div class="line">		strText += &quot; 鼠标右键DOWN&quot;;</div><div class="line">	&#125;</div><div class="line">	if (nFlags &amp; MK_CONTROL)</div><div class="line">	&#123;</div><div class="line">		strText += &quot; CTRL DOWN&quot;;</div><div class="line">	&#125;</div><div class="line">	if (nFlags &amp; MK_SHIFT)</div><div class="line">	&#123;</div><div class="line">		strText += &quot; SHIFT DOWN&quot;;</div><div class="line">	&#125;</div><div class="line">	if (nFlags &amp; MK_MBUTTON)</div><div class="line">	&#123;</div><div class="line">		strText += &quot; MIDBUTTON DOWN&quot;;</div><div class="line">	&#125;</div><div class="line">	SetWindowText(strText);  // 设置对话框标题文本</div><div class="line"></div><div class="line">	CDialog::OnMouseMove(nFlags, point);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>效果图：<br><img src="http://img.blog.csdn.net/20171020224733563?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>7、同样，我们可以通过类向导分别设置“OK”，“CANCEL”按钮的消息触发函数；<br><img src="http://img.blog.csdn.net/20171020225549041?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171020225556702?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171020225608346?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>8、这是我们其实可以看到在day03Dlg.cpp中MESSAGE_MAP总下方就有我们新增的三个MFC消息，并且可以直观的看出是属于哪个控件ID的；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">BEGIN_MESSAGE_MAP(CDay03Dlg, CDialog)</div><div class="line">	//&#123;&#123;AFX_MSG_MAP(CDay03Dlg)</div><div class="line">	ON_WM_SYSCOMMAND()</div><div class="line">	ON_WM_PAINT()</div><div class="line">	ON_WM_QUERYDRAGICON()</div><div class="line">	ON_WM_MOUSEMOVE()</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON_OK, OnButtonOk)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON_CACEL, OnButtonCacel)</div><div class="line">	//&#125;&#125;AFX_MSG_MAP</div><div class="line">END_MESSAGE_MAP()</div></pre></td></tr></table></figure>
+<p>9、接下来我们切换到day03Dlg.h头文件中，所有afx_msg 开头的都是消息对应的处理函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// Generated message map functions</div><div class="line">//&#123;&#123;AFX_MSG(CDay03Dlg)</div><div class="line">afx_msg void OnSysCommand(UINT nID, LPARAM lParam);</div><div class="line">afx_msg void OnPaint();</div><div class="line">afx_msg HCURSOR OnQueryDragIcon();</div><div class="line">afx_msg void OnMouseMove(UINT nFlags, CPoint point);</div><div class="line">afx_msg void OnButtonOk();</div><div class="line">afx_msg void OnDoubleclickedButtonCacel();</div><div class="line">afx_msg void OnButtonCacel();</div><div class="line">//&#125;&#125;AFX_MSG</div><div class="line">DECLARE_MESSAGE_MAP()</div></pre></td></tr></table></figure>
+<p>10、由以上例子可以看出，MFC程序的消息映射机制是创建一个与窗口相关联的派生类，用于消息关联的成员函数来接收和处理窗口的消息。在类向导中选择对应的消息，添加与该消息关联的成员函数来处理该消息，这就是MFC的消息映射机制。具体控件或窗口支持哪些消息及消息对应的函数参数等，请参见MSDN；<br>11、最终效果图：<br><img src="http://img.blog.csdn.net/20171020232524462?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" title="项目源码可以访问我的码云来fork" target="_blank" rel="external">项目源码可以访问我的码云来fork</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/第3节-初探MFC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -595,163 +2089,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/MFC01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="阿木大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AmuUncle">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/MFC01/" itemprop="url">Windows编程基础--第1节  第一个win32软件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T22:42:12+08:00">
-                2017-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
-                    <span itemprop="name">MFC从入门到放弃</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Windows编程基础–第1节-第一个win32软件"><a href="#Windows编程基础–第1节-第一个win32软件" class="headerlink" title="Windows编程基础–第1节  第一个win32软件"></a>Windows编程基础–第1节  第一个win32软件</h1><p>下面新建一个win32程序，来演示win32程序开发的原理<br>（操作系统：win10 64位    IDE：vc++ 6.0）<br> 1、执行File -&gt; new命令，来新建一个工程，如下图：<br> <img src="http://img.blog.csdn.net/20171017222046015?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br> 2、点击 OK按钮，然后选择A simple win32 application，单击Finish完成创建；<br> <img src="http://img.blog.csdn.net/20171017222259506?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3、此时右边项目视图会显示我们刚才创建好的项目，双击Globals下面的WinMain函数<br> <img src="http://img.blog.csdn.net/20171017222422511?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br> 4、现在来新建一个简单的对话框</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MessageBox(NULL,&quot;Hello World!!&quot;,&quot;My First Win32 App&quot;,MB_OK);</div></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20171017223030168?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>5、单击状态栏上的 “build”，或者直接按<f7>键进行编译，然后单击状态栏的 ！ 来运行程序，或者ctrl+F5;<br><img src="http://img.blog.csdn.net/20171017223404504?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>以下是MessageBox的原型：</f7></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">int WINAPI MessageBox(</div><div class="line">  HWND hWnd,          // handle of owner window</div><div class="line">  LPCTSTR lpText,     // address of text in message box</div><div class="line">  LPCTSTR lpCaption, // address of title of message box</div><div class="line">  UINT uType          // style of message box</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>hWnd是消息框的拥有窗口。如果此参数为NULL，则消息框没有拥有窗口。<br>lpText为消息框的内容。<br>lpCaption为消息框的标题。<br>uType指定一个决定对话框的内容和行为（按钮、图标、形态及其他）的位标志集。<br>附其它常用属性 </p>
-<p>系统默认图标，可在消息框上显示<br>X错误 MB_ICONHAND, MB_ICONSTOP, and MB_ICONERROR<br>?询问 MB_ICONQUESTION<br>!警告 MB_ICONEXCLAMATION and MB_ICONWARNING<br>i信息 MB_ICONASTERISK and MB_ICONINFORMATION </p>
-<p>按钮的形式 </p>
-<p>MB_OK 默认<br>MB_OKCANCEL 确定取消<br>MB_YESNO 是否<br>MB_YESNOCANCEL 是否取消 </p>
-<p>返回值 </p>
-<p>IDCANCEL 取消被选<br>IDNO 否被选<br>IDOK 确定被选<br>IDYES 是被选<br>6、对照函数说明，我们可以简单根据对话框返回值来执行不同的代码，如图：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#include &quot;stdafx.h&quot;</div><div class="line"></div><div class="line">int APIENTRY WinMain(HINSTANCE hInstance,</div><div class="line">                     HINSTANCE hPrevInstance,</div><div class="line">                     LPSTR     lpCmdLine,</div><div class="line">                     int       nCmdShow)</div><div class="line">&#123;</div><div class="line"> 	// TODO: Place code here.</div><div class="line">	int ret = MessageBox(NULL,&quot;Hello World!!&quot;,&quot;My First Win32 App&quot;,MB_OKCANCEL );</div><div class="line">	if(IDCANCEL == ret)</div><div class="line">	&#123;</div><div class="line">		MessageBox(NULL,&quot;CANCEL is clicked&quot;,&quot;My First Win32 App&quot;,MB_OK);</div><div class="line">	&#125;</div><div class="line">	else if(IDOK  == ret)</div><div class="line">	&#123;</div><div class="line">		MessageBox(NULL,&quot;OK is clicked&quot;,&quot;My First Win32 App&quot;,MB_OK);</div><div class="line">	&#125;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20171017225111741?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>项目源码可以访问我的码云来fork：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://gitee.com/AmuUncle/MFC_CSDN.git</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -799,7 +2143,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -810,7 +2154,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -821,7 +2165,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
