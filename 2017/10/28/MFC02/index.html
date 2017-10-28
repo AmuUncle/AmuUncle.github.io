@@ -79,16 +79,24 @@
 
 
 
-<meta name="description" content="我的梦想就是努力实现小时候吹过的牛！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="AmuUncle">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="Windows编程基础–第2节 win32程序资源管理（操作系统：win10 64位 IDE：vc++ 6.0）windows程序都有自己的资源，例如按钮，图标，对话框等等，这节介绍如何使用win32程序资源管理；1、继续使用上节的win32程序demo，执行File-&amp;gt;new添加资源，选择Files选项卡中的Resource Script，填写资源名，如图所示：2、此时项目左侧会出现Res">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows编程基础--第2节 win32程序资源管理">
+<meta property="og:url" content="http://yoursite.com/2017/10/28/MFC02/index.html">
 <meta property="og:site_name" content="AmuUncle">
-<meta property="og:description" content="我的梦想就是努力实现小时候吹过的牛！">
+<meta property="og:description" content="Windows编程基础–第2节 win32程序资源管理（操作系统：win10 64位 IDE：vc++ 6.0）windows程序都有自己的资源，例如按钮，图标，对话框等等，这节介绍如何使用win32程序资源管理；1、继续使用上节的win32程序demo，执行File-&amp;gt;new添加资源，选择Files选项卡中的Resource Script，填写资源名，如图所示：2、此时项目左侧会出现Res">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20171018195816455?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171018200304399?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171018200805292?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171018201154122?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171018204956574?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171018210021527?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-10-28T14:56:09.187Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AmuUncle">
-<meta name="twitter:description" content="我的梦想就是努力实现小时候吹过的牛！">
+<meta name="twitter:title" content="Windows编程基础--第2节 win32程序资源管理">
+<meta name="twitter:description" content="Windows编程基础–第2节 win32程序资源管理（操作系统：win10 64位 IDE：vc++ 6.0）windows程序都有自己的资源，例如按钮，图标，对话框等等，这节介绍如何使用win32程序资源管理；1、继续使用上节的win32程序demo，执行File-&amp;gt;new添加资源，选择Files选项卡中的Resource Script，填写资源名，如图所示：2、此时项目左侧会出现Res">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171018195816455?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -118,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/28/MFC02/"/>
 
 
 
 
 
-  <title>AmuUncle</title>
+  <title>Windows编程基础--第2节 win32程序资源管理 | AmuUncle</title>
   
 
 
@@ -153,8 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -277,9 +284,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -309,9 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/MFC02/" itemprop="url">Windows编程基础--第2节 win32程序资源管理</a></h1>
+          <h1 class="post-title" itemprop="name headline">Windows编程基础--第2节 win32程序资源管理</h1>
         
 
         <div class="post-meta">
@@ -361,9 +366,7 @@
       
 
       
-        
-          
-            <h1 id="Windows编程基础–第2节-win32程序资源管理"><a href="#Windows编程基础–第2节-win32程序资源管理" class="headerlink" title="Windows编程基础–第2节 win32程序资源管理"></a>Windows编程基础–第2节 win32程序资源管理</h1><p>（操作系统：win10 64位 IDE：vc++ 6.0）<br>windows程序都有自己的资源，例如按钮，图标，对话框等等，这节介绍如何使用win32程序资源管理；<br>1、继续使用上节的win32程序demo，执行File-&gt;new添加资源，选择Files选项卡中的Resource Script，填写资源名，如图所示：<br><img src="http://img.blog.csdn.net/20171018195816455?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>2、此时项目左侧会出现ResourceView视图，单击ResourceView中的根节点+号，会提示“This file is already open in an editor”，这时候关闭右边的day01.rc，再次打开就可以了；<br><img src="http://img.blog.csdn.net/20171018200304399?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3、在ResourceView节点day01 Resources节点上右击-&gt;Insert,选中Dialog<br>,单击“New”,创建一个对话框资源，创建成功之后如图：<br><img src="http://img.blog.csdn.net/20171018200805292?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>4、在新建的对话框上右击选择属性（Properties），会弹出dialog的属性窗口，可以设置一些对话框的相关属性，如图<br><img src="http://img.blog.csdn.net/20171018201154122?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>5、接下来我们做一个简单的BMI计算器(体重指数BMI=体重/身高的平方（国际单位kg/㎡）)，拖动三个Edit分别用来显示身高，体重，BMI值，并设置属性ID，分别为：IDC_EDIT_SG、IDC_EDIT_TZ,IDC_EDIT_BMI，如图所示：<br><img src="http://img.blog.csdn.net/20171018204956574?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>6、接下来切换到类视图（classView），双击WinMain入口函数，添加对话框语句：</p>
+        <h1 id="Windows编程基础–第2节-win32程序资源管理"><a href="#Windows编程基础–第2节-win32程序资源管理" class="headerlink" title="Windows编程基础–第2节 win32程序资源管理"></a>Windows编程基础–第2节 win32程序资源管理</h1><p>（操作系统：win10 64位 IDE：vc++ 6.0）<br>windows程序都有自己的资源，例如按钮，图标，对话框等等，这节介绍如何使用win32程序资源管理；<br>1、继续使用上节的win32程序demo，执行File-&gt;new添加资源，选择Files选项卡中的Resource Script，填写资源名，如图所示：<br><img src="http://img.blog.csdn.net/20171018195816455?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>2、此时项目左侧会出现ResourceView视图，单击ResourceView中的根节点+号，会提示“This file is already open in an editor”，这时候关闭右边的day01.rc，再次打开就可以了；<br><img src="http://img.blog.csdn.net/20171018200304399?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3、在ResourceView节点day01 Resources节点上右击-&gt;Insert,选中Dialog<br>,单击“New”,创建一个对话框资源，创建成功之后如图：<br><img src="http://img.blog.csdn.net/20171018200805292?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>4、在新建的对话框上右击选择属性（Properties），会弹出dialog的属性窗口，可以设置一些对话框的相关属性，如图<br><img src="http://img.blog.csdn.net/20171018201154122?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>5、接下来我们做一个简单的BMI计算器(体重指数BMI=体重/身高的平方（国际单位kg/㎡）)，拖动三个Edit分别用来显示身高，体重，BMI值，并设置属性ID，分别为：IDC_EDIT_SG、IDC_EDIT_TZ,IDC_EDIT_BMI，如图所示：<br><img src="http://img.blog.csdn.net/20171018204956574?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>6、接下来切换到类视图（classView），双击WinMain入口函数，添加对话框语句：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DialogBox(hInstance,(LPCTSTR)IDD_DIALOG_BMI,NULL,DlGFUNC);</div></pre></td></tr></table></figure>
 <p>其中IDD_DIALOG_BMI为刚才添加的对话框属性ID，DlGFUNC为对话框的消息处理函数，<br>7、接下来我们添加DlGFUNC函数，如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">BOOL CALLBACK DlGFUNC(HWND hwnd_dlg,UINT uMsg,WPARAM wParam,LPARAM lParam)</div><div class="line">&#123;</div><div class="line">	switch(uMsg)</div><div class="line">	&#123;</div><div class="line">	case WM_COMMAND:</div><div class="line">		switch(wParam)</div><div class="line">		&#123;</div><div class="line">		case IDCANCEL:</div><div class="line">			EndDialog(hwnd_dlg,IDCANCEL);</div><div class="line">			break;</div><div class="line">		case IDOK:</div><div class="line">			&#123;</div><div class="line">				int nHeight= GetDlgItemInt(hwnd_dlg,IDC_EDIT_SG,NULL,TRUE);</div><div class="line">				double dHeight = nHeight / 100.00;</div><div class="line">				int nWeight = GetDlgItemInt(hwnd_dlg,IDC_EDIT_TZ,NULL,TRUE);</div><div class="line">				double bmi = nWeight/(dHeight*dHeight);</div><div class="line">				char buf[28];</div><div class="line">				sprintf(buf, &quot;%.3f&quot;, bmi);</div><div class="line">				SetDlgItemText(hwnd_dlg,IDC_EDIT_BMI,buf);</div><div class="line">			&#125;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">		break;</div><div class="line">	&#125;</div><div class="line">	return FALSE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -376,8 +379,6 @@
 <p>hwndDlg<br>指定对话框。<br>uMsg<br>指定消息。<br>wParam<br>指定消息特定的其他信息。<br>Iparam<br>指定消息特定的其他信息。</p>
 <p>项目源码可以访问我的码云来fork：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://gitee.com/AmuUncle/MFC_CSDN.git</div></pre></td></tr></table></figure>
-          
-        
       
     </div>
     
@@ -394,144 +395,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/MFC01/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="阿木大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AmuUncle">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/MFC01/" itemprop="url">Windows编程基础--第1节  第一个win32软件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T22:42:12+08:00">
-                2017-10-28
-              </time>
+              <a href="/2017/10/28/MFC01/" rel="next" title="Windows编程基础--第1节  第一个win32软件">
+                <i class="fa fa-chevron-left"></i> Windows编程基础--第1节  第一个win32软件
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h1 id="Windows编程基础–第1节-第一个win32软件"><a href="#Windows编程基础–第1节-第一个win32软件" class="headerlink" title="Windows编程基础–第1节  第一个win32软件"></a>Windows编程基础–第1节  第一个win32软件</h1><p>下面新建一个win32程序，来演示win32程序开发的原理<br>（操作系统：win10 64位    IDE：vc++ 6.0）<br> 1、执行File -&gt; new命令，来新建一个工程，如下图：<br> <img src="http://img.blog.csdn.net/20171017222046015?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br> 2、点击 OK按钮，然后选择A simple win32 application，单击Finish完成创建；<br> <img src="http://img.blog.csdn.net/20171017222259506?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>3、此时右边项目视图会显示我们刚才创建好的项目，双击Globals下面的WinMain函数<br> <img src="http://img.blog.csdn.net/20171017222422511?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br> 4、现在来新建一个简单的对话框</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">MessageBox(NULL,&quot;Hello World!!&quot;,&quot;My First Win32 App&quot;,MB_OK);</div></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20171017223030168?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>5、单击状态栏上的 “build”，或者直接按<f7>键进行编译，然后单击状态栏的 ！ 来运行程序，或者ctrl+F5;<br><img src="http://img.blog.csdn.net/20171017223404504?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>以下是MessageBox的原型：</f7></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">int WINAPI MessageBox(</div><div class="line">  HWND hWnd,          // handle of owner window</div><div class="line">  LPCTSTR lpText,     // address of text in message box</div><div class="line">  LPCTSTR lpCaption, // address of title of message box</div><div class="line">  UINT uType          // style of message box</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>hWnd是消息框的拥有窗口。如果此参数为NULL，则消息框没有拥有窗口。<br>lpText为消息框的内容。<br>lpCaption为消息框的标题。<br>uType指定一个决定对话框的内容和行为（按钮、图标、形态及其他）的位标志集。<br>附其它常用属性 </p>
-<p>系统默认图标，可在消息框上显示<br>X错误 MB_ICONHAND, MB_ICONSTOP, and MB_ICONERROR<br>?询问 MB_ICONQUESTION<br>!警告 MB_ICONEXCLAMATION and MB_ICONWARNING<br>i信息 MB_ICONASTERISK and MB_ICONINFORMATION </p>
-<p>按钮的形式 </p>
-<p>MB_OK 默认<br>MB_OKCANCEL 确定取消<br>MB_YESNO 是否<br>MB_YESNOCANCEL 是否取消 </p>
-<p>返回值 </p>
-<p>IDCANCEL 取消被选<br>IDNO 否被选<br>IDOK 确定被选<br>IDYES 是被选<br>6、对照函数说明，我们可以简单根据对话框返回值来执行不同的代码，如图：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#include &quot;stdafx.h&quot;</div><div class="line"></div><div class="line">int APIENTRY WinMain(HINSTANCE hInstance,</div><div class="line">                     HINSTANCE hPrevInstance,</div><div class="line">                     LPSTR     lpCmdLine,</div><div class="line">                     int       nCmdShow)</div><div class="line">&#123;</div><div class="line"> 	// TODO: Place code here.</div><div class="line">	int ret = MessageBox(NULL,&quot;Hello World!!&quot;,&quot;My First Win32 App&quot;,MB_OKCANCEL );</div><div class="line">	if(IDCANCEL == ret)</div><div class="line">	&#123;</div><div class="line">		MessageBox(NULL,&quot;CANCEL is clicked&quot;,&quot;My First Win32 App&quot;,MB_OK);</div><div class="line">	&#125;</div><div class="line">	else if(IDOK  == ret)</div><div class="line">	&#123;</div><div class="line">		MessageBox(NULL,&quot;OK is clicked&quot;,&quot;My First Win32 App&quot;,MB_OK);</div><div class="line">	&#125;</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20171017225111741?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>项目源码可以访问我的码云来fork：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://gitee.com/AmuUncle/MFC_CSDN.git</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -541,10 +426,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -552,6 +438,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -572,8 +462,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -649,6 +548,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows编程基础–第2节-win32程序资源管理"><span class="nav-number">1.</span> <span class="nav-text">Windows编程基础–第2节 win32程序资源管理</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -789,6 +704,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
