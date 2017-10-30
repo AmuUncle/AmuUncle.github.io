@@ -454,7 +454,33 @@
 </tr>
 </tbody>
 </table>
-<h2 id="2-设置树控件属性"><a href="#2-设置树控件属性" class="headerlink" title="2. 设置树控件属性"></a>2. 设置树控件属性</h2><p>编辑树控件如下属性：<br>| 属性|             修改值|             解释|<br>| ——–   |——–         |            —–:  |<br>| Has Buttons| TRUE      |           在父节点旁边显示+或-|<br>| Has Lines   |   TRUE   |   在父节点和子节点之间划线|<br>| Line At root      |   TRUE   |  在根节点上划线| </p>
+<h2 id="2-设置树控件属性"><a href="#2-设置树控件属性" class="headerlink" title="2. 设置树控件属性"></a>2. 设置树控件属性</h2><p>编辑树控件如下属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>修改值</th>
+<th style="text-align:right">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Has Buttons</td>
+<td>TRUE</td>
+<td style="text-align:right">在父节点旁边显示+或-</td>
+</tr>
+<tr>
+<td>Has Lines</td>
+<td>TRUE</td>
+<td style="text-align:right">在父节点和子节点之间划线</td>
+</tr>
+<tr>
+<td>Line At root</td>
+<td>TRUE</td>
+<td style="text-align:right">在根节点上划线</td>
+</tr>
+</tbody>
+</table>
 <h2 id="3-添加树控件变量"><a href="#3-添加树控件变量" class="headerlink" title="3. 添加树控件变量"></a>3. 添加树控件变量</h2><p>给树控件添加一个变量“m_tree”，如图：<br><img src="http://img.blog.csdn.net/20171030204858144?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
 <h2 id="4-实现添加节点按钮函数"><a href="#4-实现添加节点按钮函数" class="headerlink" title="4. 实现添加节点按钮函数"></a>4. 实现添加节点按钮函数</h2><p>双击“添加节点”按钮，编辑按钮点击方法：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">void Cday14Dlg::OnBnClickedButtonAdd()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	CString strText;</div><div class="line">	GetDlgItemText(IDC_EDIT_ADD_MDY,strText);</div><div class="line">	if (strText.GetLength() == 0)</div><div class="line">	&#123;</div><div class="line">		AfxMessageBox(_T(&quot;请输入节点名！&quot;));</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</div><div class="line">	if(hItem == NULL)&#123;</div><div class="line">		hItem = TVI_ROOT;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	TVINSERTSTRUCT ts =&#123;0&#125;;</div><div class="line">	ts.hParent = hItem;</div><div class="line">	ts.hInsertAfter = TVI_LAST;</div><div class="line">	ts.item.pszText = strText.GetBuffer();</div><div class="line">	ts.item.mask = TVIF_TEXT;</div><div class="line">	HTREEITEM hNewItem = m_tree.InsertItem(&amp;ts);</div><div class="line">	m_tree.SelectItem(hNewItem);</div><div class="line">	m_tree.EnsureVisible(hNewItem);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
