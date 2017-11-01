@@ -326,6 +326,221 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/01/第14节-MFC之文件对话框CFileDialog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/01/第14节-MFC之文件对话框CFileDialog/" itemprop="url">第14节 MFC之文件对话框CFileDialog</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-01T21:49:20+08:00">
+                2017-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
+                    <span itemprop="name">MFC从入门到放弃</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第14节-MFC之文件对话框CFileDialog"><a href="#第14节-MFC之文件对话框CFileDialog" class="headerlink" title="第14节 MFC之文件对话框CFileDialog"></a>第14节 MFC之文件对话框CFileDialog</h1><hr>
+<p>今天我们学习两个打开文件对话框、保存文件对话框，应用程序难免需要加载文件，或者打开配置文件等，这就用到打开或者保存对话框，例如windows文本编辑器中保存对话框就属于其中一种：<br><img src="http://img.blog.csdn.net/20171101203217131?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<hr>
+<h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day16”，布局如下，自行处理：<br><img src="http://img.blog.csdn.net/20171101203650950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>拖动一个EDIT到界面，并修改如下属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>修改值</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>IDC_EDIT_TXT</td>
+<td>控件ID</td>
+</tr>
+<tr>
+<td>Want Return</td>
+<td>TRUE</td>
+<td>允许回车</td>
+</tr>
+<tr>
+<td>Multiline</td>
+<td>TRUE</td>
+<td>允许多行</td>
+</tr>
+<tr>
+<td>Horizontal Scoll</td>
+<td>TRUE</td>
+<td>水平滚动天</td>
+</tr>
+<tr>
+<td>Vertical Scoll</td>
+<td>TRUE</td>
+<td>垂直滚动条</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-添加菜单资源"><a href="#2-添加菜单资源" class="headerlink" title="2. 添加菜单资源"></a>2. 添加菜单资源</h2><p>切换到资源视图，添加菜单资源如下：<br><img src="http://img.blog.csdn.net/20171101204453007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>若不知道怎么添加菜单请参考<a href="http://blog.csdn.net/qq_25549309/article/details/78359647" target="_blank" rel="external"><strong>Windows编程基础–第10节 MFC菜单 </strong></a></p>
+<blockquote>
+<p>注意：菜单选项最后加上&amp;符号可以设置快捷键，如“文件(&amp;F)”，当程序运行时可以通过ALT + F快捷打开文件菜单选项；</p>
+</blockquote>
+<p>将菜单绑定到主界面：<br><img src="http://img.blog.csdn.net/20171101204853878?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="3-实现文件打开对话框"><a href="#3-实现文件打开对话框" class="headerlink" title="3. 实现文件打开对话框"></a>3. 实现文件打开对话框</h2><p>右击菜单中“打开”选项，选择“添加事件处理处理程序”，添加处理程序，如图：<br><img src="http://img.blog.csdn.net/20171101205350070?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述">其中行数处理程序名称：OnFileOpen，类列表选择：Cday16Dlg，添加编辑：<br>函数代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">void Cday16Dlg::OnFileOpen()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加命令处理程序代码</div><div class="line">	CFileDialog dlg(TRUE,NULL,NULL,OFN_FILEMUSTEXIST|OFN_PATHMUSTEXIST,_T(&quot;文本文件(*.txt)|*.txt|所有文件(*.*)|*.*||&quot;),this);</div><div class="line">	dlg.m_ofn.lpstrInitialDir = _T(&quot;C:\\&quot;);</div><div class="line">	if (dlg.DoModal()  == IDOK)</div><div class="line">	&#123;</div><div class="line">		CStdioFile inFile;</div><div class="line">		inFile.Open(dlg.GetPathName(),CFile::modeRead);</div><div class="line">		CString text;</div><div class="line">		CString temp;</div><div class="line">		while(inFile.ReadString(text))</div><div class="line">		&#123;    </div><div class="line">			GetDlgItemText(IDC_EDIT_TXT,temp);</div><div class="line">			if (temp.GetLength() &gt; 0)</div><div class="line">			&#123;</div><div class="line">				SetDlgItemText(IDC_EDIT_TXT,temp +&quot;\r\n&quot;+ text);</div><div class="line">			&#125;</div><div class="line">			else</div><div class="line">			&#123;</div><div class="line">				SetDlgItemText(IDC_EDIT_TXT,text);</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		inFile.Close();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>创建一个txt文件对话框；</li>
+<li>如文件对话框确定按钮被点击，则打开文件位置，文件全路径就是dlg.GetPathName()；</li>
+<li>循环读取文件，知道文件读取结束；每读一行就先获取界面文本框的内容加上新读取的文本，重新设置到界面；</li>
+<li>关闭文件</li>
+</ol>
+</blockquote>
+<p>这样一个打开文件对话框就完成了，效果图如下：<br><img src="http://img.blog.csdn.net/20171101213305582?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="3-实现文件保存对话框"><a href="#3-实现文件保存对话框" class="headerlink" title="3. 实现文件保存对话框"></a>3. 实现文件保存对话框</h2><p>右击菜单中“保存”选项，选择“添加事件处理处理程序”，添加处理程序，如图：<br><img src="http://img.blog.csdn.net/20171101213433187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>名称：OnSaveFile，类列表选择：Cday16Dlg，添加编辑：<br>函数代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">void Cday16Dlg::OnSaveFile()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加命令处理程序代码</div><div class="line">	CFileDialog dlg(FALSE,NULL,NULL,OFN_HIDEREADONLY |OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST,_T(&quot;文本文件(*.txt)|*.txt||&quot;),this);</div><div class="line">	if (dlg.DoModal()  == IDOK)</div><div class="line">	&#123;</div><div class="line">		CFile file;  //建立一个CFile对象</div><div class="line">		//打开文件,如果不存在该文件就创建文件</div><div class="line">		if(!file.Open(dlg.GetPathName(),CFile::modeCreate|CFile::modeWrite))</div><div class="line">		&#123;</div><div class="line">			AfxMessageBox( &quot;can   not   Create   file! &quot;);</div><div class="line">			return;</div><div class="line">		&#125; </div><div class="line"></div><div class="line">		CString output;</div><div class="line">		GetDlgItemText(IDC_EDIT_TXT,output);</div><div class="line">		file.Write(output,strlen(output));</div><div class="line">		file.Flush();    //将在缓冲区中的字符写入文件中</div><div class="line">		file.Close();   //关闭文件</div><div class="line">		AfxMessageBox( &quot;保存成功！&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>创建一个txt文件保存对话框；</li>
+<li>如文件对话框确定按钮被点击，则获取文件位置，文件全路径就是dlg.GetPathName()；</li>
+<li>先获取界面文本框的内容，将内容写到文件中；</li>
+<li>关闭文件<br>效果图：<br><img src="http://img.blog.csdn.net/20171101214549676?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+</ol>
+</blockquote>
+<h2 id="好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。"><a href="#好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。" class="headerlink" title="好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。"></a>好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。</h2><h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://blog.amuuncle.site/" target="_blank" rel="external">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	
+    
+
+    
+
+    
+	
+
+	
+	<div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/31/第13节-MFC之图片控件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -739,7 +954,7 @@
 <h3 id="3、树形控件的成员函数"><a href="#3、树形控件的成员函数" class="headerlink" title="3、树形控件的成员函数"></a>3、树形控件的成员函数</h3><blockquote>
 <p>InsertItem函数插入一个节点，并返回新插入的节点的HTREEITEM。<br>ItemHasChildren函数根据给定的HTREEITEM判断该节点是否存在子节点。<br>GetChildItem函数根据给定的HTREEITEM获取该节点下子节点的HTREEITEM，如果没有子节点，则返回NULL。<br>GetNextSiblingItem函数根据给定的HTREEITEM获取该节点的下一个同级节点。<br>EnsureVisible函数在必要的时候滚动视图列表控件使得其至少部分可见。需要注意的是，在使用TVE_COLLAPSE调用Expand收缩树形控件后不能再调用该函数，否则收缩操作将无效。</p>
 </blockquote>
-<h1 id="感伤：WE输了，RNG输了，心碎了。。。"><a href="#感伤：WE输了，RNG输了，心碎了。。。" class="headerlink" title="感伤：WE输了，RNG输了，心碎了。。。"></a>感伤：WE输了，RNG输了，心碎了。。。</h1><h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://amuuncle.site/" target="_blank" rel="external">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+<h1 id="感伤：WE输了，RNG输了，心碎了。。。"><a href="#感伤：WE输了，RNG输了，心碎了。。。" class="headerlink" title="感伤：WE输了，RNG输了，心碎了。。。"></a>感伤：WE输了，RNG输了，心碎了。。。</h1><h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://blog.amuuncle.site/" target="_blank" rel="external">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
           
         
       
@@ -2062,181 +2277,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/28/第7节-来吧，VS-2010/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="阿木大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AmuUncle">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/第7节-来吧，VS-2010/" itemprop="url">第7节 来吧，VS 2010</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:32:25+08:00">
-                2017-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
-                    <span itemprop="name">MFC从入门到放弃</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Windows编程基础–第7节-来吧，VS-2010"><a href="#Windows编程基础–第7节-来吧，VS-2010" class="headerlink" title="Windows编程基础–第7节 来吧，VS 2010"></a>Windows编程基础–第7节 来吧，VS 2010</h1><h1 id="VS-2010开发第一步"><a href="#VS-2010开发第一步" class="headerlink" title="VS 2010开发第一步"></a>VS 2010开发第一步</h1><hr>
-<p>前面几节我们都是采用<strong>VC++ 6.0 作为IDE（集成开发环境）</strong>，但是由于<strong>VC++ 6.0 </strong>已经过于老旧，目前大多数企业和个人都已经不再使用，而采用vs2005， vs2008， vs2010，vs2015作为MFC程序的开发环境，vs相对vc++6.0具有更友好的界面，及更强大的功能，采用vs开发MFC应用程序更加得心应手。</p>
-<h2 id="1、开始使用VS-2010"><a href="#1、开始使用VS-2010" class="headerlink" title="1、开始使用VS 2010"></a>1、开始使用VS 2010</h2><h3 id="1-1-安装VS-2010"><a href="#1-1-安装VS-2010" class="headerlink" title="1.1 安装VS 2010"></a>1.1 安装VS 2010</h3><p><a href="https://jingyan.baidu.com/article/4e5b3e195b838991901e24e5.html" target="_blank" rel="external">参见百度百科</a></p>
-<h3 id="1-2-创建一个基于对话框项目"><a href="#1-2-创建一个基于对话框项目" class="headerlink" title="1.2 创建一个基于对话框项目"></a>1.2 创建一个基于对话框项目</h3><p>执行“文件”-&gt;“新建”-&gt;“项目”，选择基于对话框的MFC程序，其他默认就好，基本上和<strong>VC++ 6.0 </strong>创建项目一模一样，如图所示：<br><img src="http://img.blog.csdn.net/20171023201320375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171023201410030?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171023201434296?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="1-3-创建一个字符统计窗口"><a href="#1-3-创建一个字符统计窗口" class="headerlink" title="1.3 创建一个字符统计窗口"></a>1.3 创建一个字符统计窗口</h3><p>现在我们通过一个小例子来看看VS2010创建MFC程序有什么不同，我们来创建一个字符统计窗口，输入各种字符，最后统计出所有字符个数；<br>设计界面如下，<br><img src="http://img.blog.csdn.net/20171023202332101?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>一个文本输入框，一个“统计”按钮，一个文本显示“字符个数”，直接在工具箱中拖动进来就OK，然后拖动大小适中就好，方法同<strong>VC++ 6.0 </strong>没有区别，可以参考上几节内容。<br><strong>注意:</strong> 若是右边没有工具箱选项卡，可以通过“视图”-&gt;“工具箱”打开。<br>编译运行，效果图：<br><img src="http://img.blog.csdn.net/20171023203106380?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="1-3-创建一个字符统计窗口-1"><a href="#1-3-创建一个字符统计窗口-1" class="headerlink" title="1.3 创建一个字符统计窗口"></a>1.3 创建一个字符统计窗口</h3><p>双击“统计”按钮，编辑按钮的点击处理函数，<br>我们来分析一下：</p>
-<blockquote>
-<ul>
-<li>获取输入框中文本</li>
-<li>获取输入框中文本的字符个数</li>
-<li>将字符个数显示到静态文本上<br>所以处理函数如下：</li>
-</ul>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">void Cday07Dlg::OnBnClickedButtonCount()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	CString strInput,strOutput;</div><div class="line">	GetDlgItemText(IDC_EDIT_TEXT,strInput);</div><div class="line"></div><div class="line">	int nCount = strInput.GetLength();</div><div class="line">	strOutput.Format(_T(&quot;字符个数：%d &quot;),nCount);</div><div class="line">	SetDlgItemText(IDC_STATIC_COUNT,strOutput);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="1-4-编译运行"><a href="#1-4-编译运行" class="headerlink" title="1.4 编译运行"></a>1.4 编译运行</h3><p>运行结果图：<br><img src="http://img.blog.csdn.net/20171023204200061?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这是我们发现当我们输入完成是，输入“回车”时，程序就会直接结束，那么我们修改输入框的属性值“Want Return”来允许输入框来接收回车，如图<br><img src="http://img.blog.csdn.net/20171023204439088?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>其实这是我们可以发现现在文本框是只能输入一行，显然不够美观，那么我们再修改一下输入框属性：<br><img src="http://img.blog.csdn.net/20171023205039008?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<blockquote>
-<ol>
-<li>Multiline：允许多行 </li>
-<li>Horizontal Scroll：水平滚动条 </li>
-<li>Vertical Scroll:垂直滚动条</li>
-</ol>
-</blockquote>
-<p>再次编译运行：<br><img src="http://img.blog.csdn.net/20171023205614359?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>现在文本框现在可以输入多行，并且可以任意回车了。<br>有人可能和我一样，发现程序没有关闭按钮，那是因为我在创建的时候取消了系统菜单，我们可以选定对话框主界面，选择属性-&gt;system menu-&gt;TRUE:<br><img src="http://img.blog.csdn.net/20171023205947196?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这是关闭按钮就出现了，可以正常关闭了。</p>
-<h2 id="2、初探VS中消息映射机制"><a href="#2、初探VS中消息映射机制" class="headerlink" title="2、初探VS中消息映射机制"></a>2、初探VS中消息映射机制</h2><h3 id="2-1-创建EDIT的消息处理函数"><a href="#2-1-创建EDIT的消息处理函数" class="headerlink" title="2.1 创建EDIT的消息处理函数"></a>2.1 创建EDIT的消息处理函数</h3><p>单击选定输入框，右击选择“添加事件处理程序”，这是可以很直观的看见EDIT的消息列表和要添加到的类，以及添加的处理函数名，现在我们来添加一个EN_CHANGE的消息处理函数，如图所示：<br><img src="http://img.blog.csdn.net/20171023212741178?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>单击“添加编辑”来编辑消息处理函数，代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">void Cday07Dlg::OnEnChangeEditText()</div><div class="line">&#123;</div><div class="line">	// TODO:  如果该控件是 RICHEDIT 控件，它将不</div><div class="line">	// 发送此通知，除非重写 CDialogEx::OnInitDialog()</div><div class="line">	// 函数并调用 CRichEditCtrl().SetEventMask()，</div><div class="line">	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。</div><div class="line"></div><div class="line">	// TODO:  在此添加控件通知处理程序代码</div><div class="line">	CString strInput,strOutput;</div><div class="line">	GetDlgItemText(IDC_EDIT_TEXT,strInput);</div><div class="line"></div><div class="line">	int nCount = strInput.GetLength();</div><div class="line">	strOutput.Format(_T(&quot;字符个数：%d &quot;),nCount);</div><div class="line">	SetDlgItemText(IDC_STATIC_COUNT,strOutput);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="2-2-编译运行"><a href="#2-2-编译运行" class="headerlink" title="2.2 编译运行"></a>2.2 编译运行</h3><p>这是我们可以发现我们在输入框中输入字符时，下方的字符统计数会实时显示，这就是输入文本时，EDIT的EN_CHANGE消息被触发，从而触发其消息处理函数OnEnChangeEditText，导致字符统计数实时更新，效果图如下：<br><img src="http://img.blog.csdn.net/20171023213131534?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="2-3-MFC消息映射机制流程"><a href="#2-3-MFC消息映射机制流程" class="headerlink" title="2.3 MFC消息映射机制流程"></a>2.3 MFC消息映射机制流程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">st=&gt;start: Start</div><div class="line">op=&gt;operation: 输入框文本变化</div><div class="line">op2=&gt;operation: 触发EN_CHANGE消息</div><div class="line">op3=&gt;operation: 调用EN_CHANGE的处理函数OnEnChangeEditText</div><div class="line">op4=&gt;operation: 将输入框字符数返回到界面</div><div class="line">e=&gt;end</div><div class="line"></div><div class="line">st-&gt;op-&gt;op2-&gt;op3-&gt;op4-&gt;e</div></pre></td></tr></table></figure>
-<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3>
-          
-        
-      
-    </div>
-    
-    
-    
-	
-	
-    
-
-    
-
-    
-	
-
-	
-	<div>
-		
-	</div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2291,7 +2331,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
