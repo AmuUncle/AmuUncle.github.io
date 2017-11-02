@@ -89,27 +89,27 @@
 
 
 
-<meta name="description" content="第14节 MFC之文件对话框CFileDialog 今天我们学习两个打开文件对话框、保存文件对话框，应用程序难免需要加载文件，或者打开配置文件等，这就用到打开或者保存对话框，例如windows文本编辑器中保存对话框就属于其中一种：  1. 新建项目新建一个基于对话框项目“day16”，布局如下，自行处理：拖动一个EDIT到界面，并修改如下属性：    属性 修改值 解释     ID IDC_ED">
+<meta name="description" content="Windows编程基础–第15节 MFC之复选框及单选按钮1. 新建项目新建一个基于对话框项目“day17”，布局如下，自行处理： 拖动三个check box和两个radio button到界面上，设置其ID如下：| 控件名 | 控件ID|| ——–   |  —–:  || 红色| IDC_CHECK_RED|| 绿色   |   IDC_CHECK_GREEN|| 蓝色     |   IDC">
 <meta name="keywords" content="MFC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第14节 MFC之文件对话框CFileDialog">
-<meta property="og:url" content="http://yoursite.com/2017/11/01/第14节-MFC之文件对话框CFileDialog/index.html">
+<meta property="og:title" content="第15节 MFC之复选框及单选按钮">
+<meta property="og:url" content="http://yoursite.com/2017/11/02/第15节-MFC之复选框及单选按钮/index.html">
 <meta property="og:site_name" content="AmuUncle">
-<meta property="og:description" content="第14节 MFC之文件对话框CFileDialog 今天我们学习两个打开文件对话框、保存文件对话框，应用程序难免需要加载文件，或者打开配置文件等，这就用到打开或者保存对话框，例如windows文本编辑器中保存对话框就属于其中一种：  1. 新建项目新建一个基于对话框项目“day16”，布局如下，自行处理：拖动一个EDIT到界面，并修改如下属性：    属性 修改值 解释     ID IDC_ED">
+<meta property="og:description" content="Windows编程基础–第15节 MFC之复选框及单选按钮1. 新建项目新建一个基于对话框项目“day17”，布局如下，自行处理： 拖动三个check box和两个radio button到界面上，设置其ID如下：| 控件名 | 控件ID|| ——–   |  —–:  || 红色| IDC_CHECK_RED|| 绿色   |   IDC_CHECK_GREEN|| 蓝色     |   IDC">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.blog.csdn.net/20171101203217131?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171101203650950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171101204453007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171101204853878?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171101205350070?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171101213305582?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171101213433187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171101214549676?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-11-01T13:58:54.174Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20171102215604038?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171102220353696?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171102220403509?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171102220705649?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171102221631588?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171102224705375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171102225056653?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171102225829436?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-11-02T15:00:43.236Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第14节 MFC之文件对话框CFileDialog">
-<meta name="twitter:description" content="第14节 MFC之文件对话框CFileDialog 今天我们学习两个打开文件对话框、保存文件对话框，应用程序难免需要加载文件，或者打开配置文件等，这就用到打开或者保存对话框，例如windows文本编辑器中保存对话框就属于其中一种：  1. 新建项目新建一个基于对话框项目“day16”，布局如下，自行处理：拖动一个EDIT到界面，并修改如下属性：    属性 修改值 解释     ID IDC_ED">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20171101203217131?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="第15节 MFC之复选框及单选按钮">
+<meta name="twitter:description" content="Windows编程基础–第15节 MFC之复选框及单选按钮1. 新建项目新建一个基于对话框项目“day17”，布局如下，自行处理： 拖动三个check box和两个radio button到界面上，设置其ID如下：| 控件名 | 控件ID|| ——–   |  —–:  || 红色| IDC_CHECK_RED|| 绿色   |   IDC_CHECK_GREEN|| 蓝色     |   IDC">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171102215604038?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -139,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/01/第14节-MFC之文件对话框CFileDialog/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/02/第15节-MFC之复选框及单选按钮/"/>
 
 
 
 
 
-  <title>第14节 MFC之文件对话框CFileDialog | AmuUncle</title>
+  <title>第15节 MFC之复选框及单选按钮 | AmuUncle</title>
   
 
 
@@ -336,7 +336,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/01/第14节-MFC之文件对话框CFileDialog/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/02/第15节-MFC之复选框及单选按钮/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="阿木大叔">
@@ -353,7 +353,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第14节 MFC之文件对话框CFileDialog</h1>
+          <h1 class="post-title" itemprop="name headline">第15节 MFC之复选框及单选按钮</h1>
         
 
         <div class="post-meta">
@@ -365,8 +365,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-01T21:49:20+08:00">
-                2017-11-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-02T23:00:09+08:00">
+                2017-11-02
               </time>
             
 
@@ -425,74 +425,40 @@
       
 
       
-        <h1 id="第14节-MFC之文件对话框CFileDialog"><a href="#第14节-MFC之文件对话框CFileDialog" class="headerlink" title="第14节 MFC之文件对话框CFileDialog"></a>第14节 MFC之文件对话框CFileDialog</h1><hr>
-<p>今天我们学习两个打开文件对话框、保存文件对话框，应用程序难免需要加载文件，或者打开配置文件等，这就用到打开或者保存对话框，例如windows文本编辑器中保存对话框就属于其中一种：<br><img src="http://img.blog.csdn.net/20171101203217131?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<hr>
-<h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day16”，布局如下，自行处理：<br><img src="http://img.blog.csdn.net/20171101203650950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>拖动一个EDIT到界面，并修改如下属性：</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>修改值</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ID</td>
-<td>IDC_EDIT_TXT</td>
-<td>控件ID</td>
-</tr>
-<tr>
-<td>Want Return</td>
-<td>TRUE</td>
-<td>允许回车</td>
-</tr>
-<tr>
-<td>Multiline</td>
-<td>TRUE</td>
-<td>允许多行</td>
-</tr>
-<tr>
-<td>Horizontal Scoll</td>
-<td>TRUE</td>
-<td>水平滚动条</td>
-</tr>
-<tr>
-<td>Vertical Scoll</td>
-<td>TRUE</td>
-<td>垂直滚动条</td>
-</tr>
-</tbody>
-</table>
-<h2 id="2-添加菜单资源"><a href="#2-添加菜单资源" class="headerlink" title="2. 添加菜单资源"></a>2. 添加菜单资源</h2><p>切换到资源视图，添加菜单资源如下：<br><img src="http://img.blog.csdn.net/20171101204453007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>若不知道怎么添加菜单请参考<a href="http://blog.csdn.net/qq_25549309/article/details/78359647" target="_blank" rel="external"><strong>Windows编程基础–第10节 MFC菜单 </strong></a></p>
+        <h1 id="Windows编程基础–第15节-MFC之复选框及单选按钮"><a href="#Windows编程基础–第15节-MFC之复选框及单选按钮" class="headerlink" title="Windows编程基础–第15节 MFC之复选框及单选按钮"></a>Windows编程基础–第15节 MFC之复选框及单选按钮</h1><h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day17”，布局如下，自行处理：<br><img src="http://img.blog.csdn.net/20171102215604038?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>拖动三个check box和两个radio button到界面上，设置其ID如下：<br>| 控件名 | 控件ID|<br>| ——–   |  —–:  |<br>| 红色| IDC_CHECK_RED|<br>| 绿色   |   IDC_CHECK_GREEN|<br>| 蓝色     |   IDC_CHECK_BLUE|<br>| 矩形      |   IDC_RADIO_SQURAE|<br>| 圆形|   IDC_RADIO_CIRC|<br>执行“工具”-&gt;“tab键位置”，确保两个radio button的顺序是连续的，如下图：<br><img src="http://img.blog.csdn.net/20171102220353696?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171102220403509?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>指定第一个radio button（矩形）的Group的值为true，如图:<br><img src="http://img.blog.csdn.net/20171102220705649?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="2-添加关联变量"><a href="#2-添加关联变量" class="headerlink" title="2. 添加关联变量"></a>2. 添加关联变量</h2><p>添加五个控件的变量，如图：<br><img src="http://img.blog.csdn.net/20171102221631588?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DDX_Control(pDX, IDC_CHECK_RED, m_chk_red);</div><div class="line">DDX_Control(pDX, IDC_CHECK_GREEN, m_chk_green);</div><div class="line">DDX_Control(pDX, IDC_CHECK_BLUE, m_chk_blue);</div><div class="line">DDX_Control(pDX, IDC_RADIO_SQURAE, m_rd_squ);</div><div class="line">DDX_Control(pDX, IDC_RADIO_CIRC, m_rd_circ);</div></pre></td></tr></table></figure>
+<p>分别添加如上变量；</p>
+<h2 id="3-开始写代码吧"><a href="#3-开始写代码吧" class="headerlink" title="3. 开始写代码吧"></a>3. 开始写代码吧</h2><p>现在我们来让程序运行起来时默认选中圆形；<br>切换到解决方案视图，进入BOOL Cday17Dlg::OnInitDialog()方法：<br>在末尾return前加入这一行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// TODO: 在此添加额外的初始化代码</div><div class="line">CheckRadioButton(IDC_RADIO_SQURAE,IDC_RADIO_CIRC,IDC_RADIO_CIRC);</div><div class="line"></div><div class="line">return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE</div></pre></td></tr></table></figure>
+<p>代码解释：</p>
 <blockquote>
-<p>注意：菜单选项最后加上&amp;符号可以设置快捷键，如“文件(&amp;F)”，当程序运行时可以通过ALT + F快捷打开文件菜单选项；</p>
+<p>在IDC_RADIO_SQURAE和IDC_RADIO_CIRC之间选中IDC_RADIO_CIRC</p>
 </blockquote>
-<p>将菜单绑定到主界面：<br><img src="http://img.blog.csdn.net/20171101204853878?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="3-实现文件打开对话框"><a href="#3-实现文件打开对话框" class="headerlink" title="3. 实现文件打开对话框"></a>3. 实现文件打开对话框</h2><p>右击菜单中“打开”选项，选择“添加事件处理处理程序”，添加处理程序，如图：<br><img src="http://img.blog.csdn.net/20171101205350070?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述">其中行数处理程序名称：OnFileOpen，类列表选择：Cday16Dlg，添加编辑：<br>函数代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">void Cday16Dlg::OnFileOpen()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加命令处理程序代码</div><div class="line">	CFileDialog dlg(TRUE,NULL,NULL,OFN_FILEMUSTEXIST|OFN_PATHMUSTEXIST,_T(&quot;文本文件(*.txt)|*.txt|所有文件(*.*)|*.*||&quot;),this);</div><div class="line">	dlg.m_ofn.lpstrInitialDir = _T(&quot;C:\\&quot;);</div><div class="line">	if (dlg.DoModal()  == IDOK)</div><div class="line">	&#123;</div><div class="line">		CStdioFile inFile;</div><div class="line">		inFile.Open(dlg.GetPathName(),CFile::modeRead);</div><div class="line">		CString text;</div><div class="line">		CString temp;</div><div class="line">		while(inFile.ReadString(text))</div><div class="line">		&#123;    </div><div class="line">			GetDlgItemText(IDC_EDIT_TXT,temp);</div><div class="line">			if (temp.GetLength() &gt; 0)</div><div class="line">			&#123;</div><div class="line">				SetDlgItemText(IDC_EDIT_TXT,temp +&quot;\r\n&quot;+ text);</div><div class="line">			&#125;</div><div class="line">			else</div><div class="line">			&#123;</div><div class="line">				SetDlgItemText(IDC_EDIT_TXT,text);</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line"></div><div class="line">		inFile.Close();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="添加五个控件的事件处理方法"><a href="#添加五个控件的事件处理方法" class="headerlink" title="添加五个控件的事件处理方法"></a>添加五个控件的事件处理方法</h2><p>如图所示：<br><img src="http://img.blog.csdn.net/20171102224705375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>剩下四个都如上添加好；<br>编辑“蓝色”按钮的点击方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">void Cday17Dlg::OnBnClickedCheckBlue()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	Invalidate();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<p>Invalidate()让对话框重汇对话框；</p>
+<h2 id="添加擦除背景消息（OnEraseBkgnd）事件"><a href="#添加擦除背景消息（OnEraseBkgnd）事件" class="headerlink" title="添加擦除背景消息（OnEraseBkgnd）事件"></a>添加擦除背景消息（OnEraseBkgnd）事件</h2><p>如图添加OnEraseBkgnd消息处理函数：<br><img src="http://img.blog.csdn.net/20171102225056653?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>编辑OnEraseBkgnd函数：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">BOOL Cday17Dlg::OnEraseBkgnd(CDC* pDC)</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加消息处理程序代码和/或调用默认值</div><div class="line">	BOOL bRet = CDialogEx::OnEraseBkgnd(pDC);</div><div class="line">	int nRed,nGreen,nBlue;</div><div class="line">	nRed = m_chk_red.GetCheck() ? 255 : 0;</div><div class="line">	nGreen = m_chk_green.GetCheck() ? 255 : 0;</div><div class="line">	nBlue = m_chk_blue.GetCheck() ? 255 : 0;</div><div class="line"></div><div class="line">	COLORREF crFore = RGB(nRed,nGreen,nBlue);</div><div class="line">	CBrush brush;</div><div class="line">	brush.CreateSolidBrush(crFore);</div><div class="line">	CBrush *pOldBrush = pDC-&gt;SelectObject(&amp;brush);</div><div class="line"></div><div class="line">	RECT rc = &#123;100, 40, 400, 340&#125;;</div><div class="line">	if (m_rd_squ.GetCheck())</div><div class="line">	&#123;</div><div class="line">		pDC-&gt;Rectangle(&amp;rc);</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		pDC-&gt;Ellipse(&amp;rc);</div><div class="line">	&#125;</div><div class="line">	pDC-&gt;SelectObject(pOldBrush);</div><div class="line">	return bRet;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>代码解释：</p>
 <blockquote>
 <ol>
-<li>创建一个txt文件对话框；</li>
-<li>如文件对话框确定按钮被点击，则打开文件位置，文件全路径就是dlg.GetPathName()；</li>
-<li>循环读取文件，知道文件读取结束；每读一行就先获取界面文本框的内容加上新读取的文本，重新设置到界面；</li>
-<li>关闭文件</li>
+<li>根据颜色按钮的选择状态来选择颜色为255还是0；</li>
+<li>用三个的颜色来创建一个画刷；</li>
+<li>保留旧的画刷；</li>
+<li>创建RECT 对象，即圆形的大小；</li>
+<li>根据形状的radio button来选择化圆形还是矩形；</li>
+<li>还原旧的画刷；</li>
 </ol>
 </blockquote>
-<p>这样一个打开文件对话框就完成了，效果图如下：<br><img src="http://img.blog.csdn.net/20171101213305582?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="3-实现文件保存对话框"><a href="#3-实现文件保存对话框" class="headerlink" title="3. 实现文件保存对话框"></a>3. 实现文件保存对话框</h2><p>右击菜单中“保存”选项，选择“添加事件处理处理程序”，添加处理程序，如图：<br><img src="http://img.blog.csdn.net/20171101213433187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>名称：OnSaveFile，类列表选择：Cday16Dlg，添加编辑：<br>函数代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">void Cday16Dlg::OnSaveFile()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加命令处理程序代码</div><div class="line">	CFileDialog dlg(FALSE,NULL,NULL,OFN_HIDEREADONLY |OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST,_T(&quot;文本文件(*.txt)|*.txt||&quot;),this);</div><div class="line">	if (dlg.DoModal()  == IDOK)</div><div class="line">	&#123;</div><div class="line">		CFile file;  //建立一个CFile对象</div><div class="line">		//打开文件,如果不存在该文件就创建文件</div><div class="line">		if(!file.Open(dlg.GetPathName(),CFile::modeCreate|CFile::modeWrite))</div><div class="line">		&#123;</div><div class="line">			AfxMessageBox( &quot;can   not   Create   file! &quot;);</div><div class="line">			return;</div><div class="line">		&#125; </div><div class="line"></div><div class="line">		CString output;</div><div class="line">		GetDlgItemText(IDC_EDIT_TXT,output);</div><div class="line">		file.Write(output,strlen(output));</div><div class="line">		file.Flush();    //将在缓冲区中的字符写入文件中</div><div class="line">		file.Close();   //关闭文件</div><div class="line">		AfxMessageBox( &quot;保存成功！&quot;);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>代码解释：</p>
-<blockquote>
-<ol>
-<li>创建一个txt文件保存对话框；</li>
-<li>如文件对话框确定按钮被点击，则获取文件位置，文件全路径就是dlg.GetPathName()；</li>
-<li>先获取界面文本框的内容，将内容写到文件中；</li>
-<li>关闭文件<br>效果图：<br><img src="http://img.blog.csdn.net/20171101214549676?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-</ol>
-</blockquote>
-<h2 id="好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。"><a href="#好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。" class="headerlink" title="好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。"></a>好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。</h2><h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://blog.amuuncle.site/" target="_blank" rel="external">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+<h2 id="实现其他按钮"><a href="#实现其他按钮" class="headerlink" title="实现其他按钮"></a>实现其他按钮</h2><p>其他按钮就只用调用OnBnClickedCheckBlue()就可以了；</p>
+<h1 id="最终效果图："><a href="#最终效果图：" class="headerlink" title="最终效果图："></a>最终效果图：</h1><p><img src="http://img.blog.csdn.net/20171102225829436?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://blog.amuuncle.site/" target="_blank" rel="external">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
       
     </div>
     
@@ -537,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/31/第13节-MFC之图片控件/" rel="next" title="第13节 MFC之图片控件">
-                <i class="fa fa-chevron-left"></i> 第13节 MFC之图片控件
+              <a href="/2017/11/01/第14节-MFC之文件对话框CFileDialog/" rel="next" title="第14节 MFC之文件对话框CFileDialog">
+                <i class="fa fa-chevron-left"></i> 第14节 MFC之文件对话框CFileDialog
               </a>
             
           </div>
@@ -546,10 +512,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/02/第15节-MFC之复选框及单选按钮/" rel="prev" title="第15节 MFC之复选框及单选按钮">
-                第15节 MFC之复选框及单选按钮 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -753,7 +715,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第14节-MFC之文件对话框CFileDialog"><span class="nav-number">1.</span> <span class="nav-text">第14节 MFC之文件对话框CFileDialog</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-新建项目"><span class="nav-number">1.1.</span> <span class="nav-text">1. 新建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-添加菜单资源"><span class="nav-number">1.2.</span> <span class="nav-text">2. 添加菜单资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实现文件打开对话框"><span class="nav-number">1.3.</span> <span class="nav-text">3. 实现文件打开对话框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实现文件保存对话框"><span class="nav-number">1.4.</span> <span class="nav-text">3. 实现文件保存对话框</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。"><span class="nav-number">1.5.</span> <span class="nav-text">好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目源码可以访问我的码云"><span class="nav-number">1.5.1.</span> <span class="nav-text">项目源码可以访问我的码云</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-gt-gt-我的私人博客-lt-lt-lt"><span class="nav-number">1.5.2.</span> <span class="nav-text">>>>我的私人博客<<<</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows编程基础–第15节-MFC之复选框及单选按钮"><span class="nav-number">1.</span> <span class="nav-text">Windows编程基础–第15节 MFC之复选框及单选按钮</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-新建项目"><span class="nav-number">1.1.</span> <span class="nav-text">1. 新建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-添加关联变量"><span class="nav-number">1.2.</span> <span class="nav-text">2. 添加关联变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-开始写代码吧"><span class="nav-number">1.3.</span> <span class="nav-text">3. 开始写代码吧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加五个控件的事件处理方法"><span class="nav-number">1.4.</span> <span class="nav-text">添加五个控件的事件处理方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加擦除背景消息（OnEraseBkgnd）事件"><span class="nav-number">1.5.</span> <span class="nav-text">添加擦除背景消息（OnEraseBkgnd）事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现其他按钮"><span class="nav-number">1.6.</span> <span class="nav-text">实现其他按钮</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最终效果图："><span class="nav-number">2.</span> <span class="nav-text">最终效果图：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目源码可以访问我的码云"><span class="nav-number">2.0.1.</span> <span class="nav-text">项目源码可以访问我的码云</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-gt-gt-我的私人博客-lt-lt-lt"><span class="nav-number">2.0.2.</span> <span class="nav-text">>>>我的私人博客<<<</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
