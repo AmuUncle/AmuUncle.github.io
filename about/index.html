@@ -686,45 +686,23 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'hudejie888@163.com',
-            repo: 'https://github.com/AmuUncle/mybloy.github.io.git',
-            
-            lang: "zh-Hans" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '39ecbbd823c26c64c6875d37762142bd5488d479',
-            
-                client_id: '01e99977dd58fa1435b9'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
-
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7-rc3/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'sV2Bg9zBFxvPChxHk8ju3AOX-gzGzoHsz',
+        app_key: 'vXHl9pbwEevwts2y12MbjgFF',
+        placeholder: 'Comment input placeholder'
+    });
+  </script>
 
 
 
