@@ -326,6 +326,207 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/11/05/第17节-MFC之状态栏（CStatusBar）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/05/第17节-MFC之状态栏（CStatusBar）/" itemprop="url">第17节 MFC之状态栏（CStatusBar）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-05T19:56:26+08:00">
+                2017-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
+                    <span itemprop="name">MFC从入门到放弃</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Windows编程基础–第17节-MFC之状态栏（CStatusBar）"><a href="#Windows编程基础–第17节-MFC之状态栏（CStatusBar）" class="headerlink" title="Windows编程基础–第17节 MFC之状态栏（CStatusBar）"></a>Windows编程基础–第17节 MFC之状态栏（CStatusBar）</h1><p>  1、CStatusBar在MFC中类继承关系： </p>
+<blockquote>
+<p> CObject<br> CCmdTarget<br>    CWnd<br>      CControlBar<br>        CStatusBar</p>
+</blockquote>
+<p>2、CStatusBar成员函数介绍：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">virtual BOOL Create(</div><div class="line">   CWnd* pParentWnd,</div><div class="line">   DWORD dwStyle = WS_CHILD | WS_VISIBLE | CBRS_BOTTOM,</div><div class="line">   UINT nID = AFX_IDW_STATUS_BAR </div><div class="line">);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>函数用途：创建一个CStatusBar并将其与CStatusBar对象关联；<br>参数说明：pParentWnd:指向CStatusBar的父窗口（Windows窗口）；<br> dwStyle：CStatusBar的类型，CBRS_TOP:将Bar放在框架的顶部，CBRS_BOTTOM:将其放在框架的底部。CBRS_NOALIGN:当父窗口改变时，不重型调整Bar；<br>nID：toolbar的子窗口ID； 返回值：成功返回非零，否则返回零；</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">BOOL SetIndicators(</div><div class="line">   const UINT* lpIDArray,</div><div class="line">   int nIDCount </div><div class="line">);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>函数用途：加载lpIDArray中的ID所对应的字符串资源，并将ID所对应的文本保存在字符串资源中；<br>参数说明：lpIDArray：ID队列指针<br>          nIDCount：队列中元素的个数； 返回值：成功返回非零，否则返回零；</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">BOOL SetPaneText(</div><div class="line">   int nIndex,</div><div class="line">   LPCTSTR lpszNewText,</div><div class="line">   BOOL bUpdate = TRUE </div><div class="line">);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>函数用途：将CStatustBar中的长方块设置成lpszNewText所指向的内容；<br>参数说明：nIndex：长方块的索引号（从零开始计，第零个固定用来状态指示）<br>lpszNewText：需要加载的内容；（需要在第nIndex个长方块上显示的字符串）<br>bUpdate：等于TRUE时，当加载了新的字符内容后，将长方块设置为无效。无效使得窗口自动刷行，那么新内容就被显示在界面上了。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">void GetItemRect(</div><div class="line">   int nIndex,</div><div class="line">   LPRECT lpRect </div><div class="line">) const;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>函数用途：将nIndex所在的位置的矩形坐标拷贝到lpRect中。 参数说明：nIndex：长方块的标识；<br>lpRect：指向Rect结构的指针，用来保存获得到的矩形坐标； 返回值：无 注意：坐标是以象素为单位的，原点在左上角。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">void GetPaneInfo(</div><div class="line">   int nIndex,</div><div class="line">   UINT&amp; nID,</div><div class="line">   UINT&amp; nStyle,</div><div class="line">   int&amp; cxWidth </div><div class="line">) const；</div></pre></td></tr></table></figure>
+<blockquote>
+<p>函数用途：<br>获得Pane的相关信息：ID，Style，宽度。<br>参数说明：<br>nIndex：需要获得的Pane的索引<br>nID：nIndex所对应Pane的ID<br>nStyle：nIndex对应的Pane的类型；<br>cxWidth：nIndex对应的Pane的宽度； 返回值：无</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">void SetPaneInfo(</div><div class="line">   int nIndex,</div><div class="line">   UINT nID,</div><div class="line">   UINT nStyle,</div><div class="line">   int cxWidth </div><div class="line">);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>函数说明：设置Pane的相关信息； 参数说明：nIndex：需要设置的Pane的索引；    其余和5相同； 返回值：无</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">void SetPaneStyle(</div><div class="line">   int nIndex,</div><div class="line">   UINT nStyle </div><div class="line">);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>函数说明：设置Pane的类型 参数说明：nIndex：需要设置的Pane的索引    nStyle：类型； 返回值：无<br>nStyle的值可以为：<br> CBRS_TOP   Control bar is at top of frame window.<br>CBRS_BOTTOM   Control bar is at bottom of frame window.<br>CBRS_NOALIGN   Control bar is not repositioned when the parent is resized.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> UINT GetPaneStyle(</div><div class="line">   int nIndex </div><div class="line">) const；</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">函数说明：获得Pane的类型</div><div class="line">参数说明：nIndex：需要获得的Pane的索引</div><div class="line">返回值：无</div><div class="line"> </div><div class="line">举例：</div><div class="line">生成一个MFC应用程序，参照如下说明修改代码：</div><div class="line"> </div><div class="line">static UINT indicators[] =</div><div class="line">&#123;</div><div class="line"> ID_SEPARATOR,           // 状态行指示器</div><div class="line"> ID_INDICATOR_CLOCK,</div><div class="line"> ID_INDICATOR_CAPS,</div><div class="line"> ID_INDICATOR_NUM,</div><div class="line"> ID_INDICATOR_SCRL,</div><div class="line">&#125;;</div><div class="line">说明：</div><div class="line">indicator数组提供了状态栏窗格的分配信息，它的第一项一般为ID_SEPARATOR，该ID对应的窗格用来显示命令提示信息，后三项都是字符串ID，读者可以在String Table字符串资源中找到这三个字符串分别是CAP、NUM和SCRL。它们对应的三个窗格用来显示键盘的状态。</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day19”，布局如下，自行处理：<br><img src="http://img.blog.csdn.net/20171105192727662?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="2-添加状态栏"><a href="#2-添加状态栏" class="headerlink" title="2.添加状态栏"></a>2.添加状态栏</h2><p>切换到解决方案视图，进入day19Dlg.h头文件，添加一个CStatusBar成员变量（CStatusBar m_statusBar;），如下图：<br><img src="http://img.blog.csdn.net/20171105192941512?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>现在进入BOOL Cday19Dlg::OnInitDialog()初始化函数中创建状态栏,在return前添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">m_statusBar.Create(this);</div><div class="line">UINT nID[]  = &#123;10000,10001&#125;;</div><div class="line">m_statusBar.SetIndicators(nID,2);</div><div class="line">m_statusBar.SetPaneInfo(0,10000,SBPS_NORMAL,100);</div><div class="line">m_statusBar.SetPaneInfo(1,10001,SBPS_STRETCH,0);</div><div class="line">RECT rect=&#123;0&#125;;</div><div class="line">GetClientRect(&amp;rect);</div><div class="line">m_statusBar.MoveWindow(0,rect.bottom - 30,rect.right,30,TRUE);</div></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<p>1.创建一个状态栏到当前窗体；<br>2.创建两个状态栏Pane的ID；<br>3.在状态栏上添加两个Pane，分别为正常模式，长度为100，另一个自动填充模式；<br>4.获取窗口客户区的坐标。客户区坐标指定客户区的左上角和右下角。由于客户区坐标是相对窗口客户区的左上角而言的，因此左上角坐标为（0，0）。这里应该注意一下：坐标包含两种：屏幕坐标与客户区坐标。严格区分这两种坐标对于理解Windows编程是很重要的。<br>5.将状态栏设置到窗口的距离底部30，长度为窗口长度，高度为30的位置；</p>
+</blockquote>
+<p>运行结果：<br><img src="http://img.blog.csdn.net/20171105193801390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>可以看到下方已经有了状态栏；</p>
+<h2 id="3-实现状态栏方法"><a href="#3-实现状态栏方法" class="headerlink" title="3.实现状态栏方法"></a>3.实现状态栏方法</h2><p>编辑EDIT控件的属性：<br>| 属性名 | 值|<br>| ——–   |  —–:  |<br>| Multiline| true|<br>| Horizontal Scroll   |true|<br>| Vertical Scroll     |true|<br>| Want Return      |true|<br>添加EDIT控件的变量，如图所示：<br><img src="http://img.blog.csdn.net/20171105194447243?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>添加EDIT控件的OnEnChange消息处理方法：<br><img src="http://img.blog.csdn.net/20171105194821032?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>编辑EDIT控件的OnEnChange消息处理方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">void Cday19Dlg::OnEnChangeEdit1()</div><div class="line">&#123;</div><div class="line">	// TODO:  如果该控件是 RICHEDIT 控件，它将不</div><div class="line">	// 发送此通知，除非重写 CDialogEx::OnInitDialog()</div><div class="line">	// 函数并调用 CRichEditCtrl().SetEventMask()，</div><div class="line">	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。</div><div class="line"></div><div class="line">	// TODO:  在此添加控件通知处理程序代码</div><div class="line">	int nLen = m_edit.GetWindowTextLength();</div><div class="line">	int linecount=m_edit.GetLineCount();</div><div class="line">	CString strText;</div><div class="line">	strText.Format(_T(&quot;字数: %d  行数: %d&quot;),nLen,linecount);</div><div class="line">	m_statusBar.SetPaneText(1,strText,TRUE);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<p>1.获取文本框中的文本长度；<br>2.获取文本框中的文本行数；<br>3.格式化文本后设置到状态栏第二个Pane中；</p>
+</blockquote>
+<p>最终效果图：<br><img src="http://img.blog.csdn.net/20171105195509780?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://amuuncle.site/">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	
+    
+
+    
+
+    
+	
+
+	
+	<div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/11/04/第16节-MFC之SendMessage和PostMessage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -669,7 +870,7 @@
 </blockquote>
 <h2 id="实现其他按钮"><a href="#实现其他按钮" class="headerlink" title="实现其他按钮"></a>实现其他按钮</h2><p>其他按钮就只用调用OnBnClickedCheckBlue()就可以了；</p>
 <h1 id="最终效果图："><a href="#最终效果图：" class="headerlink" title="最终效果图："></a>最终效果图：</h1><p><img src="http://img.blog.csdn.net/20171102225829436?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://blog.amuuncle.site/" target="_blank" rel="external">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://amuuncle.site/">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
           
         
       
@@ -2146,172 +2347,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/10/28/第10节-MFC菜单/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="阿木大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AmuUncle">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/第10节-MFC菜单/" itemprop="url">第10节 MFC菜单</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:33:24+08:00">
-                2017-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
-                    <span itemprop="name">MFC从入门到放弃</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Windows编程基础–第10节-MFC菜单"><a href="#Windows编程基础–第10节-MFC菜单" class="headerlink" title="Windows编程基础–第10节 MFC菜单"></a>Windows编程基础–第10节 MFC菜单</h1><h1 id="MFC菜单（CMenu）"><a href="#MFC菜单（CMenu）" class="headerlink" title="MFC菜单（CMenu）"></a>MFC菜单（CMenu）</h1><p>MFC菜单分为两类：</p>
-<blockquote>
-<p>窗体菜单<br>快捷菜单:又叫弹出菜单，或者上下文菜单</p>
-</blockquote>
-<h3 id="1、创建项目"><a href="#1、创建项目" class="headerlink" title="1、创建项目"></a>1、创建项目</h3><p>打开vs2010，创建一个基于对话框的项目，项目名“day10”,注意这次主框架中就不要勾选“系统菜单”和“关于框”了，如图：<br><img src="http://img.blog.csdn.net/20171026223157074?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>创建好后，删除自动生成的文本控件，如图：<br><img src="http://img.blog.csdn.net/20171026223358413?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="2、创建系统菜单"><a href="#2、创建系统菜单" class="headerlink" title="2、创建系统菜单"></a>2、创建系统菜单</h3><p>切换到资源视图，右击我们的项目“day10”，选择添加资源，出现如下界面：<br><img src="http://img.blog.csdn.net/20171026223840662?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20171026223849482?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>选择“Menu”点击新建,然后就可以看到我们的项目中Menu目录，这里就存放菜单资源，展开后就可以看到，我们刚添加的菜单ID，双击打开；<br>我们可以直接输入想要添加的菜单选项，如图：<br><img src="http://img.blog.csdn.net/20171026225016056?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>我们可以在资源视图右击菜单ID，然后选择属性，修改ID为IDR_MENU_SYSTEM;</p>
-<h3 id="3、显示系统菜单"><a href="#3、显示系统菜单" class="headerlink" title="3、显示系统菜单"></a>3、显示系统菜单</h3><p>我们打开刚才创建的主窗口，右击打开属性，在属性列表找到MENU属性，下拉框选择刚才创建的IDR_MENU_SYSTEM菜单，如图所示：<br><img src="http://img.blog.csdn.net/20171026225352426?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这时主窗口就和IDR_MENU_SYSTEM菜单关联起来了，运行看看效果：<br><img src="http://img.blog.csdn.net/20171026225644814?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="4、创建菜单消息事件"><a href="#4、创建菜单消息事件" class="headerlink" title="4、创建菜单消息事件"></a>4、创建菜单消息事件</h3><p>我们切换到我们创建的菜单界面，来实现菜单中保存选项的处理事件，在“保存”选项上右击，选择“添加事件处理函数”，如下：<br><img src="http://img.blog.csdn.net/20171026225912317?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>，出现如下添加事件界面：<br><img src="http://img.blog.csdn.net/20171026230051574?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这里我们类列表中选择Cday10Dlg中创建操作函数，函数名修改为OnMenuSaveClick，点击“添加编辑”，添加处理函数；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">void Cday10Dlg::OnMenuSaveClick()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加命令处理程序代码</div><div class="line">	AfxMessageBox(_T(&quot;文件已保存！&quot;));  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行效果，点击“文件”-&gt;“保存”,此时就会弹窗提示“””文件已保存！”，如图所示：<br><img src="http://img.blog.csdn.net/20171026230628546?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="5、创建快捷菜单"><a href="#5、创建快捷菜单" class="headerlink" title="5、创建快捷菜单"></a>5、创建快捷菜单</h3><p>切换资源视图，<br>选择“Menu”点击“插入MENU”,自动打开；我们可以直接输入想要添加的菜单选项，如图：<br><img src="http://img.blog.csdn.net/20171026231003422?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>注意：快捷菜单中最上面的“快捷菜单”不会显示，名字可以随意。<br>修改次menu的ID为IDR_MENU_QUICK；</p>
-<h3 id="6、显示快捷菜单"><a href="#6、显示快捷菜单" class="headerlink" title="6、显示快捷菜单"></a>6、显示快捷菜单</h3><p>我们打开刚才创建的主窗口，右击打开属性，在属性列表上方选择“消息”<img src="http://img.blog.csdn.net/20171026234537989?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述">按钮，找到“WM_OnContextMenu”,选择add OnContextMenu方法，如图所示：<br><img src="http://img.blog.csdn.net/20171026231615024?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">void Cday10Dlg::OnContextMenu(CWnd* pWnd, CPoint point)</div><div class="line">&#123;</div><div class="line">	// TODO: 在此处添加消息处理程序代码</div><div class="line">	CMenu menu;</div><div class="line">	if(!menu.LoadMenu(IDR_MENU_QUICK))</div><div class="line">	&#123;</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	CMenu* pMenu = menu.GetSubMenu(0);</div><div class="line">	pMenu-&gt;TrackPopupMenu(TPM_LEFTALIGN|TPM_RIGHTBUTTON,point.x,point.y,pWnd);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这段代码的意思就是：先试图加载IDR_MENU_QUICK菜单，加载成功之后，将菜单显示在鼠标右击（TPM_RIGHTBUTTON），靠左方（TPM_LEFTALIGN）的位置；<br>运行效果：<br><img src="http://img.blog.csdn.net/20171026232302952?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>可以看见，菜单已经显示出来；</p>
-<h3 id="7、创建菜单消息事件"><a href="#7、创建菜单消息事件" class="headerlink" title="7、创建菜单消息事件"></a>7、创建菜单消息事件</h3><p>同步骤4，如图：<br><img src="http://img.blog.csdn.net/20171026232540747?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>编辑OnCopy函数，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">void Cday10Dlg::OnCopy()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加命令处理程序代码</div><div class="line">		AfxMessageBox(_T(&quot;文件已复制！&quot;));  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>效果图：<br><img src="http://img.blog.csdn.net/20171026232658919?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3>
-          
-        
-      
-    </div>
-    
-    
-    
-	
-	
-    
-
-    
-
-    
-	
-
-	
-	<div>
-		
-	</div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2366,7 +2401,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
