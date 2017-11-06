@@ -89,27 +89,18 @@
 
 
 
-<meta name="description" content="树形控件（Tree Control）：用来显示一系列项目的层次关系，最典型的例子是显示磁盘上的文件与文件夹。如果有子项目的话，单击树形控件中的项目可以展开或者收缩其子项目。MFC提供了CTreeCtrl类进行支持。  树控件在windows程序中使用相对也是比较多的控件，例如windows资源管理器左边的浏览视图就是个树控件视图：今天我们学习一下使用树控件，实现“添加节点”、“删除节点”、“修改">
+<meta name="description" content="今天学习一下MFC窗体的基本操作：   最大化 最小化 还原 关闭窗口 设置窗口大小 设置窗口位置 居中显示窗口 顶层显示窗口 设置窗口图标 获取窗口标题 设置窗口标题   1. 最大化 SendMessage(WM_SYSCOMMAND,SC_MAXIMIZE,0)  2. 最小化 SendMessage(WM_SYSCOMMAND,SC_MINIMIZE,0)  3. 还原窗口 SendMes">
 <meta name="keywords" content="MFC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第12节 MFC之树控件CTreeCtrl">
-<meta property="og:url" content="http://amuuncle.site/2017/10/30/第12节-MFC之树控件CTreeCtrl/index.html">
+<meta property="og:title" content="第18节 MFC之窗体操作">
+<meta property="og:url" content="http://amuuncle.site/2017/11/06/第18节-MFC之窗体操作/index.html">
 <meta property="og:site_name" content="AmuUncle">
-<meta property="og:description" content="树形控件（Tree Control）：用来显示一系列项目的层次关系，最典型的例子是显示磁盘上的文件与文件夹。如果有子项目的话，单击树形控件中的项目可以展开或者收缩其子项目。MFC提供了CTreeCtrl类进行支持。  树控件在windows程序中使用相对也是比较多的控件，例如windows资源管理器左边的浏览视图就是个树控件视图：今天我们学习一下使用树控件，实现“添加节点”、“删除节点”、“修改">
+<meta property="og:description" content="今天学习一下MFC窗体的基本操作：   最大化 最小化 还原 关闭窗口 设置窗口大小 设置窗口位置 居中显示窗口 顶层显示窗口 设置窗口图标 获取窗口标题 设置窗口标题   1. 最大化 SendMessage(WM_SYSCOMMAND,SC_MAXIMIZE,0)  2. 最小化 SendMessage(WM_SYSCOMMAND,SC_MINIMIZE,0)  3. 还原窗口 SendMes">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.blog.csdn.net/20171030202704102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171030203600767?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171030204858144?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171030211143052?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171030211100130?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171030211117156?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171030212609773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171030213448114?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-11-01T13:44:51.374Z">
+<meta property="og:updated_time" content="2017-11-06T13:17:56.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第12节 MFC之树控件CTreeCtrl">
-<meta name="twitter:description" content="树形控件（Tree Control）：用来显示一系列项目的层次关系，最典型的例子是显示磁盘上的文件与文件夹。如果有子项目的话，单击树形控件中的项目可以展开或者收缩其子项目。MFC提供了CTreeCtrl类进行支持。  树控件在windows程序中使用相对也是比较多的控件，例如windows资源管理器左边的浏览视图就是个树控件视图：今天我们学习一下使用树控件，实现“添加节点”、“删除节点”、“修改">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20171030202704102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="第18节 MFC之窗体操作">
+<meta name="twitter:description" content="今天学习一下MFC窗体的基本操作：   最大化 最小化 还原 关闭窗口 设置窗口大小 设置窗口位置 居中显示窗口 顶层显示窗口 设置窗口图标 获取窗口标题 设置窗口标题   1. 最大化 SendMessage(WM_SYSCOMMAND,SC_MAXIMIZE,0)  2. 最小化 SendMessage(WM_SYSCOMMAND,SC_MINIMIZE,0)  3. 还原窗口 SendMes">
 
 
 
@@ -139,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://amuuncle.site/2017/10/30/第12节-MFC之树控件CTreeCtrl/"/>
+  <link rel="canonical" href="http://amuuncle.site/2017/11/06/第18节-MFC之窗体操作/"/>
 
 
 
 
 
-  <title>第12节 MFC之树控件CTreeCtrl | AmuUncle</title>
+  <title>第18节 MFC之窗体操作 | AmuUncle</title>
   
 
 
@@ -336,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/10/30/第12节-MFC之树控件CTreeCtrl/">
+    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/11/06/第18节-MFC之窗体操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="阿木大叔">
@@ -353,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第12节 MFC之树控件CTreeCtrl</h1>
+          <h1 class="post-title" itemprop="name headline">第18节 MFC之窗体操作</h1>
         
 
         <div class="post-meta">
@@ -365,8 +356,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T21:42:36+08:00">
-                2017-10-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T21:17:31+08:00">
+                2017-11-06
               </time>
             
 
@@ -425,120 +416,58 @@
       
 
       
-        <blockquote>
-<p>树形控件（Tree Control）：用来显示一系列项目的层次关系，最典型的例子是显示磁盘上的文件与文件夹。如果有子项目的话，单击树形控件中的项目可以展开或者收缩其子项目。MFC提供了CTreeCtrl类进行支持。</p>
-</blockquote>
-<p>树控件在windows程序中使用相对也是比较多的控件，例如windows资源管理器左边的浏览视图就是个树控件视图：<br><img src="http://img.blog.csdn.net/20171030202704102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>今天我们学习一下使用树控件，实现“添加节点”、“删除节点”、“修改节点”；</p>
-<h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day14”，布局如下，自行处理：<br><img src="http://img.blog.csdn.net/20171030203600767?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<table>
-<thead>
-<tr>
-<th>控件名</th>
-<th style="text-align:right">控件ID</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Tree Control</td>
-<td style="text-align:right">IDC_TREE_VIEW</td>
-</tr>
-<tr>
-<td>编辑框</td>
-<td style="text-align:right">IDC_EDIT_ADD_MDY</td>
-</tr>
-<tr>
-<td>添加节点</td>
-<td style="text-align:right">IDC_BUTTON_ADD</td>
-</tr>
-<tr>
-<td>删除节点</td>
-<td style="text-align:right">IDC_BUTTON_DEL</td>
-</tr>
-<tr>
-<td>修改节点</td>
-<td style="text-align:right">IDC_BUTTON_MDY</td>
-</tr>
-</tbody>
-</table>
-<h2 id="2-设置树控件属性"><a href="#2-设置树控件属性" class="headerlink" title="2. 设置树控件属性"></a>2. 设置树控件属性</h2><p>编辑树控件如下属性：</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>修改值</th>
-<th style="text-align:right">解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Has Buttons</td>
-<td>TRUE</td>
-<td style="text-align:right">在父节点旁边显示+或-</td>
-</tr>
-<tr>
-<td>Has Lines</td>
-<td>TRUE</td>
-<td style="text-align:right">在父节点和子节点之间划线</td>
-</tr>
-<tr>
-<td>Line At root</td>
-<td>TRUE</td>
-<td style="text-align:right">在根节点上划线</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3-添加树控件变量"><a href="#3-添加树控件变量" class="headerlink" title="3. 添加树控件变量"></a>3. 添加树控件变量</h2><p>给树控件添加一个变量“m_tree”，如图：<br><img src="http://img.blog.csdn.net/20171030204858144?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="4-实现添加节点按钮函数"><a href="#4-实现添加节点按钮函数" class="headerlink" title="4. 实现添加节点按钮函数"></a>4. 实现添加节点按钮函数</h2><p>双击“添加节点”按钮，编辑按钮点击方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">void Cday14Dlg::OnBnClickedButtonAdd()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	CString strText;</div><div class="line">	GetDlgItemText(IDC_EDIT_ADD_MDY,strText);</div><div class="line">	if (strText.GetLength() == 0)</div><div class="line">	&#123;</div><div class="line">		AfxMessageBox(_T(&quot;请输入节点名！&quot;));</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</div><div class="line">	if(hItem == NULL)&#123;</div><div class="line">		hItem = TVI_ROOT;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	TVINSERTSTRUCT ts =&#123;0&#125;;</div><div class="line">	ts.hParent = hItem;</div><div class="line">	ts.hInsertAfter = TVI_LAST;</div><div class="line">	ts.item.pszText = strText.GetBuffer();</div><div class="line">	ts.item.mask = TVIF_TEXT;</div><div class="line">	HTREEITEM hNewItem = m_tree.InsertItem(&amp;ts);</div><div class="line">	m_tree.SelectItem(hNewItem);</div><div class="line">	m_tree.EnsureVisible(hNewItem);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码解释：</p>
+        <p>今天学习一下MFC窗体的基本操作：</p>
 <blockquote>
-<ol>
-<li>先获取文本框中的值，如果值为空，则提示用户输入；</li>
-<li>获取当前选中的节点，若不存在选中的节点，则获取根节点；</li>
-<li>创建节点结构体，设置其父节点，插入方式，节点内容，内容可见等；</li>
-<li>插入新的节点，并且设置节点保证可见；<br>效果图：<br><img src="http://img.blog.csdn.net/20171030211143052?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><h2 id="5-实现删除节点按钮函数"><a href="#5-实现删除节点按钮函数" class="headerlink" title="5. 实现删除节点按钮函数"></a>5. 实现删除节点按钮函数</h2>双击“删除节点”按钮，编辑按钮点击方法：</li>
-</ol>
+<ul>
+<li>最大化</li>
+<li>最小化</li>
+<li>还原</li>
+<li>关闭窗口</li>
+<li>设置窗口大小</li>
+<li>设置窗口位置</li>
+<li>居中显示窗口</li>
+<li>顶层显示窗口</li>
+<li>设置窗口图标</li>
+<li>获取窗口标题</li>
+<li>设置窗口标题</li>
+</ul>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">void Cday14Dlg::OnBnClickedButtonDel()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</div><div class="line">	if(hItem == NULL)&#123;</div><div class="line">		AfxMessageBox(_T(&quot;请选择要删除的节点！&quot;));</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	HTREEITEM hParentItem = m_tree.GetParentItem(hItem);</div><div class="line">	m_tree.DeleteItem(hItem);</div><div class="line">	m_tree.SelectItem(hParentItem);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码解释：</p>
-<blockquote>
-<ol>
-<li>获取选中的节点，若没有选中的节点，则提示用户；</li>
-<li>获取选中节点的父节点</li>
-<li>删除选中的节点</li>
-<li>将其父节点设置为选中节点</li>
-</ol>
+<h2 id="1-最大化"><a href="#1-最大化" class="headerlink" title="1. 最大化"></a>1. 最大化</h2><blockquote>
+<p>SendMessage(WM_SYSCOMMAND,SC_MAXIMIZE,0)</p>
 </blockquote>
-<p>删除前：<br><img src="http://img.blog.csdn.net/20171030211100130?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>删除后：<br><img src="http://img.blog.csdn.net/20171030211117156?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="6-实现修改节点按钮函数"><a href="#6-实现修改节点按钮函数" class="headerlink" title="6. 实现修改节点按钮函数"></a>6. 实现修改节点按钮函数</h2><p>双击“修改节点”按钮，编辑按钮点击方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">void Cday14Dlg::OnBnClickedButtonMdy()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</div><div class="line">	if(hItem == NULL)&#123;</div><div class="line">		AfxMessageBox(_T(&quot;请选择要修改的节点！&quot;));</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	CString strText;</div><div class="line">	GetDlgItemText(IDC_EDIT_ADD_MDY,strText);</div><div class="line">	if (strText.GetLength() == 0)</div><div class="line">	&#123;</div><div class="line">		AfxMessageBox(_T(&quot;请输入新的节点名！&quot;));</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	m_tree.SetItemText(hItem,strText);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码解释：</p>
-<blockquote>
-<ol>
-<li>获取选中的节点，若没有选中的节点，则提示用户；</li>
-<li>先获取文本框中的值，如果值为空，则提示用户输入；<br>3.修改文本名<h2 id="7-映射节点选择消息"><a href="#7-映射节点选择消息" class="headerlink" title="7. 映射节点选择消息"></a>7. 映射节点选择消息</h2>我们想实现在点击选择控件是，下方的文本框中自动出现选择节点的文本，那么就要映射节点的选择变化消息：TVN_SELCHANGE，如图添加事件处理函数：<br><img src="http://img.blog.csdn.net/20171030212609773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>编辑事件处理函数：</li>
-</ol>
+<h2 id="2-最小化"><a href="#2-最小化" class="headerlink" title="2. 最小化"></a>2. 最小化</h2><blockquote>
+<p>SendMessage(WM_SYSCOMMAND,SC_MINIMIZE,0)</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">void Cday14Dlg::OnTvnSelchangedTreeView(NMHDR *pNMHDR, LRESULT *pResult)</div><div class="line">&#123;</div><div class="line">	LPNMTREEVIEW pNMTreeView = reinterpret_cast&lt;LPNMTREEVIEW&gt;(pNMHDR);</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line"></div><div class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</div><div class="line">	if(hItem != NULL)&#123;</div><div class="line">		CString strText = m_tree.GetItemText(hItem);</div><div class="line">		SetDlgItemText(IDC_EDIT_ADD_MDY, strText);</div><div class="line">	&#125;</div><div class="line">	*pResult = 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码解释：</p>
-<blockquote>
-<ol>
-<li>获取选中的节点，若不存在，则略过，不处理；</li>
-<li>获取选中的节点文本，将文本值设置到文本框中；</li>
-</ol>
+<h2 id="3-还原窗口"><a href="#3-还原窗口" class="headerlink" title="3. 还原窗口"></a>3. 还原窗口</h2><blockquote>
+<p>SendMessage(WM_SYSCOMMAND,SC_RESTORE,0)</p>
 </blockquote>
-<p>效果图：<br><img src="http://img.blog.csdn.net/20171030213448114?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>至此，MFC树控件的简单使用已经结束，其实树控件还有很多属性，比如添加图标，这就到以后的实践中再来学习，附树控件常见属性及方法：</p>
-<h3 id="1、树形控件的属性"><a href="#1、树形控件的属性" class="headerlink" title="1、树形控件的属性"></a>1、树形控件的属性</h3><blockquote>
-<p>TVS_EDITLABELS:允许用户进行节点文本的编辑 TVS_HASBUTTONS:节点左侧添加一个按钮<br>TVS_HASLINES:父节点与子结点出现连线 TVS_LINESATROOT:子节点与根节点之间出现连线<br>TVS_NOTOOLTIPS:结点无动态提示 TVS_SINGLEEXPAND:节点的选中(未选中)t7展开(合拢)同步<br>MFC中以两种形式封装树形控件，一种是树形控件CTreeCtrl，另一种是树形视图控件CTreeView。对于一般的要求，比如在对话框中，使用CTreeCtrl比较方便。在使用树形视图控件时，只需要利用成员函数取得其引用，就可以像树形控件一样方便的使用：<br>CTreeCtrl&amp; GetTreeCtrl( ) const;<br>调用InsertItem函数能够将节点插入树形控件中，并返回插入的项的HTREEITEM。树形控件的插入工作往往是在对话框的OnInitDialog函数中进行，而对于树形视图控件，则是在OnInitUpdate函数中进行。<br>树形控件中的节点数据可以是文本，也可以是图像。节点中使用的图像是和树形控件的图像列表相对应的。在树形控件中使用图像列表是通过使用SetImageList函数来完成。<br>树形控件能产生通告消息，如: TVN_BEGINDRAG开始拖拽 TVN_ITEMEXPANDED节点被展开或收缩<br>其消息映射使用WM_NOTIFI,如： WM_NOTIFI(TVN_BEGINDRAG,IDC_TREECTRL,OnBeginDrag);</p>
+<h2 id="4-关闭窗口"><a href="#4-关闭窗口" class="headerlink" title="4. 关闭窗口"></a>4. 关闭窗口</h2><blockquote>
+<p>SendMessage(WM_CLOSE,0,0)</p>
 </blockquote>
-<h3 id="2、树形控件TVN-BEGINRDRAG消息的响应"><a href="#2、树形控件TVN-BEGINRDRAG消息的响应" class="headerlink" title="2、树形控件TVN_BEGINRDRAG消息的响应"></a>2、树形控件TVN_BEGINRDRAG消息的响应</h3><blockquote>
-<p>与树形控件有关的、常用的结构是TVITEM、TVINSERTSTRUCT 、NMTREEVIEW(NM_TREEVIEW<br>)。前两个是用于插入节点时使用，而NMTREEVIEW是与树形控件的通告消息相关的结构。<br>当用鼠标左键拖拽树形控件时，控件会发出TVN_BEGINDRAG通告消息；当用鼠标右键拖拽时，则会发出TVN_BEGINRDRAG通告消息。拖拽树形控件时需要使用到IImageList::BeginDrag函数：<br>IImageList::BeginDrag creates a temporary image list that is used for<br>dragging. In response to subsequent WM_MOUSEMOVE messages, you can<br>move the drag image by using IImageList::DragMove. To end the drag<br>operation, you can use IImageList::EndDrag.<br>通常使用CTreeCtrl::CreateDragImage函数创建一个被拖拽节点的图像并返回一个CImageList指针(注意被拖拽的数据节点必须包含图像，否则返回的CImageList指针为空)，然后利用该指针来调用CImageList::BeginDrag函数。除此之外还需要调用CImageList::DragEnter函数锁定、更新窗口，并在指定的位置显示被拖拽的图像：<br>static BOOL PASCAL DragEnter(    CWnd* pWndLock,    CPoint point  );<br>If pWndLock is NULL, this function draws the image in the display<br>context associated with the desktop window, and coordinates are<br>relative to the upper left corner of the screen.<br>注意BeginDrag函数只是在拖拽开始时创建要拖拽的图像，而DragEnter函数则显示该图像。<br>最后调用CWnd::SetCapture函数使后续所有的鼠标输入都发送到当前的CWnd对象而不管鼠标的位置（因为CImageList::DragEnter函数的第一个参数为NULL时表示在与桌面窗口相关的窗口，可以说就是当前程序的框架窗口，但不包括其他应用程序的窗口上显示被拖拽的图像。因此要使得被拖拽的图像在所有的窗口上而不仅仅是应用程序的框架窗口上显示，就需要调用CWnd::SetCapture函数。一旦调用了SetCapture函数，则在当前应用程序的非框架窗口，包括系统菜单上的鼠标按键动作均被发送到当前CWnd<br>对象，直到调用ReleaseCapture为止）。<br>然后就是在鼠标移动的消息响应函数中调用CImageList::DragMove函数移动被拖拽的图像，使之与鼠标的移动位置同步。最后是调用CImageList::DragShowNolock函数隐藏或显示拖拽的图像，但它并不是必须的，也可以不调用，因此之前已经调用过CImageList::DragEnter函数显示拖拽的图像了。当传递true值显示拖拽的图像时，DragShowNolock在这个过程中不像DragEnter函数一样锁定窗口。<br>值得注意的是，在拖拽节点过程中可以使用CTreeCtrl::HitTest函数判断鼠标滑动过程中所经过的点是否位于树形控件的某一个节点之上，如果是，则返回该树形节点的HTREEITEM。此时可以使用CTreeCtrl::SelectDropTarget函数或CTreeCtrl::SelectItem函数来高亮显示该节点。</p>
+<h2 id="5-设置窗口大小及位置"><a href="#5-设置窗口大小及位置" class="headerlink" title="5. 设置窗口大小及位置"></a>5. 设置窗口大小及位置</h2><blockquote>
+<p>MoveWindow(100,200,600,450);<br>或<br>SetWindowPos(NULL,500,100,700,500,SWP_NOZORDER);</p>
 </blockquote>
-<h3 id="3、树形控件的成员函数"><a href="#3、树形控件的成员函数" class="headerlink" title="3、树形控件的成员函数"></a>3、树形控件的成员函数</h3><blockquote>
-<p>InsertItem函数插入一个节点，并返回新插入的节点的HTREEITEM。<br>ItemHasChildren函数根据给定的HTREEITEM判断该节点是否存在子节点。<br>GetChildItem函数根据给定的HTREEITEM获取该节点下子节点的HTREEITEM，如果没有子节点，则返回NULL。<br>GetNextSiblingItem函数根据给定的HTREEITEM获取该节点的下一个同级节点。<br>EnsureVisible函数在必要的时候滚动视图列表控件使得其至少部分可见。需要注意的是，在使用TVE_COLLAPSE调用Expand收缩树形控件后不能再调用该函数，否则收缩操作将无效。</p>
+<h2 id="6-居中显示窗口"><a href="#6-居中显示窗口" class="headerlink" title="6. 居中显示窗口"></a>6. 居中显示窗口</h2><blockquote>
+<p>SendMessage(WM_CLOSE,0,0)</p>
 </blockquote>
-<h1 id="感伤：WE输了，RNG输了，心碎了。。。"><a href="#感伤：WE输了，RNG输了，心碎了。。。" class="headerlink" title="感伤：WE输了，RNG输了，心碎了。。。"></a>感伤：WE输了，RNG输了，心碎了。。。</h1><h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://blog.amuuncle.site/" target="_blank" rel="external">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+<h2 id="7-顶层显示窗口"><a href="#7-顶层显示窗口" class="headerlink" title="7.顶层显示窗口"></a>7.顶层显示窗口</h2><blockquote>
+<p>设置顶层显示<br>::SetWindowPos(m_hWnd,HWND_TOPMOST,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE);</p>
+<p>取消顶层显示<br>::SetWindowPos(m_hWnd,HWND_NOTOPMOST,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE);</p>
+</blockquote>
+<h2 id="8-设置窗口图标"><a href="#8-设置窗口图标" class="headerlink" title="8.设置窗口图标"></a>8.设置窗口图标</h2><blockquote>
+<pre><code>HICON hIcon = AfxGetApp()-&gt;LoadIcon(IDI_ICON_LOL);
+ SetIcon(hIcon, TRUE);            // 设置大图标
+  SetIcon(hIcon, FALSE);        // 设置小图标
+</code></pre></blockquote>
+<h2 id="9-获取窗口标题"><a href="#9-获取窗口标题" class="headerlink" title="9.获取窗口标题"></a>9.获取窗口标题</h2><blockquote>
+<p>GetWindowText(str);</p>
+</blockquote>
+<h2 id="10-设置窗口标题"><a href="#10-设置窗口标题" class="headerlink" title="10.设置窗口标题"></a>10.设置窗口标题</h2><blockquote>
+<p>SetWindowText(_T(“LOL”));</p>
+</blockquote>
+<p>附源码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div></pre></td><td class="code"><pre><div class="line">// day20Dlg.cpp : 实现文件</div><div class="line">//</div><div class="line"></div><div class="line">#include &quot;stdafx.h&quot;</div><div class="line">#include &quot;day20.h&quot;</div><div class="line">#include &quot;day20Dlg.h&quot;</div><div class="line">#include &quot;afxdialogex.h&quot;</div><div class="line"></div><div class="line">#ifdef _DEBUG</div><div class="line">#define new DEBUG_NEW</div><div class="line">#endif</div><div class="line"></div><div class="line"></div><div class="line">// 用于应用程序“关于”菜单项的 CAboutDlg 对话框</div><div class="line"></div><div class="line">class CAboutDlg : public CDialogEx</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">	CAboutDlg();</div><div class="line"></div><div class="line">// 对话框数据</div><div class="line">	enum &#123; IDD = IDD_ABOUTBOX &#125;;</div><div class="line"></div><div class="line">	protected:</div><div class="line">	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持</div><div class="line"></div><div class="line">// 实现</div><div class="line">protected:</div><div class="line">	DECLARE_MESSAGE_MAP()</div><div class="line">&#125;;</div><div class="line"></div><div class="line">CAboutDlg::CAboutDlg() : CDialogEx(CAboutDlg::IDD)</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CAboutDlg::DoDataExchange(CDataExchange* pDX)</div><div class="line">&#123;</div><div class="line">	CDialogEx::DoDataExchange(pDX);</div><div class="line">&#125;</div><div class="line"></div><div class="line">BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)</div><div class="line">END_MESSAGE_MAP()</div><div class="line"></div><div class="line"></div><div class="line">// Cday20Dlg 对话框</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">Cday20Dlg::Cday20Dlg(CWnd* pParent /*=NULL*/)</div><div class="line">	: CDialogEx(Cday20Dlg::IDD, pParent)</div><div class="line">&#123;</div><div class="line">	m_hIcon = AfxGetApp()-&gt;LoadIcon(IDR_MAINFRAME);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void Cday20Dlg::DoDataExchange(CDataExchange* pDX)</div><div class="line">&#123;</div><div class="line">	CDialogEx::DoDataExchange(pDX);</div><div class="line">&#125;</div><div class="line"></div><div class="line">BEGIN_MESSAGE_MAP(Cday20Dlg, CDialogEx)</div><div class="line">	ON_WM_SYSCOMMAND()</div><div class="line">	ON_WM_PAINT()</div><div class="line">	ON_WM_QUERYDRAGICON()</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON1, &amp;Cday20Dlg::OnBnClickedButton1)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON2, &amp;Cday20Dlg::OnBnClickedButton2)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON3, &amp;Cday20Dlg::OnBnClickedButton3)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON4, &amp;Cday20Dlg::OnBnClickedButton4)</div><div class="line">	ON_WM_CLOSE()</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON5, &amp;Cday20Dlg::OnBnClickedButton5)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON6, &amp;Cday20Dlg::OnBnClickedButton6)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON7, &amp;Cday20Dlg::OnBnClickedButton7)</div><div class="line">	ON_BN_CLICKED(IDC_CHECK1, &amp;Cday20Dlg::OnBnClickedCheck1)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON8, &amp;Cday20Dlg::OnBnClickedButton8)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON9, &amp;Cday20Dlg::OnBnClickedButton9)</div><div class="line">END_MESSAGE_MAP()</div><div class="line"></div><div class="line"></div><div class="line">// Cday20Dlg 消息处理程序</div><div class="line"></div><div class="line">BOOL Cday20Dlg::OnInitDialog()</div><div class="line">&#123;</div><div class="line">	CDialogEx::OnInitDialog();</div><div class="line"></div><div class="line">	// 将“关于...”菜单项添加到系统菜单中。</div><div class="line"></div><div class="line">	// IDM_ABOUTBOX 必须在系统命令范围内。</div><div class="line">	ASSERT((IDM_ABOUTBOX &amp; 0xFFF0) == IDM_ABOUTBOX);</div><div class="line">	ASSERT(IDM_ABOUTBOX &lt; 0xF000);</div><div class="line"></div><div class="line">	CMenu* pSysMenu = GetSystemMenu(FALSE);</div><div class="line">	if (pSysMenu != NULL)</div><div class="line">	&#123;</div><div class="line">		BOOL bNameValid;</div><div class="line">		CString strAboutMenu;</div><div class="line">		bNameValid = strAboutMenu.LoadString(IDS_ABOUTBOX);</div><div class="line">		ASSERT(bNameValid);</div><div class="line">		if (!strAboutMenu.IsEmpty())</div><div class="line">		&#123;</div><div class="line">			pSysMenu-&gt;AppendMenu(MF_SEPARATOR);</div><div class="line">			pSysMenu-&gt;AppendMenu(MF_STRING, IDM_ABOUTBOX, strAboutMenu);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 设置此对话框的图标。当应用程序主窗口不是对话框时，框架将自动</div><div class="line">	//  执行此操作</div><div class="line">	SetIcon(m_hIcon, TRUE);			// 设置大图标</div><div class="line">	SetIcon(m_hIcon, FALSE);		// 设置小图标</div><div class="line"></div><div class="line">	HICON hIcon = AfxGetApp()-&gt;LoadIcon(IDI_ICON_LOL);</div><div class="line">	SetIcon(hIcon, TRUE);			// 设置大图标</div><div class="line">	SetIcon(hIcon, FALSE);		// 设置小图标</div><div class="line"></div><div class="line">	SetWindowText(_T(&quot;LOL&quot;));</div><div class="line"></div><div class="line"></div><div class="line">	// TODO: 在此添加额外的初始化代码</div><div class="line"></div><div class="line">	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE</div><div class="line">&#125;</div><div class="line"></div><div class="line">void Cday20Dlg::OnSysCommand(UINT nID, LPARAM lParam)</div><div class="line">&#123;</div><div class="line">	if ((nID &amp; 0xFFF0) == IDM_ABOUTBOX)</div><div class="line">	&#123;</div><div class="line">		CAboutDlg dlgAbout;</div><div class="line">		dlgAbout.DoModal();</div><div class="line">	&#125;</div><div class="line">	else</div><div class="line">	&#123;</div><div class="line">		CDialogEx::OnSysCommand(nID, lParam);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 如果向对话框添加最小化按钮，则需要下面的代码</div><div class="line">//  来绘制该图标。对于使用文档/视图模型的 MFC 应用程序，</div><div class="line">//  这将由框架自动完成。</div><div class="line"></div><div class="line">void Cday20Dlg::OnPaint()</div><div class="line">&#123;</div><div class="line">	if (IsIconic())</div><div class="line">	&#123;</div><div class="line">		CPaintDC dc(this); // 用于绘制的设备上下文</div><div class="line"></div><div class="line">		SendMessage(WM_ICONERASEBKGND, reinterpret_cast&lt;WPARAM&gt;(dc.GetSafeHdc()), 0);</div><div class="line"></div><div class="line">		// 使图标在工作区矩形中居中</div><div class="line">		int cxIcon = GetSystemMetrics(SM_CXICON);</div><div class="line">		int cyIcon = GetSystemMetrics(SM_CYICON);</div><div class="line">		CRect rect;</div><div class="line">		GetClientRect(&amp;rect);</div><div class="line">		int x = (rect.Width() - cxIcon + 1) / 2;</div><div class="line">		int y = (rect.Height() - cyIcon + 1) / 2;</div><div class="line"></div><div class="line">		// 绘制图标</div><div class="line">		dc.DrawIcon(x, y, m_hIcon);</div><div class="line">	&#125;</div><div class="line">	else</div><div class="line">	&#123;</div><div class="line">		CDialogEx::OnPaint();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//当用户拖动最小化窗口时系统调用此函数取得光标</div><div class="line">//显示。</div><div class="line">HCURSOR Cday20Dlg::OnQueryDragIcon()</div><div class="line">&#123;</div><div class="line">	return static_cast&lt;HCURSOR&gt;(m_hIcon);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton1()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	SendMessage(WM_SYSCOMMAND,SC_MAXIMIZE,0);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton2()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	SendMessage(WM_SYSCOMMAND,SC_MINIMIZE,0);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton3()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	SendMessage(WM_SYSCOMMAND,SC_RESTORE,0);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton4()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	SendMessage(WM_CLOSE,0,0);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnClose()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加消息处理程序代码和/或调用默认值</div><div class="line">	if ( IDYES == MessageBox(_T(&quot;关闭窗口？&quot;),NULL,MB_YESNO))</div><div class="line">	&#123;</div><div class="line">		CDialogEx::OnClose();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton5()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	MoveWindow(100,200,600,450);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton6()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	SetWindowPos(NULL,500,100,700,500,SWP_NOZORDER);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton7()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	CenterWindow();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedCheck1()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	BOOL bTop = static_cast&lt;CButton*&gt;(GetDlgItem(IDC_CHECK1))-&gt;GetCheck();</div><div class="line">	if (bTop)</div><div class="line">	&#123;</div><div class="line">		::SetWindowPos(m_hWnd,HWND_TOPMOST,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE);</div><div class="line">	&#125;</div><div class="line">	else</div><div class="line">	&#123;</div><div class="line">		::SetWindowPos(m_hWnd,HWND_NOTOPMOST,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton8()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	TCHAR tcText[20];</div><div class="line">	GetDlgItemText(IDC_EDIT_TEXT,tcText,20);</div><div class="line">	SetWindowText(tcText);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton9()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	CString str;</div><div class="line">	GetWindowText(str);</div><div class="line">	AfxMessageBox(str);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://amuuncle.site/">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
       
     </div>
     
@@ -607,8 +536,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/29/第11节-MFC之列表控件CListCtrl/" rel="next" title="第11节 MFC之列表控件CListCtrl">
-                <i class="fa fa-chevron-left"></i> 第11节 MFC之列表控件CListCtrl
+              <a href="/2017/11/05/第17节-MFC之状态栏（CStatusBar）/" rel="next" title="第17节 MFC之状态栏（CStatusBar）">
+                <i class="fa fa-chevron-left"></i> 第17节 MFC之状态栏（CStatusBar）
               </a>
             
           </div>
@@ -616,10 +545,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/31/第13节-MFC之图片控件/" rel="prev" title="第13节 MFC之图片控件">
-                第13节 MFC之图片控件 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -828,7 +753,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-新建项目"><span class="nav-number">1.</span> <span class="nav-text">1. 新建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-设置树控件属性"><span class="nav-number">2.</span> <span class="nav-text">2. 设置树控件属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-添加树控件变量"><span class="nav-number">3.</span> <span class="nav-text">3. 添加树控件变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-实现添加节点按钮函数"><span class="nav-number">4.</span> <span class="nav-text">4. 实现添加节点按钮函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-实现删除节点按钮函数"><span class="nav-number">5.</span> <span class="nav-text">5. 实现删除节点按钮函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-实现修改节点按钮函数"><span class="nav-number">6.</span> <span class="nav-text">6. 实现修改节点按钮函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-映射节点选择消息"><span class="nav-number">7.</span> <span class="nav-text">7. 映射节点选择消息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、树形控件的属性"><span class="nav-number">7.1.</span> <span class="nav-text">1、树形控件的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、树形控件TVN-BEGINRDRAG消息的响应"><span class="nav-number">7.2.</span> <span class="nav-text">2、树形控件TVN_BEGINRDRAG消息的响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、树形控件的成员函数"><span class="nav-number">7.3.</span> <span class="nav-text">3、树形控件的成员函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感伤：WE输了，RNG输了，心碎了。。。"><span class="nav-number"></span> <span class="nav-text">感伤：WE输了，RNG输了，心碎了。。。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目源码可以访问我的码云"><span class="nav-number">0.1.</span> <span class="nav-text">项目源码可以访问我的码云</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-gt-gt-我的私人博客-lt-lt-lt"><span class="nav-number">0.2.</span> <span class="nav-text">>>>我的私人博客<<<</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-最大化"><span class="nav-number">1.</span> <span class="nav-text">1. 最大化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-最小化"><span class="nav-number">2.</span> <span class="nav-text">2. 最小化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-还原窗口"><span class="nav-number">3.</span> <span class="nav-text">3. 还原窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-关闭窗口"><span class="nav-number">4.</span> <span class="nav-text">4. 关闭窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-设置窗口大小及位置"><span class="nav-number">5.</span> <span class="nav-text">5. 设置窗口大小及位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-居中显示窗口"><span class="nav-number">6.</span> <span class="nav-text">6. 居中显示窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-顶层显示窗口"><span class="nav-number">7.</span> <span class="nav-text">7.顶层显示窗口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-设置窗口图标"><span class="nav-number">8.</span> <span class="nav-text">8.设置窗口图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-获取窗口标题"><span class="nav-number">9.</span> <span class="nav-text">9.获取窗口标题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-设置窗口标题"><span class="nav-number">10.</span> <span class="nav-text">10.设置窗口标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目源码可以访问我的码云"><span class="nav-number">10.1.</span> <span class="nav-text">项目源码可以访问我的码云</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-gt-gt-我的私人博客-lt-lt-lt"><span class="nav-number">10.2.</span> <span class="nav-text">>>>我的私人博客<<<</span></a></li></ol></li></ol></div>
             
 
           </div>

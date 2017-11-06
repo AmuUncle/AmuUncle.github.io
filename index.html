@@ -326,6 +326,205 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/11/06/第18节-MFC之窗体操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/06/第18节-MFC之窗体操作/" itemprop="url">第18节 MFC之窗体操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T21:17:31+08:00">
+                2017-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
+                    <span itemprop="name">MFC从入门到放弃</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天学习一下MFC窗体的基本操作：</p>
+<blockquote>
+<ul>
+<li>最大化</li>
+<li>最小化</li>
+<li>还原</li>
+<li>关闭窗口</li>
+<li>设置窗口大小</li>
+<li>设置窗口位置</li>
+<li>居中显示窗口</li>
+<li>顶层显示窗口</li>
+<li>设置窗口图标</li>
+<li>获取窗口标题</li>
+<li>设置窗口标题</li>
+</ul>
+</blockquote>
+<h2 id="1-最大化"><a href="#1-最大化" class="headerlink" title="1. 最大化"></a>1. 最大化</h2><blockquote>
+<p>SendMessage(WM_SYSCOMMAND,SC_MAXIMIZE,0)</p>
+</blockquote>
+<h2 id="2-最小化"><a href="#2-最小化" class="headerlink" title="2. 最小化"></a>2. 最小化</h2><blockquote>
+<p>SendMessage(WM_SYSCOMMAND,SC_MINIMIZE,0)</p>
+</blockquote>
+<h2 id="3-还原窗口"><a href="#3-还原窗口" class="headerlink" title="3. 还原窗口"></a>3. 还原窗口</h2><blockquote>
+<p>SendMessage(WM_SYSCOMMAND,SC_RESTORE,0)</p>
+</blockquote>
+<h2 id="4-关闭窗口"><a href="#4-关闭窗口" class="headerlink" title="4. 关闭窗口"></a>4. 关闭窗口</h2><blockquote>
+<p>SendMessage(WM_CLOSE,0,0)</p>
+</blockquote>
+<h2 id="5-设置窗口大小及位置"><a href="#5-设置窗口大小及位置" class="headerlink" title="5. 设置窗口大小及位置"></a>5. 设置窗口大小及位置</h2><blockquote>
+<p>MoveWindow(100,200,600,450);<br>或<br>SetWindowPos(NULL,500,100,700,500,SWP_NOZORDER);</p>
+</blockquote>
+<h2 id="6-居中显示窗口"><a href="#6-居中显示窗口" class="headerlink" title="6. 居中显示窗口"></a>6. 居中显示窗口</h2><blockquote>
+<p>SendMessage(WM_CLOSE,0,0)</p>
+</blockquote>
+<h2 id="7-顶层显示窗口"><a href="#7-顶层显示窗口" class="headerlink" title="7.顶层显示窗口"></a>7.顶层显示窗口</h2><blockquote>
+<p>设置顶层显示<br>::SetWindowPos(m_hWnd,HWND_TOPMOST,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE);</p>
+<p>取消顶层显示<br>::SetWindowPos(m_hWnd,HWND_NOTOPMOST,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE);</p>
+</blockquote>
+<h2 id="8-设置窗口图标"><a href="#8-设置窗口图标" class="headerlink" title="8.设置窗口图标"></a>8.设置窗口图标</h2><blockquote>
+<pre><code>HICON hIcon = AfxGetApp()-&gt;LoadIcon(IDI_ICON_LOL);
+ SetIcon(hIcon, TRUE);            // 设置大图标
+  SetIcon(hIcon, FALSE);        // 设置小图标
+</code></pre></blockquote>
+<h2 id="9-获取窗口标题"><a href="#9-获取窗口标题" class="headerlink" title="9.获取窗口标题"></a>9.获取窗口标题</h2><blockquote>
+<p>GetWindowText(str);</p>
+</blockquote>
+<h2 id="10-设置窗口标题"><a href="#10-设置窗口标题" class="headerlink" title="10.设置窗口标题"></a>10.设置窗口标题</h2><blockquote>
+<p>SetWindowText(_T(“LOL”));</p>
+</blockquote>
+<p>附源码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div></pre></td><td class="code"><pre><div class="line">// day20Dlg.cpp : 实现文件</div><div class="line">//</div><div class="line"></div><div class="line">#include &quot;stdafx.h&quot;</div><div class="line">#include &quot;day20.h&quot;</div><div class="line">#include &quot;day20Dlg.h&quot;</div><div class="line">#include &quot;afxdialogex.h&quot;</div><div class="line"></div><div class="line">#ifdef _DEBUG</div><div class="line">#define new DEBUG_NEW</div><div class="line">#endif</div><div class="line"></div><div class="line"></div><div class="line">// 用于应用程序“关于”菜单项的 CAboutDlg 对话框</div><div class="line"></div><div class="line">class CAboutDlg : public CDialogEx</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">	CAboutDlg();</div><div class="line"></div><div class="line">// 对话框数据</div><div class="line">	enum &#123; IDD = IDD_ABOUTBOX &#125;;</div><div class="line"></div><div class="line">	protected:</div><div class="line">	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持</div><div class="line"></div><div class="line">// 实现</div><div class="line">protected:</div><div class="line">	DECLARE_MESSAGE_MAP()</div><div class="line">&#125;;</div><div class="line"></div><div class="line">CAboutDlg::CAboutDlg() : CDialogEx(CAboutDlg::IDD)</div><div class="line">&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CAboutDlg::DoDataExchange(CDataExchange* pDX)</div><div class="line">&#123;</div><div class="line">	CDialogEx::DoDataExchange(pDX);</div><div class="line">&#125;</div><div class="line"></div><div class="line">BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)</div><div class="line">END_MESSAGE_MAP()</div><div class="line"></div><div class="line"></div><div class="line">// Cday20Dlg 对话框</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">Cday20Dlg::Cday20Dlg(CWnd* pParent /*=NULL*/)</div><div class="line">	: CDialogEx(Cday20Dlg::IDD, pParent)</div><div class="line">&#123;</div><div class="line">	m_hIcon = AfxGetApp()-&gt;LoadIcon(IDR_MAINFRAME);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void Cday20Dlg::DoDataExchange(CDataExchange* pDX)</div><div class="line">&#123;</div><div class="line">	CDialogEx::DoDataExchange(pDX);</div><div class="line">&#125;</div><div class="line"></div><div class="line">BEGIN_MESSAGE_MAP(Cday20Dlg, CDialogEx)</div><div class="line">	ON_WM_SYSCOMMAND()</div><div class="line">	ON_WM_PAINT()</div><div class="line">	ON_WM_QUERYDRAGICON()</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON1, &amp;Cday20Dlg::OnBnClickedButton1)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON2, &amp;Cday20Dlg::OnBnClickedButton2)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON3, &amp;Cday20Dlg::OnBnClickedButton3)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON4, &amp;Cday20Dlg::OnBnClickedButton4)</div><div class="line">	ON_WM_CLOSE()</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON5, &amp;Cday20Dlg::OnBnClickedButton5)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON6, &amp;Cday20Dlg::OnBnClickedButton6)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON7, &amp;Cday20Dlg::OnBnClickedButton7)</div><div class="line">	ON_BN_CLICKED(IDC_CHECK1, &amp;Cday20Dlg::OnBnClickedCheck1)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON8, &amp;Cday20Dlg::OnBnClickedButton8)</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON9, &amp;Cday20Dlg::OnBnClickedButton9)</div><div class="line">END_MESSAGE_MAP()</div><div class="line"></div><div class="line"></div><div class="line">// Cday20Dlg 消息处理程序</div><div class="line"></div><div class="line">BOOL Cday20Dlg::OnInitDialog()</div><div class="line">&#123;</div><div class="line">	CDialogEx::OnInitDialog();</div><div class="line"></div><div class="line">	// 将“关于...”菜单项添加到系统菜单中。</div><div class="line"></div><div class="line">	// IDM_ABOUTBOX 必须在系统命令范围内。</div><div class="line">	ASSERT((IDM_ABOUTBOX &amp; 0xFFF0) == IDM_ABOUTBOX);</div><div class="line">	ASSERT(IDM_ABOUTBOX &lt; 0xF000);</div><div class="line"></div><div class="line">	CMenu* pSysMenu = GetSystemMenu(FALSE);</div><div class="line">	if (pSysMenu != NULL)</div><div class="line">	&#123;</div><div class="line">		BOOL bNameValid;</div><div class="line">		CString strAboutMenu;</div><div class="line">		bNameValid = strAboutMenu.LoadString(IDS_ABOUTBOX);</div><div class="line">		ASSERT(bNameValid);</div><div class="line">		if (!strAboutMenu.IsEmpty())</div><div class="line">		&#123;</div><div class="line">			pSysMenu-&gt;AppendMenu(MF_SEPARATOR);</div><div class="line">			pSysMenu-&gt;AppendMenu(MF_STRING, IDM_ABOUTBOX, strAboutMenu);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 设置此对话框的图标。当应用程序主窗口不是对话框时，框架将自动</div><div class="line">	//  执行此操作</div><div class="line">	SetIcon(m_hIcon, TRUE);			// 设置大图标</div><div class="line">	SetIcon(m_hIcon, FALSE);		// 设置小图标</div><div class="line"></div><div class="line">	HICON hIcon = AfxGetApp()-&gt;LoadIcon(IDI_ICON_LOL);</div><div class="line">	SetIcon(hIcon, TRUE);			// 设置大图标</div><div class="line">	SetIcon(hIcon, FALSE);		// 设置小图标</div><div class="line"></div><div class="line">	SetWindowText(_T(&quot;LOL&quot;));</div><div class="line"></div><div class="line"></div><div class="line">	// TODO: 在此添加额外的初始化代码</div><div class="line"></div><div class="line">	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE</div><div class="line">&#125;</div><div class="line"></div><div class="line">void Cday20Dlg::OnSysCommand(UINT nID, LPARAM lParam)</div><div class="line">&#123;</div><div class="line">	if ((nID &amp; 0xFFF0) == IDM_ABOUTBOX)</div><div class="line">	&#123;</div><div class="line">		CAboutDlg dlgAbout;</div><div class="line">		dlgAbout.DoModal();</div><div class="line">	&#125;</div><div class="line">	else</div><div class="line">	&#123;</div><div class="line">		CDialogEx::OnSysCommand(nID, lParam);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 如果向对话框添加最小化按钮，则需要下面的代码</div><div class="line">//  来绘制该图标。对于使用文档/视图模型的 MFC 应用程序，</div><div class="line">//  这将由框架自动完成。</div><div class="line"></div><div class="line">void Cday20Dlg::OnPaint()</div><div class="line">&#123;</div><div class="line">	if (IsIconic())</div><div class="line">	&#123;</div><div class="line">		CPaintDC dc(this); // 用于绘制的设备上下文</div><div class="line"></div><div class="line">		SendMessage(WM_ICONERASEBKGND, reinterpret_cast&lt;WPARAM&gt;(dc.GetSafeHdc()), 0);</div><div class="line"></div><div class="line">		// 使图标在工作区矩形中居中</div><div class="line">		int cxIcon = GetSystemMetrics(SM_CXICON);</div><div class="line">		int cyIcon = GetSystemMetrics(SM_CYICON);</div><div class="line">		CRect rect;</div><div class="line">		GetClientRect(&amp;rect);</div><div class="line">		int x = (rect.Width() - cxIcon + 1) / 2;</div><div class="line">		int y = (rect.Height() - cyIcon + 1) / 2;</div><div class="line"></div><div class="line">		// 绘制图标</div><div class="line">		dc.DrawIcon(x, y, m_hIcon);</div><div class="line">	&#125;</div><div class="line">	else</div><div class="line">	&#123;</div><div class="line">		CDialogEx::OnPaint();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//当用户拖动最小化窗口时系统调用此函数取得光标</div><div class="line">//显示。</div><div class="line">HCURSOR Cday20Dlg::OnQueryDragIcon()</div><div class="line">&#123;</div><div class="line">	return static_cast&lt;HCURSOR&gt;(m_hIcon);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton1()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	SendMessage(WM_SYSCOMMAND,SC_MAXIMIZE,0);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton2()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	SendMessage(WM_SYSCOMMAND,SC_MINIMIZE,0);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton3()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	SendMessage(WM_SYSCOMMAND,SC_RESTORE,0);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton4()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	SendMessage(WM_CLOSE,0,0);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnClose()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加消息处理程序代码和/或调用默认值</div><div class="line">	if ( IDYES == MessageBox(_T(&quot;关闭窗口？&quot;),NULL,MB_YESNO))</div><div class="line">	&#123;</div><div class="line">		CDialogEx::OnClose();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton5()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	MoveWindow(100,200,600,450);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton6()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	SetWindowPos(NULL,500,100,700,500,SWP_NOZORDER);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton7()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	CenterWindow();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedCheck1()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	BOOL bTop = static_cast&lt;CButton*&gt;(GetDlgItem(IDC_CHECK1))-&gt;GetCheck();</div><div class="line">	if (bTop)</div><div class="line">	&#123;</div><div class="line">		::SetWindowPos(m_hWnd,HWND_TOPMOST,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE);</div><div class="line">	&#125;</div><div class="line">	else</div><div class="line">	&#123;</div><div class="line">		::SetWindowPos(m_hWnd,HWND_NOTOPMOST,0,0,0,0,SWP_NOMOVE|SWP_NOSIZE);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton8()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	TCHAR tcText[20];</div><div class="line">	GetDlgItemText(IDC_EDIT_TEXT,tcText,20);</div><div class="line">	SetWindowText(tcText);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">void Cday20Dlg::OnBnClickedButton9()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	CString str;</div><div class="line">	GetWindowText(str);</div><div class="line">	AfxMessageBox(str);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://amuuncle.site/">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	
+    
+
+    
+
+    
+	
+
+	
+	<div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/11/05/第17节-MFC之状态栏（CStatusBar）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2177,181 +2376,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/10/28/工具使用-第1节-git使用简记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="阿木大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AmuUncle">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/工具使用-第1节-git使用简记/" itemprop="url">工具使用--第1节 git使用简记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:38:48+08:00">
-                2017-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git教程/" itemprop="url" rel="index">
-                    <span itemprop="name">git教程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="工具使用–第1节-git使用简记"><a href="#工具使用–第1节-git使用简记" class="headerlink" title="工具使用–第1节 git使用简记"></a>工具使用–第1节 git使用简记</h1><h2 id="GIT-（分布式版本控制系统）"><a href="#GIT-（分布式版本控制系统）" class="headerlink" title="GIT （分布式版本控制系统）"></a>GIT （分布式版本控制系统）</h2><blockquote>
-<p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。  Git的读音为/gɪt/。 Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。 Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。 Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如 很多 Freedesktop 的项目迁移到了Git 上。    — <strong>百度百科</strong></p>
-</blockquote>
-<h2 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h2><p>这里只说windows版本安装使用，Linux版本等以后再研究；</p>
-<h3 id="1-1-下载msysgit"><a href="#1-1-下载msysgit" class="headerlink" title="1.1  下载msysgit"></a>1.1  下载msysgit</h3><p><strong>msysgit</strong>是Windows版的Git，从<a href="https://git-for-windows.github.io下载（百度一下也有很多下载链接），然后按默认选项安装即可。**msysgit**的操作命令和Linux基本一致，很多命令是通用的，例如ls，mv，rm等；" target="_blank" rel="external">https://git-for-windows.github.io下载（百度一下也有很多下载链接），然后按默认选项安装即可。**msysgit**的操作命令和Linux基本一致，很多命令是通用的，例如ls，mv，rm等；</a><br>mygit安装完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！</p>
-<h2 id="2-配置msysgit"><a href="#2-配置msysgit" class="headerlink" title="2. 配置msysgit"></a>2. 配置msysgit</h2><p>在桌面空白处右击，选择“Git Bash here”进入msysgit的控制台，输入一下两条命令，配置全局的用户名和邮箱：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name &quot;你的用户名&quot;</div><div class="line">$ git config --global user.email &quot;邮箱地址&quot;</div></pre></td></tr></table></figure></p>
-<p>你的用户名：可以随意设置，但要记住用户名<br>邮箱地址：你的邮箱地址</p>
-<h2 id="3-创建代码仓"><a href="#3-创建代码仓" class="headerlink" title="3.创建代码仓"></a>3.创建代码仓</h2><h3 id="3-1-进入你想建仓的目录"><a href="#3-1-进入你想建仓的目录" class="headerlink" title="3.1 进入你想建仓的目录"></a>3.1 进入你想建仓的目录</h3><p>在目录空白处右击选择“Git Bash here”进入msysgit的控制台，输入git init命令把这个目录变成Git可以管理的仓库：</p>
-<blockquote>
-<p>$ git init<br> Initialized empty Git repository in C:/Users/Administrator/Desktop/usb_encryption_5.4.0/git_demo/.git/</p>
-</blockquote>
-<p>git会在此目录创建.git目录，这是Git来跟踪管理版本库的，无需我们来改动，</p>
-<h2 id="4-版本控制"><a href="#4-版本控制" class="headerlink" title="4.版本控制"></a>4.版本控制</h2><p>我们现在在此目录下来创建一个readme.md文件，随意填写些内容，如下<br><img src="http://img.blog.csdn.net/20171024232855549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="4-1-查看版本状态"><a href="#4-1-查看版本状态" class="headerlink" title="4.1 查看版本状态"></a>4.1 查看版本状态</h3><blockquote>
-<p>git status<br><img src="http://img.blog.csdn.net/20171024233234409?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-</blockquote>
-<h3 id="4-2-添加到缓存区"><a href="#4-2-添加到缓存区" class="headerlink" title="4.2 添加到缓存区"></a>4.2 添加到缓存区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add readme.md</div></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20171024233414198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h3 id="4-3-提交代码到版本仓"><a href="#4-3-提交代码到版本仓" class="headerlink" title="4.3 提交代码到版本仓"></a>4.3 提交代码到版本仓</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;Add readme&quot;</div></pre></td></tr></table></figure>
-<p><img src="http://img.blog.csdn.net/20171024233600207?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>-m 后面跟得是你提交的代码的描述，建议所有提交都应该添加描述。</p>
-<p><em>暂时先记录这么多，下次再补充完整</em></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-	
-	
-    
-
-    
-
-    
-	
-
-	
-	<div>
-		
-	</div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2401,7 +2430,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
