@@ -89,27 +89,22 @@
 
 
 
-<meta name="description" content="Windows编程基础–第15节 MFC之复选框及单选按钮1. 新建项目新建一个基于对话框项目“day17”，布局如下，自行处理： 拖动三个check box和两个radio button到界面上，设置其ID如下：| 控件名 | 控件ID|| ——–   |  —–:  || 红色| IDC_CHECK_RED|| 绿色   |   IDC_CHECK_GREEN|| 蓝色     |   IDC">
+<meta name="description" content="Windows编程基础–第19节 MFC之自定义消息windows程序中最重要的就是消息机制，前面几节我们都是使用Windows系统设定好的消息进行编程，今天我们来使用自定义的消息来看看MFC中消息的传递过程；MFC中自定义消息有两种方法：   #define WM_MY_DEFINED_MSG (WM_USR+100) RegisterWindowMessage(WM_MY_REGISTER_M">
 <meta name="keywords" content="MFC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第15节 MFC之复选框及单选按钮">
-<meta property="og:url" content="http://amuuncle.site/2017/11/02/第15节-MFC之复选框及单选按钮/index.html">
+<meta property="og:title" content="第19节 MFC之自定义消息">
+<meta property="og:url" content="http://amuuncle.site/2017/11/08/第19节-MFC之自定义消息/index.html">
 <meta property="og:site_name" content="AmuUncle">
-<meta property="og:description" content="Windows编程基础–第15节 MFC之复选框及单选按钮1. 新建项目新建一个基于对话框项目“day17”，布局如下，自行处理： 拖动三个check box和两个radio button到界面上，设置其ID如下：| 控件名 | 控件ID|| ——–   |  —–:  || 红色| IDC_CHECK_RED|| 绿色   |   IDC_CHECK_GREEN|| 蓝色     |   IDC">
+<meta property="og:description" content="Windows编程基础–第19节 MFC之自定义消息windows程序中最重要的就是消息机制，前面几节我们都是使用Windows系统设定好的消息进行编程，今天我们来使用自定义的消息来看看MFC中消息的传递过程；MFC中自定义消息有两种方法：   #define WM_MY_DEFINED_MSG (WM_USR+100) RegisterWindowMessage(WM_MY_REGISTER_M">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.blog.csdn.net/20171102215604038?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171102220353696?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171102220403509?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171102220705649?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171102221631588?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171102224705375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171102225056653?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:image" content="http://img.blog.csdn.net/20171102225829436?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-11-05T11:55:55.376Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20171108205056148?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171108210903808?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171108211915315?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-11-08T13:26:03.272Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="第15节 MFC之复选框及单选按钮">
-<meta name="twitter:description" content="Windows编程基础–第15节 MFC之复选框及单选按钮1. 新建项目新建一个基于对话框项目“day17”，布局如下，自行处理： 拖动三个check box和两个radio button到界面上，设置其ID如下：| 控件名 | 控件ID|| ——–   |  —–:  || 红色| IDC_CHECK_RED|| 绿色   |   IDC_CHECK_GREEN|| 蓝色     |   IDC">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20171102215604038?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="第19节 MFC之自定义消息">
+<meta name="twitter:description" content="Windows编程基础–第19节 MFC之自定义消息windows程序中最重要的就是消息机制，前面几节我们都是使用Windows系统设定好的消息进行编程，今天我们来使用自定义的消息来看看MFC中消息的传递过程；MFC中自定义消息有两种方法：   #define WM_MY_DEFINED_MSG (WM_USR+100) RegisterWindowMessage(WM_MY_REGISTER_M">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171108205056148?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -139,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://amuuncle.site/2017/11/02/第15节-MFC之复选框及单选按钮/"/>
+  <link rel="canonical" href="http://amuuncle.site/2017/11/08/第19节-MFC之自定义消息/"/>
 
 
 
 
 
-  <title>第15节 MFC之复选框及单选按钮 | AmuUncle</title>
+  <title>第19节 MFC之自定义消息 | AmuUncle</title>
   
 
 
@@ -336,7 +331,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/11/02/第15节-MFC之复选框及单选按钮/">
+    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/11/08/第19节-MFC之自定义消息/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="阿木大叔">
@@ -353,7 +348,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第15节 MFC之复选框及单选按钮</h1>
+          <h1 class="post-title" itemprop="name headline">第19节 MFC之自定义消息</h1>
         
 
         <div class="post-meta">
@@ -365,8 +360,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-02T23:00:09+08:00">
-                2017-11-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T21:25:28+08:00">
+                2017-11-08
               </time>
             
 
@@ -425,39 +420,84 @@
       
 
       
-        <h1 id="Windows编程基础–第15节-MFC之复选框及单选按钮"><a href="#Windows编程基础–第15节-MFC之复选框及单选按钮" class="headerlink" title="Windows编程基础–第15节 MFC之复选框及单选按钮"></a>Windows编程基础–第15节 MFC之复选框及单选按钮</h1><h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day17”，布局如下，自行处理：<br><img src="http://img.blog.csdn.net/20171102215604038?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>拖动三个check box和两个radio button到界面上，设置其ID如下：<br>| 控件名 | 控件ID|<br>| ——–   |  —–:  |<br>| 红色| IDC_CHECK_RED|<br>| 绿色   |   IDC_CHECK_GREEN|<br>| 蓝色     |   IDC_CHECK_BLUE|<br>| 矩形      |   IDC_RADIO_SQURAE|<br>| 圆形|   IDC_RADIO_CIRC|<br>执行“工具”-&gt;“tab键位置”，确保两个radio button的顺序是连续的，如下图：<br><img src="http://img.blog.csdn.net/20171102220353696?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171102220403509?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>指定第一个radio button（矩形）的Group的值为true，如图:<br><img src="http://img.blog.csdn.net/20171102220705649?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="2-添加关联变量"><a href="#2-添加关联变量" class="headerlink" title="2. 添加关联变量"></a>2. 添加关联变量</h2><p>添加五个控件的变量，如图：<br><img src="http://img.blog.csdn.net/20171102221631588?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">DDX_Control(pDX, IDC_CHECK_RED, m_chk_red);</div><div class="line">DDX_Control(pDX, IDC_CHECK_GREEN, m_chk_green);</div><div class="line">DDX_Control(pDX, IDC_CHECK_BLUE, m_chk_blue);</div><div class="line">DDX_Control(pDX, IDC_RADIO_SQURAE, m_rd_squ);</div><div class="line">DDX_Control(pDX, IDC_RADIO_CIRC, m_rd_circ);</div></pre></td></tr></table></figure>
-<p>分别添加如上变量；</p>
-<h2 id="3-开始写代码吧"><a href="#3-开始写代码吧" class="headerlink" title="3. 开始写代码吧"></a>3. 开始写代码吧</h2><p>现在我们来让程序运行起来时默认选中圆形；<br>切换到解决方案视图，进入BOOL Cday17Dlg::OnInitDialog()方法：<br>在末尾return前加入这一行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// TODO: 在此添加额外的初始化代码</div><div class="line">CheckRadioButton(IDC_RADIO_SQURAE,IDC_RADIO_CIRC,IDC_RADIO_CIRC);</div><div class="line"></div><div class="line">return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE</div></pre></td></tr></table></figure>
-<p>代码解释：</p>
+        <h1 id="Windows编程基础–第19节-MFC之自定义消息"><a href="#Windows编程基础–第19节-MFC之自定义消息" class="headerlink" title="Windows编程基础–第19节 MFC之自定义消息"></a>Windows编程基础–第19节 MFC之自定义消息</h1><p>windows程序中最重要的就是消息机制，前面几节我们都是使用Windows系统设定好的消息进行编程，今天我们来使用自定义的消息来看看MFC中消息的传递过程；<br>MFC中自定义消息有两种方法：</p>
 <blockquote>
-<p>在IDC_RADIO_SQURAE和IDC_RADIO_CIRC之间选中IDC_RADIO_CIRC</p>
+<ol>
+<li>#define WM_MY_DEFINED_MSG (WM_USR+100)</li>
+<li>RegisterWindowMessage(WM_MY_REGISTER_MSG_SRR)<br>下面我们来尝试一下这两种方法有什么不同；</li>
+</ol>
 </blockquote>
-<h2 id="添加五个控件的事件处理方法"><a href="#添加五个控件的事件处理方法" class="headerlink" title="添加五个控件的事件处理方法"></a>添加五个控件的事件处理方法</h2><p>如图所示：<br><img src="http://img.blog.csdn.net/20171102224705375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>剩下四个都如上添加好；<br>编辑“蓝色”按钮的点击方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">void Cday17Dlg::OnBnClickedCheckBlue()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	Invalidate();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码解释：</p>
+<h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day21”，布局如下，自行处理：<br><img src="http://img.blog.csdn.net/20171108205056148?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="2-第一种自定义消息"><a href="#2-第一种自定义消息" class="headerlink" title="2.第一种自定义消息"></a>2.第一种自定义消息</h2><h3 id="2-1-定义消息ID"><a href="#2-1-定义消息ID" class="headerlink" title="2.1 定义消息ID"></a>2.1 定义消息ID</h3><p>我们来到day20Dlg.h 的头文件中，在上方创建一个宏定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define WM_MY_FRIST_MSG (WM_USER + 100)</div></pre></td></tr></table></figure>
+<p>这里我们定义了一个WM_MY_FRIST_MSG整型数值，它的值时WM_USER + 100，其中<strong>WM_USER </strong>是微软定义好的宏，它的值是:<code>#define WM_USER                         0x0400</code> ，这说明在0x0400之前的消息(包含0x0400)都已经被windows系统使用，我们自定义消息只能在这之后，所以我们加上了100；</p>
+<h3 id="2-2-映射消息函数"><a href="#2-2-映射消息函数" class="headerlink" title="2.2  映射消息函数"></a>2.2  映射消息函数</h3><p>我们切换到day20Dlg.cpp中，找到下面这地方：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">BEGIN_MESSAGE_MAP(Cday21Dlg, CDialogEx)</div><div class="line">	ON_WM_SYSCOMMAND()</div><div class="line">	ON_WM_PAINT()</div><div class="line">	ON_WM_QUERYDRAGICON()</div><div class="line">END_MESSAGE_MAP()</div></pre></td></tr></table></figure></p>
+<p>这就是消息的关系图，我们来添加一条映射，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">BEGIN_MESSAGE_MAP(Cday21Dlg, CDialogEx)</div><div class="line">	ON_WM_SYSCOMMAND()</div><div class="line">	ON_WM_PAINT()</div><div class="line">	ON_WM_QUERYDRAGICON()</div><div class="line">	ON_MESSAGE(WM_MY_FRIST_MSG, &amp;Cday21Dlg::OnMyFirstMsgTrigger)</div><div class="line">END_MESSAGE_MAP()</div></pre></td></tr></table></figure>
 <blockquote>
-<p>Invalidate()让对话框重汇对话框；</p>
-<h2 id="添加擦除背景消息（OnEraseBkgnd）事件"><a href="#添加擦除背景消息（OnEraseBkgnd）事件" class="headerlink" title="添加擦除背景消息（OnEraseBkgnd）事件"></a>添加擦除背景消息（OnEraseBkgnd）事件</h2><p>如图添加OnEraseBkgnd消息处理函数：<br><img src="http://img.blog.csdn.net/20171102225056653?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>编辑OnEraseBkgnd函数：</p>
+<p>ON_MESSAGE(WM_MY_FRIST_MSG, &amp;Cday21Dlg::OnMyFirstMsgTrigger)<br>说明将WM_MY_FRIST_MSG消息ID与类Cday21Dlg的OnMyFirstMsgTrigger成员函数对应，当WM_MY_FRIST_MSG消息被触发时将调用OnMyFirstMsgTrigger方法；</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">BOOL Cday17Dlg::OnEraseBkgnd(CDC* pDC)</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加消息处理程序代码和/或调用默认值</div><div class="line">	BOOL bRet = CDialogEx::OnEraseBkgnd(pDC);</div><div class="line">	int nRed,nGreen,nBlue;</div><div class="line">	nRed = m_chk_red.GetCheck() ? 255 : 0;</div><div class="line">	nGreen = m_chk_green.GetCheck() ? 255 : 0;</div><div class="line">	nBlue = m_chk_blue.GetCheck() ? 255 : 0;</div><div class="line"></div><div class="line">	COLORREF crFore = RGB(nRed,nGreen,nBlue);</div><div class="line">	CBrush brush;</div><div class="line">	brush.CreateSolidBrush(crFore);</div><div class="line">	CBrush *pOldBrush = pDC-&gt;SelectObject(&amp;brush);</div><div class="line"></div><div class="line">	RECT rc = &#123;100, 40, 400, 340&#125;;</div><div class="line">	if (m_rd_squ.GetCheck())</div><div class="line">	&#123;</div><div class="line">		pDC-&gt;Rectangle(&amp;rc);</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		pDC-&gt;Ellipse(&amp;rc);</div><div class="line">	&#125;</div><div class="line">	pDC-&gt;SelectObject(pOldBrush);</div><div class="line">	return bRet;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="2-3-实现消息函数"><a href="#2-3-实现消息函数" class="headerlink" title="2.3  实现消息函数"></a>2.3  实现消息函数</h3><p>我们先切换到Cday21Dlg类中，添加OnMyFirstMsgTrigger方法的声明：</p>
+<blockquote>
+<p>afx_msg LRESULT OnMyFirstMsgTrigger(WPARAM wParam,  LPARAM lParam);<br>这是消息映射函数的固定格式，参数类型也是固定的；</p>
+</blockquote>
+<p>接下来我们实现OnMyFirstMsgTrigger的定义,如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">LRESULT Cday21Dlg::OnMyFirstMsgTrigger(WPARAM wParam,  LPARAM lParam)</div><div class="line">&#123;</div><div class="line">	TCHAR szBuf[128];</div><div class="line">	_stprintf(szBuf,_T(&quot;消息：%s 被触发，消息ID: 0x%x &quot;),_T(&quot;WM_MY_FRIST_MSG&quot;),WM_MY_FRIST_MSG); </div><div class="line">    AfxMessageBox(szBuf);</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>代码解释：</p>
 <blockquote>
 <ol>
-<li>根据颜色按钮的选择状态来选择颜色为255还是0；</li>
-<li>用三个的颜色来创建一个画刷；</li>
-<li>保留旧的画刷；</li>
-<li>创建RECT 对象，即圆形的大小；</li>
-<li>根据形状的radio button来选择化圆形还是矩形；</li>
-<li>还原旧的画刷；</li>
+<li>只要执行这个函数就会弹窗显示消息名称和ID；</li>
 </ol>
 </blockquote>
-<h2 id="实现其他按钮"><a href="#实现其他按钮" class="headerlink" title="实现其他按钮"></a>实现其他按钮</h2><p>其他按钮就只用调用OnBnClickedCheckBlue()就可以了；</p>
-<h1 id="最终效果图："><a href="#最终效果图：" class="headerlink" title="最终效果图："></a>最终效果图：</h1><p><img src="http://img.blog.csdn.net/20171102225829436?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h3 id="2-4-发送消息"><a href="#2-4-发送消息" class="headerlink" title="2.4  发送消息"></a>2.4  发送消息</h3><p>我们双击资源界面上的“自定义消息ID”按钮，编辑其点击事件处理函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">void Cday21Dlg::OnBnClickedBtnDefined()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line"></div><div class="line">	PostMessage(WM_MY_FRIST_MSG,0,0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>使用PostMessage发送WM_MY_FRIST_MSG消息；</li>
+</ol>
+</blockquote>
+<h3 id="2-5-运行结果"><a href="#2-5-运行结果" class="headerlink" title="2.5  运行结果"></a>2.5  运行结果</h3><p><img src="http://img.blog.csdn.net/20171108210903808?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="3-第二种自定义消息"><a href="#3-第二种自定义消息" class="headerlink" title="3.第二种自定义消息"></a>3.第二种自定义消息</h2><h3 id="3-1-定义消息ID"><a href="#3-1-定义消息ID" class="headerlink" title="3.1 定义消息ID"></a>3.1 定义消息ID</h3><p>由于我们需要使用RegisterWindowMessage(LPCSTR lpString)来创造消息ID，所以我们需要先定义一个字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">#define WM_MY_REGISTER_MSG_SRR _T(&quot;WM_MY_REGISTER_MSG_SRR&quot;)</div></pre></td></tr></table></figure>
+<p>接下来我们定义一个全局变量WM_MY_REGISTER_MSG来作为消息ID；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">UINT WM_MY_REGISTER_MSG;</div></pre></td></tr></table></figure>
+<p>接下来我们来初始化消息ID，我们到Cday21Dlg类的构造函数中来创建消息ID：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Cday21Dlg::Cday21Dlg(CWnd* pParent /*=NULL*/)</div><div class="line">	: CDialogEx(Cday21Dlg::IDD, pParent)</div><div class="line">&#123;</div><div class="line">	m_hIcon = AfxGetApp()-&gt;LoadIcon(IDR_MAINFRAME);</div><div class="line">	WM_MY_REGISTER_MSG = RegisterWindowMessage(WM_MY_REGISTER_MSG_SRR);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样我们就通过RegisterWindowMessage来创建了消息ID，但只有在程序运行时我们才会知道消息ID是多少，并且每次运行时都可能不同；</p>
+<h3 id="3-2-映射消息函数"><a href="#3-2-映射消息函数" class="headerlink" title="3.2  映射消息函数"></a>3.2  映射消息函数</h3><p>我们切换到day20Dlg.cpp中，我们再来添加一条映射，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">BEGIN_MESSAGE_MAP(Cday21Dlg, CDialogEx)</div><div class="line">	ON_WM_SYSCOMMAND()</div><div class="line">	ON_WM_PAINT()</div><div class="line">	ON_WM_QUERYDRAGICON()</div><div class="line">	ON_BN_CLICKED(IDC_BTN_DEFINED, &amp;Cday21Dlg::OnBnClickedBtnDefined)</div><div class="line">	ON_MESSAGE(WM_MY_FRIST_MSG, &amp;Cday21Dlg::OnMyFirstMsgTrigger)</div><div class="line">	ON_REGISTERED_MESSAGE(WM_MY_REGISTER_MSG, &amp;Cday21Dlg::OnMyRegisterMsgTrigger)</div><div class="line">	ON_BN_CLICKED(IDC_BTN_REG, &amp;Cday21Dlg::OnBnClickedBtnReg)</div><div class="line">END_MESSAGE_MAP()</div></pre></td></tr></table></figure>
+<blockquote>
+<p>ON_REGISTERED_MESSAGE(WM_MY_REGISTER_MSG, &amp;Cday21Dlg::OnMyRegisterMsgTrigger)<br>说明将WM_MY_REGISTER_MSG消息ID与类Cday21Dlg的OnMyRegisterMsgTrigger成员函数对应，当WM_MY_REGISTER_MSG消息被触发时将调用OnMyRegisterMsgTrigger方法；<br>注意：RegisterWindowMessage方法获取的消息需要用ON_REGISTERED_MESSAGE映射消息</p>
+</blockquote>
+<h3 id="3-3-实现消息函数"><a href="#3-3-实现消息函数" class="headerlink" title="3.3  实现消息函数"></a>3.3  实现消息函数</h3><p>我们先切换到Cday21Dlg类中，添加OnMyRegisterMsgTrigger方法的声明：</p>
+<blockquote>
+<p>afx_msg LRESULT OnMyRegisterMsgTrigger(WPARAM wParam,  LPARAM lParam);<br>这是消息映射函数的固定格式，参数类型也是固定的；</p>
+</blockquote>
+<p>接下来我们实现OnMyRegisterMsgTrigger的定义,如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">LRESULT Cday21Dlg::OnMyRegisterMsgTrigger(WPARAM wParam,  LPARAM lParam)</div><div class="line">&#123;</div><div class="line">	TCHAR szBuf[128];</div><div class="line">	_stprintf(szBuf,_T(&quot;消息：%s 被触发，消息ID: 0x%x &quot;),_T(&quot;WM_MY_REGISTER_MSG&quot;),WM_MY_REGISTER_MSG); </div><div class="line">	AfxMessageBox(szBuf);</div><div class="line">	return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>只要执行这个函数就会弹窗显示消息名称和ID；</li>
+</ol>
+</blockquote>
+<h3 id="2-4-发送消息-1"><a href="#2-4-发送消息-1" class="headerlink" title="2.4  发送消息"></a>2.4  发送消息</h3><p>我们双击资源界面上的“REGISTER消息ID”按钮，编辑其点击事件处理函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">void Cday21Dlg::OnBnClickedBtnReg()</div><div class="line">&#123;</div><div class="line">	PostMessage(WM_MY_REGISTER_MSG,0,0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>使用PostMessage发送WM_MY_REGISTER_MSG消息；</li>
+</ol>
+</blockquote>
+<h3 id="2-5-运行结果-1"><a href="#2-5-运行结果-1" class="headerlink" title="2.5  运行结果"></a>2.5  运行结果</h3><p><img src="http://img.blog.csdn.net/20171108211915315?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="4-对比两种方法"><a href="#4-对比两种方法" class="headerlink" title="4.对比两种方法"></a>4.对比两种方法</h2><p>从上面两种方法我们可以看出其优缺点：</p>
+<blockquote>
+<ol>
+<li>#define WM_MY_DEFINED_MSG (WM_USR+100)<br>定义的消息ID唯一，但不确定消息ID是否被其它地方占用，可能造成隐患；</li>
+<li>RegisterWindowMessage(WM_MY_REGISTER_MSG_SRR)<br>优点：定义的消息ID唯一，独立；缺点：在程序运行前不能确定消息ID，不方便在其它程序中指定触发此消息ID；</li>
+</ol>
+</blockquote>
 <h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://amuuncle.site/">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
       
     </div>
@@ -527,8 +567,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/01/第14节-MFC之文件对话框CFileDialog/" rel="next" title="第14节 MFC之文件对话框CFileDialog">
-                <i class="fa fa-chevron-left"></i> 第14节 MFC之文件对话框CFileDialog
+              <a href="/2017/11/06/第18节-MFC之窗体操作/" rel="next" title="第18节 MFC之窗体操作">
+                <i class="fa fa-chevron-left"></i> 第18节 MFC之窗体操作
               </a>
             
           </div>
@@ -536,10 +576,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/04/第16节-MFC之SendMessage和PostMessage/" rel="prev" title="第16节 MFC之SendMessage和PostMessage">
-                第16节 MFC之SendMessage和PostMessage <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -747,7 +783,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows编程基础–第15节-MFC之复选框及单选按钮"><span class="nav-number">1.</span> <span class="nav-text">Windows编程基础–第15节 MFC之复选框及单选按钮</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-新建项目"><span class="nav-number">1.1.</span> <span class="nav-text">1. 新建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-添加关联变量"><span class="nav-number">1.2.</span> <span class="nav-text">2. 添加关联变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-开始写代码吧"><span class="nav-number">1.3.</span> <span class="nav-text">3. 开始写代码吧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加五个控件的事件处理方法"><span class="nav-number">1.4.</span> <span class="nav-text">添加五个控件的事件处理方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加擦除背景消息（OnEraseBkgnd）事件"><span class="nav-number">1.5.</span> <span class="nav-text">添加擦除背景消息（OnEraseBkgnd）事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现其他按钮"><span class="nav-number">1.6.</span> <span class="nav-text">实现其他按钮</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最终效果图："><span class="nav-number">2.</span> <span class="nav-text">最终效果图：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目源码可以访问我的码云"><span class="nav-number">2.0.1.</span> <span class="nav-text">项目源码可以访问我的码云</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-gt-gt-我的私人博客-lt-lt-lt"><span class="nav-number">2.0.2.</span> <span class="nav-text">>>>我的私人博客<<<</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows编程基础–第19节-MFC之自定义消息"><span class="nav-number">1.</span> <span class="nav-text">Windows编程基础–第19节 MFC之自定义消息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-新建项目"><span class="nav-number">1.1.</span> <span class="nav-text">1. 新建项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-第一种自定义消息"><span class="nav-number">1.2.</span> <span class="nav-text">2.第一种自定义消息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-定义消息ID"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 定义消息ID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-映射消息函数"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2  映射消息函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-实现消息函数"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3  实现消息函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-发送消息"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4  发送消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-运行结果"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.5  运行结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-第二种自定义消息"><span class="nav-number">1.3.</span> <span class="nav-text">3.第二种自定义消息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-定义消息ID"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 定义消息ID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-映射消息函数"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2  映射消息函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-实现消息函数"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3  实现消息函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-发送消息-1"><span class="nav-number">1.3.4.</span> <span class="nav-text">2.4  发送消息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-运行结果-1"><span class="nav-number">1.3.5.</span> <span class="nav-text">2.5  运行结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-对比两种方法"><span class="nav-number">1.4.</span> <span class="nav-text">4.对比两种方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目源码可以访问我的码云"><span class="nav-number">1.4.1.</span> <span class="nav-text">项目源码可以访问我的码云</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gt-gt-gt-我的私人博客-lt-lt-lt"><span class="nav-number">1.4.2.</span> <span class="nav-text">>>>我的私人博客<<<</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
