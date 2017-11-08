@@ -326,6 +326,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/11/08/工具使用-第3节-HEXO美化之添加虾米音乐播放器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/08/工具使用-第3节-HEXO美化之添加虾米音乐播放器/" itemprop="url">工具使用--第3节 HEXO美化之添加虾米音乐播放器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-08T21:45:43+08:00">
+                2017-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GitHub/" itemprop="url" rel="index">
+                    <span itemprop="name">GitHub</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>先看看效果图：<br><img src="http://img.blog.csdn.net/20171108212820087?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="1-获取播放器链接"><a href="#1-获取播放器链接" class="headerlink" title="1. 获取播放器链接"></a>1. 获取播放器链接</h2><p>我用浏览器打开虾米播播网址：<br>[<a href="http://www.xiami.com/widget?widget_from=42036317" target="_blank" rel="external">http://www.xiami.com/widget?widget_from=42036317</a>]<br><img src="http://img.blog.csdn.net/20171108213040901?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这里可以制作三款应用，分别是歌曲播放器列表，唱片墙，歌曲播放器（单曲）；这些都可以，这里只介绍第一种<strong>歌曲播放器列表</strong>。<br>点击下方的立即制作，进入制作页面：<br><img src="http://img.blog.csdn.net/20171108213345959?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>自行添加音乐，然后下面就会出现播放器的代码：<br><img src="http://img.blog.csdn.net/20171108213453075?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>我们复制中间的HTML代码；</p>
+<h2 id="2-添加到NEXT主题"><a href="#2-添加到NEXT主题" class="headerlink" title="2. 添加到NEXT主题"></a>2. 添加到NEXT主题</h2><p>进入NEXT主题目录，如下图路径（\themes\next\layout_custom）：<br><img src="http://img.blog.csdn.net/20171108213705699?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>我们以记事本的方式打开该目录下的sidebar.swig文件，这就是NEXT主题的侧边栏文件，打开之后应该是空白文件，我们把上面复制的HTML代码粘贴到这里面就好了；</p>
+<h2 id="3-生成部署"><a href="#3-生成部署" class="headerlink" title="3. 生成部署"></a>3. 生成部署</h2><p>在hexo的根目录下运行：</p>
+<blockquote>
+<p>hexo s -g</p>
+</blockquote>
+<p>生成网站并运行网站，如图所示：<br><img src="http://img.blog.csdn.net/20171108214129098?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>接下来我们打开<a href="http://127.0.0.1:4000/就能看到我们添加的音乐播放器：" target="_blank" rel="external">http://127.0.0.1:4000/就能看到我们添加的音乐播放器：</a><br><img src="http://img.blog.csdn.net/20171108214249718?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>你也可以运行</p>
+<blockquote>
+<p>hexo d -g</p>
+</blockquote>
+<p>来将网站部署到github上，效果相同；<br>具体效果可以打开我的个人博客来看看:<a href="http://amuuncle.site/">http://amuuncle.site/</a></p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://amuuncle.site/">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	
+    
+
+    
+
+    
+	
+
+	
+	<div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/11/08/第19节-MFC之自定义消息/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2226,229 +2387,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/10/29/工具使用-第2节-HEXO-GitHub-搭建个人博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="阿木大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AmuUncle">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/29/工具使用-第2节-HEXO-GitHub-搭建个人博客/" itemprop="url">工具使用--第2节 HEXO+GitHub 搭建个人博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T14:10:26+08:00">
-                2017-10-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/GitHub/" itemprop="url" rel="index">
-                    <span itemprop="name">GitHub</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>今天突然想搭建一个自己的私人博客，但是又不想为此买一台服务器，所以百度了一下，发现可以利用<strong>HEXO+码云 </strong>搭建私人博客，所以就写篇教程，记录一下吧。</p>
-<h1 id="1、环境安装配置"><a href="#1、环境安装配置" class="headerlink" title="1、环境安装配置"></a>1、环境安装配置</h1><h2 id="1-1-安装node"><a href="#1-1-安装node" class="headerlink" title="1.1 安装node"></a>1.1 安装node</h2><p>下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a><br>默认安装就好。</p>
-<h2 id="1-2-安装git"><a href="#1-2-安装git" class="headerlink" title="1.2 安装git"></a>1.2 安装git</h2><p>msysgit是Windows版的Git，从<a href="https://git-for-windows.github.io下载（百度一下也有很多下载链接），然后按默认选项安装即可。msysgit的操作命令和Linux基本一致，很多命令是通用的，例如ls，mv，rm等；" target="_blank" rel="external">https://git-for-windows.github.io下载（百度一下也有很多下载链接），然后按默认选项安装即可。msysgit的操作命令和Linux基本一致，很多命令是通用的，例如ls，mv，rm等；</a><br>mygit安装完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！（详情可参见 <a href="http://blog.csdn.net/qq_25549309/article/details/78336107" target="_blank" rel="external"> 第1节</a>  ）</p>
-<h2 id="1-3-申请GitHub账号"><a href="#1-3-申请GitHub账号" class="headerlink" title="1.3 申请GitHub账号"></a>1.3 申请GitHub账号</h2><p> 打开<a href="https://github.com/，自行申请账号；" target="_blank" rel="external">https://github.com/，自行申请账号；</a><br><img src="http://img.blog.csdn.net/20171029125209685?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="1-4-安装HEXO"><a href="#1-4-安装HEXO" class="headerlink" title="1.4 安装HEXO　"></a>1.4 安装HEXO　</h2><p>切换到命令行工具，CMD输入命令安装：</p>
-<blockquote>
-<p>npm install -g hexo</p>
-</blockquote>
-<p>等待安装完成；不过国内NPM镜像速度极慢，可以安装淘宝的cnpm；</p>
-<blockquote>
-<p>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a></p>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20171027223208790?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>然后使用cnpm来下载HEXO，如下：</p>
-<blockquote>
-<p>cnpm install -g hexo</p>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20171027223329242?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="1-5-配置HEXO"><a href="#1-5-配置HEXO" class="headerlink" title="1.5 配置HEXO　"></a>1.5 配置HEXO　</h2><p>切换CMD到你希望创建博客项目的目录，然后输入hexo init来初始化一个项目，如：</p>
-<blockquote>
-<p>cd c:/workspase/blog<br>hexo init</p>
-</blockquote>
-<p>继续输入命令：</p>
-<blockquote>
-<p>hexo generate 或者 hexo g</p>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20171027224238089?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>生成静态页面</p>
-<h2 id="1-6-启动本地服务"><a href="#1-6-启动本地服务" class="headerlink" title="1.6 启动本地服务"></a>1.6 启动本地服务</h2><blockquote>
-<p>hexo server</p>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20171027224320127?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>可以看到提示Hexo已经运行在<a href="http://localhost:4000/上，我们用浏览器打开" target="_blank" rel="external">http://localhost:4000/上，我们用浏览器打开</a> <a href="http://localhost:4000/看看效果：" target="_blank" rel="external">http://localhost:4000/看看效果：</a><br><img src="http://img.blog.csdn.net/20171027224449843?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>神奇的博客界面就出现了；</p>
-<h1 id="2、配合Github搭建个人博客"><a href="#2、配合Github搭建个人博客" class="headerlink" title="2、配合Github搭建个人博客"></a>2、配合Github搭建个人博客</h1><h2 id="2-1-登录Github创建一个项目"><a href="#2-1-登录Github创建一个项目" class="headerlink" title="2.1 登录Github创建一个项目"></a>2.1 登录Github创建一个项目</h2><ol>
-<li>登录Github，点击上方的添加项目：我们来添加一个GIT版本仓，点击+号，选择“New repository”，如图：<br><img src="http://img.blog.csdn.net/20171029125325008?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li>打开创建对话框之后，输入repository名，<strong>*</strong>.github.io，星号代表你的用户名，记住结尾一定要用.github.io结尾，如果你输入的格式或者用户名不匹配，最后创建的网站可能加载不出css，js等资源，具体原因还没弄清，待以后验证，暂时就按照规范来，如图：<br><img src="http://img.blog.csdn.net/20171029125935968?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>其余的默认就好，点击“Create repository”来创建仓库；（我的由于已经创建同名的，所以弹出提示，请无视）</li>
-<li>创建好之后进入创建好的界面，如下：<br><img src="http://img.blog.csdn.net/20171029130258224?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>由于我的已经上传过文件，所以你们是没有红框中的内容，不急，接下来我们来看怎么上传文件；</li>
-<li>本地mygit还需要配置ssh秘钥，邮箱等才能和github进行上传，修改等操作；<br>这一步如果没设置过，参见<a href="http://blog.csdn.net/qq_25549309/article/details/78336107" target="_blank" rel="external">工具使用–第1节 git使用简记</a><h2 id="2-2-关联Github和HEXO"><a href="#2-2-关联Github和HEXO" class="headerlink" title="2.2 关联Github和HEXO"></a>2.2 关联Github和HEXO</h2></li>
-<li>进入我们在 <strong>1.5 配置HEXO</strong> 创建的HEXO项目目录，打开根目录中的<strong>_config.yml</strong>文件（以记事本文件打开）；在文件最末尾添加如下三行：<br><img src="http://img.blog.csdn.net/20171029130914657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>将其中的repo改为你自己repository地址，你的repository地址在github界面的这里获取，<br>如图：<br><img src="http://img.blog.csdn.net/20171029131626085?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>点击“2”处就可以直接复制地址,最后添加的三条就是：</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/AmuUncle/AmuUncle.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
-<p><strong>注意：</strong>每项的冒号后都要留一个英文的空格号；</p>
-<ol>
-<li>在HEXO项目根目录中右击选择“Git Bash Here”<br><img src="http://img.blog.csdn.net/20171029132100372?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li>生成静态网站并同步到github<br>执行下面两个命令：</li>
-</ol>
-<blockquote>
-<p>hexo g   // 生成<br>hexo d   // 同步<br>或者直接用：<br>hexo d -g  // 在同步前先生成网站</p>
-</blockquote>
-<p>中间可能会让你输入github的账号密码，输入就好：<br>运行结果如下：<br><img src="http://img.blog.csdn.net/20171029132536364?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这样网站就同步到github中了；我们可以刷新github页面。可以看到已经有很多文件了：<br><img src="http://img.blog.csdn.net/20171029132712757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="2-3-让网站显示出来"><a href="#2-3-让网站显示出来" class="headerlink" title="2.3 让网站显示出来"></a>2.3 让网站显示出来</h2><p>我们点击github界面上的Settings按钮，进入设置界面：<br><img src="http://img.blog.csdn.net/20171029132847207?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>往下拖动，找到“github pages”选项，点击“Launch Automatic page generator”按钮，开启<strong>github pages</strong>功能；<br><img src="http://img.blog.csdn.net/20171029133016297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这时我们就可已输入“<a href="https://AmuUncle.github.io”来打开我们创建的blog网站；" target="_blank" rel="external">https://AmuUncle.github.io”来打开我们创建的blog网站；</a><br>如下：<br><img src="http://img.blog.csdn.net/20171029133449652?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>至此，我们已经成功将网站部署到GITHUB，并且是个人独立博客哦。。。</p>
-<h1 id="3、设置HEXO的主题"><a href="#3、设置HEXO的主题" class="headerlink" title="3、设置HEXO的主题"></a>3、设置HEXO的主题</h1><p>这里网上很多教程，很简单，很多人推荐NEXT主题，我也用的是这款，功能很齐全，这里我就直接给教程链接了，很详细；</p>
-<blockquote>
-<p>NEXT主题官网，教程非常详细：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">http://theme-next.iissnan.com/getting-started.html</a><br>HEXO主题类列表：<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a></p>
-</blockquote>
-<p>其他主题也差不多配置方法，自己研究吧。。</p>
-<h1 id="4、将域名和github博客地址关联（个人需求）"><a href="#4、将域名和github博客地址关联（个人需求）" class="headerlink" title="4、将域名和github博客地址关联（个人需求）"></a>4、将域名和github博客地址关联（个人需求）</h1><p>4.1 购买域名<br>我是在阿里云购买的.site域名,很便宜，一年才几块钱，有需要的可以去看看：</p>
-<blockquote>
-<p><a href="https://wanwang.aliyun.com/domain/?spm=5176.8076989.763973.3.5a54fa45x7NU0Z" target="_blank" rel="external">https://wanwang.aliyun.com/domain/?spm=5176.8076989.763973.3.5a54fa45x7NU0Z</a></p>
-</blockquote>
-<p><img src="http://img.blog.csdn.net/20171029134437343?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>4.2 配置域名<br>进入域名解析配置界面，添加一下三项：<br><img src="http://img.blog.csdn.net/20171029134722933?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>解析列表：<br>| 方法记录类型 | 主机记录| 记录值 |<br>| ——–   |  ——–   | —–:  |<br>| CNAME     | www | AmuUncle.github.io |<br>| A       |   @   |   192.30.252.154 |<br>| A       |   @   |   192.30.252.153 |  </p>
-<p>其中 192.30.252.153和 192.30.252.154 为github的IP地址；<br>域名这边已经配置好，但还没结束，我们再来到HEXO博客的目录，进入source目录，新建一个CNAME文件，没有任何后缀名，编辑内容为：<code>amuuncle.site</code><br><img src="http://img.blog.csdn.net/20171029135626125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171029135635278?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>接下来输入：</p>
-<blockquote>
-<p>hexo d -g</p>
-</blockquote>
-<p>重新生成同步网站到github，接下来就是见证奇迹的时候我们到浏览器输入我们的域名，就打开了我们的blog页面，如图（如果打不开，请等待10分钟，因为更改域名解析要十分钟后才能生效）<br><img src="http://img.blog.csdn.net/20171029140306025?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>最终效果图，完美，接下来我们就可以自由写个人微博，并且部署到github了，配置好域名之后，不注意根本发现不了你是在github上部署的网站哦。<br>使用如下命令添加一篇博客，然后进入项目的source_posts目录找打创建的md文件，编辑此文件就是在写博客；</p>
-<blockquote>
-<p>hexo new post “工具使用–第2节 HEXO+GitHub 搭建个人博客”</p>
-</blockquote>
-<p>对于md文件的编写，网上有很对教程，我使用的工具是：<strong>Haroopad</strong>，完全没费，可自行下载。<br><img src="http://img.blog.csdn.net/20171029141421963?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>记住写完之后还是要输入：</p>
-<blockquote>
-<p>hexo d -g</p>
-</blockquote>
-<p>来重新生成同步网站到github；</p>
-<p>最后，我的blog地址就是<a href="http://blog.amuuncle.site/" target="_blank" rel="external">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a><br>欢饮大家光临指教。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-	
-	
-    
-
-    
-
-    
-	
-
-	
-	<div>
-		
-	</div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2503,7 +2441,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

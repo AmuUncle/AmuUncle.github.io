@@ -326,6 +326,229 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/10/29/工具使用-第2节-HEXO-GitHub-搭建个人博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/29/工具使用-第2节-HEXO-GitHub-搭建个人博客/" itemprop="url">工具使用--第2节 HEXO+GitHub 搭建个人博客</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T14:10:26+08:00">
+                2017-10-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GitHub/" itemprop="url" rel="index">
+                    <span itemprop="name">GitHub</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天突然想搭建一个自己的私人博客，但是又不想为此买一台服务器，所以百度了一下，发现可以利用<strong>HEXO+码云 </strong>搭建私人博客，所以就写篇教程，记录一下吧。</p>
+<h1 id="1、环境安装配置"><a href="#1、环境安装配置" class="headerlink" title="1、环境安装配置"></a>1、环境安装配置</h1><h2 id="1-1-安装node"><a href="#1-1-安装node" class="headerlink" title="1.1 安装node"></a>1.1 安装node</h2><p>下载地址：<a href="https://nodejs.org/en/download/" target="_blank" rel="external">https://nodejs.org/en/download/</a><br>默认安装就好。</p>
+<h2 id="1-2-安装git"><a href="#1-2-安装git" class="headerlink" title="1.2 安装git"></a>1.2 安装git</h2><p>msysgit是Windows版的Git，从<a href="https://git-for-windows.github.io下载（百度一下也有很多下载链接），然后按默认选项安装即可。msysgit的操作命令和Linux基本一致，很多命令是通用的，例如ls，mv，rm等；" target="_blank" rel="external">https://git-for-windows.github.io下载（百度一下也有很多下载链接），然后按默认选项安装即可。msysgit的操作命令和Linux基本一致，很多命令是通用的，例如ls，mv，rm等；</a><br>mygit安装完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！（详情可参见 <a href="http://blog.csdn.net/qq_25549309/article/details/78336107" target="_blank" rel="external"> 第1节</a>  ）</p>
+<h2 id="1-3-申请GitHub账号"><a href="#1-3-申请GitHub账号" class="headerlink" title="1.3 申请GitHub账号"></a>1.3 申请GitHub账号</h2><p> 打开<a href="https://github.com/，自行申请账号；" target="_blank" rel="external">https://github.com/，自行申请账号；</a><br><img src="http://img.blog.csdn.net/20171029125209685?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="1-4-安装HEXO"><a href="#1-4-安装HEXO" class="headerlink" title="1.4 安装HEXO　"></a>1.4 安装HEXO　</h2><p>切换到命令行工具，CMD输入命令安装：</p>
+<blockquote>
+<p>npm install -g hexo</p>
+</blockquote>
+<p>等待安装完成；不过国内NPM镜像速度极慢，可以安装淘宝的cnpm；</p>
+<blockquote>
+<p>npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="external">https://registry.npm.taobao.org</a></p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20171027223208790?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>然后使用cnpm来下载HEXO，如下：</p>
+<blockquote>
+<p>cnpm install -g hexo</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20171027223329242?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="1-5-配置HEXO"><a href="#1-5-配置HEXO" class="headerlink" title="1.5 配置HEXO　"></a>1.5 配置HEXO　</h2><p>切换CMD到你希望创建博客项目的目录，然后输入hexo init来初始化一个项目，如：</p>
+<blockquote>
+<p>cd c:/workspase/blog<br>hexo init</p>
+</blockquote>
+<p>继续输入命令：</p>
+<blockquote>
+<p>hexo generate 或者 hexo g</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20171027224238089?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>生成静态页面</p>
+<h2 id="1-6-启动本地服务"><a href="#1-6-启动本地服务" class="headerlink" title="1.6 启动本地服务"></a>1.6 启动本地服务</h2><blockquote>
+<p>hexo server</p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20171027224320127?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>可以看到提示Hexo已经运行在<a href="http://localhost:4000/上，我们用浏览器打开" target="_blank" rel="external">http://localhost:4000/上，我们用浏览器打开</a> <a href="http://localhost:4000/看看效果：" target="_blank" rel="external">http://localhost:4000/看看效果：</a><br><img src="http://img.blog.csdn.net/20171027224449843?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>神奇的博客界面就出现了；</p>
+<h1 id="2、配合Github搭建个人博客"><a href="#2、配合Github搭建个人博客" class="headerlink" title="2、配合Github搭建个人博客"></a>2、配合Github搭建个人博客</h1><h2 id="2-1-登录Github创建一个项目"><a href="#2-1-登录Github创建一个项目" class="headerlink" title="2.1 登录Github创建一个项目"></a>2.1 登录Github创建一个项目</h2><ol>
+<li>登录Github，点击上方的添加项目：我们来添加一个GIT版本仓，点击+号，选择“New repository”，如图：<br><img src="http://img.blog.csdn.net/20171029125325008?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+<li>打开创建对话框之后，输入repository名，<strong>*</strong>.github.io，星号代表你的用户名，记住结尾一定要用.github.io结尾，如果你输入的格式或者用户名不匹配，最后创建的网站可能加载不出css，js等资源，具体原因还没弄清，待以后验证，暂时就按照规范来，如图：<br><img src="http://img.blog.csdn.net/20171029125935968?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>其余的默认就好，点击“Create repository”来创建仓库；（我的由于已经创建同名的，所以弹出提示，请无视）</li>
+<li>创建好之后进入创建好的界面，如下：<br><img src="http://img.blog.csdn.net/20171029130258224?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>由于我的已经上传过文件，所以你们是没有红框中的内容，不急，接下来我们来看怎么上传文件；</li>
+<li>本地mygit还需要配置ssh秘钥，邮箱等才能和github进行上传，修改等操作；<br>这一步如果没设置过，参见<a href="http://blog.csdn.net/qq_25549309/article/details/78336107" target="_blank" rel="external">工具使用–第1节 git使用简记</a><h2 id="2-2-关联Github和HEXO"><a href="#2-2-关联Github和HEXO" class="headerlink" title="2.2 关联Github和HEXO"></a>2.2 关联Github和HEXO</h2></li>
+<li>进入我们在 <strong>1.5 配置HEXO</strong> 创建的HEXO项目目录，打开根目录中的<strong>_config.yml</strong>文件（以记事本文件打开）；在文件最末尾添加如下三行：<br><img src="http://img.blog.csdn.net/20171029130914657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>将其中的repo改为你自己repository地址，你的repository地址在github界面的这里获取，<br>如图：<br><img src="http://img.blog.csdn.net/20171029131626085?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>点击“2”处就可以直接复制地址,最后添加的三条就是：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: https://github.com/AmuUncle/AmuUncle.github.io.git</div><div class="line">  branch: master</div></pre></td></tr></table></figure>
+<p><strong>注意：</strong>每项的冒号后都要留一个英文的空格号；</p>
+<ol>
+<li>在HEXO项目根目录中右击选择“Git Bash Here”<br><img src="http://img.blog.csdn.net/20171029132100372?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+<li>生成静态网站并同步到github<br>执行下面两个命令：</li>
+</ol>
+<blockquote>
+<p>hexo g   // 生成<br>hexo d   // 同步<br>或者直接用：<br>hexo d -g  // 在同步前先生成网站</p>
+</blockquote>
+<p>中间可能会让你输入github的账号密码，输入就好：<br>运行结果如下：<br><img src="http://img.blog.csdn.net/20171029132536364?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这样网站就同步到github中了；我们可以刷新github页面。可以看到已经有很多文件了：<br><img src="http://img.blog.csdn.net/20171029132712757?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="2-3-让网站显示出来"><a href="#2-3-让网站显示出来" class="headerlink" title="2.3 让网站显示出来"></a>2.3 让网站显示出来</h2><p>我们点击github界面上的Settings按钮，进入设置界面：<br><img src="http://img.blog.csdn.net/20171029132847207?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>往下拖动，找到“github pages”选项，点击“Launch Automatic page generator”按钮，开启<strong>github pages</strong>功能；<br><img src="http://img.blog.csdn.net/20171029133016297?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>这时我们就可已输入“<a href="https://AmuUncle.github.io”来打开我们创建的blog网站；" target="_blank" rel="external">https://AmuUncle.github.io”来打开我们创建的blog网站；</a><br>如下：<br><img src="http://img.blog.csdn.net/20171029133449652?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>至此，我们已经成功将网站部署到GITHUB，并且是个人独立博客哦。。。</p>
+<h1 id="3、设置HEXO的主题"><a href="#3、设置HEXO的主题" class="headerlink" title="3、设置HEXO的主题"></a>3、设置HEXO的主题</h1><p>这里网上很多教程，很简单，很多人推荐NEXT主题，我也用的是这款，功能很齐全，这里我就直接给教程链接了，很详细；</p>
+<blockquote>
+<p>NEXT主题官网，教程非常详细：<a href="http://theme-next.iissnan.com/getting-started.html" target="_blank" rel="external">http://theme-next.iissnan.com/getting-started.html</a><br>HEXO主题类列表：<a href="https://hexo.io/themes/" target="_blank" rel="external">https://hexo.io/themes/</a></p>
+</blockquote>
+<p>其他主题也差不多配置方法，自己研究吧。。</p>
+<h1 id="4、将域名和github博客地址关联（个人需求）"><a href="#4、将域名和github博客地址关联（个人需求）" class="headerlink" title="4、将域名和github博客地址关联（个人需求）"></a>4、将域名和github博客地址关联（个人需求）</h1><p>4.1 购买域名<br>我是在阿里云购买的.site域名,很便宜，一年才几块钱，有需要的可以去看看：</p>
+<blockquote>
+<p><a href="https://wanwang.aliyun.com/domain/?spm=5176.8076989.763973.3.5a54fa45x7NU0Z" target="_blank" rel="external">https://wanwang.aliyun.com/domain/?spm=5176.8076989.763973.3.5a54fa45x7NU0Z</a></p>
+</blockquote>
+<p><img src="http://img.blog.csdn.net/20171029134437343?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>4.2 配置域名<br>进入域名解析配置界面，添加一下三项：<br><img src="http://img.blog.csdn.net/20171029134722933?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>解析列表：<br>| 方法记录类型 | 主机记录| 记录值 |<br>| ——–   |  ——–   | —–:  |<br>| CNAME     | www | AmuUncle.github.io |<br>| A       |   @   |   192.30.252.154 |<br>| A       |   @   |   192.30.252.153 |  </p>
+<p>其中 192.30.252.153和 192.30.252.154 为github的IP地址；<br>域名这边已经配置好，但还没结束，我们再来到HEXO博客的目录，进入source目录，新建一个CNAME文件，没有任何后缀名，编辑内容为：<code>amuuncle.site</code><br><img src="http://img.blog.csdn.net/20171029135626125?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171029135635278?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>接下来输入：</p>
+<blockquote>
+<p>hexo d -g</p>
+</blockquote>
+<p>重新生成同步网站到github，接下来就是见证奇迹的时候我们到浏览器输入我们的域名，就打开了我们的blog页面，如图（如果打不开，请等待10分钟，因为更改域名解析要十分钟后才能生效）<br><img src="http://img.blog.csdn.net/20171029140306025?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>最终效果图，完美，接下来我们就可以自由写个人微博，并且部署到github了，配置好域名之后，不注意根本发现不了你是在github上部署的网站哦。<br>使用如下命令添加一篇博客，然后进入项目的source_posts目录找打创建的md文件，编辑此文件就是在写博客；</p>
+<blockquote>
+<p>hexo new post “工具使用–第2节 HEXO+GitHub 搭建个人博客”</p>
+</blockquote>
+<p>对于md文件的编写，网上有很对教程，我使用的工具是：<strong>Haroopad</strong>，完全没费，可自行下载。<br><img src="http://img.blog.csdn.net/20171029141421963?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>记住写完之后还是要输入：</p>
+<blockquote>
+<p>hexo d -g</p>
+</blockquote>
+<p>来重新生成同步网站到github；</p>
+<p>最后，我的blog地址就是<a href="http://blog.amuuncle.site/" target="_blank" rel="external">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a><br>欢饮大家光临指教。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	
+    
+
+    
+
+    
+	
+
+	
+	<div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/10/29/python-selenium-自动化查询上海公交卡余额，并邮件通知/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2016,176 +2239,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/10/28/第3节-初探MFC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="阿木大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ip.freep.cn/593194/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AmuUncle">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/28/第3节-初探MFC/" itemprop="url">第3节 初探MFC</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-28T23:14:58+08:00">
-                2017-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
-                    <span itemprop="name">MFC从入门到放弃</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Windows编程基础–第3节-初探MFC"><a href="#Windows编程基础–第3节-初探MFC" class="headerlink" title="Windows编程基础–第3节 初探MFC"></a>Windows编程基础–第3节 初探MFC</h1><ol>
-<li>前言<br> win32程序属于早期windows软件，已经逐渐被淘汰，但它的设计模式和方法大部分都被MFC所继承，并且MFC开始使用C++语言进行开发，借助C++比C语言的强大特性，使得开发windws程序更加简便、高效，更加多元化。</li>
-<li><p>创建第一个MFC程序（操作系统：win10 64位 IDE：vc++ 6.0）<br>1)  执行File-&gt;new，选择Project选项卡，选择下面的MFC AppWizard，填写项目名称等，如图：<br><img src="http://img.blog.csdn.net/20171019213728124?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>2）点击 OK 按钮进入下一页，我们先选择简单的Dialog based，然后-&gt;NEXT ，第三页进行是否选择MFC静态库还是共享库等选择，这里我们不作修改，直接点击Finish，完成创建；<br><img src="http://img.blog.csdn.net/20171019214152011?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>3）现在可以尝试编译，运行打开默认的Dialog界面<br><img src="http://img.blog.csdn.net/20171019214358362?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>4)现在我们往刚才创建的Dialog中添加一些资源控件，如下图：<br><img src="http://img.blog.csdn.net/20171019221812073?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>注意：ListCtrl属性中Stytle-&gt;View选择Report<br>5）<br>接下来我们来实现底部三个按钮的方法：<br>添加按钮</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"> void CDay02Dlg::OnAdd() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	CString szNumb,szName,szSala;</div><div class="line">	GetDlgItemText(IDC_NUMB,szNumb);</div><div class="line">	GetDlgItemText(IDC_NAME,szName);</div><div class="line">	GetDlgItemText(IDC_SALA,szSala);</div><div class="line">	CListCtrl *pList = (CListCtrl*)GetDlgItem(IDC_LIST);</div><div class="line">	int nCount = pList-&gt;GetItemCount();</div><div class="line">	pList-&gt;InsertItem(nCount,szNumb);</div><div class="line">	pList-&gt;SetItemText(nCount,1,szName);</div><div class="line">	pList-&gt;SetItemText(nCount,2,szSala);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>先通过GetDlgItemText方法获取顶部三个Edit输入的参数值，并分别赋值给szNumb,szName,szSala;<br>接下来通过GetDlgItem取得ListCtrl的操作句柄，获取ListCtrl当前总数，在末尾添加一个Iten，并赋值；</p>
-<pre><code>删除按钮
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">void CDay02Dlg::OnDel() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	CListCtrl *pList = (CListCtrl*)GetDlgItem(IDC_LIST);</div><div class="line">	int nSel = pList-&gt;GetSelectionMark();</div><div class="line">	if(nSel &lt; 0)</div><div class="line">	&#123;</div><div class="line">		AfxMessageBox(&quot;请先选择要删除的员工&quot;);</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	pList-&gt;DeleteItem(nSel);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>获取ListCtrl的操作句柄后获取到当前选的行数，最后删除改行；</p>
-<p>修改按钮：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">void CDay02Dlg::OnMod() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	CListCtrl *pList = (CListCtrl*)GetDlgItem(IDC_LIST);</div><div class="line">	int nSel = pList-&gt;GetSelectionMark();</div><div class="line">	if(nSel &lt; 0)</div><div class="line">	&#123;</div><div class="line">		AfxMessageBox(&quot;请先选择要修改的员工&quot;);</div><div class="line">		return;</div><div class="line"></div><div class="line">	&#125;	</div><div class="line">	CString szNumb,szName,szSala;</div><div class="line">	GetDlgItemText(IDC_NUMB,szNumb);</div><div class="line">	GetDlgItemText(IDC_NAME,szName);</div><div class="line">	GetDlgItemText(IDC_SALA,szSala);</div><div class="line">	pList-&gt;SetItemText(nSel,0,szNumb);</div><div class="line">	pList-&gt;SetItemText(nSel,1,szName);</div><div class="line">	pList-&gt;SetItemText(nSel,2,szSala);</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>先通过GetDlgItemText方法获取顶部三个Edit输入的参数值，并分别赋值给szNumb,szName,szSala;<br>接下来通过GetDlgItem取得ListCtrl的操作句柄，获取ListCtrl当前选择行数，将获取的szNumb,szName,szSala分别赋值给当前Item的对应位置；</p>
-<p>函数原型如下：<br>BOOL SetItemText( int nItem, int nSubItem, LPTSTR lpszText );用于MFC设置CListCtrl控件中的列表项内容。</p>
-<p>int GetDlgItemText( int nID, CString&amp; rString)<br> nID 指定了要获取其标题的控件的整数标识符。 lpStr 指向要接收控件的标题或文本的缓冲区。 nMaxCount 指定了要拷贝到lpStr的字符串的最大长度（以字节为单位）。如果字符串比nMaxCount要长，它将被截断。 rString 对一个CString对象的引用。</p>
-<p> 3.最终效果图<br> <img src="http://img.blog.csdn.net/20171019223448248?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<ol>
-<li>day02.cpp 源码</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div></pre></td><td class="code"><pre><div class="line">	// day02Dlg.cpp : implementation file</div><div class="line">//</div><div class="line"></div><div class="line">#include &quot;stdafx.h&quot;</div><div class="line">#include &quot;day02.h&quot;</div><div class="line">#include &quot;day02Dlg.h&quot;</div><div class="line"></div><div class="line">#ifdef _DEBUG</div><div class="line">#define new DEBUG_NEW</div><div class="line">#undef THIS_FILE</div><div class="line">static char THIS_FILE[] = __FILE__;</div><div class="line">#endif</div><div class="line"></div><div class="line">/////////////////////////////////////////////////////////////////////////////</div><div class="line">// CAboutDlg dialog used for App About</div><div class="line"></div><div class="line">class CAboutDlg : public CDialog</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">	CAboutDlg();</div><div class="line"></div><div class="line">// Dialog Data</div><div class="line">	//&#123;&#123;AFX_DATA(CAboutDlg)</div><div class="line">	enum &#123; IDD = IDD_ABOUTBOX &#125;;</div><div class="line">	//&#125;&#125;AFX_DATA</div><div class="line"></div><div class="line">	// ClassWizard generated virtual function overrides</div><div class="line">	//&#123;&#123;AFX_VIRTUAL(CAboutDlg)</div><div class="line">	protected:</div><div class="line">	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support</div><div class="line">	//&#125;&#125;AFX_VIRTUAL</div><div class="line"></div><div class="line">// Implementation</div><div class="line">protected:</div><div class="line">	//&#123;&#123;AFX_MSG(CAboutDlg)</div><div class="line">	//&#125;&#125;AFX_MSG</div><div class="line">	DECLARE_MESSAGE_MAP()</div><div class="line">&#125;;</div><div class="line"></div><div class="line">CAboutDlg::CAboutDlg() : CDialog(CAboutDlg::IDD)</div><div class="line">&#123;</div><div class="line">	//&#123;&#123;AFX_DATA_INIT(CAboutDlg)</div><div class="line">	//&#125;&#125;AFX_DATA_INIT</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CAboutDlg::DoDataExchange(CDataExchange* pDX)</div><div class="line">&#123;</div><div class="line">	CDialog::DoDataExchange(pDX);</div><div class="line">	//&#123;&#123;AFX_DATA_MAP(CAboutDlg)</div><div class="line">	//&#125;&#125;AFX_DATA_MAP</div><div class="line">&#125;</div><div class="line"></div><div class="line">BEGIN_MESSAGE_MAP(CAboutDlg, CDialog)</div><div class="line">	//&#123;&#123;AFX_MSG_MAP(CAboutDlg)</div><div class="line">		// No message handlers</div><div class="line">	//&#125;&#125;AFX_MSG_MAP</div><div class="line">END_MESSAGE_MAP()</div><div class="line"></div><div class="line">/////////////////////////////////////////////////////////////////////////////</div><div class="line">// CDay02Dlg dialog</div><div class="line"></div><div class="line">CDay02Dlg::CDay02Dlg(CWnd* pParent /*=NULL*/)</div><div class="line">	: CDialog(CDay02Dlg::IDD, pParent)</div><div class="line">&#123;</div><div class="line">	//&#123;&#123;AFX_DATA_INIT(CDay02Dlg)</div><div class="line">		// NOTE: the ClassWizard will add member initialization here</div><div class="line">	//&#125;&#125;AFX_DATA_INIT</div><div class="line">	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32</div><div class="line">	m_hIcon = AfxGetApp()-&gt;LoadIcon(IDR_MAINFRAME);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CDay02Dlg::DoDataExchange(CDataExchange* pDX)</div><div class="line">&#123;</div><div class="line">	CDialog::DoDataExchange(pDX);</div><div class="line">	//&#123;&#123;AFX_DATA_MAP(CDay02Dlg)</div><div class="line">		// NOTE: the ClassWizard will add DDX and DDV calls here</div><div class="line">	//&#125;&#125;AFX_DATA_MAP</div><div class="line">&#125;</div><div class="line"></div><div class="line">BEGIN_MESSAGE_MAP(CDay02Dlg, CDialog)</div><div class="line">	//&#123;&#123;AFX_MSG_MAP(CDay02Dlg)</div><div class="line">	ON_WM_SYSCOMMAND()</div><div class="line">	ON_WM_PAINT()</div><div class="line">	ON_WM_QUERYDRAGICON()</div><div class="line">	ON_BN_CLICKED(IDC_BUTTON4, OnButtonOK)</div><div class="line">	ON_BN_CLICKED(IDC_ADD, OnAdd)</div><div class="line">	ON_BN_CLICKED(IDC_DEL, OnDel)</div><div class="line">	ON_BN_CLICKED(IDC_MOD, OnMod)</div><div class="line">	//&#125;&#125;AFX_MSG_MAP</div><div class="line">END_MESSAGE_MAP()</div><div class="line"></div><div class="line">/////////////////////////////////////////////////////////////////////////////</div><div class="line">// CDay02Dlg message handlers</div><div class="line"></div><div class="line">BOOL CDay02Dlg::OnInitDialog()</div><div class="line">&#123;</div><div class="line">	CDialog::OnInitDialog();</div><div class="line"></div><div class="line">	CListCtrl *pList = (CListCtrl*)GetDlgItem(IDC_LIST);</div><div class="line">	pList-&gt;InsertColumn(0,&quot;学号&quot;,0,100);</div><div class="line">	pList-&gt;InsertColumn(1,&quot;姓名&quot;,0,100);</div><div class="line">	pList-&gt;InsertColumn(2,&quot;工资&quot;,0,100);</div><div class="line"></div><div class="line">	// Add &quot;About...&quot; menu item to system menu.</div><div class="line"></div><div class="line">	// IDM_ABOUTBOX must be in the system command range.</div><div class="line">	ASSERT((IDM_ABOUTBOX &amp; 0xFFF0) == IDM_ABOUTBOX);</div><div class="line">	ASSERT(IDM_ABOUTBOX &lt; 0xF000);</div><div class="line"></div><div class="line">	CMenu* pSysMenu = GetSystemMenu(FALSE);</div><div class="line">	if (pSysMenu != NULL)</div><div class="line">	&#123;</div><div class="line">		CString strAboutMenu;</div><div class="line">		strAboutMenu.LoadString(IDS_ABOUTBOX);</div><div class="line">		if (!strAboutMenu.IsEmpty())</div><div class="line">		&#123;</div><div class="line">			pSysMenu-&gt;AppendMenu(MF_SEPARATOR);</div><div class="line">			pSysMenu-&gt;AppendMenu(MF_STRING, IDM_ABOUTBOX, strAboutMenu);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// Set the icon for this dialog.  The framework does this automatically</div><div class="line">	//  when the application&apos;s main window is not a dialog</div><div class="line">	SetIcon(m_hIcon, TRUE);			// Set big icon</div><div class="line">	SetIcon(m_hIcon, FALSE);		// Set small icon</div><div class="line">	</div><div class="line">	// TODO: Add extra initialization here</div><div class="line">	</div><div class="line">	return TRUE;  // return TRUE  unless you set the focus to a control</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CDay02Dlg::OnSysCommand(UINT nID, LPARAM lParam)</div><div class="line">&#123;</div><div class="line">	if ((nID &amp; 0xFFF0) == IDM_ABOUTBOX)</div><div class="line">	&#123;</div><div class="line">		CAboutDlg dlgAbout;</div><div class="line">		dlgAbout.DoModal();</div><div class="line">	&#125;</div><div class="line">	else</div><div class="line">	&#123;</div><div class="line">		CDialog::OnSysCommand(nID, lParam);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// If you add a minimize button to your dialog, you will need the code below</div><div class="line">//  to draw the icon.  For MFC applications using the document/view model,</div><div class="line">//  this is automatically done for you by the framework.</div><div class="line"></div><div class="line">void CDay02Dlg::OnPaint() </div><div class="line">&#123;</div><div class="line">	if (IsIconic())</div><div class="line">	&#123;</div><div class="line">		CPaintDC dc(this); // device context for painting</div><div class="line"></div><div class="line">		SendMessage(WM_ICONERASEBKGND, (WPARAM) dc.GetSafeHdc(), 0);</div><div class="line"></div><div class="line">		// Center icon in client rectangle</div><div class="line">		int cxIcon = GetSystemMetrics(SM_CXICON);</div><div class="line">		int cyIcon = GetSystemMetrics(SM_CYICON);</div><div class="line">		CRect rect;</div><div class="line">		GetClientRect(&amp;rect);</div><div class="line">		int x = (rect.Width() - cxIcon + 1) / 2;</div><div class="line">		int y = (rect.Height() - cyIcon + 1) / 2;</div><div class="line"></div><div class="line">		// Draw the icon</div><div class="line">		dc.DrawIcon(x, y, m_hIcon);</div><div class="line">	&#125;</div><div class="line">	else</div><div class="line">	&#123;</div><div class="line">		CDialog::OnPaint();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// The system calls this to obtain the cursor to display while the user drags</div><div class="line">//  the minimized window.</div><div class="line">HCURSOR CDay02Dlg::OnQueryDragIcon()</div><div class="line">&#123;</div><div class="line">	return (HCURSOR) m_hIcon;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CDay02Dlg::OnButtonOK() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CDay02Dlg::OnAdd() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	CString szNumb,szName,szSala;</div><div class="line">	GetDlgItemText(IDC_NUMB,szNumb);</div><div class="line">	GetDlgItemText(IDC_NAME,szName);</div><div class="line">	GetDlgItemText(IDC_SALA,szSala);</div><div class="line">	CListCtrl *pList = (CListCtrl*)GetDlgItem(IDC_LIST);</div><div class="line">	int nCount = pList-&gt;GetItemCount();</div><div class="line">	pList-&gt;InsertItem(nCount,szNumb);</div><div class="line">	pList-&gt;SetItemText(nCount,1,szName);</div><div class="line">	pList-&gt;SetItemText(nCount,2,szSala);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CDay02Dlg::OnDel() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	CListCtrl *pList = (CListCtrl*)GetDlgItem(IDC_LIST);</div><div class="line">	int nSel = pList-&gt;GetSelectionMark();</div><div class="line">	if(nSel &lt; 0)</div><div class="line">	&#123;</div><div class="line">		AfxMessageBox(&quot;请先选择要删除的员工&quot;);</div><div class="line">		return;</div><div class="line"></div><div class="line">	&#125;</div><div class="line">	pList-&gt;DeleteItem(nSel);</div><div class="line"></div><div class="line">	</div><div class="line">&#125;</div><div class="line"></div><div class="line">void CDay02Dlg::OnMod() </div><div class="line">&#123;</div><div class="line">	// TODO: Add your control notification handler code here</div><div class="line">	CListCtrl *pList = (CListCtrl*)GetDlgItem(IDC_LIST);</div><div class="line">	int nSel = pList-&gt;GetSelectionMark();</div><div class="line">	if(nSel &lt; 0)</div><div class="line">	&#123;</div><div class="line">		AfxMessageBox(&quot;请先选择要修改的员工&quot;);</div><div class="line">		return;</div><div class="line"></div><div class="line">	&#125;	</div><div class="line">	CString szNumb,szName,szSala;</div><div class="line">	GetDlgItemText(IDC_NUMB,szNumb);</div><div class="line">	GetDlgItemText(IDC_NAME,szName);</div><div class="line">	GetDlgItemText(IDC_SALA,szSala);</div><div class="line">	pList-&gt;SetItemText(nSel,0,szNumb);</div><div class="line">	pList-&gt;SetItemText(nSel,1,szName);</div><div class="line">	pList-&gt;SetItemText(nSel,2,szSala);</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>项目源码可以访问我的码云来fork：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://gitee.com/AmuUncle/MFC_CSDN.git</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-	
-	
-    
-
-    
-
-    
-	
-
-	
-	<div>
-		
-	</div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2240,7 +2293,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
