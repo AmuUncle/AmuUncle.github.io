@@ -326,6 +326,179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/12/30/我是一只小小爬虫（Python编程）-第1节-什么是爬虫/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="阿木大叔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AmuUncle">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/30/我是一只小小爬虫（Python编程）-第1节-什么是爬虫/" itemprop="url">我是一只小小爬虫（Python编程）--第1节 什么是爬虫</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-30T23:33:53+08:00">
+                2017-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/我是一只小小爬虫/" itemprop="url" rel="index">
+                    <span itemprop="name">我是一只小小爬虫</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="一、爬虫的基本概念"><a href="#一、爬虫的基本概念" class="headerlink" title="一、爬虫的基本概念"></a>一、爬虫的基本概念</h1><p><strong>爬虫</strong>：一只在网络上爬行的“蜘蛛”，这只蜘蛛用来在网络上爬取我们想获取的信息，所以爬虫的定义大概是：</p>
+<blockquote>
+<p>请求网站并提取数据的自动化程序。</p>
+</blockquote>
+<p>从定义中可以看出，我们首先要做的是向网站发送请求，模拟浏览器浏览网页的模式，从而获取数据，此时获取的数据其实是html代码文本以及图片等，接下来就是筛选我们需要的数据，梳理好我们需要的数据之后，就是要分类，按需存储我们的想要的数据，这就是一只<strong>爬虫</strong>的自我修养。</p>
+<h1 id="二、-网页的基本元素"><a href="#二、-网页的基本元素" class="headerlink" title="二、 网页的基本元素"></a>二、 网页的基本元素</h1><p>我们用随意打开一个网页，右击打开源代码，这就是网站的html文本，这就包含了该网页所有的信息，我们就需要在这些数据中筛选出我们需要的数据，如下：<br><img src="http://img.blog.csdn.net/20171230225212294?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20171230225139507?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h1 id="三、爬虫的基本流程"><a href="#三、爬虫的基本流程" class="headerlink" title="三、爬虫的基本流程"></a>三、爬虫的基本流程</h1><h3 id="1、发起请求"><a href="#1、发起请求" class="headerlink" title="1、发起请求"></a>1、发起请求</h3><blockquote>
+<p>通过HTTP库向目标站点发情请求，即发送一个Request，请求可以包含额外的header等，等待服务器响应；</p>
+</blockquote>
+<h3 id="2、获取响应内容"><a href="#2、获取响应内容" class="headerlink" title="2、获取响应内容"></a>2、获取响应内容</h3><blockquote>
+<p>HTTP服务器会回应请求的结果，即页面内容，可能包含html文本，json，图片等；</p>
+</blockquote>
+<h3 id="3、解析内容"><a href="#3、解析内容" class="headerlink" title="3、解析内容"></a>3、解析内容</h3><blockquote>
+<p>根据获取的内容不同进行响应解析；</p>
+</blockquote>
+<h3 id="4、保存内容"><a href="#4、保存内容" class="headerlink" title="4、保存内容"></a>4、保存内容</h3><p>将解析好的内容按需分类存储下来，比如图片视频，数据文本等；</p>
+<h1 id="四、Request-amp-Response"><a href="#四、Request-amp-Response" class="headerlink" title="四、Request &amp; Response"></a>四、Request &amp; Response</h1><p><img src="http://img.blog.csdn.net/20171230230130359?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h2><p><img src="http://img.blog.csdn.net/20171230230246837?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h2 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h2><p><img src="http://img.blog.csdn.net/20171230230426142?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h1 id="五、能够爬取的内容"><a href="#五、能够爬取的内容" class="headerlink" title="五、能够爬取的内容"></a>五、能够爬取的内容</h1><blockquote>
+<p>1、网页文本: html，json文本等<br>2、图片视频等二进制文件<br>3、所有能请求到的数据按道理都能爬取到</p>
+</blockquote>
+<h1 id="六、解析方式"><a href="#六、解析方式" class="headerlink" title="六、解析方式"></a>六、解析方式</h1><p><img src="http://img.blog.csdn.net/20171230231249241?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<h1 id="七、试着爬点什么？"><a href="#七、试着爬点什么？" class="headerlink" title="七、试着爬点什么？"></a>七、试着爬点什么？</h1><p><img src="http://img.blog.csdn.net/20171230232558795?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>我们就把这个头像抓取下来吧。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">import requests</div><div class="line"></div><div class="line">response = requests.get(&quot;http://amuuncle.site/&quot;)</div><div class="line">print(response.text)</div><div class="line">print(response.headers)</div><div class="line">print(response.status_code)</div><div class="line"></div><div class="line">response = requests.get(&quot;http://amuuncle.site/images/touxiang.jpg&quot;)</div><div class="line">print(response.content)</div><div class="line">file_object = open(&apos;touxiang.jpg&apos;, &apos;wb&apos;)</div><div class="line">file_object.write(response.content)</div><div class="line">file_object.close()</div></pre></td></tr></table></figure></p>
+<p>上面代码，第一请求可以获取站点的应答信息，通过梳理我们可以筛选出我们要抓取的头像地址（该例子未做自动筛选数据，这些我们之后来学习，现在只是看看基本逻辑），第二个请求图片地址，并且将获取的图片二进制数据写入到路径中，最后头像就被保存在脚本的相同路径下了；</p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://amuuncle.site/">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+          
+        
+      
+    </div>
+    
+    
+    
+	
+	
+    
+
+    
+
+    
+	
+
+	
+	<div>
+		
+	</div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/11/22/C-C-经典面试题（系列一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2470,267 +2643,6 @@ a[0] = ‘X’;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://amuuncle.site/2017/10/30/第12节-MFC之树控件CTreeCtrl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="阿木大叔">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AmuUncle">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/10/30/第12节-MFC之树控件CTreeCtrl/" itemprop="url">第12节 MFC之树控件CTreeCtrl</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T21:42:36+08:00">
-                2017-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MFC从入门到放弃/" itemprop="url" rel="index">
-                    <span itemprop="name">MFC从入门到放弃</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>树形控件（Tree Control）：用来显示一系列项目的层次关系，最典型的例子是显示磁盘上的文件与文件夹。如果有子项目的话，单击树形控件中的项目可以展开或者收缩其子项目。MFC提供了CTreeCtrl类进行支持。</p>
-</blockquote>
-<p>树控件在windows程序中使用相对也是比较多的控件，例如windows资源管理器左边的浏览视图就是个树控件视图：<br><img src="http://img.blog.csdn.net/20171030202704102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>今天我们学习一下使用树控件，实现“添加节点”、“删除节点”、“修改节点”；</p>
-<h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day14”，布局如下，自行处理：<br><img src="http://img.blog.csdn.net/20171030203600767?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<table>
-<thead>
-<tr>
-<th>控件名</th>
-<th style="text-align:right">控件ID</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Tree Control</td>
-<td style="text-align:right">IDC_TREE_VIEW</td>
-</tr>
-<tr>
-<td>编辑框</td>
-<td style="text-align:right">IDC_EDIT_ADD_MDY</td>
-</tr>
-<tr>
-<td>添加节点</td>
-<td style="text-align:right">IDC_BUTTON_ADD</td>
-</tr>
-<tr>
-<td>删除节点</td>
-<td style="text-align:right">IDC_BUTTON_DEL</td>
-</tr>
-<tr>
-<td>修改节点</td>
-<td style="text-align:right">IDC_BUTTON_MDY</td>
-</tr>
-</tbody>
-</table>
-<h2 id="2-设置树控件属性"><a href="#2-设置树控件属性" class="headerlink" title="2. 设置树控件属性"></a>2. 设置树控件属性</h2><p>编辑树控件如下属性：</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>修改值</th>
-<th style="text-align:right">解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Has Buttons</td>
-<td>TRUE</td>
-<td style="text-align:right">在父节点旁边显示+或-</td>
-</tr>
-<tr>
-<td>Has Lines</td>
-<td>TRUE</td>
-<td style="text-align:right">在父节点和子节点之间划线</td>
-</tr>
-<tr>
-<td>Line At root</td>
-<td>TRUE</td>
-<td style="text-align:right">在根节点上划线</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3-添加树控件变量"><a href="#3-添加树控件变量" class="headerlink" title="3. 添加树控件变量"></a>3. 添加树控件变量</h2><p>给树控件添加一个变量“m_tree”，如图：<br><img src="http://img.blog.csdn.net/20171030204858144?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="4-实现添加节点按钮函数"><a href="#4-实现添加节点按钮函数" class="headerlink" title="4. 实现添加节点按钮函数"></a>4. 实现添加节点按钮函数</h2><p>双击“添加节点”按钮，编辑按钮点击方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">void Cday14Dlg::OnBnClickedButtonAdd()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	CString strText;</div><div class="line">	GetDlgItemText(IDC_EDIT_ADD_MDY,strText);</div><div class="line">	if (strText.GetLength() == 0)</div><div class="line">	&#123;</div><div class="line">		AfxMessageBox(_T(&quot;请输入节点名！&quot;));</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</div><div class="line">	if(hItem == NULL)&#123;</div><div class="line">		hItem = TVI_ROOT;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	TVINSERTSTRUCT ts =&#123;0&#125;;</div><div class="line">	ts.hParent = hItem;</div><div class="line">	ts.hInsertAfter = TVI_LAST;</div><div class="line">	ts.item.pszText = strText.GetBuffer();</div><div class="line">	ts.item.mask = TVIF_TEXT;</div><div class="line">	HTREEITEM hNewItem = m_tree.InsertItem(&amp;ts);</div><div class="line">	m_tree.SelectItem(hNewItem);</div><div class="line">	m_tree.EnsureVisible(hNewItem);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码解释：</p>
-<blockquote>
-<ol>
-<li>先获取文本框中的值，如果值为空，则提示用户输入；</li>
-<li>获取当前选中的节点，若不存在选中的节点，则获取根节点；</li>
-<li>创建节点结构体，设置其父节点，插入方式，节点内容，内容可见等；</li>
-<li>插入新的节点，并且设置节点保证可见；<br>效果图：<br><img src="http://img.blog.csdn.net/20171030211143052?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><h2 id="5-实现删除节点按钮函数"><a href="#5-实现删除节点按钮函数" class="headerlink" title="5. 实现删除节点按钮函数"></a>5. 实现删除节点按钮函数</h2>双击“删除节点”按钮，编辑按钮点击方法：</li>
-</ol>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">void Cday14Dlg::OnBnClickedButtonDel()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</div><div class="line">	if(hItem == NULL)&#123;</div><div class="line">		AfxMessageBox(_T(&quot;请选择要删除的节点！&quot;));</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	HTREEITEM hParentItem = m_tree.GetParentItem(hItem);</div><div class="line">	m_tree.DeleteItem(hItem);</div><div class="line">	m_tree.SelectItem(hParentItem);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码解释：</p>
-<blockquote>
-<ol>
-<li>获取选中的节点，若没有选中的节点，则提示用户；</li>
-<li>获取选中节点的父节点</li>
-<li>删除选中的节点</li>
-<li>将其父节点设置为选中节点</li>
-</ol>
-</blockquote>
-<p>删除前：<br><img src="http://img.blog.csdn.net/20171030211100130?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>删除后：<br><img src="http://img.blog.csdn.net/20171030211117156?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="6-实现修改节点按钮函数"><a href="#6-实现修改节点按钮函数" class="headerlink" title="6. 实现修改节点按钮函数"></a>6. 实现修改节点按钮函数</h2><p>双击“修改节点”按钮，编辑按钮点击方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">void Cday14Dlg::OnBnClickedButtonMdy()</div><div class="line">&#123;</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</div><div class="line">	if(hItem == NULL)&#123;</div><div class="line">		AfxMessageBox(_T(&quot;请选择要修改的节点！&quot;));</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	CString strText;</div><div class="line">	GetDlgItemText(IDC_EDIT_ADD_MDY,strText);</div><div class="line">	if (strText.GetLength() == 0)</div><div class="line">	&#123;</div><div class="line">		AfxMessageBox(_T(&quot;请输入新的节点名！&quot;));</div><div class="line">		return;</div><div class="line">	&#125;</div><div class="line">	m_tree.SetItemText(hItem,strText);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码解释：</p>
-<blockquote>
-<ol>
-<li>获取选中的节点，若没有选中的节点，则提示用户；</li>
-<li>先获取文本框中的值，如果值为空，则提示用户输入；<br>3.修改文本名<h2 id="7-映射节点选择消息"><a href="#7-映射节点选择消息" class="headerlink" title="7. 映射节点选择消息"></a>7. 映射节点选择消息</h2>我们想实现在点击选择控件是，下方的文本框中自动出现选择节点的文本，那么就要映射节点的选择变化消息：TVN_SELCHANGE，如图添加事件处理函数：<br><img src="http://img.blog.csdn.net/20171030212609773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>编辑事件处理函数：</li>
-</ol>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">void Cday14Dlg::OnTvnSelchangedTreeView(NMHDR *pNMHDR, LRESULT *pResult)</div><div class="line">&#123;</div><div class="line">	LPNMTREEVIEW pNMTreeView = reinterpret_cast&lt;LPNMTREEVIEW&gt;(pNMHDR);</div><div class="line">	// TODO: 在此添加控件通知处理程序代码</div><div class="line"></div><div class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</div><div class="line">	if(hItem != NULL)&#123;</div><div class="line">		CString strText = m_tree.GetItemText(hItem);</div><div class="line">		SetDlgItemText(IDC_EDIT_ADD_MDY, strText);</div><div class="line">	&#125;</div><div class="line">	*pResult = 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码解释：</p>
-<blockquote>
-<ol>
-<li>获取选中的节点，若不存在，则略过，不处理；</li>
-<li>获取选中的节点文本，将文本值设置到文本框中；</li>
-</ol>
-</blockquote>
-<p>效果图：<br><img src="http://img.blog.csdn.net/20171030213448114?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>至此，MFC树控件的简单使用已经结束，其实树控件还有很多属性，比如添加图标，这就到以后的实践中再来学习，附树控件常见属性及方法：</p>
-<h3 id="1、树形控件的属性"><a href="#1、树形控件的属性" class="headerlink" title="1、树形控件的属性"></a>1、树形控件的属性</h3><blockquote>
-<p>TVS_EDITLABELS:允许用户进行节点文本的编辑 TVS_HASBUTTONS:节点左侧添加一个按钮<br>TVS_HASLINES:父节点与子结点出现连线 TVS_LINESATROOT:子节点与根节点之间出现连线<br>TVS_NOTOOLTIPS:结点无动态提示 TVS_SINGLEEXPAND:节点的选中(未选中)t7展开(合拢)同步<br>MFC中以两种形式封装树形控件，一种是树形控件CTreeCtrl，另一种是树形视图控件CTreeView。对于一般的要求，比如在对话框中，使用CTreeCtrl比较方便。在使用树形视图控件时，只需要利用成员函数取得其引用，就可以像树形控件一样方便的使用：<br>CTreeCtrl&amp; GetTreeCtrl( ) const;<br>调用InsertItem函数能够将节点插入树形控件中，并返回插入的项的HTREEITEM。树形控件的插入工作往往是在对话框的OnInitDialog函数中进行，而对于树形视图控件，则是在OnInitUpdate函数中进行。<br>树形控件中的节点数据可以是文本，也可以是图像。节点中使用的图像是和树形控件的图像列表相对应的。在树形控件中使用图像列表是通过使用SetImageList函数来完成。<br>树形控件能产生通告消息，如: TVN_BEGINDRAG开始拖拽 TVN_ITEMEXPANDED节点被展开或收缩<br>其消息映射使用WM_NOTIFI,如： WM_NOTIFI(TVN_BEGINDRAG,IDC_TREECTRL,OnBeginDrag);</p>
-</blockquote>
-<h3 id="2、树形控件TVN-BEGINRDRAG消息的响应"><a href="#2、树形控件TVN-BEGINRDRAG消息的响应" class="headerlink" title="2、树形控件TVN_BEGINRDRAG消息的响应"></a>2、树形控件TVN_BEGINRDRAG消息的响应</h3><blockquote>
-<p>与树形控件有关的、常用的结构是TVITEM、TVINSERTSTRUCT 、NMTREEVIEW(NM_TREEVIEW<br>)。前两个是用于插入节点时使用，而NMTREEVIEW是与树形控件的通告消息相关的结构。<br>当用鼠标左键拖拽树形控件时，控件会发出TVN_BEGINDRAG通告消息；当用鼠标右键拖拽时，则会发出TVN_BEGINRDRAG通告消息。拖拽树形控件时需要使用到IImageList::BeginDrag函数：<br>IImageList::BeginDrag creates a temporary image list that is used for<br>dragging. In response to subsequent WM_MOUSEMOVE messages, you can<br>move the drag image by using IImageList::DragMove. To end the drag<br>operation, you can use IImageList::EndDrag.<br>通常使用CTreeCtrl::CreateDragImage函数创建一个被拖拽节点的图像并返回一个CImageList指针(注意被拖拽的数据节点必须包含图像，否则返回的CImageList指针为空)，然后利用该指针来调用CImageList::BeginDrag函数。除此之外还需要调用CImageList::DragEnter函数锁定、更新窗口，并在指定的位置显示被拖拽的图像：<br>static BOOL PASCAL DragEnter(    CWnd* pWndLock,    CPoint point  );<br>If pWndLock is NULL, this function draws the image in the display<br>context associated with the desktop window, and coordinates are<br>relative to the upper left corner of the screen.<br>注意BeginDrag函数只是在拖拽开始时创建要拖拽的图像，而DragEnter函数则显示该图像。<br>最后调用CWnd::SetCapture函数使后续所有的鼠标输入都发送到当前的CWnd对象而不管鼠标的位置（因为CImageList::DragEnter函数的第一个参数为NULL时表示在与桌面窗口相关的窗口，可以说就是当前程序的框架窗口，但不包括其他应用程序的窗口上显示被拖拽的图像。因此要使得被拖拽的图像在所有的窗口上而不仅仅是应用程序的框架窗口上显示，就需要调用CWnd::SetCapture函数。一旦调用了SetCapture函数，则在当前应用程序的非框架窗口，包括系统菜单上的鼠标按键动作均被发送到当前CWnd<br>对象，直到调用ReleaseCapture为止）。<br>然后就是在鼠标移动的消息响应函数中调用CImageList::DragMove函数移动被拖拽的图像，使之与鼠标的移动位置同步。最后是调用CImageList::DragShowNolock函数隐藏或显示拖拽的图像，但它并不是必须的，也可以不调用，因此之前已经调用过CImageList::DragEnter函数显示拖拽的图像了。当传递true值显示拖拽的图像时，DragShowNolock在这个过程中不像DragEnter函数一样锁定窗口。<br>值得注意的是，在拖拽节点过程中可以使用CTreeCtrl::HitTest函数判断鼠标滑动过程中所经过的点是否位于树形控件的某一个节点之上，如果是，则返回该树形节点的HTREEITEM。此时可以使用CTreeCtrl::SelectDropTarget函数或CTreeCtrl::SelectItem函数来高亮显示该节点。</p>
-</blockquote>
-<h3 id="3、树形控件的成员函数"><a href="#3、树形控件的成员函数" class="headerlink" title="3、树形控件的成员函数"></a>3、树形控件的成员函数</h3><blockquote>
-<p>InsertItem函数插入一个节点，并返回新插入的节点的HTREEITEM。<br>ItemHasChildren函数根据给定的HTREEITEM判断该节点是否存在子节点。<br>GetChildItem函数根据给定的HTREEITEM获取该节点下子节点的HTREEITEM，如果没有子节点，则返回NULL。<br>GetNextSiblingItem函数根据给定的HTREEITEM获取该节点的下一个同级节点。<br>EnsureVisible函数在必要的时候滚动视图列表控件使得其至少部分可见。需要注意的是，在使用TVE_COLLAPSE调用Expand收缩树形控件后不能再调用该函数，否则收缩操作将无效。</p>
-</blockquote>
-<h1 id="感伤：WE输了，RNG输了，心碎了。。。"><a href="#感伤：WE输了，RNG输了，心碎了。。。" class="headerlink" title="感伤：WE输了，RNG输了，心碎了。。。"></a>感伤：WE输了，RNG输了，心碎了。。。</h1><h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="external">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://blog.amuuncle.site/" target="_blank" rel="external">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
-          
-        
-      
-    </div>
-    
-    
-    
-	
-	
-    
-
-    
-
-    
-	
-
-	
-	<div>
-		
-	</div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2785,7 +2697,7 @@ a[0] = ‘X’;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2796,7 +2708,7 @@ a[0] = ‘X’;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2807,7 +2719,7 @@ a[0] = ‘X’;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
