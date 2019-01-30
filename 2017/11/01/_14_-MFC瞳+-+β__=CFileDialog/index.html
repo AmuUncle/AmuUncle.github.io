@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第14节 MFC之文件对话框CFileDialog | 主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="MFC">
+    <meta name="description" content="第14节 MFC之文件对话框CFileDialog 今天我们学习两个打开文件对话框、保存文件对话框，应用程序难免需要加载文件，或者打开配置文件等，这就用到打开或者保存对话框，例如windows文本编辑器中保存对话框就属于其中一种：">
+<meta name="keywords" content="MFC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第14节 MFC之文件对话框CFileDialog">
+<meta property="og:url" content="http://hudejie.top/2017/11/01/第14节-MFC之文件对话框CFileDialog/index.html">
+<meta property="og:site_name" content="主页">
+<meta property="og:description" content="第14节 MFC之文件对话框CFileDialog 今天我们学习两个打开文件对话框、保存文件对话框，应用程序难免需要加载文件，或者打开配置文件等，这就用到打开或者保存对话框，例如windows文本编辑器中保存对话框就属于其中一种：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.blog.csdn.net/20171101203217131?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171101203650950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171101204453007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171101204853878?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171101205350070?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171101213305582?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171101213433187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171101214549676?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-11-01T13:58:54.174Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第14节 MFC之文件对话框CFileDialog">
+<meta name="twitter:description" content="第14节 MFC之文件对话框CFileDialog 今天我们学习两个打开文件对话框、保存文件对话框，应用程序难免需要加载文件，或者打开配置文件等，这就用到打开或者保存对话框，例如windows文本编辑器中保存对话框就属于其中一种：">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171101203217131?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+    
+        <link rel="alternate" type="application/atom+xml" title="主页" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/amuuncle.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阿木大叔</h5>
+          <a href="mailto:1013857934@qq.com" title="1013857934@qq.com" class="mail">1013857934@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="+">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间穿梭
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AmuUncle" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-o"></i>
+                关于作者
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=86 src="//music.163.com/outchain/player?type=2&id=415792881&auto=1&height=66"></iframe>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第14节 MFC之文件对话框CFileDialog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第14节 MFC之文件对话框CFileDialog</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-01T13:49:20.000Z" itemprop="datePublished" class="page-time">
+  2017-11-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第14节-MFC之文件对话框CFileDialog"><span class="post-toc-number">1.</span> <span class="post-toc-text">第14节 MFC之文件对话框CFileDialog</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-新建项目"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 新建项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-添加菜单资源"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. 添加菜单资源</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-实现文件打开对话框"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. 实现文件打开对话框</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-实现文件保存对话框"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">3. 实现文件保存对话框</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#项目源码可以访问我的码云"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">项目源码可以访问我的码云</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gt-gt-gt-我的私人博客-lt-lt-lt"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-第14节-MFC之文件对话框CFileDialog"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第14节 MFC之文件对话框CFileDialog</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-01 21:49:20" datetime="2017-11-01T13:49:20.000Z"  itemprop="datePublished">2017-11-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="第14节-MFC之文件对话框CFileDialog"><a href="#第14节-MFC之文件对话框CFileDialog" class="headerlink" title="第14节 MFC之文件对话框CFileDialog"></a>第14节 MFC之文件对话框CFileDialog</h1><hr>
+<p>今天我们学习两个打开文件对话框、保存文件对话框，应用程序难免需要加载文件，或者打开配置文件等，这就用到打开或者保存对话框，例如windows文本编辑器中保存对话框就属于其中一种：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171101203217131?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<hr>
+<h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day16”，布局如下，自行处理：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171101203650950?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>拖动一个EDIT到界面，并修改如下属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>修改值</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>IDC_EDIT_TXT</td>
+<td>控件ID</td>
+</tr>
+<tr>
+<td>Want Return</td>
+<td>TRUE</td>
+<td>允许回车</td>
+</tr>
+<tr>
+<td>Multiline</td>
+<td>TRUE</td>
+<td>允许多行</td>
+</tr>
+<tr>
+<td>Horizontal Scoll</td>
+<td>TRUE</td>
+<td>水平滚动条</td>
+</tr>
+<tr>
+<td>Vertical Scoll</td>
+<td>TRUE</td>
+<td>垂直滚动条</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-添加菜单资源"><a href="#2-添加菜单资源" class="headerlink" title="2. 添加菜单资源"></a>2. 添加菜单资源</h2><p>切换到资源视图，添加菜单资源如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171101204453007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>若不知道怎么添加菜单请参考<a href="http://blog.csdn.net/qq_25549309/article/details/78359647" target="_blank" rel="noopener"><strong>Windows编程基础–第10节 MFC菜单 </strong></a></p>
+<blockquote>
+<p>注意：菜单选项最后加上&amp;符号可以设置快捷键，如“文件(&amp;F)”，当程序运行时可以通过ALT + F快捷打开文件菜单选项；</p>
+</blockquote>
+<p>将菜单绑定到主界面：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171101204853878?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h2 id="3-实现文件打开对话框"><a href="#3-实现文件打开对话框" class="headerlink" title="3. 实现文件打开对话框"></a>3. 实现文件打开对话框</h2><p>右击菜单中“打开”选项，选择“添加事件处理处理程序”，添加处理程序，如图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171101205350070?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure>其中行数处理程序名称：OnFileOpen，类列表选择：Cday16Dlg，添加编辑：<br>函数代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">void Cday16Dlg::OnFileOpen()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO: 在此添加命令处理程序代码</span><br><span class="line">	CFileDialog dlg(TRUE,NULL,NULL,OFN_FILEMUSTEXIST|OFN_PATHMUSTEXIST,_T(&quot;文本文件(*.txt)|*.txt|所有文件(*.*)|*.*||&quot;),this);</span><br><span class="line">	dlg.m_ofn.lpstrInitialDir = _T(&quot;C:\\&quot;);</span><br><span class="line">	if (dlg.DoModal()  == IDOK)</span><br><span class="line">	&#123;</span><br><span class="line">		CStdioFile inFile;</span><br><span class="line">		inFile.Open(dlg.GetPathName(),CFile::modeRead);</span><br><span class="line">		CString text;</span><br><span class="line">		CString temp;</span><br><span class="line">		while(inFile.ReadString(text))</span><br><span class="line">		&#123;    </span><br><span class="line">			GetDlgItemText(IDC_EDIT_TXT,temp);</span><br><span class="line">			if (temp.GetLength() &gt; 0)</span><br><span class="line">			&#123;</span><br><span class="line">				SetDlgItemText(IDC_EDIT_TXT,temp +&quot;\r\n&quot;+ text);</span><br><span class="line">			&#125;</span><br><span class="line">			else</span><br><span class="line">			&#123;</span><br><span class="line">				SetDlgItemText(IDC_EDIT_TXT,text);</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		inFile.Close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>创建一个txt文件对话框；</li>
+<li>如文件对话框确定按钮被点击，则打开文件位置，文件全路径就是dlg.GetPathName()；</li>
+<li>循环读取文件，知道文件读取结束；每读一行就先获取界面文本框的内容加上新读取的文本，重新设置到界面；</li>
+<li>关闭文件</li>
+</ol>
+</blockquote>
+<p>这样一个打开文件对话框就完成了，效果图如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171101213305582?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h2 id="3-实现文件保存对话框"><a href="#3-实现文件保存对话框" class="headerlink" title="3. 实现文件保存对话框"></a>3. 实现文件保存对话框</h2><p>右击菜单中“保存”选项，选择“添加事件处理处理程序”，添加处理程序，如图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171101213433187?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>名称：OnSaveFile，类列表选择：Cday16Dlg，添加编辑：<br>函数代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">void Cday16Dlg::OnSaveFile()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO: 在此添加命令处理程序代码</span><br><span class="line">	CFileDialog dlg(FALSE,NULL,NULL,OFN_HIDEREADONLY |OFN_OVERWRITEPROMPT | OFN_PATHMUSTEXIST,_T(&quot;文本文件(*.txt)|*.txt||&quot;),this);</span><br><span class="line">	if (dlg.DoModal()  == IDOK)</span><br><span class="line">	&#123;</span><br><span class="line">		CFile file;  //建立一个CFile对象</span><br><span class="line">		//打开文件,如果不存在该文件就创建文件</span><br><span class="line">		if(!file.Open(dlg.GetPathName(),CFile::modeCreate|CFile::modeWrite))</span><br><span class="line">		&#123;</span><br><span class="line">			AfxMessageBox( &quot;can   not   Create   file! &quot;);</span><br><span class="line">			return;</span><br><span class="line">		&#125; </span><br><span class="line"></span><br><span class="line">		CString output;</span><br><span class="line">		GetDlgItemText(IDC_EDIT_TXT,output);</span><br><span class="line">		file.Write(output,strlen(output));</span><br><span class="line">		file.Flush();    //将在缓冲区中的字符写入文件中</span><br><span class="line">		file.Close();   //关闭文件</span><br><span class="line">		AfxMessageBox( &quot;保存成功！&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>创建一个txt文件保存对话框；</li>
+<li>如文件对话框确定按钮被点击，则获取文件位置，文件全路径就是dlg.GetPathName()；</li>
+<li>先获取界面文本框的内容，将内容写到文件中；</li>
+<li>关闭文件<br>效果图：<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171101214549676?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure>
+</li>
+</ol>
+</blockquote>
+<h2 id="好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。"><a href="#好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。" class="headerlink" title="好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。"></a>好了，这节我们演示了如何创建文件打开和保存对话框，希望对大家有作用，今天就到这了。</h2><h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="noopener">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://blog.amuuncle.site/" target="_blank" rel="noopener">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-01T13:58:54.174Z" itemprop="dateUpdated">2017-11-01 21:58:54</time>
+</span><br>
+
+
+        
+        本文皆为个人学习总结，不能保证准确性，仅供参考，请见谅。。。<a href="/2017/11/01/第14节-MFC之文件对话框CFileDialog/" target="_blank" rel="external">http://hudejie.top/2017/11/01/第14节-MFC之文件对话框CFileDialog/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hudejie.top">
+            <img src="/img/amuuncle.jpg" alt="阿木大叔">
+            阿木大叔
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/11/01/第14节-MFC之文件对话框CFileDialog/&title=《第14节 MFC之文件对话框CFileDialog》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/11/01/第14节-MFC之文件对话框CFileDialog/&title=《第14节 MFC之文件对话框CFileDialog》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/11/01/第14节-MFC之文件对话框CFileDialog/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第14节 MFC之文件对话框CFileDialog》 — 主页&url=http://hudejie.top/2017/11/01/第14节-MFC之文件对话框CFileDialog/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/11/01/第14节-MFC之文件对话框CFileDialog/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/02/第15节-MFC之复选框及单选按钮/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">第15节 MFC之复选框及单选按钮</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/31/第13节-MFC之图片控件/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第13节 MFC之图片控件</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = '阿木大叔';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阿木大叔 &copy; 2018</span>
+            <span>
+                
+                Power by <a href="https://github.com/AmuUncle" target="_blank">GitHub</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/11/01/第14节-MFC之文件对话框CFileDialog/&title=《第14节 MFC之文件对话框CFileDialog》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/11/01/第14节-MFC之文件对话框CFileDialog/&title=《第14节 MFC之文件对话框CFileDialog》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/11/01/第14节-MFC之文件对话框CFileDialog/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第14节 MFC之文件对话框CFileDialog》 — 主页&url=http://hudejie.top/2017/11/01/第14节-MFC之文件对话框CFileDialog/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/11/01/第14节-MFC之文件对话框CFileDialog/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuklEQVR42u3aQW7jMAwF0N7/0pntDDp2/hfNNounVREotp4KSAzJr694vL6N759fzbwaf8/Pv/u1MfDw8PDGS08Wff+0e3zy9nxb36wNDw8Pb42XLLRdVjIzmZ+s5/JzPDw8vI/kJU87uzby9eDh4eF9Mm/vWP+IiwEPDw8v5k1C5PslztMKP5RrwcPDw1uoIn3O3yv1PTw8PLxxVT1JvOahdptuOGss+GdVeHh4eAu8/MCds+8/OXtXEsrj4eHhPcvLkw6TY71NAZ9tyn+eiYeHh7fGa8PZqOwUI8+eHG06Hh4e3gKvbY06C3DPMq7tt4o34uHh4Q14SaNAm2xtw+W2BWFUAMPDw8N7lHc2J19i/q18I6LSFx4eHt4aLy9utRdM3lIwD6brzgg8PDy8h3htK0CbzjibWaeY8fDw8BZ4Z0WsSQNWnqrIg/viP4mHh4c35r0GY+/sbZMOl2loPDw8vAXePGVwlp54tkHhsAyGh4eHt8CbHOhnYXFyAeTNCnh4eHgbvLbY3x76eXAcFbTa9gI8PDy8Bd6kSN8G2fNGrjZAx8PDw9vg5SWrtrg1uWzq3wT3TVd4eHh4C7wkNdC2ap3lWvONiC4bPDw8vAXe2WvyoHmeok22sv59gIeHhzfmnQW7eYK1fddZSuJyVXh4eHg/yNvLEN8/uW01OMyC4OHh4Y15bUo3b7HK394GzdFMPDw8vDXeU0X95Glt21bb4nAZUuPh4eGNea9ytFFrnUVumwPuV4KHh4e3wGtfeZYaSD5v5yTbjYeHh7fHa0v7ZymJfEFt4P4Gj4eHh7fGaw/uvOFgsjXteJPGxcPDw/sl3rMFs3xTzrYSDw8P73N4eaidXCeTIP7NpYKHh4e3xkuO73YRec54fvG8Canx8PDwHuW1P/Lz0v5Z89aoCWCew8DDw8O7G38ATDiccfRti8sAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

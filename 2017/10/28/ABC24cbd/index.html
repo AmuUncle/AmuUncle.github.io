@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第8节 MFC对话框控件访问的七种方法（上） | 主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="MFC">
+    <meta name="description" content="Windows编程基础–第8节 MFC对话框控件访问的七种方法（上）MFC对话框控件具有以下三种访问方式(当然还有很多别的访问方式，今天时间紧急，先学这三种)，分别是：  第一种GetDlgItem()-&amp;gt;GetWindowText()GetDlgItem()-&amp;gt;SetWindowText() 第二种GetDlgItemText()   第三种GetDlgItemInt()SetDlg">
+<meta name="keywords" content="MFC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第8节 MFC对话框控件访问的七种方法（上）">
+<meta property="og:url" content="http://hudejie.top/2017/10/28/ABC24cbd/index.html">
+<meta property="og:site_name" content="主页">
+<meta property="og:description" content="Windows编程基础–第8节 MFC对话框控件访问的七种方法（上）MFC对话框控件具有以下三种访问方式(当然还有很多别的访问方式，今天时间紧急，先学这三种)，分别是：  第一种GetDlgItem()-&amp;gt;GetWindowText()GetDlgItem()-&amp;gt;SetWindowText() 第二种GetDlgItemText()   第三种GetDlgItemInt()SetDlg">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.blog.csdn.net/20171024220008701?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171024221112999?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171024221553536?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171024221603771?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171024221658382?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-10-28T15:36:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第8节 MFC对话框控件访问的七种方法（上）">
+<meta name="twitter:description" content="Windows编程基础–第8节 MFC对话框控件访问的七种方法（上）MFC对话框控件具有以下三种访问方式(当然还有很多别的访问方式，今天时间紧急，先学这三种)，分别是：  第一种GetDlgItem()-&amp;gt;GetWindowText()GetDlgItem()-&amp;gt;SetWindowText() 第二种GetDlgItemText()   第三种GetDlgItemInt()SetDlg">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171024220008701?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+    
+        <link rel="alternate" type="application/atom+xml" title="主页" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/amuuncle.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阿木大叔</h5>
+          <a href="mailto:1013857934@qq.com" title="1013857934@qq.com" class="mail">1013857934@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="+">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间穿梭
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AmuUncle" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-o"></i>
+                关于作者
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=86 src="//music.163.com/outchain/player?type=2&id=415792881&auto=1&height=66"></iframe>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第8节 MFC对话框控件访问的七种方法（上）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第8节 MFC对话框控件访问的七种方法（上）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-29T04:32:43.000Z" itemprop="datePublished" class="page-time">
+  2017-10-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Windows编程基础–第8节-MFC对话框控件访问的七种方法（上）"><span class="post-toc-number">1.</span> <span class="post-toc-text">Windows编程基础–第8节 MFC对话框控件访问的七种方法（上）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-新建一个对话框项目"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">1.新建一个对话框项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-布局"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">2.布局</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-实现方法"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">3.实现方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-编译运行"><span class="post-toc-number">1.0.4.</span> <span class="post-toc-text">4.编译运行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-其他方法"><span class="post-toc-number">1.0.5.</span> <span class="post-toc-text">5.其他方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#项目源码可以访问我的码云"><span class="post-toc-number">1.0.6.</span> <span class="post-toc-text">项目源码可以访问我的码云</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-ABC24cbd"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第8节 MFC对话框控件访问的七种方法（上）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-28 23:32:43" datetime="2017-10-29T04:32:43.000Z"  itemprop="datePublished">2017-10-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Windows编程基础–第8节-MFC对话框控件访问的七种方法（上）"><a href="#Windows编程基础–第8节-MFC对话框控件访问的七种方法（上）" class="headerlink" title="Windows编程基础–第8节 MFC对话框控件访问的七种方法（上）"></a>Windows编程基础–第8节 MFC对话框控件访问的七种方法（上）</h1><p>MFC对话框控件具有以下三种访问方式(当然还有很多别的访问方式，今天时间紧急，先学这三种)，分别是：</p>
+<blockquote>
+<p>第一种<br>GetDlgItem()-&gt;GetWindowText()<br>GetDlgItem()-&gt;SetWindowText()</p>
+<p>第二种<br>GetDlgItemText()</p>
+</blockquote>
+<blockquote>
+<p>第三种<br>GetDlgItemInt()<br>SetDlgItemInt()</p>
+</blockquote>
+<h3 id="1-新建一个对话框项目"><a href="#1-新建一个对话框项目" class="headerlink" title="1.新建一个对话框项目"></a>1.新建一个对话框项目</h3><p>参见上节，我们这节采用VS2010编写一个身高体重计算器（BMI），参见 <a href="http://blog.csdn.net/qq_25549309/article/details/78277801" target="_blank" rel="noopener">第二节</a>；</p>
+<h3 id="2-布局"><a href="#2-布局" class="headerlink" title="2.布局"></a>2.布局</h3><p>编辑布局如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171024220008701?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<table>
+<thead>
+<tr>
+<th>EDIT名称</th>
+<th style="text-align:right">ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>身高</td>
+<td style="text-align:right">IDC_EDIT_SG</td>
+</tr>
+<tr>
+<td>体重</td>
+<td style="text-align:right">IDC_EDIT_TZ</td>
+</tr>
+<tr>
+<td>BMI</td>
+<td style="text-align:right">IDC_EDIT_BMI</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-实现方法"><a href="#3-实现方法" class="headerlink" title="3.实现方法"></a>3.实现方法</h3><p>双击确认按钮，编辑其点击消息处理函数；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">void Cday08Dlg::OnBnClickedOk()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO: 在此添加控件通知处理程序代码</span><br><span class="line">	int nHeight= GetDlgItemInt(IDC_EDIT_SG,NULL,TRUE);</span><br><span class="line">	double dHeight = nHeight / 100.00;</span><br><span class="line">	int nWeight = GetDlgItemInt(IDC_EDIT_TZ,NULL,TRUE);</span><br><span class="line">	double bmi = nWeight/(dHeight*dHeight);</span><br><span class="line">	char buf[28];</span><br><span class="line">	sprintf(buf, &quot;%.3f&quot;, bmi);</span><br><span class="line">	SetDlgItemText(IDC_EDIT_BMI,buf);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里可以看见使用到了GetDlgItemInt，这就是直接获取文本框的值，并返回为整形，然后用sprintf(buf, “%.3f”, bmi);将double类型值转换成字符串，并通过SetDlgItemText将字符串的值设置到ID为IDC_EDIT_BMI的文本框上；</p>
+<h3 id="4-编译运行"><a href="#4-编译运行" class="headerlink" title="4.编译运行"></a>4.编译运行</h3><p>估计很多人会像我一样，VS2010会报这样的错误：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171024221112999?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>这是因为我们创建的项目的字符集为Unicode，不允许这样转换，这时我们只要将解决方案中右击项目名“day09”-&gt;“属性”-&gt;“配置属性”-&gt;”常规”-&gt;”字符集”-&gt;选择“使用多字节字符集”就好了，如下:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171024221553536?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171024221603771?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>这时就可以通过编译，运行结果如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171024221658382?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h3 id="5-其他方法"><a href="#5-其他方法" class="headerlink" title="5.其他方法"></a>5.其他方法</h3><p>再次编辑“确认”按钮的点击消息处理函数；<br><strong>第二种</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void Cday08Dlg::OnBnClickedOk()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO: 在此添加控件通知处理程序代码</span><br><span class="line">	TCHAR tcHeight[10], tcWeight[10];</span><br><span class="line">	GetDlgItem(IDC_EDIT_SG)-&gt;GetWindowText(tcHeight,10);</span><br><span class="line">	GetDlgItem(IDC_EDIT_TZ)-&gt;GetWindowText(tcWeight,10);</span><br><span class="line"></span><br><span class="line">	int nHeight = _ttoi(tcHeight);</span><br><span class="line">	double dHeight = nHeight / 100.00;</span><br><span class="line">	int nWeight = _ttoi(tcWeight);</span><br><span class="line">	</span><br><span class="line">	double bmi = nWeight/(dHeight * dHeight);</span><br><span class="line">	char buf[28];</span><br><span class="line">	sprintf(buf, &quot;%.3f&quot;, bmi);</span><br><span class="line">	GetDlgItem(IDC_EDIT_BMI)-&gt;SetWindowText(buf);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看见，这里用到了GetDlgItem(IDC_EDIT_SG)-&gt;GetWindowText(tcHeight,10)方法，这个方法的过程就是先通过GetDlgItem(IDC_EDIT_SG)获取到控件对象，然后调用控件的GetWindowText(tcHeight,10)方法来获取控件的显示文本；</p>
+<p><strong>第三种</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">void Cday08Dlg::OnBnClickedOk()</span><br><span class="line">&#123;</span><br><span class="line">	TCHAR tcHeight[10], tcWeight[10] , tcBMI[10];</span><br><span class="line">	GetDlgItemText(IDC_EDIT_SG,tcHeight,10);</span><br><span class="line">	GetDlgItemText(IDC_EDIT_TZ,tcWeight,10);</span><br><span class="line"></span><br><span class="line">	int nHeight = _ttoi(tcHeight);</span><br><span class="line">	double dHeight = nHeight / 100.00;</span><br><span class="line">	int nWeight = _ttoi(tcWeight);</span><br><span class="line">	</span><br><span class="line">	double bmi = nWeight/(dHeight * dHeight);</span><br><span class="line">	char buf[28];</span><br><span class="line">	sprintf(buf, &quot;%.3f&quot;, bmi);</span><br><span class="line">	SetDlgItemText(IDC_EDIT_BMI,buf);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看见，这里直接用到了GetDlgItemText(IDC_EDIT_SG,tcHeight,10)方法，这个方法的过程就是先通过GetDlgItem(IDC_EDIT_SG)获取到控件对象，然后调用控件的GetWindowText(tcHeight,10)方法来设置控件的显示文本；</p>
+<p><em>虽然上面三种方法最终结果是一样的，但是其本质还是有所区别的</em></p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="noopener">项目源码可以访问我的码云</a></h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-28T15:36:30.000Z" itemprop="dateUpdated">2017-10-28 10:36:30</time>
+</span><br>
+
+
+        
+        本文皆为个人学习总结，不能保证准确性，仅供参考，请见谅。。。<a href="/2017/10/28/ABC24cbd/" target="_blank" rel="external">http://hudejie.top/2017/10/28/ABC24cbd/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hudejie.top">
+            <img src="/img/amuuncle.jpg" alt="阿木大叔">
+            阿木大叔
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/10/28/ABC24cbd/&title=《第8节 MFC对话框控件访问的七种方法（上）》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/10/28/ABC24cbd/&title=《第8节 MFC对话框控件访问的七种方法（上）》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/10/28/ABC24cbd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第8节 MFC对话框控件访问的七种方法（上）》 — 主页&url=http://hudejie.top/2017/10/28/ABC24cbd/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/10/28/ABC24cbd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/28/ABC25cbd/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">第9节 MFC对话框控件访问的七种方法（下）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/28/ABC8cbd/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第7节 来吧，VS 2010</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = '阿木大叔';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阿木大叔 &copy; 2018</span>
+            <span>
+                
+                Power by <a href="https://github.com/AmuUncle" target="_blank">GitHub</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/10/28/ABC24cbd/&title=《第8节 MFC对话框控件访问的七种方法（上）》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/10/28/ABC24cbd/&title=《第8节 MFC对话框控件访问的七种方法（上）》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/10/28/ABC24cbd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第8节 MFC对话框控件访问的七种方法（上）》 — 主页&url=http://hudejie.top/2017/10/28/ABC24cbd/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/10/28/ABC24cbd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvElEQVR42u3aW46DMBAEwNz/0tkDRJBuv8JK5a8oAlzwMRq3/XrF4/0x8muSfxYPXFzcae77dtxPcHXl/SyfVyYGXFzc89yrCZLfMyM34OLiPpmbtylXdyXPx8XF/V/ctki17Q4uLu5zuG0LkhCTl9y4VsPFxZ3g5inlvt9b8l1cXNwh7nyEkZezBQEKLi7uEW5eUPIWJA9K2nlxcXHPcNsIY6a05dAvJQwXF3cztw00x8pWe4yjDkdwcXGXcmcWLTmrjUcvCx8uLu6PuG17Mba9Ohap4OLinuHmZWisrZlZ/ETHL3BxcTdz26OW89MnnyPKd3FxcTdw88CiDT7ae4vPgYuLe5CbtxrJQ++hbYCCi4t7nrt2yvwA6NSVuLi427jJxMlSZ+xYRvtMXFzck9x2EzR5vbFNmi8vg4uLe5BbF5R2mri5KbowXFzcDdx3OfLXa4PRaDmEi4t7hJuPHQ9dVUBxcXF3cOePUiV5ZlJGow+Ei4t7kJsXmjzsmF/8ROfIcHFxH8PNo5B7ehun4uLiPpO7KgAd26zFxcU9yR3bTB0rfPnSCBcX91fcNuxoN2NmKFP5Li4u7gj3Dw4fcbB/QxL4AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

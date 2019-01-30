@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第19节 MFC之自定义消息 | 主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="MFC">
+    <meta name="description" content="Windows编程基础–第19节 MFC之自定义消息windows程序中最重要的就是消息机制，前面几节我们都是使用Windows系统设定好的消息进行编程，今天我们来使用自定义的消息来看看MFC中消息的传递过程；MFC中自定义消息有两种方法：   #define WM_MY_DEFINED_MSG (WM_USR+100) RegisterWindowMessage(WM_MY_REGISTER_M">
+<meta name="keywords" content="MFC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第19节 MFC之自定义消息">
+<meta property="og:url" content="http://hudejie.top/2017/11/08/第19节-MFC之自定义消息/index.html">
+<meta property="og:site_name" content="主页">
+<meta property="og:description" content="Windows编程基础–第19节 MFC之自定义消息windows程序中最重要的就是消息机制，前面几节我们都是使用Windows系统设定好的消息进行编程，今天我们来使用自定义的消息来看看MFC中消息的传递过程；MFC中自定义消息有两种方法：   #define WM_MY_DEFINED_MSG (WM_USR+100) RegisterWindowMessage(WM_MY_REGISTER_M">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.blog.csdn.net/20171108205056148?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171108210903808?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171108211915315?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-11-08T13:26:03.273Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第19节 MFC之自定义消息">
+<meta name="twitter:description" content="Windows编程基础–第19节 MFC之自定义消息windows程序中最重要的就是消息机制，前面几节我们都是使用Windows系统设定好的消息进行编程，今天我们来使用自定义的消息来看看MFC中消息的传递过程；MFC中自定义消息有两种方法：   #define WM_MY_DEFINED_MSG (WM_USR+100) RegisterWindowMessage(WM_MY_REGISTER_M">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171108205056148?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+    
+        <link rel="alternate" type="application/atom+xml" title="主页" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/amuuncle.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阿木大叔</h5>
+          <a href="mailto:1013857934@qq.com" title="1013857934@qq.com" class="mail">1013857934@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="+">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间穿梭
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AmuUncle" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-o"></i>
+                关于作者
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=86 src="//music.163.com/outchain/player?type=2&id=415792881&auto=1&height=66"></iframe>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第19节 MFC之自定义消息</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第19节 MFC之自定义消息</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-08T13:25:28.000Z" itemprop="datePublished" class="page-time">
+  2017-11-08
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Windows编程基础–第19节-MFC之自定义消息"><span class="post-toc-number">1.</span> <span class="post-toc-text">Windows编程基础–第19节 MFC之自定义消息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-新建项目"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 新建项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-第一种自定义消息"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.第一种自定义消息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-定义消息ID"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">2.1 定义消息ID</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-映射消息函数"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">2.2  映射消息函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-实现消息函数"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">2.3  实现消息函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-发送消息"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">2.4  发送消息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-5-运行结果"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">2.5  运行结果</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-第二种自定义消息"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.第二种自定义消息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-定义消息ID"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">3.1 定义消息ID</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-2-映射消息函数"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">3.2  映射消息函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-3-实现消息函数"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">3.3  实现消息函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-4-发送消息-1"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">2.4  发送消息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-5-运行结果-1"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">2.5  运行结果</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-对比两种方法"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4.对比两种方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#项目源码可以访问我的码云"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">项目源码可以访问我的码云</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gt-gt-gt-我的私人博客-lt-lt-lt"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-第19节-MFC之自定义消息"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第19节 MFC之自定义消息</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-08 21:25:28" datetime="2017-11-08T13:25:28.000Z"  itemprop="datePublished">2017-11-08</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Windows编程基础–第19节-MFC之自定义消息"><a href="#Windows编程基础–第19节-MFC之自定义消息" class="headerlink" title="Windows编程基础–第19节 MFC之自定义消息"></a>Windows编程基础–第19节 MFC之自定义消息</h1><p>windows程序中最重要的就是消息机制，前面几节我们都是使用Windows系统设定好的消息进行编程，今天我们来使用自定义的消息来看看MFC中消息的传递过程；<br>MFC中自定义消息有两种方法：</p>
+<blockquote>
+<ol>
+<li>#define WM_MY_DEFINED_MSG (WM_USR+100)</li>
+<li>RegisterWindowMessage(WM_MY_REGISTER_MSG_SRR)<br>下面我们来尝试一下这两种方法有什么不同；</li>
+</ol>
+</blockquote>
+<h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day21”，布局如下，自行处理：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171108205056148?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h2 id="2-第一种自定义消息"><a href="#2-第一种自定义消息" class="headerlink" title="2.第一种自定义消息"></a>2.第一种自定义消息</h2><h3 id="2-1-定义消息ID"><a href="#2-1-定义消息ID" class="headerlink" title="2.1 定义消息ID"></a>2.1 定义消息ID</h3><p>我们来到day20Dlg.h 的头文件中，在上方创建一个宏定义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define WM_MY_FRIST_MSG (WM_USER + 100)</span><br></pre></td></tr></table></figure>
+<p>这里我们定义了一个WM_MY_FRIST_MSG整型数值，它的值时WM_USER + 100，其中<strong>WM_USER </strong>是微软定义好的宏，它的值是:<code>#define WM_USER                         0x0400</code> ，这说明在0x0400之前的消息(包含0x0400)都已经被windows系统使用，我们自定义消息只能在这之后，所以我们加上了100；</p>
+<h3 id="2-2-映射消息函数"><a href="#2-2-映射消息函数" class="headerlink" title="2.2  映射消息函数"></a>2.2  映射消息函数</h3><p>我们切换到day20Dlg.cpp中，找到下面这地方：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BEGIN_MESSAGE_MAP(Cday21Dlg, CDialogEx)</span><br><span class="line">	ON_WM_SYSCOMMAND()</span><br><span class="line">	ON_WM_PAINT()</span><br><span class="line">	ON_WM_QUERYDRAGICON()</span><br><span class="line">END_MESSAGE_MAP()</span><br></pre></td></tr></table></figure></p>
+<p>这就是消息的关系图，我们来添加一条映射，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BEGIN_MESSAGE_MAP(Cday21Dlg, CDialogEx)</span><br><span class="line">	ON_WM_SYSCOMMAND()</span><br><span class="line">	ON_WM_PAINT()</span><br><span class="line">	ON_WM_QUERYDRAGICON()</span><br><span class="line">	ON_MESSAGE(WM_MY_FRIST_MSG, &amp;Cday21Dlg::OnMyFirstMsgTrigger)</span><br><span class="line">END_MESSAGE_MAP()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ON_MESSAGE(WM_MY_FRIST_MSG, &amp;Cday21Dlg::OnMyFirstMsgTrigger)<br>说明将WM_MY_FRIST_MSG消息ID与类Cday21Dlg的OnMyFirstMsgTrigger成员函数对应，当WM_MY_FRIST_MSG消息被触发时将调用OnMyFirstMsgTrigger方法；</p>
+</blockquote>
+<h3 id="2-3-实现消息函数"><a href="#2-3-实现消息函数" class="headerlink" title="2.3  实现消息函数"></a>2.3  实现消息函数</h3><p>我们先切换到Cday21Dlg类中，添加OnMyFirstMsgTrigger方法的声明：</p>
+<blockquote>
+<p>afx_msg LRESULT OnMyFirstMsgTrigger(WPARAM wParam,  LPARAM lParam);<br>这是消息映射函数的固定格式，参数类型也是固定的；</p>
+</blockquote>
+<p>接下来我们实现OnMyFirstMsgTrigger的定义,如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LRESULT Cday21Dlg::OnMyFirstMsgTrigger(WPARAM wParam,  LPARAM lParam)</span><br><span class="line">&#123;</span><br><span class="line">	TCHAR szBuf[128];</span><br><span class="line">	_stprintf(szBuf,_T(&quot;消息：%s 被触发，消息ID: 0x%x &quot;),_T(&quot;WM_MY_FRIST_MSG&quot;),WM_MY_FRIST_MSG); </span><br><span class="line">    AfxMessageBox(szBuf);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>只要执行这个函数就会弹窗显示消息名称和ID；</li>
+</ol>
+</blockquote>
+<h3 id="2-4-发送消息"><a href="#2-4-发送消息" class="headerlink" title="2.4  发送消息"></a>2.4  发送消息</h3><p>我们双击资源界面上的“自定义消息ID”按钮，编辑其点击事件处理函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void Cday21Dlg::OnBnClickedBtnDefined()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO: 在此添加控件通知处理程序代码</span><br><span class="line"></span><br><span class="line">	PostMessage(WM_MY_FRIST_MSG,0,0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>使用PostMessage发送WM_MY_FRIST_MSG消息；</li>
+</ol>
+</blockquote>
+<h3 id="2-5-运行结果"><a href="#2-5-运行结果" class="headerlink" title="2.5  运行结果"></a>2.5  运行结果</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171108210903808?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure>
+<h2 id="3-第二种自定义消息"><a href="#3-第二种自定义消息" class="headerlink" title="3.第二种自定义消息"></a>3.第二种自定义消息</h2><h3 id="3-1-定义消息ID"><a href="#3-1-定义消息ID" class="headerlink" title="3.1 定义消息ID"></a>3.1 定义消息ID</h3><p>由于我们需要使用RegisterWindowMessage(LPCSTR lpString)来创造消息ID，所以我们需要先定义一个字符串：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#define WM_MY_REGISTER_MSG_SRR _T(&quot;WM_MY_REGISTER_MSG_SRR&quot;)</span><br></pre></td></tr></table></figure>
+<p>接下来我们定义一个全局变量WM_MY_REGISTER_MSG来作为消息ID；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UINT WM_MY_REGISTER_MSG;</span><br></pre></td></tr></table></figure>
+<p>接下来我们来初始化消息ID，我们到Cday21Dlg类的构造函数中来创建消息ID：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Cday21Dlg::Cday21Dlg(CWnd* pParent /*=NULL*/)</span><br><span class="line">	: CDialogEx(Cday21Dlg::IDD, pParent)</span><br><span class="line">&#123;</span><br><span class="line">	m_hIcon = AfxGetApp()-&gt;LoadIcon(IDR_MAINFRAME);</span><br><span class="line">	WM_MY_REGISTER_MSG = RegisterWindowMessage(WM_MY_REGISTER_MSG_SRR);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样我们就通过RegisterWindowMessage来创建了消息ID，但只有在程序运行时我们才会知道消息ID是多少，并且每次运行时都可能不同；</p>
+<h3 id="3-2-映射消息函数"><a href="#3-2-映射消息函数" class="headerlink" title="3.2  映射消息函数"></a>3.2  映射消息函数</h3><p>我们切换到day20Dlg.cpp中，我们再来添加一条映射，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">BEGIN_MESSAGE_MAP(Cday21Dlg, CDialogEx)</span><br><span class="line">	ON_WM_SYSCOMMAND()</span><br><span class="line">	ON_WM_PAINT()</span><br><span class="line">	ON_WM_QUERYDRAGICON()</span><br><span class="line">	ON_BN_CLICKED(IDC_BTN_DEFINED, &amp;Cday21Dlg::OnBnClickedBtnDefined)</span><br><span class="line">	ON_MESSAGE(WM_MY_FRIST_MSG, &amp;Cday21Dlg::OnMyFirstMsgTrigger)</span><br><span class="line">	ON_REGISTERED_MESSAGE(WM_MY_REGISTER_MSG, &amp;Cday21Dlg::OnMyRegisterMsgTrigger)</span><br><span class="line">	ON_BN_CLICKED(IDC_BTN_REG, &amp;Cday21Dlg::OnBnClickedBtnReg)</span><br><span class="line">END_MESSAGE_MAP()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>ON_REGISTERED_MESSAGE(WM_MY_REGISTER_MSG, &amp;Cday21Dlg::OnMyRegisterMsgTrigger)<br>说明将WM_MY_REGISTER_MSG消息ID与类Cday21Dlg的OnMyRegisterMsgTrigger成员函数对应，当WM_MY_REGISTER_MSG消息被触发时将调用OnMyRegisterMsgTrigger方法；<br>注意：RegisterWindowMessage方法获取的消息需要用ON_REGISTERED_MESSAGE映射消息</p>
+</blockquote>
+<h3 id="3-3-实现消息函数"><a href="#3-3-实现消息函数" class="headerlink" title="3.3  实现消息函数"></a>3.3  实现消息函数</h3><p>我们先切换到Cday21Dlg类中，添加OnMyRegisterMsgTrigger方法的声明：</p>
+<blockquote>
+<p>afx_msg LRESULT OnMyRegisterMsgTrigger(WPARAM wParam,  LPARAM lParam);<br>这是消息映射函数的固定格式，参数类型也是固定的；</p>
+</blockquote>
+<p>接下来我们实现OnMyRegisterMsgTrigger的定义,如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LRESULT Cday21Dlg::OnMyRegisterMsgTrigger(WPARAM wParam,  LPARAM lParam)</span><br><span class="line">&#123;</span><br><span class="line">	TCHAR szBuf[128];</span><br><span class="line">	_stprintf(szBuf,_T(&quot;消息：%s 被触发，消息ID: 0x%x &quot;),_T(&quot;WM_MY_REGISTER_MSG&quot;),WM_MY_REGISTER_MSG); </span><br><span class="line">	AfxMessageBox(szBuf);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>只要执行这个函数就会弹窗显示消息名称和ID；</li>
+</ol>
+</blockquote>
+<h3 id="2-4-发送消息-1"><a href="#2-4-发送消息-1" class="headerlink" title="2.4  发送消息"></a>2.4  发送消息</h3><p>我们双击资源界面上的“REGISTER消息ID”按钮，编辑其点击事件处理函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void Cday21Dlg::OnBnClickedBtnReg()</span><br><span class="line">&#123;</span><br><span class="line">	PostMessage(WM_MY_REGISTER_MSG,0,0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>使用PostMessage发送WM_MY_REGISTER_MSG消息；</li>
+</ol>
+</blockquote>
+<h3 id="2-5-运行结果-1"><a href="#2-5-运行结果-1" class="headerlink" title="2.5  运行结果"></a>2.5  运行结果</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171108211915315?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure>
+<h2 id="4-对比两种方法"><a href="#4-对比两种方法" class="headerlink" title="4.对比两种方法"></a>4.对比两种方法</h2><p>从上面两种方法我们可以看出其优缺点：</p>
+<blockquote>
+<ol>
+<li>#define WM_MY_DEFINED_MSG (WM_USR+100)<br>定义的消息ID唯一，但不确定消息ID是否被其它地方占用，可能造成隐患；</li>
+<li>RegisterWindowMessage(WM_MY_REGISTER_MSG_SRR)<br>优点：定义的消息ID唯一，独立；缺点：在程序运行前不能确定消息ID，不方便在其它程序中指定触发此消息ID；</li>
+</ol>
+</blockquote>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="noopener">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://amuuncle.site/" target="_blank" rel="noopener">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-08T13:26:03.273Z" itemprop="dateUpdated">2017-11-08 21:26:03</time>
+</span><br>
+
+
+        
+        本文皆为个人学习总结，不能保证准确性，仅供参考，请见谅。。。<a href="/2017/11/08/第19节-MFC之自定义消息/" target="_blank" rel="external">http://hudejie.top/2017/11/08/第19节-MFC之自定义消息/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hudejie.top">
+            <img src="/img/amuuncle.jpg" alt="阿木大叔">
+            阿木大叔
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/11/08/第19节-MFC之自定义消息/&title=《第19节 MFC之自定义消息》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/11/08/第19节-MFC之自定义消息/&title=《第19节 MFC之自定义消息》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/11/08/第19节-MFC之自定义消息/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第19节 MFC之自定义消息》 — 主页&url=http://hudejie.top/2017/11/08/第19节-MFC之自定义消息/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/11/08/第19节-MFC之自定义消息/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/08/工具使用-第3节-HEXO美化之添加虾米音乐播放器/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">工具使用--第3节 HEXO美化之添加虾米音乐播放器</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/06/第18节-MFC之窗体操作/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第18节 MFC之窗体操作</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = '阿木大叔';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阿木大叔 &copy; 2018</span>
+            <span>
+                
+                Power by <a href="https://github.com/AmuUncle" target="_blank">GitHub</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/11/08/第19节-MFC之自定义消息/&title=《第19节 MFC之自定义消息》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/11/08/第19节-MFC之自定义消息/&title=《第19节 MFC之自定义消息》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/11/08/第19节-MFC之自定义消息/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第19节 MFC之自定义消息》 — 主页&url=http://hudejie.top/2017/11/08/第19节-MFC之自定义消息/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/11/08/第19节-MFC之自定义消息/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3aQW7jMBAEQP//097rLhZiukkrgEelU+DIlIqHNofD1yu+3hfX3/9NRsif8rrjwsDA+FrGe3n9/xLJ/Vffuhph/a3kWRgYGE9grCMyeXB+z/rzJMoxMDAwzkM2WT4m04SBgYHRMtaPb8vXfHwMDAyMvIg9x5yXux+oxTEwML6Qke+6//7ft/Q3MDAwvorxPrj2is873gcDA2M2Y69YbZud7XGKveUpBgbGVEbbEjgvONuitI5aDAyMoYx2uPUGfctuG5yXvxgYGBhDGXsBlwTo+vHnBfMPGAwMjEGMtpWYF5ltEB/FNwYGxmjG+VZa2ypow7o42IGBgfEYRlIi5u3JZMx1yCaNBAwMjNmMNhCTJeDJUm/zIBoGBsbDGMlLbDYa44RM2P98joGBMZqRNynzaN57fDKhxTIRAwNjEOO8fN3D559H04SBgTGa0Z6qaiMyf9EkXttJx8DAmMHYa16erMr2yuMfpg8DA+MBjDxqk8XZHfe89mYFAwNjBCNvFta7dx9qZ9ZnRjAwMMYxks218yJ2L+KLmMbAwBjNaA9gtYct8iDOS9/L6cPAwBjKeJfXyRGNtuVQFLcYGBijGW0J2m7D1ccjPvQDgIGBMY+RtzBP4jgZLQ/c+tcDAwNjBCMPvjYKP9bBWC8NMTAwMMrl4F4DIN+wOwpcDAyM0YyTJmU7chvcGBgYT2DcEYV7R8f2NuYwMDBmM9rSsT2EUZz7iKf1qIWJgYHxTYw/ALXrQVHBy1QAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

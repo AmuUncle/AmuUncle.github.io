@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第12节 MFC之树控件CTreeCtrl | 主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="MFC">
+    <meta name="description" content="树形控件（Tree Control）：用来显示一系列项目的层次关系，最典型的例子是显示磁盘上的文件与文件夹。如果有子项目的话，单击树形控件中的项目可以展开或者收缩其子项目。MFC提供了CTreeCtrl类进行支持。  树控件在windows程序中使用相对也是比较多的控件，例如windows资源管理器左边的浏览视图就是个树控件视图：">
+<meta name="keywords" content="MFC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第12节 MFC之树控件CTreeCtrl">
+<meta property="og:url" content="http://hudejie.top/2017/10/30/ABC16cbd/index.html">
+<meta property="og:site_name" content="主页">
+<meta property="og:description" content="树形控件（Tree Control）：用来显示一系列项目的层次关系，最典型的例子是显示磁盘上的文件与文件夹。如果有子项目的话，单击树形控件中的项目可以展开或者收缩其子项目。MFC提供了CTreeCtrl类进行支持。  树控件在windows程序中使用相对也是比较多的控件，例如windows资源管理器左边的浏览视图就是个树控件视图：">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.blog.csdn.net/20171030202704102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171030203600767?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171030204858144?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171030211143052?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171030211100130?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171030211117156?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171030212609773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171030213448114?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-11-01T13:44:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第12节 MFC之树控件CTreeCtrl">
+<meta name="twitter:description" content="树形控件（Tree Control）：用来显示一系列项目的层次关系，最典型的例子是显示磁盘上的文件与文件夹。如果有子项目的话，单击树形控件中的项目可以展开或者收缩其子项目。MFC提供了CTreeCtrl类进行支持。  树控件在windows程序中使用相对也是比较多的控件，例如windows资源管理器左边的浏览视图就是个树控件视图：">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171030202704102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+    
+        <link rel="alternate" type="application/atom+xml" title="主页" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/amuuncle.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阿木大叔</h5>
+          <a href="mailto:1013857934@qq.com" title="1013857934@qq.com" class="mail">1013857934@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="+">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间穿梭
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AmuUncle" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-o"></i>
+                关于作者
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=86 src="//music.163.com/outchain/player?type=2&id=415792881&auto=1&height=66"></iframe>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第12节 MFC之树控件CTreeCtrl</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第12节 MFC之树控件CTreeCtrl</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-31T02:42:36.000Z" itemprop="datePublished" class="page-time">
+  2017-10-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-新建项目"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 新建项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-设置树控件属性"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 设置树控件属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-添加树控件变量"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 添加树控件变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-实现添加节点按钮函数"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. 实现添加节点按钮函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-实现删除节点按钮函数"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. 实现删除节点按钮函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-实现修改节点按钮函数"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. 实现修改节点按钮函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-映射节点选择消息"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. 映射节点选择消息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1、树形控件的属性"><span class="post-toc-number">7.1.</span> <span class="post-toc-text">1、树形控件的属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2、树形控件TVN-BEGINRDRAG消息的响应"><span class="post-toc-number">7.2.</span> <span class="post-toc-text">2、树形控件TVN_BEGINRDRAG消息的响应</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3、树形控件的成员函数"><span class="post-toc-number">7.3.</span> <span class="post-toc-text">3、树形控件的成员函数</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#感伤：WE输了，RNG输了，心碎了。。。"><span class="post-toc-number"></span> <span class="post-toc-text">感伤：WE输了，RNG输了，心碎了。。。</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#项目源码可以访问我的码云"><span class="post-toc-number">0.1.</span> <span class="post-toc-text">项目源码可以访问我的码云</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gt-gt-gt-我的私人博客-lt-lt-lt"><span class="post-toc-number">0.2.</span> <span class="post-toc-text">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-ABC16cbd"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第12节 MFC之树控件CTreeCtrl</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-30 21:42:36" datetime="2017-10-31T02:42:36.000Z"  itemprop="datePublished">2017-10-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>树形控件（Tree Control）：用来显示一系列项目的层次关系，最典型的例子是显示磁盘上的文件与文件夹。如果有子项目的话，单击树形控件中的项目可以展开或者收缩其子项目。MFC提供了CTreeCtrl类进行支持。</p>
+</blockquote>
+<p>树控件在windows程序中使用相对也是比较多的控件，例如windows资源管理器左边的浏览视图就是个树控件视图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171030202704102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>今天我们学习一下使用树控件，实现“添加节点”、“删除节点”、“修改节点”；</p>
+<h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day14”，布局如下，自行处理：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171030203600767?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<table>
+<thead>
+<tr>
+<th>控件名</th>
+<th style="text-align:right">控件ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tree Control</td>
+<td style="text-align:right">IDC_TREE_VIEW</td>
+</tr>
+<tr>
+<td>编辑框</td>
+<td style="text-align:right">IDC_EDIT_ADD_MDY</td>
+</tr>
+<tr>
+<td>添加节点</td>
+<td style="text-align:right">IDC_BUTTON_ADD</td>
+</tr>
+<tr>
+<td>删除节点</td>
+<td style="text-align:right">IDC_BUTTON_DEL</td>
+</tr>
+<tr>
+<td>修改节点</td>
+<td style="text-align:right">IDC_BUTTON_MDY</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-设置树控件属性"><a href="#2-设置树控件属性" class="headerlink" title="2. 设置树控件属性"></a>2. 设置树控件属性</h2><p>编辑树控件如下属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>修改值</th>
+<th style="text-align:right">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Has Buttons</td>
+<td>TRUE</td>
+<td style="text-align:right">在父节点旁边显示+或-</td>
+</tr>
+<tr>
+<td>Has Lines</td>
+<td>TRUE</td>
+<td style="text-align:right">在父节点和子节点之间划线</td>
+</tr>
+<tr>
+<td>Line At root</td>
+<td>TRUE</td>
+<td style="text-align:right">在根节点上划线</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-添加树控件变量"><a href="#3-添加树控件变量" class="headerlink" title="3. 添加树控件变量"></a>3. 添加树控件变量</h2><p>给树控件添加一个变量“m_tree”，如图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171030204858144?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h2 id="4-实现添加节点按钮函数"><a href="#4-实现添加节点按钮函数" class="headerlink" title="4. 实现添加节点按钮函数"></a>4. 实现添加节点按钮函数</h2><p>双击“添加节点”按钮，编辑按钮点击方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">void Cday14Dlg::OnBnClickedButtonAdd()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO: 在此添加控件通知处理程序代码</span><br><span class="line">	CString strText;</span><br><span class="line">	GetDlgItemText(IDC_EDIT_ADD_MDY,strText);</span><br><span class="line">	if (strText.GetLength() == 0)</span><br><span class="line">	&#123;</span><br><span class="line">		AfxMessageBox(_T(&quot;请输入节点名！&quot;));</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</span><br><span class="line">	if(hItem == NULL)&#123;</span><br><span class="line">		hItem = TVI_ROOT;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	TVINSERTSTRUCT ts =&#123;0&#125;;</span><br><span class="line">	ts.hParent = hItem;</span><br><span class="line">	ts.hInsertAfter = TVI_LAST;</span><br><span class="line">	ts.item.pszText = strText.GetBuffer();</span><br><span class="line">	ts.item.mask = TVIF_TEXT;</span><br><span class="line">	HTREEITEM hNewItem = m_tree.InsertItem(&amp;ts);</span><br><span class="line">	m_tree.SelectItem(hNewItem);</span><br><span class="line">	m_tree.EnsureVisible(hNewItem);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>先获取文本框中的值，如果值为空，则提示用户输入；</li>
+<li>获取当前选中的节点，若不存在选中的节点，则获取根节点；</li>
+<li>创建节点结构体，设置其父节点，插入方式，节点内容，内容可见等；</li>
+<li>插入新的节点，并且设置节点保证可见；<br>效果图：<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171030211143052?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure>
+</li>
+</ol>
+</blockquote>
+<h2 id="5-实现删除节点按钮函数"><a href="#5-实现删除节点按钮函数" class="headerlink" title="5. 实现删除节点按钮函数"></a>5. 实现删除节点按钮函数</h2><p>双击“删除节点”按钮，编辑按钮点击方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">void Cday14Dlg::OnBnClickedButtonDel()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO: 在此添加控件通知处理程序代码</span><br><span class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</span><br><span class="line">	if(hItem == NULL)&#123;</span><br><span class="line">		AfxMessageBox(_T(&quot;请选择要删除的节点！&quot;));</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	HTREEITEM hParentItem = m_tree.GetParentItem(hItem);</span><br><span class="line">	m_tree.DeleteItem(hItem);</span><br><span class="line">	m_tree.SelectItem(hParentItem);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>获取选中的节点，若没有选中的节点，则提示用户；</li>
+<li>获取选中节点的父节点</li>
+<li>删除选中的节点</li>
+<li>将其父节点设置为选中节点</li>
+</ol>
+</blockquote>
+<p>删除前：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171030211100130?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>删除后：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171030211117156?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h2 id="6-实现修改节点按钮函数"><a href="#6-实现修改节点按钮函数" class="headerlink" title="6. 实现修改节点按钮函数"></a>6. 实现修改节点按钮函数</h2><p>双击“修改节点”按钮，编辑按钮点击方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">void Cday14Dlg::OnBnClickedButtonMdy()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO: 在此添加控件通知处理程序代码</span><br><span class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</span><br><span class="line">	if(hItem == NULL)&#123;</span><br><span class="line">		AfxMessageBox(_T(&quot;请选择要修改的节点！&quot;));</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	CString strText;</span><br><span class="line">	GetDlgItemText(IDC_EDIT_ADD_MDY,strText);</span><br><span class="line">	if (strText.GetLength() == 0)</span><br><span class="line">	&#123;</span><br><span class="line">		AfxMessageBox(_T(&quot;请输入新的节点名！&quot;));</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	m_tree.SetItemText(hItem,strText);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>获取选中的节点，若没有选中的节点，则提示用户；</li>
+<li>先获取文本框中的值，如果值为空，则提示用户输入；<br>3.修改文本名</li>
+</ol>
+</blockquote>
+<h2 id="7-映射节点选择消息"><a href="#7-映射节点选择消息" class="headerlink" title="7. 映射节点选择消息"></a>7. 映射节点选择消息</h2><p>我们想实现在点击选择控件是，下方的文本框中自动出现选择节点的文本，那么就要映射节点的选择变化消息：TVN_SELCHANGE，如图添加事件处理函数：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171030212609773?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>编辑事件处理函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void Cday14Dlg::OnTvnSelchangedTreeView(NMHDR *pNMHDR, LRESULT *pResult)</span><br><span class="line">&#123;</span><br><span class="line">	LPNMTREEVIEW pNMTreeView = reinterpret_cast&lt;LPNMTREEVIEW&gt;(pNMHDR);</span><br><span class="line">	// TODO: 在此添加控件通知处理程序代码</span><br><span class="line"></span><br><span class="line">	HTREEITEM hItem = m_tree.GetSelectedItem();</span><br><span class="line">	if(hItem != NULL)&#123;</span><br><span class="line">		CString strText = m_tree.GetItemText(hItem);</span><br><span class="line">		SetDlgItemText(IDC_EDIT_ADD_MDY, strText);</span><br><span class="line">	&#125;</span><br><span class="line">	*pResult = 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<ol>
+<li>获取选中的节点，若不存在，则略过，不处理；</li>
+<li>获取选中的节点文本，将文本值设置到文本框中；</li>
+</ol>
+</blockquote>
+<p>效果图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171030213448114?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<p>至此，MFC树控件的简单使用已经结束，其实树控件还有很多属性，比如添加图标，这就到以后的实践中再来学习，附树控件常见属性及方法：</p>
+<h3 id="1、树形控件的属性"><a href="#1、树形控件的属性" class="headerlink" title="1、树形控件的属性"></a>1、树形控件的属性</h3><blockquote>
+<p>TVS_EDITLABELS:允许用户进行节点文本的编辑 TVS_HASBUTTONS:节点左侧添加一个按钮<br>TVS_HASLINES:父节点与子结点出现连线 TVS_LINESATROOT:子节点与根节点之间出现连线<br>TVS_NOTOOLTIPS:结点无动态提示 TVS_SINGLEEXPAND:节点的选中(未选中)t7展开(合拢)同步<br>MFC中以两种形式封装树形控件，一种是树形控件CTreeCtrl，另一种是树形视图控件CTreeView。对于一般的要求，比如在对话框中，使用CTreeCtrl比较方便。在使用树形视图控件时，只需要利用成员函数取得其引用，就可以像树形控件一样方便的使用：<br>CTreeCtrl&amp; GetTreeCtrl( ) const;<br>调用InsertItem函数能够将节点插入树形控件中，并返回插入的项的HTREEITEM。树形控件的插入工作往往是在对话框的OnInitDialog函数中进行，而对于树形视图控件，则是在OnInitUpdate函数中进行。<br>树形控件中的节点数据可以是文本，也可以是图像。节点中使用的图像是和树形控件的图像列表相对应的。在树形控件中使用图像列表是通过使用SetImageList函数来完成。<br>树形控件能产生通告消息，如: TVN_BEGINDRAG开始拖拽 TVN_ITEMEXPANDED节点被展开或收缩<br>其消息映射使用WM_NOTIFI,如： WM_NOTIFI(TVN_BEGINDRAG,IDC_TREECTRL,OnBeginDrag);</p>
+</blockquote>
+<h3 id="2、树形控件TVN-BEGINRDRAG消息的响应"><a href="#2、树形控件TVN-BEGINRDRAG消息的响应" class="headerlink" title="2、树形控件TVN_BEGINRDRAG消息的响应"></a>2、树形控件TVN_BEGINRDRAG消息的响应</h3><blockquote>
+<p>与树形控件有关的、常用的结构是TVITEM、TVINSERTSTRUCT 、NMTREEVIEW(NM_TREEVIEW<br>)。前两个是用于插入节点时使用，而NMTREEVIEW是与树形控件的通告消息相关的结构。<br>当用鼠标左键拖拽树形控件时，控件会发出TVN_BEGINDRAG通告消息；当用鼠标右键拖拽时，则会发出TVN_BEGINRDRAG通告消息。拖拽树形控件时需要使用到IImageList::BeginDrag函数：<br>IImageList::BeginDrag creates a temporary image list that is used for<br>dragging. In response to subsequent WM_MOUSEMOVE messages, you can<br>move the drag image by using IImageList::DragMove. To end the drag<br>operation, you can use IImageList::EndDrag.<br>通常使用CTreeCtrl::CreateDragImage函数创建一个被拖拽节点的图像并返回一个CImageList指针(注意被拖拽的数据节点必须包含图像，否则返回的CImageList指针为空)，然后利用该指针来调用CImageList::BeginDrag函数。除此之外还需要调用CImageList::DragEnter函数锁定、更新窗口，并在指定的位置显示被拖拽的图像：<br>static BOOL PASCAL DragEnter(    CWnd* pWndLock,    CPoint point  );<br>If pWndLock is NULL, this function draws the image in the display<br>context associated with the desktop window, and coordinates are<br>relative to the upper left corner of the screen.<br>注意BeginDrag函数只是在拖拽开始时创建要拖拽的图像，而DragEnter函数则显示该图像。<br>最后调用CWnd::SetCapture函数使后续所有的鼠标输入都发送到当前的CWnd对象而不管鼠标的位置（因为CImageList::DragEnter函数的第一个参数为NULL时表示在与桌面窗口相关的窗口，可以说就是当前程序的框架窗口，但不包括其他应用程序的窗口上显示被拖拽的图像。因此要使得被拖拽的图像在所有的窗口上而不仅仅是应用程序的框架窗口上显示，就需要调用CWnd::SetCapture函数。一旦调用了SetCapture函数，则在当前应用程序的非框架窗口，包括系统菜单上的鼠标按键动作均被发送到当前CWnd<br>对象，直到调用ReleaseCapture为止）。<br>然后就是在鼠标移动的消息响应函数中调用CImageList::DragMove函数移动被拖拽的图像，使之与鼠标的移动位置同步。最后是调用CImageList::DragShowNolock函数隐藏或显示拖拽的图像，但它并不是必须的，也可以不调用，因此之前已经调用过CImageList::DragEnter函数显示拖拽的图像了。当传递true值显示拖拽的图像时，DragShowNolock在这个过程中不像DragEnter函数一样锁定窗口。<br>值得注意的是，在拖拽节点过程中可以使用CTreeCtrl::HitTest函数判断鼠标滑动过程中所经过的点是否位于树形控件的某一个节点之上，如果是，则返回该树形节点的HTREEITEM。此时可以使用CTreeCtrl::SelectDropTarget函数或CTreeCtrl::SelectItem函数来高亮显示该节点。</p>
+</blockquote>
+<h3 id="3、树形控件的成员函数"><a href="#3、树形控件的成员函数" class="headerlink" title="3、树形控件的成员函数"></a>3、树形控件的成员函数</h3><blockquote>
+<p>InsertItem函数插入一个节点，并返回新插入的节点的HTREEITEM。<br>ItemHasChildren函数根据给定的HTREEITEM判断该节点是否存在子节点。<br>GetChildItem函数根据给定的HTREEITEM获取该节点下子节点的HTREEITEM，如果没有子节点，则返回NULL。<br>GetNextSiblingItem函数根据给定的HTREEITEM获取该节点的下一个同级节点。<br>EnsureVisible函数在必要的时候滚动视图列表控件使得其至少部分可见。需要注意的是，在使用TVE_COLLAPSE调用Expand收缩树形控件后不能再调用该函数，否则收缩操作将无效。</p>
+</blockquote>
+<h1 id="感伤：WE输了，RNG输了，心碎了。。。"><a href="#感伤：WE输了，RNG输了，心碎了。。。" class="headerlink" title="感伤：WE输了，RNG输了，心碎了。。。"></a>感伤：WE输了，RNG输了，心碎了。。。</h1><h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="noopener">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://blog.amuuncle.site/" target="_blank" rel="noopener">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-01T13:44:51.000Z" itemprop="dateUpdated">2017-11-01 08:44:51</time>
+</span><br>
+
+
+        
+        本文皆为个人学习总结，不能保证准确性，仅供参考，请见谅。。。<a href="/2017/10/30/ABC16cbd/" target="_blank" rel="external">http://hudejie.top/2017/10/30/ABC16cbd/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hudejie.top">
+            <img src="/img/amuuncle.jpg" alt="阿木大叔">
+            阿木大叔
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/10/30/ABC16cbd/&title=《第12节 MFC之树控件CTreeCtrl》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/10/30/ABC16cbd/&title=《第12节 MFC之树控件CTreeCtrl》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/10/30/ABC16cbd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第12节 MFC之树控件CTreeCtrl》 — 主页&url=http://hudejie.top/2017/10/30/ABC16cbd/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/10/30/ABC16cbd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/31/ABC17cbd/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">第13节 MFC之图片控件</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/29/ABC15cbd/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第11节 MFC之列表控件CListCtrl</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = '阿木大叔';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阿木大叔 &copy; 2018</span>
+            <span>
+                
+                Power by <a href="https://github.com/AmuUncle" target="_blank">GitHub</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/10/30/ABC16cbd/&title=《第12节 MFC之树控件CTreeCtrl》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/10/30/ABC16cbd/&title=《第12节 MFC之树控件CTreeCtrl》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/10/30/ABC16cbd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第12节 MFC之树控件CTreeCtrl》 — 主页&url=http://hudejie.top/2017/10/30/ABC16cbd/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/10/30/ABC16cbd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAByklEQVR42u3aS47CMBAFQO5/aWYLYmJetz+AVF6hTMapZGG5X/t2i8f9YTxeef3r1Z3jK4sHLi7uNPc+HFf3vM7w+nv+hf+ZDRcX9yD36gHjqZOH5Z9jbMDFxf0t7ng3ks+Ji4v769xkm9IrpXBxcb+H29uCjJe2XnSyrFbDxcWd4OYp5b7fW/JdXFzcFrcXYYwLm7WhydNsuLi4R7j5gjJGVzdDU8/FxcXdzM2Xp4S+o5R6811xcXE3cHtHKHJ63oapbrBwcXH3cXuRZR5zzJdDTzPj4uIe4VaXsFXt1aS5EtVquLi4G7jJY/LtyNri53IJw8XFPcLtRZ+rGrT5oQ1cXNxPcWeC0Xzj0mzP4OLiHuHmgemqK9USqJnv4uLibuZG/xy3Vaqbp3KTFRcXdxF3bdyZh6q9oBYXF/cktxxfBuVK4fRHXvzg4uIe5O47ZlHd3Ly5BxcXdzP3Xhy975EEo1E5hIuLe4RbbZRWX6PXfO1FLbi4uGu5vaNU1YC1upC9aaLg4uIe4VYXmrVt1ySWxcXF/RVuTkwWsmjbhIuL+5Xc5BBGdf4FnR9cXNwN3PzoZO/1Zl4bFxf3PHdHuLmKMpXv4uLidrh/rYbDQtGj3IEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

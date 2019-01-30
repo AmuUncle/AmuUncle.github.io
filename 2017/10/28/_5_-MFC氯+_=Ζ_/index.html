@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第5节 MFC对话框程序 | 主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="MFC">
+    <meta name="description" content="Windows编程基础–第5节 MFC对话框程序模式对话框 对话框程序是MFC最重要的组成部分，也是Visual C++中唯一可以可视化设计的窗口程序，对话框主要有两类：   模式对话框：必须关闭这个对话框才能继续操作父窗口或者上一级窗口 非模式对话框:不影响父窗口或者上一级窗口，可继续操作父窗口或者上一级窗口，对话框程序也可以一直保留，无需关闭才能执行下一步；   接来下我们先一起学习模式对话框">
+<meta name="keywords" content="MFC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第5节 MFC对话框程序">
+<meta property="og:url" content="http://hudejie.top/2017/10/28/第5节-MFC对话框程序/index.html">
+<meta property="og:site_name" content="主页">
+<meta property="og:description" content="Windows编程基础–第5节 MFC对话框程序模式对话框 对话框程序是MFC最重要的组成部分，也是Visual C++中唯一可以可视化设计的窗口程序，对话框主要有两类：   模式对话框：必须关闭这个对话框才能继续操作父窗口或者上一级窗口 非模式对话框:不影响父窗口或者上一级窗口，可继续操作父窗口或者上一级窗口，对话框程序也可以一直保留，无需关闭才能执行下一步；   接来下我们先一起学习模式对话框">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.blog.csdn.net/20171021224403317?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171021225345643?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171021225356308?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171021225816356?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171021225906889?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171021230017929?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171021231034007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171021231642278?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171021232153087?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171021232202529?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171021232914420?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-10-28T15:34:12.290Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第5节 MFC对话框程序">
+<meta name="twitter:description" content="Windows编程基础–第5节 MFC对话框程序模式对话框 对话框程序是MFC最重要的组成部分，也是Visual C++中唯一可以可视化设计的窗口程序，对话框主要有两类：   模式对话框：必须关闭这个对话框才能继续操作父窗口或者上一级窗口 非模式对话框:不影响父窗口或者上一级窗口，可继续操作父窗口或者上一级窗口，对话框程序也可以一直保留，无需关闭才能执行下一步；   接来下我们先一起学习模式对话框">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171021224403317?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+    
+        <link rel="alternate" type="application/atom+xml" title="主页" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/amuuncle.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阿木大叔</h5>
+          <a href="mailto:1013857934@qq.com" title="1013857934@qq.com" class="mail">1013857934@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="+">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间穿梭
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AmuUncle" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-o"></i>
+                关于作者
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=86 src="//music.163.com/outchain/player?type=2&id=415792881&auto=1&height=66"></iframe>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第5节 MFC对话框程序</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第5节 MFC对话框程序</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-28T15:31:35.000Z" itemprop="datePublished" class="page-time">
+  2017-10-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Windows编程基础–第5节-MFC对话框程序"><span class="post-toc-number">1.</span> <span class="post-toc-text">Windows编程基础–第5节 MFC对话框程序</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模式对话框"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">模式对话框</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-新建项目"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1. 新建项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-添加关于对话框"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">2. 添加关于对话框</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-添加关于对话框类"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">3. 添加关于对话框类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-添加关于按钮消息事件"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">3. 添加关于按钮消息事件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#非模式对话框"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">非模式对话框</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-添加聊天对话框"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1. 添加聊天对话框</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-添加聊天对话框类"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">2. 添加聊天对话框类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-添加聊天按钮消息事件"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">3. 添加聊天按钮消息事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#项目源码可以访问我的码云"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">项目源码可以访问我的码云</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-第5节-MFC对话框程序"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第5节 MFC对话框程序</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-28 23:31:35" datetime="2017-10-28T15:31:35.000Z"  itemprop="datePublished">2017-10-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Windows编程基础–第5节-MFC对话框程序"><a href="#Windows编程基础–第5节-MFC对话框程序" class="headerlink" title="Windows编程基础–第5节 MFC对话框程序"></a>Windows编程基础–第5节 MFC对话框程序</h1><h2 id="模式对话框"><a href="#模式对话框" class="headerlink" title="模式对话框"></a>模式对话框</h2><hr>
+<p>对话框程序是MFC最重要的组成部分，也是Visual C++中唯一可以可视化设计的窗口程序，对话框主要有两类：</p>
+<blockquote>
+<ul>
+<li>模式对话框：必须关闭这个对话框才能继续操作父窗口或者上一级窗口</li>
+<li>非模式对话框:不影响父窗口或者上一级窗口，可继续操作父窗口或者上一级窗口，对话框程序也可以一直保留，无需关闭才能执行下一步；</li>
+</ul>
+</blockquote>
+<p>接来下我们先一起学习模式对话框；</p>
+<h3 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h3><p>建立一个MFC的主对话框项目day04，参见上节，添加两个按钮，分别为“关于”，“聊天”，如图所示：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171021224403317?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h3 id="2-添加关于对话框"><a href="#2-添加关于对话框" class="headerlink" title="2. 添加关于对话框"></a>2. 添加关于对话框</h3><p>在资源视图（ResourceView）中Dialog上右击-&gt;Insert Diallog，插入对话框，如图所示：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171021225345643?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171021225356308?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h3 id="3-添加关于对话框类"><a href="#3-添加关于对话框类" class="headerlink" title="3. 添加关于对话框类"></a>3. 添加关于对话框类</h3><p>单击添加的关于对话框，执行View-&gt;Class Wizard，或者使用快捷键Ctrl + W打开类向导；<br>由于新的对话框不存在关联类，此时会提示创建一个与它相关联的类，选择Create a new class,单击OK创建关联类，如下图所示：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171021225816356?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171021225906889?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>单击OK完成创建关联类；<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171021230017929?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h3 id="3-添加关于按钮消息事件"><a href="#3-添加关于按钮消息事件" class="headerlink" title="3. 添加关于按钮消息事件"></a>3. 添加关于按钮消息事件</h3><p>切换回主对话框，单击主对话框，执行View-&gt;Class Wizard，或者使用快捷键Ctrl + W打开类向导；选择关于按钮，增加clicked方法，然后Edit Code编辑关于按钮的响应方法，或者可以直接双击“关于”按钮就可以直接进入按钮点击方法，在day04Dlg.h中添加“#include AboutDlg.h”来引入对话框类，然后我们来编辑关于按键方法，创建一个模式对话框；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void CDay04Dlg::OnButtonAbout() </span><br><span class="line">&#123;</span><br><span class="line">	// TODO: Add your control notification handler code here</span><br><span class="line">	CAboutDlg dlg;</span><br><span class="line">	dlg.DoModal();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171021231034007?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>至此，一个模式对话框就创建成功了，我们可以看到，我们必须关闭关于对话框，才能单击主对话框。</p>
+<h2 id="非模式对话框"><a href="#非模式对话框" class="headerlink" title="非模式对话框"></a>非模式对话框</h2><p>现在我们来创建一个非模式对话框；</p>
+<h3 id="1-添加聊天对话框"><a href="#1-添加聊天对话框" class="headerlink" title="1. 添加聊天对话框"></a>1. 添加聊天对话框</h3><p>在资源视图（ResourceView）中Dialog上右击-&gt;Insert Diallog，插入对话框，如图所示：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171021231642278?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h3 id="2-添加聊天对话框类"><a href="#2-添加聊天对话框类" class="headerlink" title="2. 添加聊天对话框类"></a>2. 添加聊天对话框类</h3><p>单击添加的关于对话框，执行View-&gt;Class Wizard，或者使用快捷键Ctrl + W打开类向导；<br>由于新的对话框不存在关联类，此时会提示创建一个与它相关联的类，选择Create a new class,单击OK创建关联类，如上面步骤3</p>
+<h3 id="3-添加聊天按钮消息事件"><a href="#3-添加聊天按钮消息事件" class="headerlink" title="3. 添加聊天按钮消息事件"></a>3. 添加聊天按钮消息事件</h3><p>切换回主对话框，单击主对话框，执行View-&gt;Class Wizard，或者使用快捷键Ctrl + W打开类向导；选择聊天按钮，增加clicked方法，然后Edit Code编辑关于按钮的响应方法，或者可以直接双击“聊天”按钮就可以直接进入按钮点击方法，在day04Dlg.h中添加“#include “Chat.h””来引入对话框类，然后我们来编辑聊天按键方法，创建一个非模式对话框；</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void CDay04Dlg::OnButtonChat() </span><br><span class="line">&#123;</span><br><span class="line">	// TODO: Add your control notification handler code here</span><br><span class="line">	CChat * pDlg = new CChat;</span><br><span class="line">	pDlg-&gt;Create(IDD_DIALOG_CHAT);</span><br><span class="line">	pDlg-&gt;ShowWindow(SW_SHOW);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>效果图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171021232153087?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171021232202529?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>至此，一个非模式对话框就创建成功了，我们可以看到，我们打开聊天界面后还可以继续操作父窗口中的关于对话框，甚至还可以单击聊天对话框创建多个聊天界面；<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171021232914420?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="noopener">项目源码可以访问我的码云</a></h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-28T15:34:12.290Z" itemprop="dateUpdated">2017-10-28 23:34:12</time>
+</span><br>
+
+
+        
+        本文皆为个人学习总结，不能保证准确性，仅供参考，请见谅。。。<a href="/2017/10/28/第5节-MFC对话框程序/" target="_blank" rel="external">http://hudejie.top/2017/10/28/第5节-MFC对话框程序/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hudejie.top">
+            <img src="/img/amuuncle.jpg" alt="阿木大叔">
+            阿木大叔
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/10/28/第5节-MFC对话框程序/&title=《第5节 MFC对话框程序》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/10/28/第5节-MFC对话框程序/&title=《第5节 MFC对话框程序》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/10/28/第5节-MFC对话框程序/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第5节 MFC对话框程序》 — 主页&url=http://hudejie.top/2017/10/28/第5节-MFC对话框程序/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/10/28/第5节-MFC对话框程序/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/28/第6节-VC-6-0控件说明/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">第6节 VC++6.0控件说明</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/28/第4节-MFC消息映射机制/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第4节 MFC消息映射机制</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = '阿木大叔';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阿木大叔 &copy; 2018</span>
+            <span>
+                
+                Power by <a href="https://github.com/AmuUncle" target="_blank">GitHub</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/10/28/第5节-MFC对话框程序/&title=《第5节 MFC对话框程序》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/10/28/第5节-MFC对话框程序/&title=《第5节 MFC对话框程序》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/10/28/第5节-MFC对话框程序/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第5节 MFC对话框程序》 — 主页&url=http://hudejie.top/2017/10/28/第5节-MFC对话框程序/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/10/28/第5节-MFC对话框程序/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aS46DMBBF0ex/0+lpJBJzXxm35PJlFAUwHAYl1+f1wsf74/j853r2epDrfz3l4UOGDBnbMvhL8OP66uPPUXuuDBkyTmP8imDja8brpB+CP1eGDBkyyHLrQqcMGTJkrGCMw/E4TeVnZciQIaNWLOO1L/7hlufiMmTI2JDBq+7//3tJf0OGDBlbMWbK/WkiOn/9z3VkyJDRmpEW/XlYrK05da8MGTKaMsYLjdNFkuLykE2S2OL3kCFDxuYMkgnyDVwtu6w1J+LaoQwZMpoy0jELvk7aWgjOypAhoymDPzgegAiT4am2gQwZMpoyasFxpoWQBtM4F5chQ0Y7Rm2oIh0CG28x+VhYEOJlyJDRiFFLNdfxeMnvpoUpQ4aMRgyegvKGQW3PxgP0zWZRhgwZTRn8Bv671p2Y2VbKkCGjN6MWWHno5C9KynwyZMg4jZEW8Xmhn7cz01GPL0+UIUPGMQwecNN2ZjpYFo90yJAhozWDDzoQcDwSUWpkFqdIZMiQsTkjLaLxMYg06U1D8E0qK0OGjNaMtOhfG9pImxA3G0oZMmQcxqiVzNI0eL48F28NZciQsSHjHR4kFNYGNdLwKkOGjHMYaVEsvblW+eN4GTJknMN4NlzylR/ePsqQIeMAxkyZnodFjimmsjJkyJCBxyNqY2TpEMZUwJUhQ8YBDD5+QdZPmw1fniVDhowDGCSJTbd9vND2wDUyZMhozZgv8a+offFALEOGjNaMP37ON/XTf9/WAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

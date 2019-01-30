@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>工具使用--第1节 git使用简记 | 主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="GIT">
+    <meta name="description" content="工具使用–第1节 git使用简记GIT （分布式版本控制系统） Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。  Git的读音为/gɪt/。 Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。 Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。 Torvalds">
+<meta name="keywords" content="GIT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工具使用--第1节 git使用简记">
+<meta property="og:url" content="http://hudejie.top/2017/10/28/工具使用-第1节-git使用简记/index.html">
+<meta property="og:site_name" content="主页">
+<meta property="og:description" content="工具使用–第1节 git使用简记GIT （分布式版本控制系统） Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。  Git的读音为/gɪt/。 Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。 Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。 Torvalds">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.blog.csdn.net/20171024232855549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171024233234409?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171024233414198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171024233600207?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-10-28T15:39:55.905Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="工具使用--第1节 git使用简记">
+<meta name="twitter:description" content="工具使用–第1节 git使用简记GIT （分布式版本控制系统） Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。  Git的读音为/gɪt/。 Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。 Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。 Torvalds">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171024232855549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+    
+        <link rel="alternate" type="application/atom+xml" title="主页" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/amuuncle.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阿木大叔</h5>
+          <a href="mailto:1013857934@qq.com" title="1013857934@qq.com" class="mail">1013857934@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="+">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间穿梭
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AmuUncle" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-o"></i>
+                关于作者
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=86 src="//music.163.com/outchain/player?type=2&id=415792881&auto=1&height=66"></iframe>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">工具使用--第1节 git使用简记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">工具使用--第1节 git使用简记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-28T15:38:48.000Z" itemprop="datePublished" class="page-time">
+  2017-10-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/git教程/">git教程</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#工具使用–第1节-git使用简记"><span class="post-toc-number">1.</span> <span class="post-toc-text">工具使用–第1节 git使用简记</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GIT-（分布式版本控制系统）"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">GIT （分布式版本控制系统）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-安装git"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.安装git</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-下载msysgit"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1.1  下载msysgit</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-配置msysgit"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">2. 配置msysgit</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-创建代码仓"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">3.创建代码仓</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-1-进入你想建仓的目录"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">3.1 进入你想建仓的目录</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-版本控制"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">4.版本控制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-1-查看版本状态"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">4.1 查看版本状态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-2-添加到缓存区"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">4.2 添加到缓存区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-3-提交代码到版本仓"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">4.3 提交代码到版本仓</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-工具使用-第1节-git使用简记"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">工具使用--第1节 git使用简记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-28 23:38:48" datetime="2017-10-28T15:38:48.000Z"  itemprop="datePublished">2017-10-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/git教程/">git教程</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="工具使用–第1节-git使用简记"><a href="#工具使用–第1节-git使用简记" class="headerlink" title="工具使用–第1节 git使用简记"></a>工具使用–第1节 git使用简记</h1><h2 id="GIT-（分布式版本控制系统）"><a href="#GIT-（分布式版本控制系统）" class="headerlink" title="GIT （分布式版本控制系统）"></a>GIT （分布式版本控制系统）</h2><blockquote>
+<p>Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。  Git的读音为/gɪt/。 Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理。 Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。 Torvalds 开始着手开发 Git 是为了作为一种过渡方案来替代 BitKeeper，后者之前一直是 Linux 内核开发人员在全球使用的主要源代码工具。开放源码社区中的有些人觉得BitKeeper 的许可证并不适合开放源码社区的工作，因此 Torvalds 决定着手研究许可证更为灵活的版本控制系统。尽管最初 Git 的开发是为了辅助 Linux 内核开发的过程，但是我们已经发现在很多其他自由软件项目中也使用了 Git。例如 很多 Freedesktop 的项目迁移到了Git 上。    — <strong>百度百科</strong></p>
+</blockquote>
+<h2 id="1-安装git"><a href="#1-安装git" class="headerlink" title="1.安装git"></a>1.安装git</h2><p>这里只说windows版本安装使用，Linux版本等以后再研究；</p>
+<h3 id="1-1-下载msysgit"><a href="#1-1-下载msysgit" class="headerlink" title="1.1  下载msysgit"></a>1.1  下载msysgit</h3><p><strong>msysgit</strong>是Windows版的Git，从<a href="https://git-for-windows.github.io下载（百度一下也有很多下载链接），然后按默认选项安装即可。**msysgit**的操作命令和Linux基本一致，很多命令是通用的，例如ls，mv，rm等；" target="_blank" rel="noopener">https://git-for-windows.github.io下载（百度一下也有很多下载链接），然后按默认选项安装即可。**msysgit**的操作命令和Linux基本一致，很多命令是通用的，例如ls，mv，rm等；</a><br>mygit安装完成后，在开始菜单里找到“Git”-&gt;“Git Bash”，蹦出一个类似命令行窗口的东西，就说明Git安装成功！</p>
+<h2 id="2-配置msysgit"><a href="#2-配置msysgit" class="headerlink" title="2. 配置msysgit"></a>2. 配置msysgit</h2><p>在桌面空白处右击，选择“Git Bash here”进入msysgit的控制台，输入一下两条命令，配置全局的用户名和邮箱：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;你的用户名&quot;</span><br><span class="line">$ git config --global user.email &quot;邮箱地址&quot;</span><br></pre></td></tr></table></figure></p>
+<p>你的用户名：可以随意设置，但要记住用户名<br>邮箱地址：你的邮箱地址</p>
+<h2 id="3-创建代码仓"><a href="#3-创建代码仓" class="headerlink" title="3.创建代码仓"></a>3.创建代码仓</h2><h3 id="3-1-进入你想建仓的目录"><a href="#3-1-进入你想建仓的目录" class="headerlink" title="3.1 进入你想建仓的目录"></a>3.1 进入你想建仓的目录</h3><p>在目录空白处右击选择“Git Bash here”进入msysgit的控制台，输入git init命令把这个目录变成Git可以管理的仓库：</p>
+<blockquote>
+<p>$ git init<br> Initialized empty Git repository in C:/Users/Administrator/Desktop/usb_encryption_5.4.0/git_demo/.git/</p>
+</blockquote>
+<p>git会在此目录创建.git目录，这是Git来跟踪管理版本库的，无需我们来改动，</p>
+<h2 id="4-版本控制"><a href="#4-版本控制" class="headerlink" title="4.版本控制"></a>4.版本控制</h2><p>我们现在在此目录下来创建一个readme.md文件，随意填写些内容，如下<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171024232855549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h3 id="4-1-查看版本状态"><a href="#4-1-查看版本状态" class="headerlink" title="4.1 查看版本状态"></a>4.1 查看版本状态</h3><blockquote>
+<p>git status<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171024233234409?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+</blockquote>
+<h3 id="4-2-添加到缓存区"><a href="#4-2-添加到缓存区" class="headerlink" title="4.2 添加到缓存区"></a>4.2 添加到缓存区</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add readme.md</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171024233414198?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure>
+<h3 id="4-3-提交代码到版本仓"><a href="#4-3-提交代码到版本仓" class="headerlink" title="4.3 提交代码到版本仓"></a>4.3 提交代码到版本仓</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;Add readme&quot;</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171024233600207?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure>
+<p>-m 后面跟得是你提交的代码的描述，建议所有提交都应该添加描述。</p>
+<p><em>暂时先记录这么多，下次再补充完整</em></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-28T15:39:55.905Z" itemprop="dateUpdated">2017-10-28 23:39:55</time>
+</span><br>
+
+
+        
+        本文皆为个人学习总结，不能保证准确性，仅供参考，请见谅。。。<a href="/2017/10/28/工具使用-第1节-git使用简记/" target="_blank" rel="external">http://hudejie.top/2017/10/28/工具使用-第1节-git使用简记/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hudejie.top">
+            <img src="/img/amuuncle.jpg" alt="阿木大叔">
+            阿木大叔
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GIT/">GIT</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/10/28/工具使用-第1节-git使用简记/&title=《工具使用--第1节 git使用简记》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/10/28/工具使用-第1节-git使用简记/&title=《工具使用--第1节 git使用简记》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/10/28/工具使用-第1节-git使用简记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《工具使用--第1节 git使用简记》 — 主页&url=http://hudejie.top/2017/10/28/工具使用-第1节-git使用简记/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/10/28/工具使用-第1节-git使用简记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/29/python-selenium-自动化查询上海公交卡余额，并邮件通知/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">python selenium 自动化查询上海公交卡余额，并邮件通知</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/28/第10节-MFC菜单/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第10节 MFC菜单</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = '阿木大叔';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阿木大叔 &copy; 2018</span>
+            <span>
+                
+                Power by <a href="https://github.com/AmuUncle" target="_blank">GitHub</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/10/28/工具使用-第1节-git使用简记/&title=《工具使用--第1节 git使用简记》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/10/28/工具使用-第1节-git使用简记/&title=《工具使用--第1节 git使用简记》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/10/28/工具使用-第1节-git使用简记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《工具使用--第1节 git使用简记》 — 主页&url=http://hudejie.top/2017/10/28/工具使用-第1节-git使用简记/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/10/28/工具使用-第1节-git使用简记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvElEQVR42u3a0W7bQAwEwPz/T7dAnwo0kndJnZ0CoyfDsaUbGjheSH59xdevP9ffr/995/5byfv3n0m+Nbzw8PDwRku/uq5Im2Ulz8pDfHUfPDw8vNO85HbnMFeL24QADw8P7yfw7h+QJ5VkofefxMPDw/t/efeJIU8S92v4WGLAw8PDu+XlBYI8JeSFjPtnJQfxB2oteHh4eN0OXDfAPvv6eH8PDw8Pb9RVb8uvSUrIBwLa4/g3K8HDw8M7wMuPsO3Btz1A54mhHv/Cw8PDe5TXDlHtS677kkeSVPDw8PDez2sLsvnxOh8XyANxKcLDw8M7xmsLEJsWVF1KiIsU3/wAeHh4eMd4+dbfnlo3382De7lyPDw8vAO8WTE3L1JsAG3Q8fDw8N7PmzWf2r/mIUt4dXkaDw8Pb83LN+5Zqti0r9pAvJiJwMPDwzvAa0cE8pTQjinkhYYXocfDw8M7xstvmm/9T7XHhkVbPDw8vMO8tmW1Hy9oi8V5mbjIe3h4eHgLXn5gnY1StbXkPBwvnouHh4d3jJccoPNWVrugdtCqGEHAw8PDewuvHcBqD9+zlDAMNx4eHt4BXt62b289a1nNChz1eBYeHh7egpdso7PyazuMlf8axWfw8PDwDvDy4dHNWOrmDrMmGR4eHt45Xr7tthNNm2GCx0KAh4eHd4C3SQyzZtUsBKvDNB4eHt6jvPbAujlS1yNTMan+HfDw8PAWvKQx35YV2kGBWWm4Tmx4eHh4D/E2m3WLmQV0NliAh4eHd4737Ik0CUGy9e+LHXh4eHineW0ySMqybYDaMkSeqPDw8PDO8fJiQfJO8vlnrxf/N+Dh4eH9AN4+HLO2XJ2i8PDw8D7K2wwWJAMK+eG7boPh4eHhHeDNml6bA3R7z1lRAw8PD+8EbzjSVBZY8wSQLDfH4+Hh4T3K+w1Cbkrf1v2wtwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

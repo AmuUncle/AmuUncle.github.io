@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第7节 来吧，VS 2010 | 主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="MFC">
+    <meta name="description" content="Windows编程基础–第7节 来吧，VS 2010VS 2010开发第一步 前面几节我们都是采用VC++ 6.0 作为IDE（集成开发环境），但是由于VC++ 6.0 已经过于老旧，目前大多数企业和个人都已经不再使用，而采用vs2005， vs2008， vs2010，vs2015作为MFC程序的开发环境，vs相对vc++6.0具有更友好的界面，及更强大的功能，采用vs开发MFC应用程序更加得心">
+<meta name="keywords" content="MFC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第7节 来吧，VS 2010">
+<meta property="og:url" content="http://hudejie.top/2017/10/28/第7节-来吧，VS-2010/index.html">
+<meta property="og:site_name" content="主页">
+<meta property="og:description" content="Windows编程基础–第7节 来吧，VS 2010VS 2010开发第一步 前面几节我们都是采用VC++ 6.0 作为IDE（集成开发环境），但是由于VC++ 6.0 已经过于老旧，目前大多数企业和个人都已经不再使用，而采用vs2005， vs2008， vs2010，vs2015作为MFC程序的开发环境，vs相对vc++6.0具有更友好的界面，及更强大的功能，采用vs开发MFC应用程序更加得心">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.blog.csdn.net/20171023201320375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171023201410030?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171023201434296?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171023202332101?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171023203106380?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171023204200061?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171023204439088?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171023205039008?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171023205614359?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171023205947196?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171023212741178?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171023213131534?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-10-28T15:35:53.471Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第7节 来吧，VS 2010">
+<meta name="twitter:description" content="Windows编程基础–第7节 来吧，VS 2010VS 2010开发第一步 前面几节我们都是采用VC++ 6.0 作为IDE（集成开发环境），但是由于VC++ 6.0 已经过于老旧，目前大多数企业和个人都已经不再使用，而采用vs2005， vs2008， vs2010，vs2015作为MFC程序的开发环境，vs相对vc++6.0具有更友好的界面，及更强大的功能，采用vs开发MFC应用程序更加得心">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171023201320375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+    
+        <link rel="alternate" type="application/atom+xml" title="主页" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/amuuncle.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阿木大叔</h5>
+          <a href="mailto:1013857934@qq.com" title="1013857934@qq.com" class="mail">1013857934@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="+">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间穿梭
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AmuUncle" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-o"></i>
+                关于作者
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=86 src="//music.163.com/outchain/player?type=2&id=415792881&auto=1&height=66"></iframe>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第7节 来吧，VS 2010</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第7节 来吧，VS 2010</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-28T15:32:25.000Z" itemprop="datePublished" class="page-time">
+  2017-10-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Windows编程基础–第7节-来吧，VS-2010"><span class="post-toc-number">1.</span> <span class="post-toc-text">Windows编程基础–第7节 来吧，VS 2010</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#VS-2010开发第一步"><span class="post-toc-number">2.</span> <span class="post-toc-text">VS 2010开发第一步</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、开始使用VS-2010"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1、开始使用VS 2010</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-1-安装VS-2010"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">1.1 安装VS 2010</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-2-创建一个基于对话框项目"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">1.2 创建一个基于对话框项目</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-创建一个字符统计窗口"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">1.3 创建一个字符统计窗口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-3-创建一个字符统计窗口-1"><span class="post-toc-number">2.1.4.</span> <span class="post-toc-text">1.3 创建一个字符统计窗口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-4-编译运行"><span class="post-toc-number">2.1.5.</span> <span class="post-toc-text">1.4 编译运行</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、初探VS中消息映射机制"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2、初探VS中消息映射机制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-1-创建EDIT的消息处理函数"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">2.1 创建EDIT的消息处理函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-2-编译运行"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">2.2 编译运行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-3-MFC消息映射机制流程"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">2.3 MFC消息映射机制流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#项目源码可以访问我的码云"><span class="post-toc-number">2.2.4.</span> <span class="post-toc-text">项目源码可以访问我的码云</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-第7节-来吧，VS-2010"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第7节 来吧，VS 2010</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-28 23:32:25" datetime="2017-10-28T15:32:25.000Z"  itemprop="datePublished">2017-10-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Windows编程基础–第7节-来吧，VS-2010"><a href="#Windows编程基础–第7节-来吧，VS-2010" class="headerlink" title="Windows编程基础–第7节 来吧，VS 2010"></a>Windows编程基础–第7节 来吧，VS 2010</h1><h1 id="VS-2010开发第一步"><a href="#VS-2010开发第一步" class="headerlink" title="VS 2010开发第一步"></a>VS 2010开发第一步</h1><hr>
+<p>前面几节我们都是采用<strong>VC++ 6.0 作为IDE（集成开发环境）</strong>，但是由于<strong>VC++ 6.0 </strong>已经过于老旧，目前大多数企业和个人都已经不再使用，而采用vs2005， vs2008， vs2010，vs2015作为MFC程序的开发环境，vs相对vc++6.0具有更友好的界面，及更强大的功能，采用vs开发MFC应用程序更加得心应手。</p>
+<h2 id="1、开始使用VS-2010"><a href="#1、开始使用VS-2010" class="headerlink" title="1、开始使用VS 2010"></a>1、开始使用VS 2010</h2><h3 id="1-1-安装VS-2010"><a href="#1-1-安装VS-2010" class="headerlink" title="1.1 安装VS 2010"></a>1.1 安装VS 2010</h3><p><a href="https://jingyan.baidu.com/article/4e5b3e195b838991901e24e5.html" target="_blank" rel="noopener">参见百度百科</a></p>
+<h3 id="1-2-创建一个基于对话框项目"><a href="#1-2-创建一个基于对话框项目" class="headerlink" title="1.2 创建一个基于对话框项目"></a>1.2 创建一个基于对话框项目</h3><p>执行“文件”-&gt;“新建”-&gt;“项目”，选择基于对话框的MFC程序，其他默认就好，基本上和<strong>VC++ 6.0 </strong>创建项目一模一样，如图所示：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171023201320375?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171023201410030?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171023201434296?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h3 id="1-3-创建一个字符统计窗口"><a href="#1-3-创建一个字符统计窗口" class="headerlink" title="1.3 创建一个字符统计窗口"></a>1.3 创建一个字符统计窗口</h3><p>现在我们通过一个小例子来看看VS2010创建MFC程序有什么不同，我们来创建一个字符统计窗口，输入各种字符，最后统计出所有字符个数；<br>设计界面如下，<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171023202332101?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>一个文本输入框，一个“统计”按钮，一个文本显示“字符个数”，直接在工具箱中拖动进来就OK，然后拖动大小适中就好，方法同<strong>VC++ 6.0 </strong>没有区别，可以参考上几节内容。<br><strong>注意:</strong> 若是右边没有工具箱选项卡，可以通过“视图”-&gt;“工具箱”打开。<br>编译运行，效果图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171023203106380?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h3 id="1-3-创建一个字符统计窗口-1"><a href="#1-3-创建一个字符统计窗口-1" class="headerlink" title="1.3 创建一个字符统计窗口"></a>1.3 创建一个字符统计窗口</h3><p>双击“统计”按钮，编辑按钮的点击处理函数，<br>我们来分析一下：</p>
+<blockquote>
+<ul>
+<li>获取输入框中文本</li>
+<li>获取输入框中文本的字符个数</li>
+<li>将字符个数显示到静态文本上<br>所以处理函数如下：</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">void Cday07Dlg::OnBnClickedButtonCount()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO: 在此添加控件通知处理程序代码</span><br><span class="line">	CString strInput,strOutput;</span><br><span class="line">	GetDlgItemText(IDC_EDIT_TEXT,strInput);</span><br><span class="line"></span><br><span class="line">	int nCount = strInput.GetLength();</span><br><span class="line">	strOutput.Format(_T(&quot;字符个数：%d &quot;),nCount);</span><br><span class="line">	SetDlgItemText(IDC_STATIC_COUNT,strOutput);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="1-4-编译运行"><a href="#1-4-编译运行" class="headerlink" title="1.4 编译运行"></a>1.4 编译运行</h3><p>运行结果图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171023204200061?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>这是我们发现当我们输入完成是，输入“回车”时，程序就会直接结束，那么我们修改输入框的属性值“Want Return”来允许输入框来接收回车，如图<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171023204439088?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>其实这是我们可以发现现在文本框是只能输入一行，显然不够美观，那么我们再修改一下输入框属性：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171023205039008?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<blockquote>
+<ol>
+<li>Multiline：允许多行 </li>
+<li>Horizontal Scroll：水平滚动条 </li>
+<li>Vertical Scroll:垂直滚动条</li>
+</ol>
+</blockquote>
+<p>再次编译运行：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171023205614359?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>现在文本框现在可以输入多行，并且可以任意回车了。<br>有人可能和我一样，发现程序没有关闭按钮，那是因为我在创建的时候取消了系统菜单，我们可以选定对话框主界面，选择属性-&gt;system menu-&gt;TRUE:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171023205947196?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>这是关闭按钮就出现了，可以正常关闭了。</p>
+<h2 id="2、初探VS中消息映射机制"><a href="#2、初探VS中消息映射机制" class="headerlink" title="2、初探VS中消息映射机制"></a>2、初探VS中消息映射机制</h2><h3 id="2-1-创建EDIT的消息处理函数"><a href="#2-1-创建EDIT的消息处理函数" class="headerlink" title="2.1 创建EDIT的消息处理函数"></a>2.1 创建EDIT的消息处理函数</h3><p>单击选定输入框，右击选择“添加事件处理程序”，这是可以很直观的看见EDIT的消息列表和要添加到的类，以及添加的处理函数名，现在我们来添加一个EN_CHANGE的消息处理函数，如图所示：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171023212741178?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>单击“添加编辑”来编辑消息处理函数，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">void Cday07Dlg::OnEnChangeEditText()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO:  如果该控件是 RICHEDIT 控件，它将不</span><br><span class="line">	// 发送此通知，除非重写 CDialogEx::OnInitDialog()</span><br><span class="line">	// 函数并调用 CRichEditCtrl().SetEventMask()，</span><br><span class="line">	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。</span><br><span class="line"></span><br><span class="line">	// TODO:  在此添加控件通知处理程序代码</span><br><span class="line">	CString strInput,strOutput;</span><br><span class="line">	GetDlgItemText(IDC_EDIT_TEXT,strInput);</span><br><span class="line"></span><br><span class="line">	int nCount = strInput.GetLength();</span><br><span class="line">	strOutput.Format(_T(&quot;字符个数：%d &quot;),nCount);</span><br><span class="line">	SetDlgItemText(IDC_STATIC_COUNT,strOutput);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-编译运行"><a href="#2-2-编译运行" class="headerlink" title="2.2 编译运行"></a>2.2 编译运行</h3><p>这是我们可以发现我们在输入框中输入字符时，下方的字符统计数会实时显示，这就是输入文本时，EDIT的EN_CHANGE消息被触发，从而触发其消息处理函数OnEnChangeEditText，导致字符统计数实时更新，效果图如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171023213131534?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h3 id="2-3-MFC消息映射机制流程"><a href="#2-3-MFC消息映射机制流程" class="headerlink" title="2.3 MFC消息映射机制流程"></a>2.3 MFC消息映射机制流程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">st=&gt;start: Start</span><br><span class="line">op=&gt;operation: 输入框文本变化</span><br><span class="line">op2=&gt;operation: 触发EN_CHANGE消息</span><br><span class="line">op3=&gt;operation: 调用EN_CHANGE的处理函数OnEnChangeEditText</span><br><span class="line">op4=&gt;operation: 将输入框字符数返回到界面</span><br><span class="line">e=&gt;end</span><br><span class="line"></span><br><span class="line">st-&gt;op-&gt;op2-&gt;op3-&gt;op4-&gt;e</span><br></pre></td></tr></table></figure>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="noopener">项目源码可以访问我的码云</a></h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-28T15:35:53.471Z" itemprop="dateUpdated">2017-10-28 23:35:53</time>
+</span><br>
+
+
+        
+        本文皆为个人学习总结，不能保证准确性，仅供参考，请见谅。。。<a href="/2017/10/28/第7节-来吧，VS-2010/" target="_blank" rel="external">http://hudejie.top/2017/10/28/第7节-来吧，VS-2010/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hudejie.top">
+            <img src="/img/amuuncle.jpg" alt="阿木大叔">
+            阿木大叔
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/10/28/第7节-来吧，VS-2010/&title=《第7节 来吧，VS 2010》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/10/28/第7节-来吧，VS-2010/&title=《第7节 来吧，VS 2010》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/10/28/第7节-来吧，VS-2010/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第7节 来吧，VS 2010》 — 主页&url=http://hudejie.top/2017/10/28/第7节-来吧，VS-2010/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/10/28/第7节-来吧，VS-2010/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/28/第8节-MFC对话框控件访问的七种方法（上）/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">第8节 MFC对话框控件访问的七种方法（上）</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/28/第6节-VC-6-0控件说明/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第6节 VC++6.0控件说明</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = '阿木大叔';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阿木大叔 &copy; 2018</span>
+            <span>
+                
+                Power by <a href="https://github.com/AmuUncle" target="_blank">GitHub</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/10/28/第7节-来吧，VS-2010/&title=《第7节 来吧，VS 2010》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/10/28/第7节-来吧，VS-2010/&title=《第7节 来吧，VS 2010》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/10/28/第7节-来吧，VS-2010/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第7节 来吧，VS 2010》 — 主页&url=http://hudejie.top/2017/10/28/第7节-来吧，VS-2010/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/10/28/第7节-来吧，VS-2010/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aS27DMAwFwN7/0ummiwJtnEdSCWBptCocx9akACF+vr7i9fi1/l7J17PvPnvL4oWBgXFbRvXFq670rj+lYmBgHMB4FsGu77l+TjUE5+/FwMDAqD4uD4vJQRADAwNjFSNPNa/D6+RODAyM0xjVo9s1o1dQ+1AujoGBcUNGHjQ///db+hsYGBi3YvQakHnovH7LfD8/z8HAwNiaUS365ylljzfaDwYGxqaMJE19R9o5Gekon1sxMDA2Ykzahz1kPqjxouSHgYFxAGM+pJUkoknboDfkgYGBcQ4jTzirgxHVYJ00R5sZNgYGxm0Z1VGJvCTXC7iF9BUDA+MYRrUQVm129kp4eSqLgYGxNyNPKXttzjxJTr714lMMDIytGXmpq7qhatM0bxU0e7MYGBg3ZFQPf5NiXBLEm01TDAyMrRn5INd8zWEvCn8YGBibMibls2o7odeEaM6MYGBgbM2oluPzFkLvJyjPjGBgYGzHyNPFfIQiD829Ml+5aoiBgbEFI280Voe9VrUNCrVDDAyMAxiTxHLt8ET+BAwMjNMYSZFrHl6vN907UGJgYOzKeBRX3nRcW7Bb1sLEwMC4IaM3KlHd4jysY2BgYCRBNvklkgNf9Z7CfwADA+MARrVMv6phMGl//nPOxcDAwGhtbhJ2k6dhYGBgVB+aj3wl780PrxgYGCcwei3JVeloL7nFwMA4h1FNHXvJZ86uHhYxMDC2ZnwDZ13RPwm0DUUAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

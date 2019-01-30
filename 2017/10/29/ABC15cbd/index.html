@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第11节 MFC之列表控件CListCtrl | 主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="MFC">
+    <meta name="description" content="Windows编程基础–第11节 MFC之列表控件CListCtrl在MFC程序中列表控件也是使用很频繁的控件，例如windows的资源管理器就可以用列表控件来实现，如下图：                                                                                             这里写图片描述">
+<meta name="keywords" content="MFC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第11节 MFC之列表控件CListCtrl">
+<meta property="og:url" content="http://hudejie.top/2017/10/29/ABC15cbd/index.html">
+<meta property="og:site_name" content="主页">
+<meta property="og:description" content="Windows编程基础–第11节 MFC之列表控件CListCtrl在MFC程序中列表控件也是使用很频繁的控件，例如windows的资源管理器就可以用列表控件来实现，如下图：                                                                                             这里写图片描述">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029194504658?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029195344235?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029195933714?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029200613135?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029201802886?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029201954651?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029202051457?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029205119435?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029205441857?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029210611657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029210644041?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029210701658?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171029210716406?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-10-31T14:38:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第11节 MFC之列表控件CListCtrl">
+<meta name="twitter:description" content="Windows编程基础–第11节 MFC之列表控件CListCtrl在MFC程序中列表控件也是使用很频繁的控件，例如windows的资源管理器就可以用列表控件来实现，如下图：                                                                                             这里写图片描述">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171029194504658?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+    
+        <link rel="alternate" type="application/atom+xml" title="主页" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/amuuncle.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阿木大叔</h5>
+          <a href="mailto:1013857934@qq.com" title="1013857934@qq.com" class="mail">1013857934@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="+">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间穿梭
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AmuUncle" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-o"></i>
+                关于作者
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=86 src="//music.163.com/outchain/player?type=2&id=415792881&auto=1&height=66"></iframe>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第11节 MFC之列表控件CListCtrl</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第11节 MFC之列表控件CListCtrl</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-10-30T02:14:48.000Z" itemprop="datePublished" class="page-time">
+  2017-10-29
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Windows编程基础–第11节-MFC之列表控件CListCtrl"><span class="post-toc-number">1.</span> <span class="post-toc-text">Windows编程基础–第11节 MFC之列表控件CListCtrl</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-新建项目"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 新建项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-添加列表控件变量"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. 添加列表控件变量</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-初始化列表控件"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. 初始化列表控件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-添加列表图标"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. 添加列表图标</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-实现添加行按钮函数"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5. 实现添加行按钮函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-实现删除行按钮函数"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">5. 实现删除行按钮函数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-实现列表控件的样式切换"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">6. 实现列表控件的样式切换</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最后效果图："><span class="post-toc-number">1.8.</span> <span class="post-toc-text">最后效果图：</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#项目源码可以访问我的码云"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">项目源码可以访问我的码云</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gt-gt-gt-我的私人博客-lt-lt-lt"><span class="post-toc-number">1.8.2.</span> <span class="post-toc-text">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-ABC15cbd"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第11节 MFC之列表控件CListCtrl</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-10-29 21:14:48" datetime="2017-10-30T02:14:48.000Z"  itemprop="datePublished">2017-10-29</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Windows编程基础–第11节-MFC之列表控件CListCtrl"><a href="#Windows编程基础–第11节-MFC之列表控件CListCtrl" class="headerlink" title="Windows编程基础–第11节 MFC之列表控件CListCtrl"></a>Windows编程基础–第11节 MFC之列表控件CListCtrl</h1><p>在MFC程序中列表控件也是使用很频繁的控件，例如windows的资源管理器就可以用列表控件来实现，如下图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029194504658?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>列表控件具有以下四种视图：</p>
+<blockquote>
+<ol>
+<li>大图标</li>
+<li>小图标</li>
+<li>列表</li>
+<li>详细信息</li>
+</ol>
+</blockquote>
+<h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day13”，布置界面如下，从左侧“工具箱”拖动一个List control到界面，再加上两个按钮及Combo Box，如图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029195344235?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<table>
+<thead>
+<tr>
+<th>控件名</th>
+<th style="text-align:right">控件ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>List control</td>
+<td style="text-align:right">IDC_LIST_VIEW</td>
+</tr>
+<tr>
+<td>Combo Box</td>
+<td style="text-align:right">IDC_COMBO2</td>
+</tr>
+<tr>
+<td>添加行</td>
+<td style="text-align:right">IDC_BUTTON_ADD</td>
+</tr>
+<tr>
+<td>删除行</td>
+<td style="text-align:right">IDC_BUTTON_DEL</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-添加列表控件变量"><a href="#2-添加列表控件变量" class="headerlink" title="2. 添加列表控件变量"></a>2. 添加列表控件变量</h2><p>单击选中列表控件，右击选择-&gt;“添加变量”，添加变量名为m_list,如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029195933714?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h2 id="3-初始化列表控件"><a href="#3-初始化列表控件" class="headerlink" title="3. 初始化列表控件"></a>3. 初始化列表控件</h2><p>切换到对话框的初始化函数（OnInitDialog()），我们来给列表控件增加三列，<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029200613135?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">m_list.ModifyStyle(LVS_TYPEMASK, LVS_REPORT); //设置列表控件样式为详细信息</span><br><span class="line">m_list.InsertColumn(0,_T(&quot;第一列&quot;),LVCFMT_LEFT,120);</span><br><span class="line">m_list.InsertColumn(1,_T(&quot;第二列&quot;),LVCFMT_LEFT,120);</span><br><span class="line">m_list.InsertColumn(2,_T(&quot;第三列&quot;),LVCFMT_LEFT,120);</span><br></pre></td></tr></table></figure>
+<h2 id="4-添加列表图标"><a href="#4-添加列表图标" class="headerlink" title="4. 添加列表图标"></a>4. 添加列表图标</h2><p>自行下载或者制作两个bmp图标，分别为16<em>16，和32</em>32；将图标复制到项目的res资源目录中，<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029201802886?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>切换到资源视图，右击添加资源，导入我们准备好的图标，如图所示：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029201954651?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>导入好之后我们可以更改位图ID，如图所示：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029202051457?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>接下来我们在day13.h的头文件中添加两个成员变量：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CImageList m_ilLarge;</span><br><span class="line">CImageList m_ilSmall;</span><br></pre></td></tr></table></figure>
+<p>分别来对应32<em>32，和16</em>16；<br>然后我们再切换到初始化函数中，添加如下四行代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">m_ilLarge.Create(IDB_BITMAP_32, 32, 1,RGB(255,0,255));</span><br><span class="line">m_ilSmall.Create(IDB_BITMAP_16, 16, 1,RGB(255,0,255));</span><br><span class="line"></span><br><span class="line">m_list.SetImageList(&amp;m_ilLarge,LVSIL_NORMAL);</span><br><span class="line">m_list.SetImageList(&amp;m_ilSmall,LVSIL_SMALL);</span><br></pre></td></tr></table></figure>
+<h2 id="5-实现添加行按钮函数"><a href="#5-实现添加行按钮函数" class="headerlink" title="5. 实现添加行按钮函数"></a>5. 实现添加行按钮函数</h2><p>双击“添加行”按钮，编辑按钮点击方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void Cday13Dlg::OnBnClickedButtonAdd()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO: 在此添加控件通知处理程序代码</span><br><span class="line">	int nCount = m_list.GetItemCount();</span><br><span class="line">	CString strText;</span><br><span class="line">	strText.Format(_T(&quot;第%d行，第一列&quot;), nCount + 1);</span><br><span class="line">	m_list.InsertItem(nCount,strText,0);</span><br><span class="line">	strText.Format(_T(&quot;第%d行，第二列&quot;), nCount + 1);</span><br><span class="line">	m_list.SetItemText(nCount,1,strText);</span><br><span class="line">	strText.Format(_T(&quot;第%d行，第三列&quot;), nCount + 1);</span><br><span class="line">	m_list.SetItemText(nCount,2,strText);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意，只有添加第一行第一个元素是才是InsertItem，之后的添加都应该是SetItemText，防止出错；</p>
+<h2 id="5-实现删除行按钮函数"><a href="#5-实现删除行按钮函数" class="headerlink" title="5. 实现删除行按钮函数"></a>5. 实现删除行按钮函数</h2><p>双击“删除行”按钮，编辑按钮点击方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">void Cday13Dlg::OnBnClickedButtonDel()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO: 在此添加控件通知处理程序代码</span><br><span class="line">	int nCount = m_list.GetItemCount();</span><br><span class="line">	for (int i = nCount; i&gt;=0 ; --i)</span><br><span class="line">	&#123;</span><br><span class="line">		if (m_list.GetItemState(i,LVIS_SELECTED) == LVIS_SELECTED)</span><br><span class="line">		&#123;</span><br><span class="line">			m_list.DeleteItem(i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就实现了删除行的按钮，并且所有被选中的行都会被删除，按住Ctrl选中多行，点击删除，所有被选中的行都会被删除；</p>
+<h2 id="6-实现列表控件的样式切换"><a href="#6-实现列表控件的样式切换" class="headerlink" title="6. 实现列表控件的样式切换"></a>6. 实现列表控件的样式切换</h2><p>切换到资源视图，单击Combo Box，打开属性-&gt;data;输入：</p>
+<blockquote>
+<p>大图标;小图标;详细信息;列表;</p>
+</blockquote>
+<p>如图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029205119435?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<p>继续编辑Combo Box的属性，选择“控件事件”，添加CBN_Selchange事件，如图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029205441857?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>编辑Combo Box的OnCbnSelchangeCombo2处理函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">void Cday13Dlg::OnCbnSelchangeCombo2()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO: 在此添加控件通知处理程序代码</span><br><span class="line">	DWORD dwStyle;</span><br><span class="line">	CComboBox *pView;</span><br><span class="line">	pView = (CComboBox *)GetDlgItem(IDC_COMBO2);</span><br><span class="line">	switch(pView-&gt;GetCurSel())</span><br><span class="line">	&#123;</span><br><span class="line">	case 0:</span><br><span class="line">		dwStyle = LVS_ICON;</span><br><span class="line">		break;</span><br><span class="line">	case 1:</span><br><span class="line">		dwStyle = LVS_SMALLICON;</span><br><span class="line">		break;</span><br><span class="line">	case 2:</span><br><span class="line">		dwStyle = LVS_LIST;</span><br><span class="line">		break;</span><br><span class="line">	case 3:</span><br><span class="line">		dwStyle = LVS_REPORT;</span><br><span class="line">		break;</span><br><span class="line">	default:</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	m_list.ModifyStyle(LVS_TYPEMASK,dwStyle);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很明显，先用GetDlgItem获取Combo Box的对象，然后判断Combo Box的选中的是哪一项，记录选中项的列表类型，最后设置列表属性；</p>
+<h2 id="最后效果图："><a href="#最后效果图：" class="headerlink" title="最后效果图："></a>最后效果图：</h2><p>大图标:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029210611657?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>小图标：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029210644041?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<p>列表：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029210701658?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>详细信息：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171029210716406?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="noopener">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://blog.amuuncle.site/" target="_blank" rel="noopener">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-31T14:38:40.000Z" itemprop="dateUpdated">2017-10-31 09:38:40</time>
+</span><br>
+
+
+        
+        本文皆为个人学习总结，不能保证准确性，仅供参考，请见谅。。。<a href="/2017/10/29/ABC15cbd/" target="_blank" rel="external">http://hudejie.top/2017/10/29/ABC15cbd/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hudejie.top">
+            <img src="/img/amuuncle.jpg" alt="阿木大叔">
+            阿木大叔
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/10/29/ABC15cbd/&title=《第11节 MFC之列表控件CListCtrl》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/10/29/ABC15cbd/&title=《第11节 MFC之列表控件CListCtrl》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/10/29/ABC15cbd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第11节 MFC之列表控件CListCtrl》 — 主页&url=http://hudejie.top/2017/10/29/ABC15cbd/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/10/29/ABC15cbd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/10/30/ABC16cbd/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">第12节 MFC之树控件CTreeCtrl</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/10/29/ABC11cbd/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">工具使用--第2节 HEXO+GitHub 搭建个人博客</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = '阿木大叔';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阿木大叔 &copy; 2018</span>
+            <span>
+                
+                Power by <a href="https://github.com/AmuUncle" target="_blank">GitHub</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/10/29/ABC15cbd/&title=《第11节 MFC之列表控件CListCtrl》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/10/29/ABC15cbd/&title=《第11节 MFC之列表控件CListCtrl》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/10/29/ABC15cbd/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第11节 MFC之列表控件CListCtrl》 — 主页&url=http://hudejie.top/2017/10/29/ABC15cbd/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/10/29/ABC15cbd/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABv0lEQVR42u3aS27jMBAFwNz/0g4wqwCB5PeaEuUMiiuBNqyiF43+8OsrXq9/K9n5uX7vH+1cvHBxcZe5r9P1G3f0fHSYI+j5/uGRcHFxN3KTV54Hr1nIyw24uLifyT0PRm1ihIuL+39w24CVBEFcXNxP5ibFT16inIe5TbUaLi7uArdtmN7xfGN/FxcXt+S+ynVtylK/HRcXdwt3pYxpE5TkeFGYw8XF3cJNMor82sSMnvwpuLi4e7j5NYuolbk8jn0T8nBxcbdw86+2ISkZ0LZXNHBxcfdzZ8VJO/xIfiFC4+LibuS2xHwAs07HxcXdz11PTdZfP2yS4uLiXsrNBx55CZRD6wYKLi7uFm7bqmhHsLPCBhcX91nurPHRNljbgPhm8oOLi3szd3Yxa3a5amUkg4uLu5O7ElxWuhbJYXBxcZ/lto3UtnQZ9m5xcXEf5eZrNiZJDlaMVHFxcW/mzoavbXXVDmiTT3Fxce/mtmPUvMG6vo+Li/ssN7mklaQys/BXvBcXF/fDuG1hM8u23hRFuLi4f4TbNlna4QouLu5T3LZJmh9vNr69oFbDxcVd4F7bMM2TlbwRg4uLu5H7DfEFBhxVDqJWAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

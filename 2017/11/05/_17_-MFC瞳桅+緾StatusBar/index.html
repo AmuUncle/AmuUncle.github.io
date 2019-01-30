@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<!-- 页面点击小红心 --> 
+<script type="text/javascript" src="/js/src/love.js"></script>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>第17节 MFC之状态栏（CStatusBar） | 主页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="MFC">
+    <meta name="description" content="Windows编程基础–第17节 MFC之状态栏（CStatusBar）  1、CStatusBar在MFC中类继承关系：    CObject CCmdTarget    CWnd      CControlBar        CStatusBar  2、CStatusBar成员函数介绍： 12345virtual BOOL Create(   CWnd* pParentWnd,   DWOR">
+<meta name="keywords" content="MFC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第17节 MFC之状态栏（CStatusBar）">
+<meta property="og:url" content="http://hudejie.top/2017/11/05/第17节-MFC之状态栏（CStatusBar）/index.html">
+<meta property="og:site_name" content="主页">
+<meta property="og:description" content="Windows编程基础–第17节 MFC之状态栏（CStatusBar）  1、CStatusBar在MFC中类继承关系：    CObject CCmdTarget    CWnd      CControlBar        CStatusBar  2、CStatusBar成员函数介绍： 12345virtual BOOL Create(   CWnd* pParentWnd,   DWOR">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://img.blog.csdn.net/20171105192727662?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171105192941512?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171105193801390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171105194447243?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171105194821032?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171105195509780?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-11-05T11:57:09.589Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第17节 MFC之状态栏（CStatusBar）">
+<meta name="twitter:description" content="Windows编程基础–第17节 MFC之状态栏（CStatusBar）  1、CStatusBar在MFC中类继承关系：    CObject CCmdTarget    CWnd      CControlBar        CStatusBar  2、CStatusBar成员函数介绍： 12345virtual BOOL Create(   CWnd* pParentWnd,   DWOR">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171105192727662?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+    
+        <link rel="alternate" type="application/atom+xml" title="主页" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/bitbug_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/amuuncle.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">阿木大叔</h5>
+          <a href="mailto:1013857934@qq.com" title="1013857934@qq.com" class="mail">1013857934@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="+">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间穿梭
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/AmuUncle" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-user-o"></i>
+                关于作者
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=240 height=86 src="//music.163.com/outchain/player?type=2&id=415792881&auto=1&height=66"></iframe>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">第17节 MFC之状态栏（CStatusBar）</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">第17节 MFC之状态栏（CStatusBar）</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-05T11:56:26.000Z" itemprop="datePublished" class="page-time">
+  2017-11-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Windows编程基础–第17节-MFC之状态栏（CStatusBar）"><span class="post-toc-number">1.</span> <span class="post-toc-text">Windows编程基础–第17节 MFC之状态栏（CStatusBar）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-新建项目"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 新建项目</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-添加状态栏"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2.添加状态栏</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-实现状态栏方法"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3.实现状态栏方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#项目源码可以访问我的码云"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">项目源码可以访问我的码云</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gt-gt-gt-我的私人博客-lt-lt-lt"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-第17节-MFC之状态栏（CStatusBar）"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">第17节 MFC之状态栏（CStatusBar）</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-11-05 19:56:26" datetime="2017-11-05T11:56:26.000Z"  itemprop="datePublished">2017-11-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC从入门到放弃/">MFC从入门到放弃</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Windows编程基础–第17节-MFC之状态栏（CStatusBar）"><a href="#Windows编程基础–第17节-MFC之状态栏（CStatusBar）" class="headerlink" title="Windows编程基础–第17节 MFC之状态栏（CStatusBar）"></a>Windows编程基础–第17节 MFC之状态栏（CStatusBar）</h1><p>  1、CStatusBar在MFC中类继承关系： </p>
+<blockquote>
+<p> CObject<br> CCmdTarget<br>    CWnd<br>      CControlBar<br>        CStatusBar</p>
+</blockquote>
+<p>2、CStatusBar成员函数介绍：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">virtual BOOL Create(</span><br><span class="line">   CWnd* pParentWnd,</span><br><span class="line">   DWORD dwStyle = WS_CHILD | WS_VISIBLE | CBRS_BOTTOM,</span><br><span class="line">   UINT nID = AFX_IDW_STATUS_BAR </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>函数用途：创建一个CStatusBar并将其与CStatusBar对象关联；<br>参数说明：pParentWnd:指向CStatusBar的父窗口（Windows窗口）；<br> dwStyle：CStatusBar的类型，CBRS_TOP:将Bar放在框架的顶部，CBRS_BOTTOM:将其放在框架的底部。CBRS_NOALIGN:当父窗口改变时，不重型调整Bar；<br>nID：toolbar的子窗口ID； 返回值：成功返回非零，否则返回零；</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">BOOL SetIndicators(</span><br><span class="line">   const UINT* lpIDArray,</span><br><span class="line">   int nIDCount </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>函数用途：加载lpIDArray中的ID所对应的字符串资源，并将ID所对应的文本保存在字符串资源中；<br>参数说明：lpIDArray：ID队列指针<br>          nIDCount：队列中元素的个数； 返回值：成功返回非零，否则返回零；</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">BOOL SetPaneText(</span><br><span class="line">   int nIndex,</span><br><span class="line">   LPCTSTR lpszNewText,</span><br><span class="line">   BOOL bUpdate = TRUE </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>函数用途：将CStatustBar中的长方块设置成lpszNewText所指向的内容；<br>参数说明：nIndex：长方块的索引号（从零开始计，第零个固定用来状态指示）<br>lpszNewText：需要加载的内容；（需要在第nIndex个长方块上显示的字符串）<br>bUpdate：等于TRUE时，当加载了新的字符内容后，将长方块设置为无效。无效使得窗口自动刷行，那么新内容就被显示在界面上了。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void GetItemRect(</span><br><span class="line">   int nIndex,</span><br><span class="line">   LPRECT lpRect </span><br><span class="line">) const;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>函数用途：将nIndex所在的位置的矩形坐标拷贝到lpRect中。 参数说明：nIndex：长方块的标识；<br>lpRect：指向Rect结构的指针，用来保存获得到的矩形坐标； 返回值：无 注意：坐标是以象素为单位的，原点在左上角。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void GetPaneInfo(</span><br><span class="line">   int nIndex,</span><br><span class="line">   UINT&amp; nID,</span><br><span class="line">   UINT&amp; nStyle,</span><br><span class="line">   int&amp; cxWidth </span><br><span class="line">) const；</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>函数用途：<br>获得Pane的相关信息：ID，Style，宽度。<br>参数说明：<br>nIndex：需要获得的Pane的索引<br>nID：nIndex所对应Pane的ID<br>nStyle：nIndex对应的Pane的类型；<br>cxWidth：nIndex对应的Pane的宽度； 返回值：无</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">void SetPaneInfo(</span><br><span class="line">   int nIndex,</span><br><span class="line">   UINT nID,</span><br><span class="line">   UINT nStyle,</span><br><span class="line">   int cxWidth </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>函数说明：设置Pane的相关信息； 参数说明：nIndex：需要设置的Pane的索引；    其余和5相同； 返回值：无</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void SetPaneStyle(</span><br><span class="line">   int nIndex,</span><br><span class="line">   UINT nStyle </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>函数说明：设置Pane的类型 参数说明：nIndex：需要设置的Pane的索引    nStyle：类型； 返回值：无<br>nStyle的值可以为：<br> CBRS_TOP   Control bar is at top of frame window.<br>CBRS_BOTTOM   Control bar is at bottom of frame window.<br>CBRS_NOALIGN   Control bar is not repositioned when the parent is resized.</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> UINT GetPaneStyle(</span><br><span class="line">   int nIndex </span><br><span class="line">) const；</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">函数说明：获得Pane的类型</span><br><span class="line">参数说明：nIndex：需要获得的Pane的索引</span><br><span class="line">返回值：无</span><br><span class="line"> </span><br><span class="line">举例：</span><br><span class="line">生成一个MFC应用程序，参照如下说明修改代码：</span><br><span class="line"> </span><br><span class="line">static UINT indicators[] =</span><br><span class="line">&#123;</span><br><span class="line"> ID_SEPARATOR,           // 状态行指示器</span><br><span class="line"> ID_INDICATOR_CLOCK,</span><br><span class="line"> ID_INDICATOR_CAPS,</span><br><span class="line"> ID_INDICATOR_NUM,</span><br><span class="line"> ID_INDICATOR_SCRL,</span><br><span class="line">&#125;;</span><br><span class="line">说明：</span><br><span class="line">indicator数组提供了状态栏窗格的分配信息，它的第一项一般为ID_SEPARATOR，该ID对应的窗格用来显示命令提示信息，后三项都是字符串ID，读者可以在String Table字符串资源中找到这三个字符串分别是CAP、NUM和SCRL。它们对应的三个窗格用来显示键盘的状态。</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="1-新建项目"><a href="#1-新建项目" class="headerlink" title="1. 新建项目"></a>1. 新建项目</h2><p>新建一个基于对话框项目“day19”，布局如下，自行处理：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171105192727662?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h2 id="2-添加状态栏"><a href="#2-添加状态栏" class="headerlink" title="2.添加状态栏"></a>2.添加状态栏</h2><p>切换到解决方案视图，进入day19Dlg.h头文件，添加一个CStatusBar成员变量（CStatusBar m_statusBar;），如下图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171105192941512?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<p>现在进入BOOL Cday19Dlg::OnInitDialog()初始化函数中创建状态栏,在return前添加如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">m_statusBar.Create(this);</span><br><span class="line">UINT nID[]  = &#123;10000,10001&#125;;</span><br><span class="line">m_statusBar.SetIndicators(nID,2);</span><br><span class="line">m_statusBar.SetPaneInfo(0,10000,SBPS_NORMAL,100);</span><br><span class="line">m_statusBar.SetPaneInfo(1,10001,SBPS_STRETCH,0);</span><br><span class="line">RECT rect=&#123;0&#125;;</span><br><span class="line">GetClientRect(&amp;rect);</span><br><span class="line">m_statusBar.MoveWindow(0,rect.bottom - 30,rect.right,30,TRUE);</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<p>1.创建一个状态栏到当前窗体；<br>2.创建两个状态栏Pane的ID；<br>3.在状态栏上添加两个Pane，分别为正常模式，长度为100，另一个自动填充模式；<br>4.获取窗口客户区的坐标。客户区坐标指定客户区的左上角和右下角。由于客户区坐标是相对窗口客户区的左上角而言的，因此左上角坐标为（0，0）。这里应该注意一下：坐标包含两种：屏幕坐标与客户区坐标。严格区分这两种坐标对于理解Windows编程是很重要的。<br>5.将状态栏设置到窗口的距离底部30，长度为窗口长度，高度为30的位置；</p>
+</blockquote>
+<p>运行结果：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171105193801390?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>可以看到下方已经有了状态栏；</p>
+<h2 id="3-实现状态栏方法"><a href="#3-实现状态栏方法" class="headerlink" title="3.实现状态栏方法"></a>3.实现状态栏方法</h2><p>编辑EDIT控件的属性：<br>| 属性名 | 值|<br>| ——–   |  —–:  |<br>| Multiline| true|<br>| Horizontal Scroll   |true|<br>| Vertical Scroll     |true|<br>| Want Return      |true|<br>添加EDIT控件的变量，如图所示：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171105194447243?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<p>添加EDIT控件的OnEnChange消息处理方法：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171105194821032?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure><br>编辑EDIT控件的OnEnChange消息处理方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void Cday19Dlg::OnEnChangeEdit1()</span><br><span class="line">&#123;</span><br><span class="line">	// TODO:  如果该控件是 RICHEDIT 控件，它将不</span><br><span class="line">	// 发送此通知，除非重写 CDialogEx::OnInitDialog()</span><br><span class="line">	// 函数并调用 CRichEditCtrl().SetEventMask()，</span><br><span class="line">	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。</span><br><span class="line"></span><br><span class="line">	// TODO:  在此添加控件通知处理程序代码</span><br><span class="line">	int nLen = m_edit.GetWindowTextLength();</span><br><span class="line">	int linecount=m_edit.GetLineCount();</span><br><span class="line">	CString strText;</span><br><span class="line">	strText.Format(_T(&quot;字数: %d  行数: %d&quot;),nLen,linecount);</span><br><span class="line">	m_statusBar.SetPaneText(1,strText,TRUE);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码解释：</p>
+<blockquote>
+<p>1.获取文本框中的文本长度；<br>2.获取文本框中的文本行数；<br>3.格式化文本后设置到状态栏第二个Pane中；</p>
+</blockquote>
+<p>最终效果图：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://img.blog.csdn.net/20171105195509780?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjU1NDkzMDk=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" title="">
+                </div>
+                <div class="image-caption">这里写图片描述</div>
+            </figure></p>
+<h3 id="项目源码可以访问我的码云"><a href="#项目源码可以访问我的码云" class="headerlink" title="项目源码可以访问我的码云"></a><a href="https://gitee.com/AmuUncle/MFC_CSDN.git" target="_blank" rel="noopener">项目源码可以访问我的码云</a></h3><h3 id="gt-gt-gt-我的私人博客-lt-lt-lt"><a href="#gt-gt-gt-我的私人博客-lt-lt-lt" class="headerlink" title="&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;"></a><a href="http://amuuncle.site/" target="_blank" rel="noopener">&gt;&gt;&gt;我的私人博客&lt;&lt;&lt;</a></h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-05T11:57:09.589Z" itemprop="dateUpdated">2017-11-05 19:57:09</time>
+</span><br>
+
+
+        
+        本文皆为个人学习总结，不能保证准确性，仅供参考，请见谅。。。<a href="/2017/11/05/第17节-MFC之状态栏（CStatusBar）/" target="_blank" rel="external">http://hudejie.top/2017/11/05/第17节-MFC之状态栏（CStatusBar）/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://hudejie.top">
+            <img src="/img/amuuncle.jpg" alt="阿木大叔">
+            阿木大叔
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/11/05/第17节-MFC之状态栏（CStatusBar）/&title=《第17节 MFC之状态栏（CStatusBar）》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/11/05/第17节-MFC之状态栏（CStatusBar）/&title=《第17节 MFC之状态栏（CStatusBar）》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/11/05/第17节-MFC之状态栏（CStatusBar）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第17节 MFC之状态栏（CStatusBar）》 — 主页&url=http://hudejie.top/2017/11/05/第17节-MFC之状态栏（CStatusBar）/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/11/05/第17节-MFC之状态栏（CStatusBar）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/06/第18节-MFC之窗体操作/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">第18节 MFC之窗体操作</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/04/第16节-MFC之SendMessage和PostMessage/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">第16节 MFC之SendMessage和PostMessage</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+<section class="comments" id="comments">
+    <div id="disqus_thread"></div>
+    <script>
+    var disqus_shortname = '阿木大叔';
+    lazyScripts.push('//' + disqus_shortname + '.disqus.com/embed.js')
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>阿木大叔 &copy; 2018</span>
+            <span>
+                
+                Power by <a href="https://github.com/AmuUncle" target="_blank">GitHub</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://hudejie.top/2017/11/05/第17节-MFC之状态栏（CStatusBar）/&title=《第17节 MFC之状态栏（CStatusBar）》 — 主页&pic=http://hudejie.top/img/amuuncle.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://hudejie.top/2017/11/05/第17节-MFC之状态栏（CStatusBar）/&title=《第17节 MFC之状态栏（CStatusBar）》 — 主页&source=你无法叫醒一个不回你消息的人，但是红包能。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://hudejie.top/2017/11/05/第17节-MFC之状态栏（CStatusBar）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《第17节 MFC之状态栏（CStatusBar）》 — 主页&url=http://hudejie.top/2017/11/05/第17节-MFC之状态栏（CStatusBar）/&via=http://hudejie.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://hudejie.top/2017/11/05/第17节-MFC之状态栏（CStatusBar）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsklEQVR42u3a0WoCQQwFUP//py30qWB3uUkmWsrZJ6myztnCJN7M4xFfz+/r5+uf1+tnrv5y/8mru72+e/jCw8PDay396ronJYz8bgkyXzMeHh7eNi8pBr3iUSUla8hLDh4eHt5nec0viIsHHh4e3n/lJZt+3i4nvNHDxcPDw1vjJYs7lZEmccb8geLh4eHt8XoDsM++Xp/v4eHh4bWm6pPtfrLEXhH6ZSV4eHh4C7z8QNWpLXsvzoiyFjw8PLxDvFMNbl4k8uBgMnLDw8PD2+ZVI4n5Aay8bCQPehTj4uHh4RV51QF/dbjVa6l7Bw4KYQQeHh7egNeLUO9ver/E3ndVgwk8PDy8Pd7ekale2JFv91HBwMPDwzvKS9rfPLTdiBgKNe31nnh4eHhv4fW2+HyUld8/P8h1+S4eHh7eAm/+mz0pCaceRPI48PDw8N7Dy7fmvJ3NY9a8Wc8Lw6NXefDw8PBiXm/Q1as/1VIxP6qFh4eH9x5e3tr2ooReNJwXjKgG4uHh4bV4Z7f+PGjoxQrVY1t4eHh4G7w8PuiFtoUUuXjIoNBM4+Hh4a3x8g33VESbrOTAffDw8PDWeNUl5rDqwYKkOOURBh4eHt5Z3mSDzhvo3rGqahx8+X/Dw8PDW+DNI4De2Cwf+edgPDw8vG1eNW54xNdkcJU/gmpBwsPDw5vzej/yq41488hU/ODKkz08PDy8Aa8XN0wOB1THWvl9CnUPDw8Pb8B7Fq/eEKu30OqQrJC14OHh4Q14k3AhPxwweXDVQlVusvHw8PCOTtgnTfPk8FYejjQTFzw8PLxDvGq7fPZIwbx24eHh4f19Xt7aVsH5/QstNR4eHt6HeD38ZJCWB7WX5QQPDw9vjTcJI3pxbXXQlTfWh2NcPDw8vEMDsF6AW22X5w06Hh4e3lHeF/tHkpdVb6R+AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
